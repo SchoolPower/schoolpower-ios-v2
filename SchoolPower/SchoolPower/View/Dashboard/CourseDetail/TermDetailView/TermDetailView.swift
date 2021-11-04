@@ -34,8 +34,8 @@ struct TermDetailView: View {
                     .padding(.top, 32)
                 LazyVStack {
                     ForEach(1..<10) { _ in
-                        NavigationLink(destination: AssignmentDetailView()) {
-                            AssignmentItem()
+                        NavigationLink(destination: AssignmentDetailView(assignment: fakeAssignment)) {
+                            AssignmentItem(assignment: fakeAssignment)
                         }
                         Divider()
                     }

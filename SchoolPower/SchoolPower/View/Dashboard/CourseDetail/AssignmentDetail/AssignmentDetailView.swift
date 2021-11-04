@@ -8,43 +8,47 @@
 import SwiftUI
 
 struct AssignmentDetailView: View {
+    var assignment: Assignment
+    
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading) {
                 InfoItem(
-                    leadingCircleText: "B",
+                    leadingCircleText: assignment.grade.letter,
                     label: "Grade",
-                    text: "83.33%"
+                    text: assignment.grade.percentage.rounded(digits: 2).asPercentage()
                 )
                 Divider()
                 InfoItem(
                     label: "Score",
-                    text: "5.0 / 6.0"
+                    text: assignment.getMarksForDisplay()
                 )
                 Divider()
                 InfoItem(
                     label: "Date",
-                    text: "2021/10/31"
+                    text: assignment.getDateString()
                 )
                 Divider()
                 InfoItem(
                     label: "Type",
-                    text: "Homework"
+                    text: assignment.category
                 )
-                Divider()
-                InfoItem(
-                    label: "Weight",
-                    text: "1.0"
-                )
+                if (assignment.weight != nil) {
+                    Divider()
+                    InfoItem(
+                        label: "Weight",
+                        text: assignment.weight!.rounded(digits: 1)
+                    )
+                }
             }
             .padding()
         }
-        .navigationTitle("Unit 7 Quiz")
+        .navigationTitle(assignment.title)
     }
 }
 
 struct AssignmentDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AssignmentDetailView()
+        AssignmentDetailView(assignment: fakeAssignment)
     }
 }

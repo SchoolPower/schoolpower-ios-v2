@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DB6DF052733700000FA7B40 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF042733700000FA7B40 /* Utils.swift */; };
+		4DB6DF092733705800FA7B40 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF082733705800FA7B40 /* RoundedCorner.swift */; };
+		4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */; };
+		4DB6DF0E2733789B00FA7B40 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0D2733789B00FA7B40 /* Colors.swift */; };
+		4DB6DF102733813E00FA7B40 /* AssignmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0F2733813E00FA7B40 /* AssignmentItem.swift */; };
+		4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF112733816E00FA7B40 /* TermItem.swift */; };
 		621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E527307D4000825D5C /* SchoolPowerApp.swift */; };
 		621D38E827307D4000825D5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E727307D4000825D5C /* ContentView.swift */; };
 		621D38EA27307D4A00825D5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621D38E927307D4A00825D5C /* Assets.xcassets */; };
@@ -49,6 +55,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4DB6DF042733700000FA7B40 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4DB6DF082733705800FA7B40 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCourseItem.swift; sourceTree = "<group>"; };
+		4DB6DF0D2733789B00FA7B40 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4DB6DF0F2733813E00FA7B40 /* AssignmentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentItem.swift; sourceTree = "<group>"; };
+		4DB6DF112733816E00FA7B40 /* TermItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermItem.swift; sourceTree = "<group>"; };
 		621D38E227307D4000825D5C /* SchoolPower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolPower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		621D38E527307D4000825D5C /* SchoolPowerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerApp.swift; sourceTree = "<group>"; };
 		621D38E727307D4000825D5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4DB6DF0C2733788400FA7B40 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4DB6DF042733700000FA7B40 /* Utils.swift */,
+				4DB6DF0D2733789B00FA7B40 /* Colors.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		621D38D927307D4000825D5C = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +148,7 @@
 		621D38E427307D4000825D5C /* SchoolPower */ = {
 			isa = PBXGroup;
 			children = (
+				4DB6DF0C2733788400FA7B40 /* Utils */,
 				623F07AD27324902007A79F2 /* fonts */,
 				623F078F2730DEBA007A79F2 /* Model */,
 				623F07902730DEC2007A79F2 /* View */,
@@ -171,6 +193,7 @@
 				623F078C2730BC9D007A79F2 /* CourseDetail */,
 				623F07882730B343007A79F2 /* DashboardView.swift */,
 				623F078A2730B353007A79F2 /* DashboardViewModel.swift */,
+				4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -181,6 +204,8 @@
 				623F07AA27324002007A79F2 /* TermDetailView */,
 				623F07A227323B1B007A79F2 /* AssignmentDetail */,
 				623F078D2730BCAD007A79F2 /* CourseDetailView.swift */,
+				4DB6DF0F2733813E00FA7B40 /* AssignmentItem.swift */,
+				4DB6DF112733816E00FA7B40 /* TermItem.swift */,
 			);
 			path = CourseDetail;
 			sourceTree = "<group>";
@@ -221,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				623F07A827323EE0007A79F2 /* InfoItem.swift */,
+				4DB6DF082733705800FA7B40 /* RoundedCorner.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -374,6 +400,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				623F079E2730F8F0007A79F2 /* Gender.swift in Sources */,
+				4DB6DF0E2733789B00FA7B40 /* Colors.swift in Sources */,
+				4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */,
 				623F07922730DEED007A79F2 /* Assignment.swift in Sources */,
 				623F07A627323B54007A79F2 /* AssignmentDetailView.swift in Sources */,
 				623F07962730E092007A79F2 /* Grade.swift in Sources */,
@@ -382,8 +410,12 @@
 				623F07AC27324014007A79F2 /* TermDetailView.swift in Sources */,
 				623F07A02730FA15007A79F2 /* ExtraInfo.swift in Sources */,
 				621D38E827307D4000825D5C /* ContentView.swift in Sources */,
+				4DB6DF052733700000FA7B40 /* Utils.swift in Sources */,
 				623F07892730B343007A79F2 /* DashboardView.swift in Sources */,
 				623F07942730E043007A79F2 /* Term.swift in Sources */,
+				4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */,
+				4DB6DF092733705800FA7B40 /* RoundedCorner.swift in Sources */,
+				4DB6DF102733813E00FA7B40 /* AssignmentItem.swift in Sources */,
 				623F07982730F426007A79F2 /* Attendance.swift in Sources */,
 				623F07A927323EE0007A79F2 /* InfoItem.swift in Sources */,
 				623F079C2730F854007A79F2 /* Profile.swift in Sources */,
@@ -475,7 +507,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -530,7 +562,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -551,7 +583,7 @@
 				DEVELOPMENT_TEAM = MPPUFL3L6R;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SchoolPower/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -575,7 +607,7 @@
 				DEVELOPMENT_TEAM = MPPUFL3L6R;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SchoolPower/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

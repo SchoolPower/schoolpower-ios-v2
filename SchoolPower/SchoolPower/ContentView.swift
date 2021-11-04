@@ -21,24 +21,28 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            DashboardView().tabItem {
-                Text("Dashboard")
-            }.tag(1)
+            DashboardView()
+                .tabItem {
+                    Image(systemName: "list.bullet.circle")
+                    Text("Courses")
+                }.tag(1)
             
             Text("Tab Content 2")
                 .tabItem {
+                    Image(systemName: "chart.bar")
                     Text("Chart")
-                    
                 }.tag(2)
             
             Text("Tab Content 2")
                 .tabItem {
+                    Image(systemName: "clock")
                     Text("Attendance")
                     
                 }.tag(2)
             
             Text("Tab Content 2")
                 .tabItem {
+                    Image(systemName: "person.crop.circle")
                     Text("Profile")
                     
                 }.tag(2)

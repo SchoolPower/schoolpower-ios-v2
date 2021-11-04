@@ -13,3 +13,5 @@ struct Term: Hashable, Codable, Identifiable {
     func string() -> String { "\(code)\(index)" }
     internal var id: String { self.string() }
 }
+
+let fakeTerm = Term(code: "F", index: 1)

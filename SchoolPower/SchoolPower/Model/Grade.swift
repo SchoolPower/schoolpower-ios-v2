@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Grade: Hashable, Codable {
     let percentage: Double
     let letter: String
+    
+    func color() -> Color {
+        return letter.getLetterGradeColor()
+    }
 }
+
+let fakeGrade = Grade(percentage: 84.0, letter: "B")
