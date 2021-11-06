@@ -7,15 +7,6 @@
 
 import Foundation
 
-struct Profile: Hashable, Codable {
-    let GPA: Double?
-    let id: Int64
-    let gender: Gender
-    let dob: Date
-    let firstName: String
-    let middleName: String
-    let lastName: String
-    let photoDate: Date
-    
+extension Profile {
     func fullName() -> String { "\(lastName), \(firstName) \(middleName)" }
 }

@@ -13,15 +13,17 @@ struct AssignmentDetailView: View {
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading) {
+                Text(assignment.title).font(.largeTitle).bold().padding(.bottom)
                 InfoItem(
-                    leadingCircleText: assignment.grade.letter,
+                    leadingCircleColor: assignment.grade.color(),
+                    leadingCircleText: assignment.getLetter(),
                     label: "Grade",
-                    text: assignment.grade.percentage.rounded(digits: 2).asPercentage()
+                    text: assignment.getGradeString()
                 )
                 Divider()
                 InfoItem(
                     label: "Score",
-                    text: assignment.getMarksForDisplay()
+                    text: assignment.markForDisplay
                 )
                 Divider()
                 InfoItem(
@@ -33,22 +35,22 @@ struct AssignmentDetailView: View {
                     label: "Type",
                     text: assignment.category
                 )
-                if (assignment.weight != nil) {
+                if (assignment.weight > 0) {
                     Divider()
                     InfoItem(
                         label: "Weight",
-                        text: assignment.weight!.rounded(digits: 1)
+                        text: assignment.weight.rounded(digits: 1)
                     )
                 }
             }
             .padding()
         }
-        .navigationTitle(assignment.title)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct AssignmentDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AssignmentDetailView(assignment: fakeAssignment)
+        AssignmentDetailView(assignment: fakeAssignment())
     }
 }

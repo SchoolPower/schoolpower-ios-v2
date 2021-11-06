@@ -8,47 +8,48 @@
 import SwiftUI
 
 struct TermDetailView: View {
+    var termGrade: TermGrade
+    var assignments: [Assignment]
     var body: some View {
-        ScrollView {
-            LazyVStack(alignment: .leading) {
+        List {
+            Section(header: Text(termGrade.term).font(.largeTitle).bold().padding(.bottom).foregroundColor(.primary)) {
                 InfoItem(
-                    leadingCircleText: "B",
+                    leadingCircleColor: termGrade.grade.color(),
+                    leadingCircleText: termGrade.grade.letter,
                     label: "Grade",
-                    text: "83.33%"
+                    text: termGrade.grade.percentage.rounded(digits: 2)
                 )
-                Divider()
-                InfoItem(
-                    label: "Evaluation",
-                    text: "M (Meeting Expectation)"
-                )
-                Divider()
-                InfoItem(
-                    label: "Comment",
-                    text: "Student’s progress in class is satisfactory. Loren ipsum sit amet."
-                )
-                Divider()
-                Text("Assignments")
-                    .font(.headline)
-                    .opacity(0.6)
-                    .foregroundColor(.primary)
-                    .padding(.top, 32)
-                LazyVStack {
-                    ForEach(1..<10) { _ in
-                        NavigationLink(destination: AssignmentDetailView(assignment: fakeAssignment)) {
-                            AssignmentItem(assignment: fakeAssignment)
-                        }
-                        Divider()
-                    }
+                if !termGrade.evaluation.isEmpty {
+                    InfoItem(
+                        label: "Evaluation",
+                        text: termGrade.evaluation
+                    )
+                }
+                if !termGrade.comment.isEmpty {
+                    InfoItem(
+                        label: "Comment",
+                        text: termGrade.comment
+                    )
                 }
             }
-            .padding()
+            if !assignments.isEmpty {
+                Section(header: Text("Assignments")
+                            .font(.headline)
+                            .opacity(0.6)
+                            .foregroundColor(.primary)) {
+                    ForEach(assignments.filter({ assignment in
+                        assignment.terms.contains(termGrade.term)
+                    })) { assignment in
+                        AssignmentItem(assignment: assignment)
+                    }
+                }.textCase(nil)
+            }
         }
-        .navigationTitle("F1")
     }
 }
 
 struct TermDetail_Previews: PreviewProvider {
     static var previews: some View {
-        TermDetailView()
+        TermDetailView(termGrade: fakeTermGrade(), assignments: [fakeAssignment()])
     }
 }

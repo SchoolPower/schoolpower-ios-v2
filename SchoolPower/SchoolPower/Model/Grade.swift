@@ -8,13 +8,22 @@
 import Foundation
 import SwiftUI
 
-struct Grade: Hashable, Codable {
-    let percentage: Double
-    let letter: String
-    
+
+extension Grade {
     func color() -> Color {
         return letter.getLetterGradeColor()
     }
 }
 
-let fakeGrade = Grade(percentage: 84.0, letter: "B")
+extension Optional where Wrapped == Grade {
+    func color() -> Color {
+        return (self?.letter).getLetterGradeColor()
+    }
+}
+
+func fakeGrade() -> Grade {
+    var grade = Grade()
+    grade.percentage = 84.0
+    grade.letter = "B"
+    return grade
+}

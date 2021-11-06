@@ -10,9 +10,16 @@ import SwiftUI
 struct CourseDetailView: View {
     var course: Course
     
+    init(course: Course) {
+        self.course = course
+        UITableViewCell.appearance().selectionStyle = .gray
+    }
+    
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
+        List {
+            Section(header: VStack(alignment: .leading) {
+                Text(course.name).font(.largeTitle).bold().foregroundColor(.primary).padding(.bottom).lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
                 HStack {
                     Text("Block").font(.body).opacity(0.6).foregroundColor(.primary)
                     Text(course.block).font(.body).bold().foregroundColor(.primary)
@@ -27,45 +34,46 @@ struct CourseDetailView: View {
                         .font(.body)
                         .bold()
                 }
-                Text("Grades")
-                    .font(.headline)
-                    .opacity(0.6)
-                    .foregroundColor(.primary)
-                    .padding(.top, 16)
-                ScrollView(.horizontal) {
-                    LazyHStack {
-                        ForEach(1..<10) { _ in
-                            NavigationLink(destination: TermDetailView()) {
-                                TermItem(termGrade: fakeTermGrade)
+                
+                if (!course.grades.isEmpty) {
+                    Text("Grades")
+                        .font(.headline)
+                        .opacity(0.6)
+                        .foregroundColor(.primary)
+                        .padding(.top, 16)
+                    ScrollView(.horizontal) {
+                        LazyHStack {
+                            ForEach(course.grades) { termGrade in
+                                NavigationLink(destination: TermDetailView(termGrade: termGrade, assignments: course.assignments)) {
+                                    TermItem(termGrade: termGrade)
+                                }
                             }
                         }
                     }
                 }
-                Text("Assignments")
-                    .font(.headline)
-                    .opacity(0.6)
-                    .foregroundColor(.primary)
-                    .padding(.top, 32)
-                LazyVStack {
-                    ForEach(1..<10) { _ in
-                        NavigationLink(
-                            destination: AssignmentDetailView(assignment: fakeAssignment)
-                        ) {
-                            AssignmentItem(assignment: fakeAssignment)
-                        }
-                        Divider()
-                    }
+                if (!course.assignments.isEmpty) {
+                    Text("Assignments")
+                        .font(.headline)
+                        .opacity(0.6)
+                        .foregroundColor(.primary)
+                        .padding(.top, 32)
+                }
+            }.padding(.leading, -16).padding(.trailing, -16)
+            ) {
+                ForEach(course.assignments) { assignment in
+                    AssignmentItem(assignment: assignment)
                 }
             }
-            .padding()
+            .textCase(nil)
         }
-        .navigationTitle(course.name)
-        .navigationBarTitleDisplayMode(.large)
+        .accentColor(Color(UIColor.systemGray5))
+        .listStyle(.insetGrouped)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct CourseDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseDetailView(course: fakeCourse)
+        CourseDetailView(course: fakeCourse())
     }
 }

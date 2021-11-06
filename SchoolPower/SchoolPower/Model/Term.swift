@@ -2,16 +2,9 @@
 //  Term.swift
 //  SchoolPower
 //
-//  Created by Carbonyl on 2021-11-01.
+//  Created by Mark Wang on 11/6/21.
 //
 
 import Foundation
 
-struct Term: Hashable, Codable, Identifiable {
-    let code: String
-    let index: Int
-    func string() -> String { "\(code)\(index)" }
-    internal var id: String { self.string() }
-}
-
-let fakeTerm = Term(code: "F", index: 1)
+typealias Term = String

@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-
-
 struct InfoItem: View {
+    var leadingCircleColor: Color? = .purple
     var leadingCircleText: String?
     var label: String
     var text: String
@@ -21,7 +20,7 @@ struct InfoItem: View {
                     .foregroundColor(.white)
                     .background(
                         Circle()
-                            .foregroundColor(.purple)
+                            .foregroundColor(leadingCircleColor)
                     )
                 Spacer().frame(width: 16).fixedSize()
             }
@@ -36,7 +35,8 @@ struct InfoItem: View {
                     .bold()
             }
         }
-        .frame(height: 70)
+        .padding(.top)
+        .padding(.bottom)
     }
 }
 

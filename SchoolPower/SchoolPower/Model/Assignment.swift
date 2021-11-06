@@ -7,38 +7,38 @@
 
 import Foundation
 
-struct Assignment: Hashable, Codable, Identifiable {
-    let title: String
-    let date: Date
-    let grade: Grade
-    let mark: Double?
-    let fullMark: Double?
-    let category: String
-    let includeInFinalGrade: Bool
-    let weight: Double?
-    let terms: Set<Term>
-    let flags: [String: Bool]
-    
+extension Assignment: Identifiable {
     internal var id: String { self.title }
     
-    
     func getDateString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        return formatter.string(from: date)
+        date.asMillisDate().formatted()
     }
     
-    func getMarksForDisplay() -> String {
-        markString() + "/" + fullMarkString()
+    func getGradeString() -> String {
+        if !hasGrade {
+            return "--"
+        }
+        return grade.percentage.rounded(digits: 2).asPercentage()
     }
-
-    private func markString() -> String {
-        mark?.rounded(digits: 2) ?? "--"
-    }
-    private func fullMarkString() -> String {
-        fullMark?.rounded(digits: 2) ?? "--"
+    
+    func getLetter() -> String {
+        if !hasGrade {
+            return "--"
+        }
+        return grade.letter
     }
 }
 
-let fakeAssignment = Assignment(title: "Unit 7 Quiz", date: Date.init(), grade: Grade(percentage: 84.0, letter: "B"), mark: 5.0, fullMark: 6.0, category: "Homework", includeInFinalGrade: true, weight: 1.0, terms: Set(), flags: [:])
-
+func fakeAssignment() -> Assignment {
+    var assignment = Assignment()
+    assignment.title = "Unit 7 Quiz"
+    assignment.date = 0
+    assignment.grade = fakeGrade()
+    assignment.markForDisplay = "5.0/6.0"
+    assignment.category = "Homework"
+    assignment.includeInFinalGrade = true
+    assignment.weight = 1.0
+    assignment.terms = [fakeTermGrade().term]
+    assignment.flags = [:]
+    return assignment
+}

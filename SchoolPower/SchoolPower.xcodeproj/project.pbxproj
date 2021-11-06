@@ -3,10 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D790F752735EDC400E6C4EB /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 4D790F742735EDC400E6C4EB /* SwiftProtobuf */; };
+		4D790F8727360AAD00E6C4EB /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F7F27360AAD00E6C4EB /* Assignment.swift */; };
+		4D790F8827360AAD00E6C4EB /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F8027360AAD00E6C4EB /* Grade.swift */; };
+		4D790F8A27360AAD00E6C4EB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F8227360AAD00E6C4EB /* Profile.swift */; };
+		4D790F8B27360AAD00E6C4EB /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F8327360AAD00E6C4EB /* Course.swift */; };
+		4D790F8D27360AAD00E6C4EB /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F8527360AAD00E6C4EB /* Attendance.swift */; };
+		4D790F9527361A7C00E6C4EB /* Proto in Resources */ = {isa = PBXBuildFile; fileRef = 4D790F9427361A7C00E6C4EB /* Proto */; };
+		4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9727361AB800E6C4EB /* powerschool.pb.swift */; };
+		4D790F9A27361AB800E6C4EB /* ProtoTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9827361AB800E6C4EB /* ProtoTypealiases.swift */; };
+		4D790F9C2736296100E6C4EB /* TermGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9B2736296100E6C4EB /* TermGrade.swift */; };
+		4D790F9E27362EC700E6C4EB /* SchoolPowerAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9D27362EC700E6C4EB /* SchoolPowerAppViewModel.swift */; };
+		4D790FA12736327400E6C4EB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4D790FA02736327400E6C4EB /* Alamofire */; };
+		4D790FA3273632C600E6C4EB /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FA2273632C600E6C4EB /* RequestData.swift */; };
+		4D790FA927363EF700E6C4EB /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FA827363EF700E6C4EB /* Term.swift */; };
+		4D790FAD27370BCE00E6C4EB /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FAC27370BCD00E6C4EB /* AttendanceView.swift */; };
+		4D790FAF2737106200E6C4EB /* AttendanceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FAE2737106200E6C4EB /* AttendanceItem.swift */; };
+		4D790FB12737116600E6C4EB /* AttendanceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FB02737116600E6C4EB /* AttendanceDetailView.swift */; };
 		4DB6DF052733700000FA7B40 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF042733700000FA7B40 /* Utils.swift */; };
 		4DB6DF092733705800FA7B40 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF082733705800FA7B40 /* RoundedCorner.swift */; };
 		4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */; };
@@ -14,7 +31,7 @@
 		4DB6DF102733813E00FA7B40 /* AssignmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0F2733813E00FA7B40 /* AssignmentItem.swift */; };
 		4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF112733816E00FA7B40 /* TermItem.swift */; };
 		621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E527307D4000825D5C /* SchoolPowerApp.swift */; };
-		621D38E827307D4000825D5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E727307D4000825D5C /* ContentView.swift */; };
+		621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E727307D4000825D5C /* SchoolPowerAppView.swift */; };
 		621D38EA27307D4A00825D5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621D38E927307D4A00825D5C /* Assets.xcassets */; };
 		621D38ED27307D4A00825D5C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621D38EC27307D4A00825D5C /* Preview Assets.xcassets */; };
 		621D38F827307D4A00825D5C /* SchoolPowerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38F727307D4A00825D5C /* SchoolPowerTests.swift */; };
@@ -22,14 +39,6 @@
 		623F07892730B343007A79F2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F07882730B343007A79F2 /* DashboardView.swift */; };
 		623F078B2730B353007A79F2 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F078A2730B353007A79F2 /* DashboardViewModel.swift */; };
 		623F078E2730BCAD007A79F2 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F078D2730BCAD007A79F2 /* CourseDetailView.swift */; };
-		623F07922730DEED007A79F2 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F07912730DEED007A79F2 /* Assignment.swift */; };
-		623F07942730E043007A79F2 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F07932730E043007A79F2 /* Term.swift */; };
-		623F07962730E092007A79F2 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F07952730E092007A79F2 /* Grade.swift */; };
-		623F07982730F426007A79F2 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F07972730F426007A79F2 /* Attendance.swift */; };
-		623F079A2730F511007A79F2 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F07992730F511007A79F2 /* Course.swift */; };
-		623F079C2730F854007A79F2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F079B2730F854007A79F2 /* Profile.swift */; };
-		623F079E2730F8F0007A79F2 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F079D2730F8F0007A79F2 /* Gender.swift */; };
-		623F07A02730FA15007A79F2 /* ExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F079F2730FA15007A79F2 /* ExtraInfo.swift */; };
 		623F07A627323B54007A79F2 /* AssignmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F07A527323B54007A79F2 /* AssignmentDetailView.swift */; };
 		623F07A927323EE0007A79F2 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F07A827323EE0007A79F2 /* InfoItem.swift */; };
 		623F07AC27324014007A79F2 /* TermDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F07AB27324014007A79F2 /* TermDetailView.swift */; };
@@ -55,6 +64,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D790F7F27360AAD00E6C4EB /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		4D790F8027360AAD00E6C4EB /* Grade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
+		4D790F8227360AAD00E6C4EB /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		4D790F8327360AAD00E6C4EB /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		4D790F8527360AAD00E6C4EB /* Attendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		4D790F9427361A7C00E6C4EB /* Proto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Proto; sourceTree = "<group>"; };
+		4D790F9727361AB800E6C4EB /* powerschool.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = powerschool.pb.swift; sourceTree = "<group>"; };
+		4D790F9827361AB800E6C4EB /* ProtoTypealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoTypealiases.swift; sourceTree = "<group>"; };
+		4D790F9B2736296100E6C4EB /* TermGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermGrade.swift; sourceTree = "<group>"; };
+		4D790F9D27362EC700E6C4EB /* SchoolPowerAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerAppViewModel.swift; sourceTree = "<group>"; };
+		4D790FA2273632C600E6C4EB /* RequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
+		4D790FA827363EF700E6C4EB /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		4D790FAA2736CBDB00E6C4EB /* SchoolPower.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SchoolPower.entitlements; sourceTree = "<group>"; };
+		4D790FAC27370BCD00E6C4EB /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
+		4D790FAE2737106200E6C4EB /* AttendanceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceItem.swift; sourceTree = "<group>"; };
+		4D790FB02737116600E6C4EB /* AttendanceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceDetailView.swift; sourceTree = "<group>"; };
 		4DB6DF042733700000FA7B40 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4DB6DF082733705800FA7B40 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCourseItem.swift; sourceTree = "<group>"; };
@@ -63,7 +88,7 @@
 		4DB6DF112733816E00FA7B40 /* TermItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermItem.swift; sourceTree = "<group>"; };
 		621D38E227307D4000825D5C /* SchoolPower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolPower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		621D38E527307D4000825D5C /* SchoolPowerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerApp.swift; sourceTree = "<group>"; };
-		621D38E727307D4000825D5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		621D38E727307D4000825D5C /* SchoolPowerAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerAppView.swift; sourceTree = "<group>"; };
 		621D38E927307D4A00825D5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		621D38EC27307D4A00825D5C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		621D38EE27307D4A00825D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,14 +101,6 @@
 		623F07882730B343007A79F2 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		623F078A2730B353007A79F2 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		623F078D2730BCAD007A79F2 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
-		623F07912730DEED007A79F2 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
-		623F07932730E043007A79F2 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
-		623F07952730E092007A79F2 /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
-		623F07972730F426007A79F2 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
-		623F07992730F511007A79F2 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
-		623F079B2730F854007A79F2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		623F079D2730F8F0007A79F2 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
-		623F079F2730FA15007A79F2 /* ExtraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraInfo.swift; sourceTree = "<group>"; };
 		623F07A527323B54007A79F2 /* AssignmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDetailView.swift; sourceTree = "<group>"; };
 		623F07A827323EE0007A79F2 /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		623F07AB27324014007A79F2 /* TermDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailView.swift; sourceTree = "<group>"; };
@@ -96,6 +113,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D790F752735EDC400E6C4EB /* SwiftProtobuf in Frameworks */,
+				4D790FA12736327400E6C4EB /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +135,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D790F7D27360AAD00E6C4EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D790F7F27360AAD00E6C4EB /* Assignment.swift */,
+				4D790F8027360AAD00E6C4EB /* Grade.swift */,
+				4D790F8227360AAD00E6C4EB /* Profile.swift */,
+				4D790F8327360AAD00E6C4EB /* Course.swift */,
+				4D790F8527360AAD00E6C4EB /* Attendance.swift */,
+				4D790F9B2736296100E6C4EB /* TermGrade.swift */,
+				4D790FA2273632C600E6C4EB /* RequestData.swift */,
+				4D790FA827363EF700E6C4EB /* Term.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4D790F9627361AAC00E6C4EB /* Proto */ = {
+			isa = PBXGroup;
+			children = (
+				4D790F9727361AB800E6C4EB /* powerschool.pb.swift */,
+				4D790F9827361AB800E6C4EB /* ProtoTypealiases.swift */,
+			);
+			path = Proto;
+			sourceTree = "<group>";
+		};
+		4D790FAB27370BB800E6C4EB /* Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				4D790FAC27370BCD00E6C4EB /* AttendanceView.swift */,
+				4D790FAE2737106200E6C4EB /* AttendanceItem.swift */,
+				4D790FB02737116600E6C4EB /* AttendanceDetailView.swift */,
+			);
+			path = Attendance;
+			sourceTree = "<group>";
+		};
 		4DB6DF0C2733788400FA7B40 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +181,7 @@
 		621D38D927307D4000825D5C = {
 			isa = PBXGroup;
 			children = (
+				4D790F9427361A7C00E6C4EB /* Proto */,
 				621D38E427307D4000825D5C /* SchoolPower */,
 				621D38F627307D4A00825D5C /* SchoolPowerTests */,
 				621D390127307D4A00825D5C /* SchoolPowerUITests */,
@@ -148,12 +202,15 @@
 		621D38E427307D4000825D5C /* SchoolPower */ = {
 			isa = PBXGroup;
 			children = (
-				4DB6DF0C2733788400FA7B40 /* Utils */,
+				4D790FAA2736CBDB00E6C4EB /* SchoolPower.entitlements */,
 				623F07AD27324902007A79F2 /* fonts */,
-				623F078F2730DEBA007A79F2 /* Model */,
+				4D790F9627361AAC00E6C4EB /* Proto */,
+				4DB6DF0C2733788400FA7B40 /* Utils */,
+				4D790F7D27360AAD00E6C4EB /* Model */,
 				623F07902730DEC2007A79F2 /* View */,
 				621D38E527307D4000825D5C /* SchoolPowerApp.swift */,
-				621D38E727307D4000825D5C /* ContentView.swift */,
+				4D790F9D27362EC700E6C4EB /* SchoolPowerAppViewModel.swift */,
+				621D38E727307D4000825D5C /* SchoolPowerAppView.swift */,
 				621D38E927307D4A00825D5C /* Assets.xcassets */,
 				621D38EE27307D4A00825D5C /* Info.plist */,
 				621D38EB27307D4A00825D5C /* Preview Content */,
@@ -210,26 +267,12 @@
 			path = CourseDetail;
 			sourceTree = "<group>";
 		};
-		623F078F2730DEBA007A79F2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				623F07912730DEED007A79F2 /* Assignment.swift */,
-				623F07972730F426007A79F2 /* Attendance.swift */,
-				623F07992730F511007A79F2 /* Course.swift */,
-				623F079B2730F854007A79F2 /* Profile.swift */,
-				623F079F2730FA15007A79F2 /* ExtraInfo.swift */,
-				623F079D2730F8F0007A79F2 /* Gender.swift */,
-				623F07952730E092007A79F2 /* Grade.swift */,
-				623F07932730E043007A79F2 /* Term.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		623F07902730DEC2007A79F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				623F07A727323ECF007A79F2 /* Component */,
 				623F07852730B303007A79F2 /* Dashboard */,
+				4D790FAB27370BB800E6C4EB /* Attendance */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +327,10 @@
 			dependencies = (
 			);
 			name = SchoolPower;
+			packageProductDependencies = (
+				4D790F742735EDC400E6C4EB /* SwiftProtobuf */,
+				4D790FA02736327400E6C4EB /* Alamofire */,
+			);
 			productName = SchoolPower;
 			productReference = 621D38E227307D4000825D5C /* SchoolPower.app */;
 			productType = "com.apple.product-type.application";
@@ -355,6 +402,10 @@
 				Base,
 			);
 			mainGroup = 621D38D927307D4000825D5C;
+			packageReferences = (
+				4D790F732735EDC400E6C4EB /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				4D790F9F2736327400E6C4EB /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 621D38E327307D4000825D5C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -371,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D790F9527361A7C00E6C4EB /* Proto in Resources */,
 				623F07AF273249A7007A79F2 /* Poppins-Regular.ttf in Resources */,
 				623F07B1273249BA007A79F2 /* Poppins-SemiBold.ttf in Resources */,
 				621D38ED27307D4A00825D5C /* Preview Assets.xcassets in Resources */,
@@ -399,26 +451,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				623F079E2730F8F0007A79F2 /* Gender.swift in Sources */,
+				4D790F8D27360AAD00E6C4EB /* Attendance.swift in Sources */,
+				4D790F8727360AAD00E6C4EB /* Assignment.swift in Sources */,
+				4D790F8A27360AAD00E6C4EB /* Profile.swift in Sources */,
 				4DB6DF0E2733789B00FA7B40 /* Colors.swift in Sources */,
 				4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */,
-				623F07922730DEED007A79F2 /* Assignment.swift in Sources */,
 				623F07A627323B54007A79F2 /* AssignmentDetailView.swift in Sources */,
-				623F07962730E092007A79F2 /* Grade.swift in Sources */,
-				623F079A2730F511007A79F2 /* Course.swift in Sources */,
 				623F078E2730BCAD007A79F2 /* CourseDetailView.swift in Sources */,
 				623F07AC27324014007A79F2 /* TermDetailView.swift in Sources */,
-				623F07A02730FA15007A79F2 /* ExtraInfo.swift in Sources */,
-				621D38E827307D4000825D5C /* ContentView.swift in Sources */,
+				4D790F9A27361AB800E6C4EB /* ProtoTypealiases.swift in Sources */,
+				621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */,
 				4DB6DF052733700000FA7B40 /* Utils.swift in Sources */,
+				4D790F9C2736296100E6C4EB /* TermGrade.swift in Sources */,
 				623F07892730B343007A79F2 /* DashboardView.swift in Sources */,
-				623F07942730E043007A79F2 /* Term.swift in Sources */,
+				4D790FAD27370BCE00E6C4EB /* AttendanceView.swift in Sources */,
+				4D790F9E27362EC700E6C4EB /* SchoolPowerAppViewModel.swift in Sources */,
 				4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */,
+				4D790F8827360AAD00E6C4EB /* Grade.swift in Sources */,
 				4DB6DF092733705800FA7B40 /* RoundedCorner.swift in Sources */,
+				4D790FB12737116600E6C4EB /* AttendanceDetailView.swift in Sources */,
+				4D790F8B27360AAD00E6C4EB /* Course.swift in Sources */,
 				4DB6DF102733813E00FA7B40 /* AssignmentItem.swift in Sources */,
-				623F07982730F426007A79F2 /* Attendance.swift in Sources */,
+				4D790FA3273632C600E6C4EB /* RequestData.swift in Sources */,
+				4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */,
 				623F07A927323EE0007A79F2 /* InfoItem.swift in Sources */,
-				623F079C2730F854007A79F2 /* Profile.swift in Sources */,
+				4D790FA927363EF700E6C4EB /* Term.swift in Sources */,
+				4D790FAF2737106200E6C4EB /* AttendanceItem.swift in Sources */,
 				621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */,
 				623F078B2730B353007A79F2 /* DashboardViewModel.swift in Sources */,
 			);
@@ -577,6 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SchoolPower/SchoolPower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "\"SchoolPower/Preview Content\"";
@@ -591,6 +650,7 @@
 				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.schoolpower.SchoolPower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -601,6 +661,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SchoolPower/SchoolPower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "\"SchoolPower/Preview Content\"";
@@ -615,6 +676,7 @@
 				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.schoolpower.SchoolPower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -744,6 +806,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4D790F732735EDC400E6C4EB /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		4D790F9F2736327400E6C4EB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D790F742735EDC400E6C4EB /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D790F732735EDC400E6C4EB /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		4D790FA02736327400E6C4EB /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D790F9F2736327400E6C4EB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 621D38DA27307D4000825D5C /* Project object */;
 }

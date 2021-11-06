@@ -7,28 +7,54 @@
 
 import SwiftUI
 
-struct DashboardView: View {
+fileprivate struct CoursesList: View {
+    var courses: [Course]
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVStack(spacing: 16) {
-                    ForEach(1..<10) { _ in
-                        NavigationLink(
-                            destination: CourseDetailView(course: fakeCourse)
-                        ) {
-                            DashboardCourseItem(course: fakeCourse)
-                        }
-                    }
-                }
-                .padding()
+        List {
+            ForEach(courses) { course in
+                DashboardCourseItem(course: course)
+                    .background(NavigationLink(
+                        destination: CourseDetailView(course: course)
+                    ) {}.opacity(0))
+                .listRowInsets(EdgeInsets())
             }
-            .navigationTitle("Dashboard")
         }
+        .navigationTitle("Courses")
+    }
+}
+
+struct DashboardView: View {
+    var courses: [Course]
+    
+    var body: some View {
+        switch (UIDevice.current.userInterfaceIdiom) {
+        case .pad, .mac:
+            NavigationView {
+                CoursesList(courses: courses)
+                Text("AAA")
+                Text("BBB")
+            }
+        default:
+            NavigationView {
+                CoursesList(courses: courses)
+                Text("AAA")
+            }
+        }
+    }
+}
+
+
+extension UISplitViewController {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        preferredDisplayMode = .oneBesideSecondary
+        show(.primary)
+        
     }
 }
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView()
+        DashboardView(courses: [Course](repeating: fakeCourse(), count: 10))
     }
 }

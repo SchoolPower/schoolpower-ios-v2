@@ -22,3 +22,17 @@ extension String {
         }
     }
 }
+
+extension Int64 {
+    func asMillisDate() -> Date {
+        return Date(timeIntervalSince1970: TimeInterval(self) / 1000)
+    }
+}
+
+extension Date {
+    func formatted() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        return formatter.string(from: self)
+    }
+}

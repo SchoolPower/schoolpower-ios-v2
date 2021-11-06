@@ -7,21 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    init() {
-        UINavigationBar
-            .appearance()
-            .largeTitleTextAttributes = [
-                .font : UIFont(
-                    name: "Poppins-Regular",
-                    size: 32
-                )!
-            ]
-    }
+struct SchoolPowerAppView: View {
+    @ObservedObject var viewModel = SchoolPowerAppViewModel()
     
     var body: some View {
         TabView {
-            DashboardView()
+            DashboardView(courses: viewModel.studentData.courses)
                 .tabItem {
                     Image(systemName: "list.bullet.circle")
                     Text("Courses")
@@ -33,11 +24,10 @@ struct ContentView: View {
                     Text("Chart")
                 }.tag(2)
             
-            Text("Tab Content 2")
+            AttendanceView(attendances: viewModel.studentData.attendances)
                 .tabItem {
                     Image(systemName: "clock")
-                    Text("Attendance")
-                    
+                    Text("Attendances")
                 }.tag(2)
             
             Text("Tab Content 2")
@@ -52,6 +42,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SchoolPowerAppView()
     }
 }
