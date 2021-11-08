@@ -9,9 +9,33 @@ import SwiftUI
 
 @main
 struct SchoolPowerApp: App {
+    @Environment(\.scenePhase) private var scenePhase
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject var authentication = AuthenticationStore.shared
+    @StateObject var settingsStore = SettingsStore.shared
+    @StateObject var studentDataStore = StudentDataStore.shared
+    
     var body: some Scene {
         WindowGroup {
-            SchoolPowerAppView()
+            ZStack {
+                if authentication.authenticated {
+                    SchoolPowerAppView()
+                        .transition(.slide)
+                        .animation(.easeInOut)
+                } else {
+                    LoginView()
+                        .transition(.slide)
+                        .animation(.easeInOut)
+                }
+            }
+            .environmentObject(authentication)
+            .environmentObject(settingsStore)
+            .environmentObject(studentDataStore)
+        }
+        .onChange(of: scenePhase) { phase in
+            if phase == .active {
+                UIApplication.shared.applicationIconBadgeNumber = 0
+            }
         }
     }
 }

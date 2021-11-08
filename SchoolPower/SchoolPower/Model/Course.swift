@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Course: Identifiable {
+extension Course: Identifiable, Hashable {
     internal var id: String { self.name }
     
     func displayGrade() -> Grade? {

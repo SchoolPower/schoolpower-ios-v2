@@ -45,6 +45,7 @@ struct TermDetailView: View {
                 }.textCase(nil)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

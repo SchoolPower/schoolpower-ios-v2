@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-extension Grade {
+extension Grade: Hashable {
     func color() -> Color {
         return letter.getLetterGradeColor()
     }

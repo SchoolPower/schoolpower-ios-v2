@@ -53,24 +53,28 @@ struct DashboardCourseItem: View {
                     VStack(alignment: .leading) {
                         Text(course.name)
                             .foregroundColor(.primary)
-                            .font(.headline)
+                            .font(.body)
                         Spacer().frame(height: 8).fixedSize()
-                        HStack {
-                            if (geometry.size.width >= COMPACT_SUBTITLE_WIDTH_BREAKPOINT) {
-                                Text("Block").font(.caption).opacity(0.6)
+                        HStack(spacing: 4) {
+                            if (!course.block.isEmpty) {
+                                if (geometry.size.width >= COMPACT_SUBTITLE_WIDTH_BREAKPOINT) {
+                                    Text("Block").font(.caption).opacity(0.6)
+                                        .foregroundColor(.primary)
+                                }
+                                Text(course.block)
+                                    .font(.caption).opacity(0.6)
                                     .foregroundColor(.primary)
                             }
-                            Text(course.block)
-                                .font(.caption)
-                                .foregroundColor(.primary)
-                            if (geometry.size.width >= COMPACT_SUBTITLE_WIDTH_BREAKPOINT) {
-                                Text("Room").font(.caption).opacity(0.6)
-                                    .padding(.leading, 8)
+                            if (!course.room.isEmpty) {
+                                if (geometry.size.width >= COMPACT_SUBTITLE_WIDTH_BREAKPOINT) {
+                                    Text("Room").font(.caption).opacity(0.6)
+                                        .padding(.leading, 8)
+                                        .foregroundColor(.primary)
+                                }
+                                Text(course.room)
+                                    .font(.caption).opacity(0.6)
                                     .foregroundColor(.primary)
                             }
-                            Text(course.room)
-                                .font(.caption)
-                                .foregroundColor(.primary)
                         }
                     }
                     Spacer()

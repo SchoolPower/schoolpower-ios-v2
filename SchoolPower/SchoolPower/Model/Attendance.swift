@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension Attendance: Identifiable {
+extension Attendance: Identifiable, Hashable {
     internal var id: String { "\(courseName):\(code):\(String(date))" }
     
     func color() -> Color {

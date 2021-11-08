@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension TermGrade: Identifiable {
+extension TermGrade: Identifiable, Hashable {
     internal var id: String { "\(term):\(grade)" }
 }
 

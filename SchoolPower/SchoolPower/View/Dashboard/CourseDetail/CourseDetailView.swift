@@ -21,10 +21,14 @@ struct CourseDetailView: View {
                 Text(course.name).font(.largeTitle).bold().foregroundColor(.primary).padding(.bottom).lineLimit(3)
                     .fixedSize(horizontal: false, vertical: true)
                 HStack {
-                    Text("Block").font(.body).opacity(0.6).foregroundColor(.primary)
-                    Text(course.block).font(.body).bold().foregroundColor(.primary)
-                    Text("Room").font(.body).opacity(0.6).padding(.leading, 8).foregroundColor(.primary)
-                    Text(course.room).font(.body).bold().foregroundColor(.primary)
+                    if (!course.block.isEmpty) {
+                        Text("Block").font(.body).opacity(0.6).foregroundColor(.primary)
+                        Text(course.block).font(.body).bold().foregroundColor(.primary)
+                    }
+                    if (!course.room.isEmpty) {
+                        Text("Room").font(.body).opacity(0.6).padding(.leading, 8).foregroundColor(.primary)
+                        Text(course.room).font(.body).bold().foregroundColor(.primary)
+                    }
                 }
                 Spacer().frame(height: 6).fixedSize()
                 HStack {

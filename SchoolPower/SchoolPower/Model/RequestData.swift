@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct RequestData: Encodable {
-    let username: String
-    let password: String
+struct RequestData: Codable {
+    var username: String = ""
+    var password: String = ""
+    
+    var isEmpty : Bool {
+        username.isEmpty || password.isEmpty
+    }
 }
 

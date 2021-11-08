@@ -17,13 +17,32 @@
 		4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9727361AB800E6C4EB /* powerschool.pb.swift */; };
 		4D790F9A27361AB800E6C4EB /* ProtoTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9827361AB800E6C4EB /* ProtoTypealiases.swift */; };
 		4D790F9C2736296100E6C4EB /* TermGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9B2736296100E6C4EB /* TermGrade.swift */; };
-		4D790F9E27362EC700E6C4EB /* SchoolPowerAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9D27362EC700E6C4EB /* SchoolPowerAppViewModel.swift */; };
 		4D790FA12736327400E6C4EB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4D790FA02736327400E6C4EB /* Alamofire */; };
 		4D790FA3273632C600E6C4EB /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FA2273632C600E6C4EB /* RequestData.swift */; };
 		4D790FA927363EF700E6C4EB /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FA827363EF700E6C4EB /* Term.swift */; };
 		4D790FAD27370BCE00E6C4EB /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FAC27370BCD00E6C4EB /* AttendanceView.swift */; };
 		4D790FAF2737106200E6C4EB /* AttendanceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FAE2737106200E6C4EB /* AttendanceItem.swift */; };
 		4D790FB12737116600E6C4EB /* AttendanceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FB02737116600E6C4EB /* AttendanceDetailView.swift */; };
+		4D790FB4273719C300E6C4EB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FB3273719C300E6C4EB /* ProfileView.swift */; };
+		4D790FB7273721E900E6C4EB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FB6273721E900E6C4EB /* SettingsView.swift */; };
+		4D790FB92737431900E6C4EB /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FB82737431900E6C4EB /* SettingsStore.swift */; };
+		4D790FBB27374BC200E6C4EB /* StudentDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FBA27374BC200E6C4EB /* StudentDataStore.swift */; };
+		4D790FBE27376C9100E6C4EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FBD27376C9100E6C4EB /* AppDelegate.swift */; };
+		4D790FC0273773E200E6C4EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FBF273773E200E6C4EB /* Constants.swift */; };
+		4D790FC22737828700E6C4EB /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FC12737828700E6C4EB /* PushNotification.swift */; };
+		4D790FC627380C1800E6C4EB /* StudentDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FC527380C1800E6C4EB /* StudentDataUtils.swift */; };
+		4D790FC827381BAA00E6C4EB /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FC727381BAA00E6C4EB /* SettingItem.swift */; };
+		4D790FCA27381CF500E6C4EB /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FC927381CF500E6C4EB /* MailView.swift */; };
+		4D790FCC27381D2500E6C4EB /* ComposeMailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FCB27381D2500E6C4EB /* ComposeMailData.swift */; };
+		4D790FCE27381ED000E6C4EB /* BugReportEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FCD27381ED000E6C4EB /* BugReportEmailView.swift */; };
+		4D790FD027382B0200E6C4EB /* SupportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FCF27382B0200E6C4EB /* SupportSection.swift */; };
+		4D790FD327382B9800E6C4EB /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FD227382B9800E6C4EB /* AboutView.swift */; };
+		4D790FD62738315D00E6C4EB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FD52738315D00E6C4EB /* LoginViewModel.swift */; };
+		4D790FD82738386800E6C4EB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FD72738386800E6C4EB /* LoginView.swift */; };
+		4D790FDA27383A8700E6C4EB /* AuthenticationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FD927383A8700E6C4EB /* AuthenticationStore.swift */; };
+		4D790FDD27383EC600E6C4EB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 4D790FDC27383EC600E6C4EB /* KeychainAccess */; };
+		4D790FDF273850E900E6C4EB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FDE273850E900E6C4EB /* TextField.swift */; };
+		4D790FE12738675600E6C4EB /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FE02738675600E6C4EB /* ErrorResponse.swift */; };
 		4DB6DF052733700000FA7B40 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF042733700000FA7B40 /* Utils.swift */; };
 		4DB6DF092733705800FA7B40 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF082733705800FA7B40 /* RoundedCorner.swift */; };
 		4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */; };
@@ -73,13 +92,31 @@
 		4D790F9727361AB800E6C4EB /* powerschool.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = powerschool.pb.swift; sourceTree = "<group>"; };
 		4D790F9827361AB800E6C4EB /* ProtoTypealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoTypealiases.swift; sourceTree = "<group>"; };
 		4D790F9B2736296100E6C4EB /* TermGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermGrade.swift; sourceTree = "<group>"; };
-		4D790F9D27362EC700E6C4EB /* SchoolPowerAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerAppViewModel.swift; sourceTree = "<group>"; };
 		4D790FA2273632C600E6C4EB /* RequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
 		4D790FA827363EF700E6C4EB /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
 		4D790FAA2736CBDB00E6C4EB /* SchoolPower.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SchoolPower.entitlements; sourceTree = "<group>"; };
 		4D790FAC27370BCD00E6C4EB /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		4D790FAE2737106200E6C4EB /* AttendanceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceItem.swift; sourceTree = "<group>"; };
 		4D790FB02737116600E6C4EB /* AttendanceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceDetailView.swift; sourceTree = "<group>"; };
+		4D790FB3273719C300E6C4EB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4D790FB6273721E900E6C4EB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4D790FB82737431900E6C4EB /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		4D790FBA27374BC200E6C4EB /* StudentDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataStore.swift; sourceTree = "<group>"; };
+		4D790FBD27376C9100E6C4EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4D790FBF273773E200E6C4EB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4D790FC12737828700E6C4EB /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
+		4D790FC527380C1800E6C4EB /* StudentDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataUtils.swift; sourceTree = "<group>"; };
+		4D790FC727381BAA00E6C4EB /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
+		4D790FC927381CF500E6C4EB /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		4D790FCB27381D2500E6C4EB /* ComposeMailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeMailData.swift; sourceTree = "<group>"; };
+		4D790FCD27381ED000E6C4EB /* BugReportEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugReportEmailView.swift; sourceTree = "<group>"; };
+		4D790FCF27382B0200E6C4EB /* SupportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportSection.swift; sourceTree = "<group>"; };
+		4D790FD227382B9800E6C4EB /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		4D790FD52738315D00E6C4EB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		4D790FD72738386800E6C4EB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4D790FD927383A8700E6C4EB /* AuthenticationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStore.swift; sourceTree = "<group>"; };
+		4D790FDE273850E900E6C4EB /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		4D790FE02738675600E6C4EB /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		4DB6DF042733700000FA7B40 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4DB6DF082733705800FA7B40 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCourseItem.swift; sourceTree = "<group>"; };
@@ -115,6 +152,7 @@
 			files = (
 				4D790F752735EDC400E6C4EB /* SwiftProtobuf in Frameworks */,
 				4D790FA12736327400E6C4EB /* Alamofire in Frameworks */,
+				4D790FDD27383EC600E6C4EB /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +183,9 @@
 				4D790F8527360AAD00E6C4EB /* Attendance.swift */,
 				4D790F9B2736296100E6C4EB /* TermGrade.swift */,
 				4D790FA2273632C600E6C4EB /* RequestData.swift */,
+				4D790FE02738675600E6C4EB /* ErrorResponse.swift */,
 				4D790FA827363EF700E6C4EB /* Term.swift */,
+				4D790FCB27381D2500E6C4EB /* ComposeMailData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,11 +209,62 @@
 			path = Attendance;
 			sourceTree = "<group>";
 		};
+		4D790FB22737173100E6C4EB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4D790FD127382B6600E6C4EB /* About */,
+				4D790FB5273721D700E6C4EB /* Settings */,
+				4D790FB3273719C300E6C4EB /* ProfileView.swift */,
+				4D790FCF27382B0200E6C4EB /* SupportSection.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		4D790FB5273721D700E6C4EB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4D790FB6273721E900E6C4EB /* SettingsView.swift */,
+				4D790FC727381BAA00E6C4EB /* SettingItem.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		4D790FBC2737582D00E6C4EB /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				4D790FB82737431900E6C4EB /* SettingsStore.swift */,
+				4D790FBA27374BC200E6C4EB /* StudentDataStore.swift */,
+				4D790FD927383A8700E6C4EB /* AuthenticationStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		4D790FD127382B6600E6C4EB /* About */ = {
+			isa = PBXGroup;
+			children = (
+				4D790FD227382B9800E6C4EB /* AboutView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		4D790FD42738301300E6C4EB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4D790FD52738315D00E6C4EB /* LoginViewModel.swift */,
+				4D790FD72738386800E6C4EB /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		4DB6DF0C2733788400FA7B40 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				4DB6DF042733700000FA7B40 /* Utils.swift */,
 				4DB6DF0D2733789B00FA7B40 /* Colors.swift */,
+				4D790FBD27376C9100E6C4EB /* AppDelegate.swift */,
+				4D790FBF273773E200E6C4EB /* Constants.swift */,
+				4D790FC12737828700E6C4EB /* PushNotification.swift */,
+				4D790FC527380C1800E6C4EB /* StudentDataUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -209,7 +300,6 @@
 				4D790F7D27360AAD00E6C4EB /* Model */,
 				623F07902730DEC2007A79F2 /* View */,
 				621D38E527307D4000825D5C /* SchoolPowerApp.swift */,
-				4D790F9D27362EC700E6C4EB /* SchoolPowerAppViewModel.swift */,
 				621D38E727307D4000825D5C /* SchoolPowerAppView.swift */,
 				621D38E927307D4A00825D5C /* Assets.xcassets */,
 				621D38EE27307D4A00825D5C /* Info.plist */,
@@ -270,6 +360,9 @@
 		623F07902730DEC2007A79F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D790FD42738301300E6C4EB /* Login */,
+				4D790FBC2737582D00E6C4EB /* Stores */,
+				4D790FB22737173100E6C4EB /* Profile */,
 				623F07A727323ECF007A79F2 /* Component */,
 				623F07852730B303007A79F2 /* Dashboard */,
 				4D790FAB27370BB800E6C4EB /* Attendance */,
@@ -290,6 +383,9 @@
 			children = (
 				623F07A827323EE0007A79F2 /* InfoItem.swift */,
 				4DB6DF082733705800FA7B40 /* RoundedCorner.swift */,
+				4D790FC927381CF500E6C4EB /* MailView.swift */,
+				4D790FCD27381ED000E6C4EB /* BugReportEmailView.swift */,
+				4D790FDE273850E900E6C4EB /* TextField.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -330,6 +426,7 @@
 			packageProductDependencies = (
 				4D790F742735EDC400E6C4EB /* SwiftProtobuf */,
 				4D790FA02736327400E6C4EB /* Alamofire */,
+				4D790FDC27383EC600E6C4EB /* KeychainAccess */,
 			);
 			productName = SchoolPower;
 			productReference = 621D38E227307D4000825D5C /* SchoolPower.app */;
@@ -405,6 +502,7 @@
 			packageReferences = (
 				4D790F732735EDC400E6C4EB /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 				4D790F9F2736327400E6C4EB /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4D790FDB27383EC600E6C4EB /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 621D38E327307D4000825D5C /* Products */;
 			projectDirPath = "";
@@ -451,10 +549,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D790FC627380C1800E6C4EB /* StudentDataUtils.swift in Sources */,
 				4D790F8D27360AAD00E6C4EB /* Attendance.swift in Sources */,
+				4D790FCA27381CF500E6C4EB /* MailView.swift in Sources */,
 				4D790F8727360AAD00E6C4EB /* Assignment.swift in Sources */,
 				4D790F8A27360AAD00E6C4EB /* Profile.swift in Sources */,
 				4DB6DF0E2733789B00FA7B40 /* Colors.swift in Sources */,
+				4D790FCE27381ED000E6C4EB /* BugReportEmailView.swift in Sources */,
+				4D790FC827381BAA00E6C4EB /* SettingItem.swift in Sources */,
+				4D790FD82738386800E6C4EB /* LoginView.swift in Sources */,
+				4D790FCC27381D2500E6C4EB /* ComposeMailData.swift in Sources */,
 				4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */,
 				623F07A627323B54007A79F2 /* AssignmentDetailView.swift in Sources */,
 				623F078E2730BCAD007A79F2 /* CourseDetailView.swift in Sources */,
@@ -462,23 +566,35 @@
 				4D790F9A27361AB800E6C4EB /* ProtoTypealiases.swift in Sources */,
 				621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */,
 				4DB6DF052733700000FA7B40 /* Utils.swift in Sources */,
+				4D790FE12738675600E6C4EB /* ErrorResponse.swift in Sources */,
+				4D790FB4273719C300E6C4EB /* ProfileView.swift in Sources */,
+				4D790FD027382B0200E6C4EB /* SupportSection.swift in Sources */,
 				4D790F9C2736296100E6C4EB /* TermGrade.swift in Sources */,
 				623F07892730B343007A79F2 /* DashboardView.swift in Sources */,
+				4D790FD62738315D00E6C4EB /* LoginViewModel.swift in Sources */,
+				4D790FD327382B9800E6C4EB /* AboutView.swift in Sources */,
+				4D790FC22737828700E6C4EB /* PushNotification.swift in Sources */,
 				4D790FAD27370BCE00E6C4EB /* AttendanceView.swift in Sources */,
-				4D790F9E27362EC700E6C4EB /* SchoolPowerAppViewModel.swift in Sources */,
+				4D790FB7273721E900E6C4EB /* SettingsView.swift in Sources */,
+				4D790FBE27376C9100E6C4EB /* AppDelegate.swift in Sources */,
 				4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */,
+				4D790FB92737431900E6C4EB /* SettingsStore.swift in Sources */,
 				4D790F8827360AAD00E6C4EB /* Grade.swift in Sources */,
 				4DB6DF092733705800FA7B40 /* RoundedCorner.swift in Sources */,
 				4D790FB12737116600E6C4EB /* AttendanceDetailView.swift in Sources */,
 				4D790F8B27360AAD00E6C4EB /* Course.swift in Sources */,
+				4D790FDF273850E900E6C4EB /* TextField.swift in Sources */,
+				4D790FC0273773E200E6C4EB /* Constants.swift in Sources */,
 				4DB6DF102733813E00FA7B40 /* AssignmentItem.swift in Sources */,
 				4D790FA3273632C600E6C4EB /* RequestData.swift in Sources */,
 				4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */,
+				4D790FDA27383A8700E6C4EB /* AuthenticationStore.swift in Sources */,
 				623F07A927323EE0007A79F2 /* InfoItem.swift in Sources */,
 				4D790FA927363EF700E6C4EB /* Term.swift in Sources */,
 				4D790FAF2737106200E6C4EB /* AttendanceItem.swift in Sources */,
 				621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */,
 				623F078B2730B353007A79F2 /* DashboardViewModel.swift in Sources */,
+				4D790FBB27374BC200E6C4EB /* StudentDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +940,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		4D790FDB27383EC600E6C4EB /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -836,6 +960,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D790F9F2736327400E6C4EB /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		4D790FDC27383EC600E6C4EB /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D790FDB27383EC600E6C4EB /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

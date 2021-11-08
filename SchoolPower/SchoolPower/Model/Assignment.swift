@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension Assignment: Identifiable {
-    internal var id: String { self.title }
+extension Assignment: Identifiable, Hashable {
+    internal var id: String { "\(self.title):\(getDateString())" }
     
     func getDateString() -> String {
         date.asMillisDate().formatted()

@@ -27,10 +27,10 @@ struct AttendanceItem: View {
                 Spacer().frame(height: 6).fixedSize()
                 Text(attendance.courseName)
                     .foregroundColor(.primary)
-                    .font(.caption)
+                    .font(.footnote)
                 Text(attendance.date.asMillisDate().formatted())
                     .foregroundColor(.primary)
-                    .font(.caption)
+                    .font(.footnote)
             }
         }
         .padding(.top)

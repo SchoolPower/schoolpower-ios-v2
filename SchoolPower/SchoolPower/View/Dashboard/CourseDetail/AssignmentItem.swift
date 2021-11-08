@@ -22,11 +22,11 @@ struct AssignmentItem: View {
             VStack(alignment: .leading) {
                 Text(assignment.title)
                     .font(.body)
-                    .bold()
                     .lineLimit(1)
                 Spacer().frame(height: 6).fixedSize()
                 Text(assignment.getDateString())
                     .font(.subheadline)
+                    .opacity(0.6)
             }
             Spacer()
             VStack(alignment: .trailing) {

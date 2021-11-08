@@ -21,6 +21,7 @@ struct AttendanceView: View {
                 }
             }
             .navigationTitle("Attendances")
+            Text("AAA")
         }
     }
 }

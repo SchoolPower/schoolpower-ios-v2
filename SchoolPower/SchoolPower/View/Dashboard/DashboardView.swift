@@ -8,10 +8,22 @@
 import SwiftUI
 
 fileprivate struct CoursesList: View {
+    @EnvironmentObject var settings: SettingsStore
+    
     var courses: [Course]
+    
+    private var coursesToDisplay: [Course] {
+        if !settings.showInactiveCourses {
+            return courses.filter { course in
+                !course.grades.isEmpty || !course.assignments.isEmpty
+            }
+        }
+        return courses
+    }
+    
     var body: some View {
         List {
-            ForEach(courses) { course in
+            ForEach(coursesToDisplay) { course in
                 DashboardCourseItem(course: course)
                     .background(NavigationLink(
                         destination: CourseDetailView(course: course)
@@ -48,8 +60,8 @@ extension UISplitViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         preferredDisplayMode = .oneBesideSecondary
+        preferredSplitBehavior = .tile
         show(.primary)
-        
     }
 }
 
