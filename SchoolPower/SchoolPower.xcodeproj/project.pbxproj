@@ -16,6 +16,12 @@
 		4D1B0992273F717B00D03CC8 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0991273F717B00D03CC8 /* PullToRefresh.swift */; };
 		4D1B0994273F78E600D03CC8 /* View+userInteractionDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0993273F78E500D03CC8 /* View+userInteractionDisabled.swift */; };
 		4D1B0997273F7BDE00D03CC8 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 4D1B0996273F7BDE00D03CC8 /* Introspect */; };
+		4D1B099A274021A700D03CC8 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 4D1B0999274021A700D03CC8 /* CropViewController */; };
+		4D1B099C274021DB00D03CC8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B099B274021DB00D03CC8 /* ImagePicker.swift */; };
+		4D1B099E2740268400D03CC8 /* ImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B099D2740268400D03CC8 /* ImageCropper.swift */; };
+		4D1B09A0274037F900D03CC8 /* AlertIfError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B099F274037F900D03CC8 /* AlertIfError.swift */; };
+		4D1B09A227404E2700D03CC8 /* ImageUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09A127404E2700D03CC8 /* ImageUploadResponse.swift */; };
+		4D1B09A427404F4F00D03CC8 /* SetAvatarRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */; };
 		4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC754273B39E5002CAD13 /* HeaderView.swift */; };
 		4D6EC757273B3A63002CAD13 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC756273B3A63002CAD13 /* AvatarView.swift */; };
 		4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */; };
@@ -106,6 +112,11 @@
 		4D1B098F273F5D9100D03CC8 /* AvatarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarButton.swift; sourceTree = "<group>"; };
 		4D1B0991273F717B00D03CC8 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		4D1B0993273F78E500D03CC8 /* View+userInteractionDisabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+userInteractionDisabled.swift"; sourceTree = "<group>"; };
+		4D1B099B274021DB00D03CC8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		4D1B099D2740268400D03CC8 /* ImageCropper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCropper.swift; sourceTree = "<group>"; };
+		4D1B099F274037F900D03CC8 /* AlertIfError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertIfError.swift; sourceTree = "<group>"; };
+		4D1B09A127404E2700D03CC8 /* ImageUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadResponse.swift; sourceTree = "<group>"; };
+		4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvatarRequest.swift; sourceTree = "<group>"; };
 		4D6EC754273B39E5002CAD13 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4D6EC756273B3A63002CAD13 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -182,6 +193,7 @@
 				4D790F752735EDC400E6C4EB /* SwiftProtobuf in Frameworks */,
 				4D1B0997273F7BDE00D03CC8 /* Introspect in Frameworks */,
 				4D790FA12736327400E6C4EB /* Alamofire in Frameworks */,
+				4D1B099A274021A700D03CC8 /* CropViewController in Frameworks */,
 				4D790FDD27383EC600E6C4EB /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +241,8 @@
 				4D790FA2273632C600E6C4EB /* RequestData.swift */,
 				4D790FE02738675600E6C4EB /* ErrorResponse.swift */,
 				4D790FCB27381D2500E6C4EB /* ComposeMailData.swift */,
+				4D1B09A127404E2700D03CC8 /* ImageUploadResponse.swift */,
+				4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,10 +331,10 @@
 		621D38D927307D4000825D5C = {
 			isa = PBXGroup;
 			children = (
-				4D790F9427361A7C00E6C4EB /* Proto */,
 				621D38E427307D4000825D5C /* SchoolPower */,
 				621D38F627307D4A00825D5C /* SchoolPowerTests */,
 				621D390127307D4A00825D5C /* SchoolPowerUITests */,
+				4D790F9427361A7C00E6C4EB /* Proto */,
 				621D38E327307D4000825D5C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -338,15 +352,17 @@
 		621D38E427307D4000825D5C /* SchoolPower */ = {
 			isa = PBXGroup;
 			children = (
-				4D790FAA2736CBDB00E6C4EB /* SchoolPower.entitlements */,
-				623F07AD27324902007A79F2 /* fonts */,
-				4D790F9627361AAC00E6C4EB /* Proto */,
-				4DB6DF0C2733788400FA7B40 /* Utils */,
-				4D790F7D27360AAD00E6C4EB /* Model */,
-				623F07902730DEC2007A79F2 /* View */,
 				621D38E527307D4000825D5C /* SchoolPowerApp.swift */,
 				621D38E727307D4000825D5C /* SchoolPowerAppView.swift */,
+				623F07902730DEC2007A79F2 /* View */,
+				623F07A727323ECF007A79F2 /* Component */,
+				4D790FBC2737582D00E6C4EB /* Stores */,
+				4D790F7D27360AAD00E6C4EB /* Model */,
+				4D790F9627361AAC00E6C4EB /* Proto */,
+				4DB6DF0C2733788400FA7B40 /* Utils */,
+				623F07AD27324902007A79F2 /* fonts */,
 				621D38E927307D4A00825D5C /* Assets.xcassets */,
+				4D790FAA2736CBDB00E6C4EB /* SchoolPower.entitlements */,
 				621D38EE27307D4A00825D5C /* Info.plist */,
 				621D38EB27307D4A00825D5C /* Preview Content */,
 			);
@@ -406,9 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				4D790FD42738301300E6C4EB /* Login */,
-				4D790FBC2737582D00E6C4EB /* Stores */,
 				4D790FB22737173100E6C4EB /* Profile */,
-				623F07A727323ECF007A79F2 /* Component */,
 				623F07852730B303007A79F2 /* Dashboard */,
 				4D790FAB27370BB800E6C4EB /* Attendance */,
 			);
@@ -438,6 +452,9 @@
 				4D1B098D273F54F600D03CC8 /* NoAttendanceView.swift */,
 				4D1B0991273F717B00D03CC8 /* PullToRefresh.swift */,
 				4D1B0993273F78E500D03CC8 /* View+userInteractionDisabled.swift */,
+				4D1B099B274021DB00D03CC8 /* ImagePicker.swift */,
+				4D1B099D2740268400D03CC8 /* ImageCropper.swift */,
+				4D1B099F274037F900D03CC8 /* AlertIfError.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -480,6 +497,7 @@
 				4D790FA02736327400E6C4EB /* Alamofire */,
 				4D790FDC27383EC600E6C4EB /* KeychainAccess */,
 				4D1B0996273F7BDE00D03CC8 /* Introspect */,
+				4D1B0999274021A700D03CC8 /* CropViewController */,
 			);
 			productName = SchoolPower;
 			productReference = 621D38E227307D4000825D5C /* SchoolPower.app */;
@@ -557,6 +575,7 @@
 				4D790F9F2736327400E6C4EB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				4D790FDB27383EC600E6C4EB /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				4D1B0995273F7BDE00D03CC8 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				4D1B0998274021A700D03CC8 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 			);
 			productRefGroup = 621D38E327307D4000825D5C /* Products */;
 			projectDirPath = "";
@@ -614,6 +633,7 @@
 				4D790FC827381BAA00E6C4EB /* SettingItem.swift in Sources */,
 				4D790FD82738386800E6C4EB /* LoginView.swift in Sources */,
 				4D790FCC27381D2500E6C4EB /* ComposeMailData.swift in Sources */,
+				4D1B09A227404E2700D03CC8 /* ImageUploadResponse.swift in Sources */,
 				4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */,
 				623F07A627323B54007A79F2 /* AssignmentDetailView.swift in Sources */,
 				623F078E2730BCAD007A79F2 /* CourseDetailView.swift in Sources */,
@@ -647,12 +667,16 @@
 				4DB6DF092733705800FA7B40 /* RoundedCorner.swift in Sources */,
 				4D1B0992273F717B00D03CC8 /* PullToRefresh.swift in Sources */,
 				4D790FB12737116600E6C4EB /* AttendanceDetailView.swift in Sources */,
+				4D1B09A427404F4F00D03CC8 /* SetAvatarRequest.swift in Sources */,
 				4D790F8B27360AAD00E6C4EB /* Course.swift in Sources */,
 				4D790FDF273850E900E6C4EB /* TextField.swift in Sources */,
 				4D790FC0273773E200E6C4EB /* Constants.swift in Sources */,
+				4D1B099C274021DB00D03CC8 /* ImagePicker.swift in Sources */,
 				4D6EC757273B3A63002CAD13 /* AvatarView.swift in Sources */,
 				4DB6DF102733813E00FA7B40 /* AssignmentItem.swift in Sources */,
 				4D790FA3273632C600E6C4EB /* RequestData.swift in Sources */,
+				4D1B099E2740268400D03CC8 /* ImageCropper.swift in Sources */,
+				4D1B09A0274037F900D03CC8 /* AlertIfError.swift in Sources */,
 				4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */,
 				4D790FDA27383A8700E6C4EB /* AuthenticationStore.swift in Sources */,
 				623F07A927323EE0007A79F2 /* InfoItem.swift in Sources */,
@@ -1000,6 +1024,14 @@
 				minimumVersion = 0.1.3;
 			};
 		};
+		4D1B0998274021A700D03CC8 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TimOliver/TOCropViewController";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		4D790F732735EDC400E6C4EB /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-protobuf.git";
@@ -1031,6 +1063,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D1B0995273F7BDE00D03CC8 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = Introspect;
+		};
+		4D1B0999274021A700D03CC8 /* CropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D1B0998274021A700D03CC8 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = CropViewController;
 		};
 		4D790F742735EDC400E6C4EB /* SwiftProtobuf */ = {
 			isa = XCSwiftPackageProductDependency;

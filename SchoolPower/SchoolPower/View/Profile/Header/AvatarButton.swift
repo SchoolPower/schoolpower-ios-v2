@@ -13,28 +13,28 @@ struct AvatarButton: View {
     
     @EnvironmentObject private var viewState: HeaderViewState
     @State private var showingAvatarAgreement = false
-    @State private var showingAvatarUploadSelect = false
-    @State private var showingAvatarActionSelect = false
-    @State private var showingActionSheet: Sheets? = nil
+    @State private var showingActionSheet = false
+    @State private var showingImagePicker = false
+    @State private var showingImageCropper = false
     
-    enum Sheets: Identifiable {
-        case uploadOptions, changeOrRemove
-        
-        var id: Int {
-            self.hashValue
-        }
-    }
+    @State private var errorResponse: ErrorResponse? = nil
+    @State private var showingError: Bool = false
     
     private func showAvatarAgreement() {
         showingAvatarAgreement = true
     }
     
-    private func showAvatarUploadSelect() {
-        showingActionSheet = .uploadOptions
+    private func showAvatarActionSelect() {
+        showingActionSheet = true
     }
     
-    private func showAvatarActionSelect() {
-        showingActionSheet = .changeOrRemove
+    private func showImagePicker() {
+        showingImagePicker = true
+    }
+    
+    private func showImageCropper() {
+        guard viewState.selectedImage != nil else { return }
+        showingImageCropper = true
     }
     
     private func avatarOnClick() {
@@ -50,11 +50,31 @@ struct AvatarButton: View {
             avatarOnClick()
         }) {
             AvatarView(
-                text: profile.lastName.first?.uppercased() ?? String(profile.id).first?.uppercased() ?? "",
-                imageURL: extraInfo.avatarURL
+                text: profile.lastName.first?.uppercased()
+                ?? String(profile.id).first?.uppercased()
+                ?? "",
+                imageURL: extraInfo.avatarURL,
+                isLoading: viewState.isLoadingAvatar
             )
         }
         .buttonStyle(PlainButtonStyle())
+    }
+    
+    private func uploadAvatar() {
+        guard viewState.croppedImage != nil else {
+            return
+        }
+        viewState.uploadAvatar { success, errorResponse, error in
+            viewState.isLoadingAvatar = false
+            if !success {
+                self.errorResponse = errorResponse
+                ?? ErrorResponse(
+                    title: "Failed to upload avatar",
+                    description: error ?? "Unknown Error"
+                )
+                showingError = true
+            }
+        }
     }
     
     var body: some View {
@@ -64,46 +84,52 @@ struct AvatarButton: View {
                     title: Text("Image Upload Agreement"),
                     message: Text("agreement"),
                     primaryButton: .default(Text("Accept")) {
-                        showAvatarUploadSelect()
+                        showImagePicker()
                     },
                     secondaryButton: .cancel(Text("Decline"))
                 )
             }
-            .actionSheet(item: $showingActionSheet) { item in
-                switch item {
-                case .uploadOptions:
-                    return ActionSheet(
-                        title: Text("Choose how to upload"),
-                        buttons: [
-                            .cancel() { showingActionSheet = nil },
-                            .default(Text("Take photo")) {
-                                viewState.takePhoto()
-                            },
-                            .default(Text("Choose from album")) {
-                                viewState.chooseFromAlbum()
-                            },
-                        ]
-                    )
-                case .changeOrRemove:
-                    return ActionSheet(
-                        title: Text("Choose an action"),
-                        buttons: [
-                            .cancel() { showingActionSheet = nil },
-                            .default(Text("Change avatar")) {
-                                showAvatarUploadSelect()
-                            },
-                            .destructive(Text("Remove avatar")) {
-                                viewState.removeAvatar()
-                            },
-                        ]
-                    )
-                }
+            .actionSheet(isPresented: $showingActionSheet) {
+                ActionSheet(
+                    title: Text("Choose an action"),
+                    buttons: [
+                        .cancel(),
+                        .default(Text("Change avatar")) {
+                            showImagePicker()
+                        },
+                        .destructive(Text("Remove avatar")) {
+                            viewState.isLoadingAvatar = true
+                            viewState.removeAvatar { success, errorResponse, error in
+                                viewState.isLoadingAvatar = false
+                                if !success {
+                                    self.errorResponse = errorResponse
+                                    ?? ErrorResponse(
+                                        title: "Failed to remove avatar",
+                                        description: error ?? "Unknown Error"
+                                    )
+                                    showingError = true
+                                }
+                            }
+                        },
+                    ]
+                )
             }
+            .sheet(isPresented: $showingImagePicker, onDismiss: showImageCropper) {
+                ImagePicker(image: $viewState.selectedImage)
+            }
+            .sheet(isPresented: $showingImageCropper, onDismiss: uploadAvatar) {
+                ImageCropper(
+                    image: $viewState.selectedImage,
+                    croppedImage: $viewState.croppedImage
+                )
+            }
+        AlertIfError(showingAlert: $showingError, errorResponse: $errorResponse)
     }
 }
 
 struct AvatarButton_Previews: PreviewProvider {
     static var previews: some View {
         AvatarButton(profile: fakeProfile(), extraInfo: fakeExtraInfo())
+            .environmentObject(HeaderViewState())
     }
 }

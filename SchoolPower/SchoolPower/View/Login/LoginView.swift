@@ -60,7 +60,7 @@ struct LoginView: View {
                                         authentication.authenticate(data: data)
                                     } else if let errorResponse = errorResponse {
                                         showAlert(
-                                            title: errorResponse.title,
+                                            title: errorResponse.title ?? "Login failed",
                                             body: errorResponse.description ?? "Unknown Error"
                                         )
                                     } else {

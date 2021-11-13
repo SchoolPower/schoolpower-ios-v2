@@ -10,6 +10,9 @@ import SwiftUI
 fileprivate struct CoursesList: View {
     @EnvironmentObject var settings: SettingsStore
     
+    @State var errorResponse: ErrorResponse? = nil
+    @State var showingError: Bool = false
+    
     var courses: [Course]
     
     private var coursesToDisplay: [Course] {
@@ -28,33 +31,46 @@ fileprivate struct CoursesList: View {
         var refreshControl: UIRefreshControl?
         
         @objc func didRefresh() {
-            guard let _ = parent, let refreshControl = refreshControl
+            guard let parent = parent, let refreshControl = refreshControl
             else { return }
             StudentDataStore.shared.refresh { success, errorResponse, error in
                 refreshControl.endRefreshing()
+                if success {
+                    
+                } else {
+                    parent.errorResponse = errorResponse
+                    ?? ErrorResponse(
+                        title: "Failed to refresh data",
+                        description: error ?? "Unknown Error"
+                    )
+                    parent.showingError = true
+                }
             }
         }
     }
     
     var body: some View {
-        List {
-            ForEach(coursesToDisplay) { course in
-                DashboardCourseItem(course: course)
-                    .background(NavigationLink(
-                        destination: CourseDetailView(course: course)
-                    ) {}.opacity(0))
-                    .listRowInsets(EdgeInsets())
+        ZStack {
+            List {
+                ForEach(coursesToDisplay) { course in
+                    DashboardCourseItem(course: course)
+                        .background(NavigationLink(
+                            destination: CourseDetailView(course: course)
+                        ) {}.opacity(0))
+                        .listRowInsets(EdgeInsets())
+                }
             }
+            .introspectTableView { tableView in
+                guard tableView.refreshControl == nil else { return }
+                let control = UIRefreshControl()
+                refreshHelper.parent = self
+                refreshHelper.refreshControl = control
+                control.addTarget(refreshHelper, action: #selector(RefreshHelper.didRefresh), for: .valueChanged)
+                tableView.refreshControl = control
+            }
+            .navigationTitle("Courses")
+            AlertIfError(showingAlert: $showingError, errorResponse: $errorResponse)
         }
-        .introspectTableView { tableView in
-            guard tableView.refreshControl == nil else { return }
-            let control = UIRefreshControl()
-            refreshHelper.parent = self
-            refreshHelper.refreshControl = control
-            control.addTarget(refreshHelper, action: #selector(RefreshHelper.didRefresh), for: .valueChanged)
-            tableView.refreshControl = control
-        }
-        .navigationTitle("Courses")
     }
 }
 
@@ -62,29 +78,31 @@ struct DashboardView: View {
     var courses: [Course]
     var disabledInfo: DisabledInfo?
     
+    private var coursesToDisplay: [Course] {
+        disabledInfo != nil ? [] : courses
+    }
+    
     var body: some View {
         ZStack {
             switch (UIDevice.current.userInterfaceIdiom) {
             case .pad, .mac:
                 NavigationView {
-                    CoursesList(courses: courses)
+                    CoursesList(courses: coursesToDisplay)
                     Text("AAA")
                     Text("BBB")
                 }
             default:
                 NavigationView {
-                    CoursesList(courses: courses)
+                    CoursesList(courses: coursesToDisplay)
                     Text("AAA")
                 }
             }
-            if courses.isEmpty {
-                if let disabledInfo = disabledInfo {
-                    DisabledInfoView(disabledInfo: disabledInfo)
-                        .userInteractionDisabled()
-                } else {
-                    NoGradesView()
-                        .userInteractionDisabled()
-                }
+            if let disabledInfo = disabledInfo {
+                DisabledInfoView(disabledInfo: disabledInfo)
+                    .userInteractionDisabled()
+            } else if coursesToDisplay.isEmpty {
+                NoGradesView()
+                    .userInteractionDisabled()
             }
         }
     }
@@ -106,7 +124,7 @@ struct DashboardView_Previews: PreviewProvider {
             .environmentObject(SettingsStore.shared)
         DashboardView(courses: [])
             .environmentObject(SettingsStore.shared)
-        DashboardView(courses: [], disabledInfo: fakeDisabledInfo())
+        DashboardView(courses: [fakeCourse()], disabledInfo: fakeDisabledInfo())
             .environmentObject(SettingsStore.shared)
     }
 }

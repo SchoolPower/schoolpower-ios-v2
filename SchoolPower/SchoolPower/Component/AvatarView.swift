@@ -58,6 +58,7 @@ private struct AsyncImageAvatarViewFallback: View {
 struct AvatarView: View {
     var text: String
     var imageURL: String?
+    var isLoading: Bool?
     
     var forceFallbackImageView: Bool?
     
@@ -70,7 +71,11 @@ struct AvatarView: View {
     }
     
     var body: some View {
-        if let url = url {
+        if isLoading == true {
+            ProgressView()
+                .frame(width: 64, height: 64)
+                .cornerRadius(32)
+        } else if let url = url {
             if #available(iOS 15.0, *), forceFallbackImageView != true {
                 AsyncImageAvatarView(url: url)
             } else {
@@ -87,7 +92,9 @@ struct AvatarView_Previews: PreviewProvider {
         VStack {
             AvatarView(text: "S")
             AvatarView(text: "S", imageURL: "https://i.ytimg.com/vi/9QLT1Aw_45s/maxresdefault.jpg")
+            AvatarView(text: "S", imageURL: "https://i.ytimg.com/vi/9QLT1Aw_45s/maxresdefault.jpg", isLoading: true)
             AvatarView(text: "S", imageURL: "https://i.ytimg.com/vi/9QLT1Aw_45s/maxresdefault.jpg", forceFallbackImageView: true)
+            AvatarView(text: "S", imageURL: "https://i.ytimg.com/vi/9QLT1Aw_45s/maxresdefault.jpg", isLoading: true, forceFallbackImageView: true)
         }
     }
 }

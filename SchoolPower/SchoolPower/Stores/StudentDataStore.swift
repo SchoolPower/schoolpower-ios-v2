@@ -83,7 +83,7 @@ extension StudentDataStore {
     }
     
     static func tryFetchAndIfSuccess(
-        requestData: RequestData? = AuthenticationStore.shared.requestData,
+        requestData: RequestData? = nil,
         callback: @escaping (StudentData) -> Void
     ) {
         if let requestData = requestData {
@@ -97,7 +97,7 @@ extension StudentDataStore {
     }
     
     static func tryFetch(
-        requestData: RequestData,
+        requestData: RequestData? = AuthenticationStore.shared.requestData,
         completion: @escaping (Bool, StudentData?, ErrorResponse?, String?) -> Void
     ) {
         AF.request(

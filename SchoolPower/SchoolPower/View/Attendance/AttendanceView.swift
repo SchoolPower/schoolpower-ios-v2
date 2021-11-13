@@ -12,6 +12,13 @@ struct AttendanceView: View {
     var attendances: [Attendance]
     var disabledInfo: DisabledInfo?
     
+    @State var errorResponse: ErrorResponse? = nil
+    @State var showingError: Bool = false
+    
+    private var attendancesToDisplay: [Attendance] {
+        disabledInfo != nil ? [] : attendances
+    }
+    
     private let refreshHelper = RefreshHelper()
     
     class RefreshHelper {
@@ -19,10 +26,20 @@ struct AttendanceView: View {
         var refreshControl: UIRefreshControl?
         
         @objc func didRefresh() {
-            guard let _ = parent, let refreshControl = refreshControl
+            guard let parent = parent, let refreshControl = refreshControl
             else { return }
             StudentDataStore.shared.refresh { success, errorResponse, error in
                 refreshControl.endRefreshing()
+                if success {
+                    
+                } else {
+                    parent.errorResponse = errorResponse
+                    ?? ErrorResponse(
+                        title: "Failed to refresh data",
+                        description: error ?? "Unknown Error"
+                    )
+                    parent.showingError = true
+                }
             }
         }
     }
@@ -31,7 +48,7 @@ struct AttendanceView: View {
         ZStack {
             NavigationView {
                 List {
-                    ForEach(attendances) { attendance in
+                    ForEach(attendancesToDisplay) { attendance in
                         AttendanceItem(attendance: attendance)
                             .background(NavigationLink(
                                 destination: AttendanceDetailView(attendance: attendance)
@@ -49,15 +66,14 @@ struct AttendanceView: View {
                 .navigationTitle("Attendances")
                 Text("AAA")
             }
-            if attendances.isEmpty {
-                if let disabledInfo = disabledInfo {
-                    DisabledInfoView(disabledInfo: disabledInfo)
-                        .userInteractionDisabled()
-                } else {
-                    NoAttendanceView()
-                        .userInteractionDisabled()
-                }
+            if let disabledInfo = disabledInfo {
+                DisabledInfoView(disabledInfo: disabledInfo)
+                    .userInteractionDisabled()
+            } else if attendancesToDisplay.isEmpty {
+                NoAttendanceView()
+                    .userInteractionDisabled()
             }
+            AlertIfError(showingAlert: $showingError, errorResponse: $errorResponse)
         }
     }
 }
@@ -66,6 +82,6 @@ struct AttendanceView_Previews: PreviewProvider {
     static var previews: some View {
         AttendanceView(attendances: [fakeAttendance()])
         AttendanceView(attendances: [])
-        AttendanceView(attendances: [], disabledInfo: fakeDisabledInfo())
+        AttendanceView(attendances: [fakeAttendance()], disabledInfo: fakeDisabledInfo())
     }
 }

@@ -15,6 +15,7 @@ class Constants {
     
     public static let websiteURL = "https://schoolpower.tech"
     public static let sourceCodeURL = "https://github.com/schoolpower"
+    public static let imageUploadURL = "https://sm.ms/api/v2/upload"
     
     public static let studentDataFileName = "studentData.json"
 }
