@@ -82,27 +82,40 @@ struct DashboardView: View {
         disabledInfo != nil ? [] : courses
     }
     
+    private var showPlaceholder: Bool {
+        disabledInfo != nil || coursesToDisplay.isEmpty
+    }
+    
+    private var placeholder: some View {
+        if let disabledInfo = disabledInfo {
+            return AnyView(DisabledInfoView(disabledInfo: disabledInfo))
+        } else {
+            return AnyView(NoGradesView())
+        }
+    }
+    
     var body: some View {
-        ZStack {
-            switch (UIDevice.current.userInterfaceIdiom) {
-            case .pad, .mac:
-                NavigationView {
+        switch (UIDevice.current.userInterfaceIdiom) {
+        case .pad, .mac:
+            NavigationView {
+                if showPlaceholder {
                     CoursesList(courses: coursesToDisplay)
-                    Text("AAA")
-                    Text("BBB")
-                }
-            default:
-                NavigationView {
+                    placeholder
+                } else {
                     CoursesList(courses: coursesToDisplay)
-                    Text("AAA")
+                    Text("")
+                    Text("")
                 }
             }
-            if let disabledInfo = disabledInfo {
-                DisabledInfoView(disabledInfo: disabledInfo)
-                    .userInteractionDisabled()
-            } else if coursesToDisplay.isEmpty {
-                NoGradesView()
-                    .userInteractionDisabled()
+        default:
+            ZStack {
+                NavigationView {
+                    CoursesList(courses: coursesToDisplay)
+                    Text("")
+                }
+                if showPlaceholder {
+                    placeholder
+                }
             }
         }
     }

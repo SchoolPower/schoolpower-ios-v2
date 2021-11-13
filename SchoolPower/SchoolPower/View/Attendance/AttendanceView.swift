@@ -44,6 +44,18 @@ struct AttendanceView: View {
         }
     }
     
+    private var showPlaceholder: Bool {
+        disabledInfo != nil || attendancesToDisplay.isEmpty
+    }
+    
+    private var placeholder: some View {
+        if let disabledInfo = disabledInfo {
+            return AnyView(DisabledInfoView(disabledInfo: disabledInfo))
+        } else {
+            return AnyView(NoAttendanceView())
+        }
+    }
+    
     var body: some View {
         ZStack {
             NavigationView {
@@ -64,14 +76,20 @@ struct AttendanceView: View {
                     tableView.refreshControl = control
                 }
                 .navigationTitle("Attendances")
-                Text("AAA")
+                if showPlaceholder {
+                    placeholder
+                } else {
+                    Text("")
+                }
             }
-            if let disabledInfo = disabledInfo {
-                DisabledInfoView(disabledInfo: disabledInfo)
-                    .userInteractionDisabled()
-            } else if attendancesToDisplay.isEmpty {
-                NoAttendanceView()
-                    .userInteractionDisabled()
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                if let disabledInfo = disabledInfo {
+                    DisabledInfoView(disabledInfo: disabledInfo)
+                        .userInteractionDisabled()
+                } else if attendancesToDisplay.isEmpty {
+                    NoAttendanceView()
+                        .userInteractionDisabled()
+                }
             }
             AlertIfError(showingAlert: $showingError, errorResponse: $errorResponse)
         }
