@@ -42,8 +42,10 @@ class HeaderViewState: ObservableObject {
                     debugPrint("Image uploaded")
                     do {
                         let responseJson = try JSONDecoder().decode(ImageUploadResponse.self, from: jsonString.data(using: .utf8)!)
-                        self.updateAvatarURL(url: responseJson.data.url, hash: responseJson.data.hash) { success, errorResponse, error in
-                            completion(success, errorResponse, error)
+                        if responseJson.code == "image_repeated", let url = responseJson.images {
+                            self.updateAvatarURL(url: url, hash: "", completion: completion)
+                        } else {
+                            self.updateAvatarURL(url: responseJson.data!.url, hash: responseJson.data!.hash, completion: completion)
                         }
                     } catch {
                         completion(

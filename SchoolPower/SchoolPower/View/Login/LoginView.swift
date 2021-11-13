@@ -39,6 +39,7 @@ struct LoginView: View {
                         Color(UIColor.systemBackground)
                             .cornerRadius(.topLeft, 50)
                             .cornerRadius(.topRight, 50)
+                            .frame(maxWidth: 464)
                             .edgesIgnoringSafeArea(.all)
                         
                         VStack {
@@ -88,6 +89,7 @@ struct LoginView: View {
                             .disabled(viewModel.loginData.isEmpty)
                             Spacer()
                         }
+                        .frame(maxWidth: 400)
                         .padding(32)
                     }
                 }

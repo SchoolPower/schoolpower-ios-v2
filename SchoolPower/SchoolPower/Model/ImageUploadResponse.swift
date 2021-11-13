@@ -14,5 +14,7 @@ struct ImageUploadResponse: Codable {
     }
 
     var success: Bool
-    var data: Data
+    var code: String?
+    var data: Data?
+    var images: String?
 }
