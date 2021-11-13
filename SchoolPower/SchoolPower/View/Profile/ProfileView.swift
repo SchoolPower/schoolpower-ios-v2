@@ -7,29 +7,6 @@
 
 import SwiftUI
 
-private struct HeaderView: View {
-    var profile: Profile
-    var body: some View {
-        HStack(alignment: .center) {
-            Text(profile.lastName.first?.uppercased() ?? String(profile.id).first?.uppercased() ?? "")
-                .frame(width: 65, height: 65)
-                .foregroundColor(.white)
-                .font(.title3)
-                .background(
-                    Circle()
-                        .foregroundColor(.purple)
-                )
-            VStack(alignment: .leading) {
-                Text(profile.fullName()).foregroundColor(.primary).font(.title2).bold()
-                Spacer().frame(width: 2).fixedSize()
-                Text(String(profile.id)).foregroundColor(.primary).font(.subheadline)
-            }.padding(.leading)
-        }
-        .padding(.top)
-        .padding(.bottom)
-    }
-}
-
 struct ProfileView: View {
     @EnvironmentObject var authentication: AuthenticationStore
     @State var showBugReport: Bool = false
@@ -44,11 +21,12 @@ struct ProfileView: View {
     }
     
     var profile: Profile
+    var extraInfo: ExtraInfo
     
     var body: some View {
         NavigationView {
             List {
-                Section() { HeaderView(profile: profile) }
+                Section() { HeaderView(profile: profile, extraInfo: extraInfo) }
                 Section() {
                     if shouldPreSelect {
                         NavigationLink(
@@ -95,6 +73,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(profile: fakeProfile())
+        ProfileView(profile: fakeProfile(), extraInfo: fakeExtraInfo())
     }
 }

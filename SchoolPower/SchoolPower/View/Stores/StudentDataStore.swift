@@ -21,9 +21,6 @@ final class StudentDataStore: ObservableObject {
     
     func loadThenTryFetchAndSave() {
         StudentDataStore.tryLoadAndIfSuccess { data in self.studentData = data}
-        StudentDataStore.tryFetchAndIfSuccess { data in
-            self.saveAsync(studentData: data)
-        }
     }
     
     func save(studentData: StudentData) {
@@ -42,6 +39,31 @@ final class StudentDataStore: ObservableObject {
         }
     }
     
+    func refresh(completion: @escaping (Bool, ErrorResponse?, String?) -> Void) {
+        if let requestData = AuthenticationStore.shared.requestData {
+            StudentDataStore.tryFetch(requestData: requestData) {
+                success, data, errorResponse, error in
+                if success, let data = data {
+                    StudentDataStore.shared.save(studentData: data)
+                }
+                completion(success, errorResponse, error)
+            }
+        } else {
+            completion(false, ErrorResponse(title: "Unauthenticated", description: "No credential available, please try log in again."), nil)
+        }
+    }
+}
+
+extension StudentDataStore {
+    func disabled() -> Bool {
+        return studentData.hasDisabledInfo && (
+            !studentData.disabledInfo.title.isEmpty ||
+            !studentData.disabledInfo.message.isEmpty
+        )
+    }
+    func tryGetDisabledInfo() -> DisabledInfo? {
+        return disabled() ? studentData.disabledInfo : nil
+    }
 }
 
 extension StudentDataStore {
@@ -90,6 +112,7 @@ extension StudentDataStore {
                 switch response.result {
                 case .success:
                     guard let jsonString = response.value else { return }
+                    debugPrint(jsonString)
                     debugPrint("JSON fetched")
                     do {
                         let data = try StudentData(jsonString: jsonString)

@@ -20,11 +20,14 @@ struct SchoolPowerApp: App {
             ZStack {
                 if authentication.authenticated {
                     SchoolPowerAppView()
-                        .transition(.slide)
+                        .transition(.move(edge: .trailing))
                         .animation(.easeInOut)
                 } else {
                     LoginView()
-                        .transition(.slide)
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .leading),
+                            removal: .move(edge: .leading)
+                        ))
                         .animation(.easeInOut)
                 }
             }

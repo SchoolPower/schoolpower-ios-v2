@@ -17,13 +17,13 @@ class LoginViewModel: ObservableObject {
         isLoading = true
         StudentDataStore.tryFetch(requestData: requestData) {
             [unowned self] success, data, errorResponse, error in
-            
+
             isLoading = false
-            
+
             if success, let data = data {
                 StudentDataStore.shared.save(studentData: data)
             }
-            
+
             completion(success, requestData, errorResponse, error)
         }
     }

@@ -13,7 +13,7 @@ struct OvalTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .padding(32)
-            .background(Color(UIColor.systemGroupedBackground))
+            .background(Color.primary.opacity(0.1))
             .frame(height: 64)
             .cornerRadius(32)
             .contentShape(Rectangle())

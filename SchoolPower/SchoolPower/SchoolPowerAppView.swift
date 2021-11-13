@@ -13,25 +13,36 @@ private struct AppView: View {
     var body: some View {
         VStack {
             TabView {
-                DashboardView(courses: studentDataStore.studentData.courses)
+                DashboardView(
+                    courses: studentDataStore.studentData.courses,
+                    disabledInfo: studentDataStore.tryGetDisabledInfo()
+                )
                     .tabItem {
                         Image(systemName: "list.bullet.circle")
                         Text("Courses")
                     }.tag(1)
+                    .animation(.none)
                 
-                AttendanceView(attendances: studentDataStore.studentData.attendances)
+                AttendanceView(
+                    attendances: studentDataStore.studentData.attendances,
+                    disabledInfo: studentDataStore.tryGetDisabledInfo()
+                )
                     .tabItem {
                         Image(systemName: "clock")
                         Text("Attendances")
                     }.tag(2)
+                    .animation(.none)
                 
-                ProfileView(profile: studentDataStore.studentData.profile)
+                ProfileView(
+                    profile: studentDataStore.studentData.profile,
+                    extraInfo: studentDataStore.studentData.extraInfo
+                )
                     .tabItem {
                         Image(systemName: "person.crop.circle")
                         Text("Profile")
                     }.tag(2)
+                    .animation(.none)
             }
-            .transition(.opacity)
         }
     }
 }
