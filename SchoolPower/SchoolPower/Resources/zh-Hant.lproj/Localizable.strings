@@ -111,7 +111,16 @@
 // Email
 "Email.BugReport.Subject" = "SchoolPower 有 Bug";
 "Email.BugReport.Body" = "
-請提供盡可能詳細的信息，比如怎麼復現問題、預期的表現是什麼、屏幕截圖等。
+感謝你的幫助！請提供盡可能詳細的信息，比如怎麼復現問題、預期的表現是什麼、屏幕截圖等。
 調試信息: SchoolPower iOS %@.
 PowerSchool用戶名與密碼（可選，有助於我們更快修復問題）：
 ";
+
+"Email.CannotSendEmail.Title" = "無法發送郵件";
+"Email.CannotSendEmail.Message %@" = "
+無法啟動郵箱客戶端，請手動將 Bug 報告郵件發送到以下電郵地址：
+
+%@
+
+感謝你的幫助！ ";
+"Copy email addresses" = "複製電郵地址";

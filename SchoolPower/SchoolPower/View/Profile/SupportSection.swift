@@ -9,10 +9,15 @@ import SwiftUI
 
 struct SupportSection: View {
     @State var showBugReport: Bool = false
+    @State var showingCannotSendEmailAlert: Bool = false
     
     var body: some View {
         Section() {
             Button(action: {
+                guard MailView.canSendMail else {
+                    showingCannotSendEmailAlert = true
+                    return
+                }
                 showBugReport = true
             }) {
                 SettingItem(
@@ -20,7 +25,9 @@ struct SupportSection: View {
                     description: "Contact us via Email"
                 )
             }
-            .disabled(!MailView.canSendMail)
+            .alert(isPresented: $showingCannotSendEmailAlert) {
+                CannotSendEmailAlert
+            }
             .sheet(isPresented: $showBugReport) {
                 BugReportEmailView()
             }

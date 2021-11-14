@@ -34,8 +34,15 @@
 // Email
 "Email.BugReport.Subject" = "Found Bug(s) in SchoolPower";
 "Email.BugReport.Body" = "
-Please provide as much info as possible, such as how to reproduce it, what is the expected result, and screenshots if applicable.
+Thank you for your help! Please provide as much info as possible, such as how to reproduce it, what is the expected result, and screenshots if applicable.
 Debug Info: SchoolPower iOS %@.
 PowerSchool Username and Password (Optional, help us solve it faster):
 ";
+"Email.CannotSendEmail.Title" = "Cannot send email";
+"Email.CannotSendEmail.Message %@" = "
+Unable to launch email client, please send the bug report email to the following addresses:
+
+%@
+
+Thank you for your help!";
 

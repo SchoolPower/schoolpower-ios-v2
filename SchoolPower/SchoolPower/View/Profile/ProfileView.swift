@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var authentication: AuthenticationStore
     @State var showBugReport: Bool = false
+    @State var showingCannotSendEmailAlert: Bool = false
     @State private var selection: Int? = 1
     private var shouldPreSelect: Bool {
         switch (UIDevice.current.userInterfaceIdiom) {
@@ -48,11 +49,17 @@ struct ProfileView: View {
                 }
                 Section() {
                     Button(action: {
+                        guard MailView.canSendMail else {
+                            showingCannotSendEmailAlert = true
+                            return
+                        }
                         showBugReport = true
                     }) {
                         Label("Report a Bug", systemImage: "ladybug")
                     }
-                    .disabled(!MailView.canSendMail)
+                    .alert(isPresented: $showingCannotSendEmailAlert) {
+                        CannotSendEmailAlert
+                    }
                     .sheet(isPresented: $showBugReport) {
                         BugReportEmailView()
                     }

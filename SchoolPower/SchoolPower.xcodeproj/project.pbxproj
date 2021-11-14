@@ -24,6 +24,7 @@
 		4D1B09A427404F4F00D03CC8 /* SetAvatarRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */; };
 		4D1B09B62740C9D500D03CC8 /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09B52740C9D500D03CC8 /* mock.json */; };
 		4D1B09B82740D3EA00D03CC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09B02740839000D03CC8 /* Localizable.strings */; };
+		4D1B09BE27419E4800D03CC8 /* CannotSendEmailAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09BD27419E4800D03CC8 /* CannotSendEmailAlert.swift */; };
 		4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC754273B39E5002CAD13 /* HeaderView.swift */; };
 		4D6EC757273B3A63002CAD13 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC756273B3A63002CAD13 /* AvatarView.swift */; };
 		4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */; };
@@ -124,6 +125,7 @@
 		4D1B09B3274083AD00D03CC8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4D1B09B42740BC5500D03CC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4D1B09B52740C9D500D03CC8 /* mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
+		4D1B09BD27419E4800D03CC8 /* CannotSendEmailAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CannotSendEmailAlert.swift; sourceTree = "<group>"; };
 		4D6EC754273B39E5002CAD13 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4D6EC756273B3A63002CAD13 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				4D1B099B274021DB00D03CC8 /* ImagePicker.swift */,
 				4D1B099D2740268400D03CC8 /* ImageCropper.swift */,
 				4D1B099F274037F900D03CC8 /* AlertIfError.swift */,
+				4D1B09BD27419E4800D03CC8 /* CannotSendEmailAlert.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				4D790FD027382B0200E6C4EB /* SupportSection.swift in Sources */,
 				4D790F9C2736296100E6C4EB /* TermGrade.swift in Sources */,
 				4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */,
+				4D1B09BE27419E4800D03CC8 /* CannotSendEmailAlert.swift in Sources */,
 				623F07892730B343007A79F2 /* DashboardView.swift in Sources */,
 				4D1B0994273F78E600D03CC8 /* View+userInteractionDisabled.swift in Sources */,
 				4D1B098E273F54F600D03CC8 /* NoAttendanceView.swift in Sources */,
