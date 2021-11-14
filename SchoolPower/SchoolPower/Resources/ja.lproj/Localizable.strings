@@ -109,3 +109,10 @@
 "Perfect attendance" = "皆勤";
 "PS Turned Off" = "PowerSchool がオフになった";
 
+// Email
+"Email.BugReport.Subject" = "SchoolPower にバグがあります";
+"Email.BugReport.Body" = "
+問題の再現方法や予想されるパフォーマンスなど、できるだけ詳しくご入力ください。
+デバイス情報: SchoolPower iOS %@.
+PowerSchool ユーザー名とパスワード（オプショナル、より早く問題を解決するため）:
+";

@@ -107,3 +107,11 @@
 "Nothing here" = "什麼都沒有";
 "Perfect attendance" = "全勤";
 "PS Turned Off" = "PowerSchool 關了";
+
+// Email
+"Email.BugReport.Subject" = "SchoolPower 有 Bug";
+"Email.BugReport.Body" = "
+請提供盡可能詳細的信息，比如怎麼復現問題、預期的表現是什麼、屏幕截圖等。
+調試信息: SchoolPower iOS %@.
+PowerSchool用戶名與密碼（可選，有助於我們更快修復問題）：
+";

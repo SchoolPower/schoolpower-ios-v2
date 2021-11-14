@@ -21,6 +21,16 @@ extension String {
             return "\(self)%"
         }
     }
+    
+    func localized(_ localeString: String) -> String {
+        var locale = localeString
+        if !Constants.SupportedLocales.contains(localeString) {
+            locale = Constants.LanguageLocale[.english]!
+        }
+        let path = Bundle.main.path(forResource: locale, ofType: "lproj")
+        let bundle = Bundle(path: path!)
+        return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
+    }
 }
 
 extension Int64 {

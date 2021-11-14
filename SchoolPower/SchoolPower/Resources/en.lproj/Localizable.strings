@@ -30,3 +30,12 @@
 
 // Placeholders
 "PS Turned Off" = "PowerSchool Turned Off";
+
+// Email
+"Email.BugReport.Subject" = "Found Bug(s) in SchoolPower";
+"Email.BugReport.Body" = "
+Please provide as much info as possible, such as how to reproduce it, what is the expected result, and screenshots if applicable.
+Debug Info: SchoolPower iOS %@.
+PowerSchool Username and Password (Optional, help us solve it faster):
+";
+

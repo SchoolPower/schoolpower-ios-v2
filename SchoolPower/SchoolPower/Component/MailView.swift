@@ -14,21 +14,21 @@ typealias MailViewCallback = ((Result<MFMailComposeResult, Error>) -> Void)?
 
 struct MailView: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentation
-    @Binding var data: ComposeMailData
+    var data: ComposeMailData
     let callback: MailViewCallback
     
     class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
         @Binding var presentation: PresentationMode
-        @Binding var data: ComposeMailData
+        var data: ComposeMailData
         let callback: MailViewCallback
         
         init(
             presentation: Binding<PresentationMode>,
-            data: Binding<ComposeMailData>,
+            data: ComposeMailData,
             callback: MailViewCallback
         ) {
             _presentation = presentation
-            _data = data
+            self.data = data
             self.callback = callback
         }
         
@@ -47,7 +47,7 @@ struct MailView: UIViewControllerRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(presentation: presentation, data: $data, callback: callback)
+        Coordinator(presentation: presentation, data: data, callback: callback)
     }
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<MailView>) -> MFMailComposeViewController {

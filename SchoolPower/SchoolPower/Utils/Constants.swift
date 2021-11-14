@@ -13,6 +13,11 @@ class Constants {
     public static var registerAPNSDeviceTokenURL: String { "\(serverBaseURL)/register_device" }
     public static var setAvatarURL: String { "\(serverBaseURL)/set_avatar" }
     
+    public static let bugReportEmails = [
+        "carbonylgp@gmail.com",
+        "harryyunull@gmail.com"
+    ]
+    
     public static let websiteURL = "https://schoolpower.tech"
     public static let sourceCodeURL = "https://github.com/schoolpower"
     public static let imageUploadURL = "https://sm.ms/api/v2/upload"
@@ -33,4 +38,8 @@ class Constants {
         .chineseTraditional: "zh-Hant",
         .japanese: "ja"
     ]
+    
+    public static var SupportedLocales: Set<String> {
+        Set(LanguageLocale.values)
+    }
 }
