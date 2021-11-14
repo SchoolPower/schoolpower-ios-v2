@@ -12,6 +12,7 @@ struct AttendanceView: View {
     var attendances: [Attendance]
     var disabledInfo: DisabledInfo?
     
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     @State var errorResponse: ErrorResponse? = nil
     @State var showingError: Bool = false
     
@@ -50,9 +51,9 @@ struct AttendanceView: View {
     
     private var placeholder: some View {
         if let disabledInfo = disabledInfo {
-            return AnyView(DisabledInfoView(disabledInfo: disabledInfo))
+            return AnyView(DisabledInfoView(disabledInfo: disabledInfo).userInteractionDisabled())
         } else {
-            return AnyView(NoAttendanceView())
+            return AnyView(NoAttendanceView().userInteractionDisabled())
         }
     }
     
@@ -82,13 +83,9 @@ struct AttendanceView: View {
                     Text("")
                 }
             }
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                if let disabledInfo = disabledInfo {
-                    DisabledInfoView(disabledInfo: disabledInfo)
-                        .userInteractionDisabled()
-                } else if attendancesToDisplay.isEmpty {
-                    NoAttendanceView()
-                        .userInteractionDisabled()
+            if horizontalSizeClass == .compact {
+                if showPlaceholder {
+                    placeholder
                 }
             }
             AlertIfError(showingAlert: $showingError, errorResponse: $errorResponse)
@@ -104,5 +101,10 @@ struct AttendanceView_Previews: PreviewProvider {
             .environment(\.locale, .init(identifier: "zh-Hans"))
         AttendanceView(attendances: [fakeAttendance()], disabledInfo: fakeDisabledInfo())
             .environment(\.locale, .init(identifier: "zh-Hans"))
+        if #available(iOS 15.0, *) {
+            AttendanceView(attendances: [fakeAttendance()], disabledInfo: fakeDisabledInfo())
+                .environment(\.locale, .init(identifier: "zh-Hans"))
+                .previewInterfaceOrientation(.landscapeLeft)
+        }
     }
 }

@@ -32,7 +32,7 @@ struct PlaceholderInfoView: View {
                             height: idealSize(geometry: geometry)
                         )
                     if let title = title {
-                        Text(LocalizedStringKey(title)).padding(.top, 16).opacity(0.5)
+                        Text(LocalizedStringKey(title)).multilineTextAlignment(.center).padding(.top, 16).opacity(0.5)
                     }
                     if let message = message {
                         Text(LocalizedStringKey(message)).font(.caption).multilineTextAlignment(.center).padding(.top, 1).opacity(0.5)
@@ -49,7 +49,7 @@ struct PlaceholderInfoView: View {
 struct PlaceholderInfoView_Previews: PreviewProvider {
     static var previews: some View {
         PlaceholderInfoView(
-            title: "PS Turned Off", message: "Lorem ipsum dolar sit amet", image: Image("no_grades")
+            title: "PS Turned Off aaa as Lorem ipsum dolar sit amet", message: "Lorem ipsum dolar sit amet", image: Image("no_grades")
         )
     }
 }

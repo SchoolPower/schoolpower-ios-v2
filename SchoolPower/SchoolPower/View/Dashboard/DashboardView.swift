@@ -75,6 +75,8 @@ fileprivate struct CoursesList: View {
 }
 
 struct DashboardView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
     var courses: [Course]
     var disabledInfo: DisabledInfo?
     
@@ -88,31 +90,37 @@ struct DashboardView: View {
     
     private var placeholder: some View {
         if let disabledInfo = disabledInfo {
-            return AnyView(DisabledInfoView(disabledInfo: disabledInfo))
+            return AnyView(DisabledInfoView(disabledInfo: disabledInfo).userInteractionDisabled())
         } else {
-            return AnyView(NoGradesView())
+            return AnyView(NoGradesView().userInteractionDisabled())
         }
     }
     
     var body: some View {
-        switch (UIDevice.current.userInterfaceIdiom) {
-        case .pad, .mac:
-            NavigationView {
-                if showPlaceholder {
-                    CoursesList(courses: coursesToDisplay)
-                    placeholder
-                } else {
-                    CoursesList(courses: coursesToDisplay)
-                    Text("")
-                    Text("")
+        ZStack {
+            switch (UIDevice.current.userInterfaceIdiom) {
+            case .pad, .mac:
+                NavigationView {
+                    if showPlaceholder {
+                        CoursesList(courses: coursesToDisplay)
+                        placeholder
+                    } else {
+                        CoursesList(courses: coursesToDisplay)
+                        Text("")
+                        Text("")
+                    }
                 }
-            }
-        default:
-            ZStack {
+            default:
                 NavigationView {
                     CoursesList(courses: coursesToDisplay)
-                    Text("")
+                    if showPlaceholder {
+                        placeholder
+                    } else {
+                        Text("")
+                    }
                 }
+            }
+            if horizontalSizeClass == .compact {
                 if showPlaceholder {
                     placeholder
                 }
@@ -142,5 +150,11 @@ struct DashboardView_Previews: PreviewProvider {
         DashboardView(courses: [fakeCourse()], disabledInfo: fakeDisabledInfo())
             .environmentObject(SettingsStore.shared)
             .environment(\.locale, .init(identifier: "zh-Hans"))
+        if #available(iOS 15.0, *) {
+            DashboardView(courses: [fakeCourse()], disabledInfo: fakeDisabledInfo())
+                .environmentObject(SettingsStore.shared)
+                .environment(\.locale, .init(identifier: "zh-Hans"))
+                .previewInterfaceOrientation(.landscapeLeft)
+        }
     }
 }
