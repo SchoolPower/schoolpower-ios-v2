@@ -10,6 +10,16 @@ import Foundation
 extension Assignment: Identifiable, Hashable {
     internal var id: String { "\(self.title):\(getDateString())" }
     
+    func trueFlags() -> [String] {
+        var result: [String] = []
+        for key in flags.keys {
+            if flags[key] == true {
+                result.append(key)
+            }
+        }
+        return result
+    }
+    
     func getDateString() -> String {
         date.asMillisDate().formatted()
     }
@@ -39,6 +49,11 @@ func fakeAssignment() -> Assignment {
     assignment.includeInFinalGrade = true
     assignment.weight = 1.0
     assignment.terms = [fakeTermGrade().term]
-    assignment.flags = [:]
+    assignment.flags = [
+        "exempt": true,
+        "late": false,
+        "missing": true,
+        "includeInFinalGrade": true
+    ]
     return assignment
 }

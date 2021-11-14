@@ -42,6 +42,19 @@ struct AssignmentDetailView: View {
                         text: assignment.weight.rounded(digits: 1)
                     )
                 }
+                if !assignment.trueFlags().isEmpty {
+                    Divider()
+                    Text("Flags").font(.caption).padding(.top)
+                    ForEach(assignment.trueFlags(), id: \.self) { flag in
+                        Text(LocalizedStringKey(flag))
+                            .foregroundColor(.primary)
+                            .font(.body)
+                            .bold()
+                            .padding(.top, 8)
+                            .padding(.bottom, 8)
+                        Divider()
+                    }
+                }
             }
             .padding()
         }
@@ -52,5 +65,6 @@ struct AssignmentDetailView: View {
 struct AssignmentDetailView_Previews: PreviewProvider {
     static var previews: some View {
         AssignmentDetailView(assignment: fakeAssignment())
+            .environment(\.locale, .init(identifier: "zh-Hans"))
     }
 }

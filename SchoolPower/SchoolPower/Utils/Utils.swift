@@ -54,4 +54,12 @@ class Utils {
         }
         return nil
     }
+    
+    static func getLocale(language: Constants.Language, defaultLocale: Locale) -> Locale {
+        if language == .systemDefault {
+            return defaultLocale
+        } else {
+            return .init(identifier: Constants.LanguageLocale[language]!)
+        }
+    }
 }

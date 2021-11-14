@@ -11,11 +11,11 @@ struct AlertIfError: View {
     var showingAlert: Binding<Bool>
     var errorResponse: Binding<ErrorResponse?>
     
-    private var alertTitle: String {
-        errorResponse.wrappedValue?.title ?? ""
+    private var alertTitle: LocalizedStringKey {
+        LocalizedStringKey(errorResponse.wrappedValue?.title ?? "")
     }
-    private var alertMessage: String {
-        errorResponse.wrappedValue?.description ?? ""
+    private var alertMessage: LocalizedStringKey {
+        LocalizedStringKey(errorResponse.wrappedValue?.description ?? "")
     }
     
     var body: some View {
@@ -23,8 +23,7 @@ struct AlertIfError: View {
             .alert(isPresented: showingAlert) {
                 Alert(
                     title: Text(alertTitle),
-                    message: Text(alertMessage),
-                    dismissButton: .default(Text("OK"))
+                    message: Text(alertMessage)
                 )
             }
     }

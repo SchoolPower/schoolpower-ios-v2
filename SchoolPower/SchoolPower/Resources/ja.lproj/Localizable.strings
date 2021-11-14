@@ -1,0 +1,111 @@
+/*
+  Localizable.strings
+  SchoolPower
+
+  Created by Mark Wang on 11/13/21.
+  
+*/
+
+// Navigations
+"Courses" = "コース";
+"Attendances" = "出席";
+"Profile" = "プロフィール";
+
+// Profile
+"Settings" = "設定";
+"About" = "アプリに関する情報";
+"Report a Bug" = "バグを報告する";
+"Report Bugs" = "バグを報告する";
+"Logout" = "ログアウト";
+
+/// Courses
+"Room" = "教室";
+"Instructor" = "先生";
+"Grades" = "成績";
+"Grade" = "成績";
+"Assignments" = "宿題";
+"Block" = "ブロック";
+"Score" = "得点";
+"Date" = "日付";
+"Type" = "タイプ";
+"Weight" = "重み";
+"Flags" = "マーク";
+"Comment" = "コメント";
+"Course" = "コース";
+"Evaluation" = "評価";
+
+/// Flags
+"collected" = "提出した";
+"incomplete" = "未完成";
+"late" = "遅れた";
+"missing" = "提出なし";
+"exempt" = "最終成績から免除されます";
+"includeInFinalGrade" = "最終成績に含まれていません";
+
+/// Settings
+"Language" = "言語";
+"Show Inactive Courses" = "非アクティブなコースを表示";
+"Show courses with no assignment or grade." = "課題や成績のないコースを表示する。";
+"Enable Notification" = "通知を有効にする";
+"Show Grades in Notification" = "通知に成績を表示";
+"Notify Ungraded Assignments" = "未採点の課題を通知";
+"Contact us via Email" = "メールでお問い合わせ";
+"Website" = "公式サイト";
+"Source Code" = "ソースコード";
+
+/// Languages
+"System Default" = "システムデフォルト";
+
+/// About
+"Version" = "バージョン";
+"Licenses" = "オープンソースライセンス";
+
+/// Avatar
+"Image Upload Agreement" = "画像アップロード契約";
+"image_upload_agreement_content" = "
+    SchoolPowerはサードパーティの画像ストレージウェブサイト「SM.MS」を使用してユーザーのアバターを保存します。
+    「同意する」をクリックして、選択したアバターをアップロードすると、SM.MSの使用許諾契約に同意したことになります。
+ 
+    SM.MS使用許諾契約は次のように抜粋されています（翻訳のみです。ウェブサイトの元のバージョンを参照してください）：
+    
+    {SM.MS契約はここから}
+    法律で認められている範囲で、この画像ホスティングサービスをご利用ください。
+    次の種類の画像をアップロードして共有することは固く禁じられています：
+    - ポルノ、暴力、またはテロを助長する画像
+    - 著作権の侵害する、無許可の画像
+    - 中華人民共和国の法律に違反するの画像
+    - 香港の法律に違反するの画像
+    {SM.MS契約はここまで}
+
+    SchoolPowerは、上記のウェブサイトによって他の方法で承認、後援、提携、または承認されていません。
+    SchoolPowerは、上記のウェブサイトの使用またはその契約違反によりユーザーが引き起こした問題については責任を負いません。
+    SchoolPowerは、上記のウェブサイトのサービスの安定性を保証せず。
+    SchoolPowerは、ユーザーの画像が永続的に保存されること、ユーザーの画像が上記のウェブサイトから漏洩しないこと、またはユーザーが必要に応じて画像を完全に削除できることを保証しません。
+    ";
+"Decline" = "拒否する";
+"Accept" = "同意する";
+"Choose an action" = "アクションを選択してください";
+"Change avatar" = "アバターを変更";
+"Remove avatar" = "アバターを削除";
+
+/// Login
+"Sign In" = "ログイン";
+"Username" = "ユーザー名";
+"Password" = "パスワード";
+
+/// Errors
+"Failed to sign in" = "ログインに失敗しました";
+"Failed to refresh data" = "更新に失敗しました";
+"Failed to upload avatar" = "アバターのアップロードに失敗しました";
+"Failed to remove avatar" = "アバターの削除に失敗しました";
+
+"Unknown error." = "不明なエラー。";
+"Cannot get image JPEG data." = "画像JPEGデータを取得できません。";
+"No image selected." = "画像が選択されていません。";
+"No credential available, please try log in again." = "利用可能なクレデンシャルがありません。もう一度ログインしてください。";
+
+// Placeholders
+"Nothing here" = "何もないよ";
+"Perfect attendance" = "皆勤";
+"PS Turned Off" = "PowerSchool がオフになった";
+

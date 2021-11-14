@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct SchoolPowerApp: App {
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.locale) private var defaultLocale
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var authentication = AuthenticationStore.shared
     @StateObject var settingsStore = SettingsStore.shared
@@ -34,6 +35,7 @@ struct SchoolPowerApp: App {
             .environmentObject(authentication)
             .environmentObject(settingsStore)
             .environmentObject(studentDataStore)
+            .environment(\.locale, Utils.getLocale(language: settingsStore.language, defaultLocale: defaultLocale))
         }
         .onChange(of: scenePhase) { phase in
             if phase == .active {

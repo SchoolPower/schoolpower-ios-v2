@@ -58,5 +58,7 @@ struct ContentView_Previews: PreviewProvider {
         SchoolPowerAppView()
             .environmentObject(SettingsStore.shared)
             .environmentObject(StudentDataStore.shared)
+            .environmentObject(AuthenticationStore.shared)
+            .environment(\.locale, .init(identifier: "zh-Hans"))
     }
 }

@@ -79,5 +79,6 @@ struct CourseDetailView: View {
 struct CourseDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CourseDetailView(course: fakeCourse())
+            .environment(\.locale, .init(identifier: "zh-Hans"))
     }
 }

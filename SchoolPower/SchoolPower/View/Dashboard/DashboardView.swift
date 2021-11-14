@@ -41,7 +41,7 @@ fileprivate struct CoursesList: View {
                     parent.errorResponse = errorResponse
                     ?? ErrorResponse(
                         title: "Failed to refresh data",
-                        description: error ?? "Unknown Error"
+                        description: error ?? "Unknown error."
                     )
                     parent.showingError = true
                 }
@@ -135,9 +135,12 @@ struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         DashboardView(courses: [Course](repeating: fakeCourse(), count: 10))
             .environmentObject(SettingsStore.shared)
+            .environment(\.locale, .init(identifier: "zh-Hans"))
         DashboardView(courses: [])
             .environmentObject(SettingsStore.shared)
+            .environment(\.locale, .init(identifier: "zh-Hans"))
         DashboardView(courses: [fakeCourse()], disabledInfo: fakeDisabledInfo())
             .environmentObject(SettingsStore.shared)
+            .environment(\.locale, .init(identifier: "zh-Hans"))
     }
 }

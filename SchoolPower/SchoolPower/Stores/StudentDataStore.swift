@@ -20,7 +20,8 @@ final class StudentDataStore: ObservableObject {
     }
     
     func loadThenTryFetchAndSave() {
-        StudentDataStore.tryLoadAndIfSuccess { data in self.studentData = data}
+        StudentDataStore.tryLoadAndIfSuccess { data in self.studentData = data }
+        StudentDataStore.tryFetchAndIfSuccess { data in self.save(studentData: data) }
     }
     
     func save(studentData: StudentData) {
@@ -29,7 +30,7 @@ final class StudentDataStore: ObservableObject {
             let dataJsonString = try studentData.jsonString()
             Utils.saveStringToFile(filename: Constants.studentDataFileName, data: dataJsonString)
         } catch {
-            print("Failed to save student data to file \(Constants.studentDataFileName): \(error)")
+            print("Failed to save student data to file:" + " \(Constants.studentDataFileName): \(error)")
         }
     }
     
@@ -49,7 +50,7 @@ final class StudentDataStore: ObservableObject {
                 completion(success, errorResponse, error)
             }
         } else {
-            completion(false, ErrorResponse(title: "Unauthenticated", description: "No credential available, please try log in again."), nil)
+            completion(false, ErrorResponse(title: "Failed to refresh data", description: "No credential available, please try log in again."), nil)
         }
     }
 }
@@ -77,7 +78,7 @@ extension StudentDataStore {
                 let data = try StudentData(jsonString: dataJsonString)
                 callback(data)
             } catch {
-                print("Failed to serialize student data from file: \(error)")
+                print("Failed to serialize student data from file:" + " \(error)")
             }
         }
     }
@@ -125,8 +126,8 @@ extension StudentDataStore {
                         } catch {
                             completion(
                                 false, nil, nil,
-                                "Failed to serialize response: \(error.localizedDescription). " +
-                                "JSON String:\n\(jsonString)"
+                                error.localizedDescription +
+                                " Response:\n\(jsonString)"
                             )
                         }
                     }

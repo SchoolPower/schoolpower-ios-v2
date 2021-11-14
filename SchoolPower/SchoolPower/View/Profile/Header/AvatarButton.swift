@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct AvatarButton: View {
     var profile: Profile
@@ -70,7 +71,7 @@ struct AvatarButton: View {
                 self.errorResponse = errorResponse
                 ?? ErrorResponse(
                     title: "Failed to upload avatar",
-                    description: error ?? "Unknown Error"
+                    description: error ?? "Unknown error."
                 )
                 showingError = true
             }
@@ -82,7 +83,7 @@ struct AvatarButton: View {
             .alert(isPresented: $showingAvatarAgreement) {
                 Alert(
                     title: Text("Image Upload Agreement"),
-                    message: Text("agreement"),
+                    message: Text("image_upload_agreement_content"),
                     primaryButton: .default(Text("Accept")) {
                         showImagePicker()
                     },
@@ -105,7 +106,7 @@ struct AvatarButton: View {
                                     self.errorResponse = errorResponse
                                     ?? ErrorResponse(
                                         title: "Failed to remove avatar",
-                                        description: error ?? "Unknown Error"
+                                        description: error ?? "Unknown error."
                                     )
                                     showingError = true
                                 }

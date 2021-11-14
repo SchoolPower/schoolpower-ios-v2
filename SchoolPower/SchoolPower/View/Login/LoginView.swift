@@ -61,13 +61,13 @@ struct LoginView: View {
                                         authentication.authenticate(data: data)
                                     } else if let errorResponse = errorResponse {
                                         showAlert(
-                                            title: errorResponse.title ?? "Login failed",
-                                            body: errorResponse.description ?? "Unknown Error"
+                                            title: errorResponse.title ?? "Failed to sign in",
+                                            body: errorResponse.description ?? "Unknown error."
                                         )
                                     } else {
                                         showAlert(
-                                            title: "Failed to Sign In",
-                                            body: error ?? "Unknown Error"
+                                            title: "Failed to sign in",
+                                            body: error ?? "Unknown error."
                                         )
                                     }
                                 }
@@ -102,8 +102,10 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+            .environment(\.locale, .init(identifier: "zh-Hans"))
         LoginView()
             .preferredColorScheme(.dark)
+            .environment(\.locale, .init(identifier: "zh-Hans"))
     }
 }
 
@@ -122,7 +124,9 @@ struct BetterFocusableInputsView: View {
                 })
                 .focused($isUsernameFocused)
                 .padding(.top, 32)
-            SecureField("Password", text: $viewModel.loginData.password)
+            SecureField(text: $viewModel.loginData.password) {
+                Text("Password")
+            }
                 .textFieldStyle(OvalTextFieldStyle {
                     isPasswordFocused = true
                 })

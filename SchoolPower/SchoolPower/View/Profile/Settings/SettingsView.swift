@@ -17,8 +17,8 @@ struct SettingsView: View {
                     selection: $settings.language,
                     label: Text("Language")
                 ) {
-                    ForEach(SettingsStore.Language.allCases, id: \.self) { language in
-                        Text(language.rawValue).tag(language)
+                    ForEach(Constants.Language.allCases, id: \.self) { language in
+                        Text(LocalizedStringKey(language.rawValue)).tag(language)
                     }
                 }
             }
@@ -44,7 +44,7 @@ struct SettingsView: View {
             }
             SupportSection()
         }
-        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

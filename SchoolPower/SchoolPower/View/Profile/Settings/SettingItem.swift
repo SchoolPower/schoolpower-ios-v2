@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingItem: View {
-    var title: String
+    var title: LocalizedStringKey
     var detail: String? = nil
     var image: String? = nil
     var description: String? = nil
@@ -16,18 +16,18 @@ struct SettingItem: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                if image != nil {
-                    Label(title, systemImage: image!)
+                if let image = image {
+                    Label(title, systemImage: image)
                 } else {
                     Text(title)
                 }
-                if description != nil {
-                    Text(description!).foregroundColor(.gray).font(.caption)
+                if let description = description {
+                    Text(LocalizedStringKey(description)).foregroundColor(.gray).font(.caption)
                 }
             }
             Spacer()
-            if detail != nil {
-                Text(detail!).foregroundColor(.gray)
+            if let detail = detail {
+                Text(LocalizedStringKey(detail)).foregroundColor(.gray)
             }
         }
     }

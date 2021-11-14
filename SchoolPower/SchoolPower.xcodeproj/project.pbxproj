@@ -22,6 +22,8 @@
 		4D1B09A0274037F900D03CC8 /* AlertIfError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B099F274037F900D03CC8 /* AlertIfError.swift */; };
 		4D1B09A227404E2700D03CC8 /* ImageUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09A127404E2700D03CC8 /* ImageUploadResponse.swift */; };
 		4D1B09A427404F4F00D03CC8 /* SetAvatarRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */; };
+		4D1B09B62740C9D500D03CC8 /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09B52740C9D500D03CC8 /* mock.json */; };
+		4D1B09B82740D3EA00D03CC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09B02740839000D03CC8 /* Localizable.strings */; };
 		4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC754273B39E5002CAD13 /* HeaderView.swift */; };
 		4D6EC757273B3A63002CAD13 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC756273B3A63002CAD13 /* AvatarView.swift */; };
 		4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */; };
@@ -117,6 +119,11 @@
 		4D1B099F274037F900D03CC8 /* AlertIfError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertIfError.swift; sourceTree = "<group>"; };
 		4D1B09A127404E2700D03CC8 /* ImageUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadResponse.swift; sourceTree = "<group>"; };
 		4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvatarRequest.swift; sourceTree = "<group>"; };
+		4D1B09B12740839300D03CC8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4D1B09B2274083A500D03CC8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4D1B09B3274083AD00D03CC8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4D1B09B42740BC5500D03CC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4D1B09B52740C9D500D03CC8 /* mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
 		4D6EC754273B39E5002CAD13 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4D6EC756273B3A63002CAD13 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -215,6 +222,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D1B09AD274082F900D03CC8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4D1B09B52740C9D500D03CC8 /* mock.json */,
+				4D1B09B02740839000D03CC8 /* Localizable.strings */,
+				621D38EE27307D4A00825D5C /* Info.plist */,
+				4D790FAA2736CBDB00E6C4EB /* SchoolPower.entitlements */,
+				621D38E927307D4A00825D5C /* Assets.xcassets */,
+				623F07AD27324902007A79F2 /* fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		4D6EC760273B4EA4002CAD13 /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,17 +373,13 @@
 			isa = PBXGroup;
 			children = (
 				621D38E527307D4000825D5C /* SchoolPowerApp.swift */,
-				621D38E727307D4000825D5C /* SchoolPowerAppView.swift */,
 				623F07902730DEC2007A79F2 /* View */,
 				623F07A727323ECF007A79F2 /* Component */,
 				4D790FBC2737582D00E6C4EB /* Stores */,
 				4D790F7D27360AAD00E6C4EB /* Model */,
 				4D790F9627361AAC00E6C4EB /* Proto */,
 				4DB6DF0C2733788400FA7B40 /* Utils */,
-				623F07AD27324902007A79F2 /* fonts */,
-				621D38E927307D4A00825D5C /* Assets.xcassets */,
-				4D790FAA2736CBDB00E6C4EB /* SchoolPower.entitlements */,
-				621D38EE27307D4A00825D5C /* Info.plist */,
+				4D1B09AD274082F900D03CC8 /* Resources */,
 				621D38EB27307D4A00825D5C /* Preview Content */,
 			);
 			path = SchoolPower;
@@ -421,6 +437,7 @@
 		623F07902730DEC2007A79F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				621D38E727307D4000825D5C /* SchoolPowerAppView.swift */,
 				4D790FD42738301300E6C4EB /* Login */,
 				4D790FB22737173100E6C4EB /* Profile */,
 				623F07852730B303007A79F2 /* Dashboard */,
@@ -567,7 +584,10 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				"zh-Hans",
+				"zh-Hant",
+				ja,
+				base,
 			);
 			mainGroup = 621D38D927307D4000825D5C;
 			packageReferences = (
@@ -593,8 +613,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D1B09B62740C9D500D03CC8 /* mock.json in Resources */,
 				4D790F9527361A7C00E6C4EB /* Proto in Resources */,
 				623F07AF273249A7007A79F2 /* Poppins-Regular.ttf in Resources */,
+				4D1B09B82740D3EA00D03CC8 /* Localizable.strings in Resources */,
 				623F07B1273249BA007A79F2 /* Poppins-SemiBold.ttf in Resources */,
 				621D38ED27307D4A00825D5C /* Preview Assets.xcassets in Resources */,
 				621D38EA27307D4A00825D5C /* Assets.xcassets in Resources */,
@@ -720,6 +742,20 @@
 			targetProxy = 621D38FF27307D4A00825D5C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4D1B09B02740839000D03CC8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D1B09B12740839300D03CC8 /* zh-Hans */,
+				4D1B09B2274083A500D03CC8 /* zh-Hant */,
+				4D1B09B3274083AD00D03CC8 /* ja */,
+				4D1B09B42740BC5500D03CC8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		621D390527307D4A00825D5C /* Debug */ = {
@@ -849,7 +885,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SchoolPower/Preview Content\"";
 				DEVELOPMENT_TEAM = MPPUFL3L6R;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SchoolPower/Info.plist;
+				INFOPLIST_FILE = SchoolPower/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -875,7 +911,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SchoolPower/Preview Content\"";
 				DEVELOPMENT_TEAM = MPPUFL3L6R;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SchoolPower/Info.plist;
+				INFOPLIST_FILE = SchoolPower/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

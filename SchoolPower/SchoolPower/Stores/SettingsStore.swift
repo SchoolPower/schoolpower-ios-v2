@@ -24,7 +24,7 @@ final class SettingsStore: ObservableObject {
     private static let defaultSettings: [String: Any] = [
         Keys.authenticated: false,
         Keys.username: "",
-        Keys.language: Language.systemDefault.rawValue,
+        Keys.language: Constants.Language.systemDefault.rawValue,
         Keys.showInactiveCourses: true,
         Keys.notificationEnabled: true,
         Keys.showGradesInNotification: true,
@@ -60,17 +60,11 @@ extension SettingsStore {
 
 // MARK: Language
 extension SettingsStore {
-    enum Language: String, CaseIterable {
-        case systemDefault
-        case english
-        case chineseSimplified
-    }
-    
-    var language: Language {
+    var language: Constants.Language {
         get {
             defaults
                 .string(forKey: Keys.language)
-                .flatMap { Language(rawValue: $0) }
+                .flatMap { Constants.Language(rawValue: $0) }
             ?? .systemDefault
         }
         set { defaults.set(newValue.rawValue, forKey: Keys.language) }

@@ -36,7 +36,7 @@ struct AttendanceView: View {
                     parent.errorResponse = errorResponse
                     ?? ErrorResponse(
                         title: "Failed to refresh data",
-                        description: error ?? "Unknown Error"
+                        description: error ?? "Unknown error."
                     )
                     parent.showingError = true
                 }
@@ -99,7 +99,10 @@ struct AttendanceView: View {
 struct AttendanceView_Previews: PreviewProvider {
     static var previews: some View {
         AttendanceView(attendances: [fakeAttendance()])
+            .environment(\.locale, .init(identifier: "zh-Hans"))
         AttendanceView(attendances: [])
+            .environment(\.locale, .init(identifier: "zh-Hans"))
         AttendanceView(attendances: [fakeAttendance()], disabledInfo: fakeDisabledInfo())
+            .environment(\.locale, .init(identifier: "zh-Hans"))
     }
 }

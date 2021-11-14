@@ -66,7 +66,7 @@ struct ProfileView: View {
                     .accentColor(.red)
                 }
             }
-            .navigationTitle("Profile")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -74,5 +74,7 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView(profile: fakeProfile(), extraInfo: fakeExtraInfo())
+            .environmentObject(AuthenticationStore.shared)
+            .environmentObject(SettingsStore.shared)
     }
 }

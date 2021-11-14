@@ -70,7 +70,7 @@ class HeaderViewState: ObservableObject {
         completion: @escaping (Bool, ErrorResponse?, String?) -> Void
     ) {
         guard let requestData = AuthenticationStore.shared.requestData else {
-            completion(false, nil, "Invalid authentication, please log in again.")
+            completion(false, nil, "No credential available, please try log in again.")
             return
         }
         
@@ -111,12 +111,9 @@ class HeaderViewState: ObservableObject {
                     } catch {
                         completion(
                             false,
-                            ErrorResponse(
-                                title: "Failed to serialize response",
-                                description: "\(error.localizedDescription). " +
-                                "Response:\n\(jsonString)"
-                            ),
-                            nil
+                            nil,
+                            error.localizedDescription +
+                            " Response:\n\(jsonString)"
                         )
                     }
                 case let .failure(error):

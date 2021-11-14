@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  SchoolPower
+
+  Created by Mark Wang on 11/13/21.
+  
+*/
+
+/// Avatar
+"image_upload_agreement_content" = "
+    SchoolPower uses the third-party website SM.MS (\"the website\") to store the user\'s avatar.
+    By clicking \"Agree\" you agree that we will upload your chosen avatar to the website and agree to accept the website\'s license agreement.
+
+    The SM.MS license agreement is excerpted as follows (It is only a translation. Please refer to the original version on the website):
+    
+    {Start of SM.MS Agreement}
+    To the extent permitted by law, please feel free to use this image hosting service.
+    It is forbidden to upload and share the following types of images:
+    - Image containing pornography, violence, and promotion of terrorism
+    - Unauthorized images that infringe copyright
+    - Images that violate the laws of the People\'s Republic of China
+    - Images that violate Hong Kong law
+    {End of SM.MS Agreement}
+
+    SchoolPower is not affiliated, associated, authorized, endorsed by or in any way officially connected to the website.
+    SchoolPower is not responsible for any user\'s breach of their agreement.
+    SchoolPower does not guarantee the stability of the website.
+    SchoolPower does not guarantee that the user\'s image will be permanently saved or \the user\'s image will not be leaked by the website or that the user can permanently delete their image when they wish.
+    ";
+
+// Placeholders
+"PS Turned Off" = "PowerSchool Turned Off";

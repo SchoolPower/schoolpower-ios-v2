@@ -1,0 +1,110 @@
+/* 
+  Localizable.strings
+  SchoolPower
+
+  Created by Mark Wang on 11/13/21.
+  
+*/
+
+// Navigations
+"Courses" = "课程";
+"Attendances" = "出勤";
+"Profile" = "我";
+
+// Profile
+"Settings" = "设置";
+"About" = "关于";
+"Report a Bug" = "提交 Bug";
+"Report Bugs" = "提交 Bug";
+"Logout" = "登出账号";
+
+/// Courses
+"Room" = "教室";
+"Instructor" = "教师";
+"Grades" = "成绩";
+"Grade" = "成绩";
+"Assignments" = "作业";
+"Block" = "时段";
+"Score" = "分数";
+"Date" = "日期";
+"Type" = "类型";
+"Weight" = "权重";
+"Flags" = "标记";
+"Comment" = "评语";
+"Course" = "课程";
+"Evaluation" = "评估";
+
+/// Flags
+"collected" = "已交";
+"incomplete" = "未完成";
+"late" = "迟交";
+"missing" = "未交";
+"exempt" = "得分独立于最终成绩";
+"includeInFinalGrade" = "作业不包含在最终成绩中";
+
+/// Settings
+"Language" = "语言";
+"Show Inactive Courses" = "显示不活跃课程";
+"Show courses with no assignment or grade." = "显示没有作业与分数的课程。";
+"Enable Notification" = "启用新作业通知";
+"Show Grades in Notification" = "在通知里显示成绩";
+"Notify Ungraded Assignments" = "通知还没出分的作业";
+"Contact us via Email" = "用电子邮件联系开发者";
+"Website" = "访问官网";
+"Source Code" = "获取源码";
+
+/// Languages
+"System Default" = "系统默认";
+
+/// About
+"Version" = "版本";
+"Licenses" = "开源许可";
+
+/// Avatar
+"Image Upload Agreement" = "图像上传协议";
+"image_upload_agreement_content" = "
+    SchoolPower 使用了第三方图床网站「SM.MS」来储存用户的头像。
+    点击「同意」代表您同意我们将您所选择的头像上传到上述网站，并且同意接受上述网站的许可协议。
+    SM.MS 许可协议摘抄如下（若有更新，请以该网站上的最新版为准）：
+
+    {SM.MS 协议从此开始}
+    在法律允许范围内，请随意使用本图床。
+    严禁上传及分享如下类型的图片：
+    - 含有色情、暴力、宣扬恐怖主义的图片
+    - 侵犯版权、未经授权的图片
+    - 其他违反中华人民共和国法律的图片
+    - 其他违反香港法律的图片
+    {SM.MS 协议至此结束}
+
+    SchoolPower 未经上述网站的认可，赞助，附属或以其他任何方式授权。
+    SchoolPower 不对用户因使用上述网站或因违反其协议导致的任何问题负责。
+    SchoolPower 不保证上述网站的服务稳定性。
+    SchoolPower 不保证用户头像会被永久保存，不保证用户头像不会被上述网站泄漏，不保证用户可以在其希望的时候永久删除其头像。
+    ";
+"Decline" = "拒绝";
+"Accept" = "接受";
+"Choose an action" = "选择一项操作";
+"Change avatar" = "修改头像";
+"Remove avatar" = "删除头像";
+
+/// Login
+"Sign In" = "登录";
+"Username" = "用户名";
+"Password" = "密码";
+
+/// Errors
+"Failed to sign in" = "登录失败";
+"Failed to refresh data" = "刷新失败";
+"Failed to upload avatar" = "头像上传失败";
+"Failed to remove avatar" = "头像删除失败";
+
+"Unknown error." = "未知错误。";
+"Cannot get image JPEG data." = "无法获得图像 JPEG 数据。";
+"No image selected." = "未选择图像。";
+"No credential available, please try log in again." = "没有可用的登录凭证，请重新登录。";
+
+// Placeholders
+"Nothing here" = "什么都没有";
+"Perfect attendance" = "全勤";
+"PS Turned Off" = "PowerSchool 关了";
+

@@ -26,5 +26,6 @@ struct DisabledInfoView_Previews: PreviewProvider {
         DisabledInfoView(disabledInfo: fakeDisabledInfo())
         DisabledInfoView(disabledInfo: fakeDisabledInfo())
             .preferredColorScheme(.dark)
+            .environment(\.locale, .init(identifier: "zh-Hans"))
     }
 }

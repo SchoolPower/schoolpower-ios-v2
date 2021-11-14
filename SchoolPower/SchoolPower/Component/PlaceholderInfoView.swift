@@ -32,10 +32,10 @@ struct PlaceholderInfoView: View {
                             height: idealSize(geometry: geometry)
                         )
                     if let title = title {
-                        Text(title).padding(.top, 16).opacity(0.5)
+                        Text(LocalizedStringKey(title)).padding(.top, 16).opacity(0.5)
                     }
                     if let message = message {
-                        Text(message).font(.caption).multilineTextAlignment(.center).padding(.top, 1).opacity(0.5)
+                        Text(LocalizedStringKey(message)).font(.caption).multilineTextAlignment(.center).padding(.top, 1).opacity(0.5)
                     }
                     Spacer()
                 }

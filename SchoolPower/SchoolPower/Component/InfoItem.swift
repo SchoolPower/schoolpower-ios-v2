@@ -10,7 +10,7 @@ import SwiftUI
 struct InfoItem: View {
     var leadingCircleColor: Color? = .purple
     var leadingCircleText: String?
-    var label: String
+    var label: LocalizedStringKey
     var text: String
     var body: some View {
         HStack {
