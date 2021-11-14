@@ -6,6 +6,8 @@
   
 */
 
+"App.Copyright" = "Made with ❤️ by SchoolPower 工作室";
+
 // Navigations
 "Courses" = "课程";
 "Attendances" = "出勤";
@@ -118,7 +120,7 @@ PowerSchool用户名与密码（可选，有助于我们更快修复问题）：
 
 "Email.CannotSendEmail.Title" = "无法发送邮件";
 "Email.CannotSendEmail.Message %@" = "
-无法启动邮箱客户端，请手动将 Bug 报告邮件发送到以下邮箱：
+无法启动邮箱客户端，请手动发送 Bug 报告邮件到以下邮箱：
 
 %@
 

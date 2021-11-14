@@ -8,17 +8,14 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     @EnvironmentObject var authentication: AuthenticationStore
     @State var showBugReport: Bool = false
     @State var showingCannotSendEmailAlert: Bool = false
     @State private var selection: Int? = 1
+    
     private var shouldPreSelect: Bool {
-        switch (UIDevice.current.userInterfaceIdiom) {
-        case .pad, .mac:
-            return true
-        default:
-            return false
-        }
+        return horizontalSizeClass == .regular
     }
     
     var profile: Profile
@@ -48,20 +45,8 @@ struct ProfileView: View {
                     }
                 }
                 Section() {
-                    Button(action: {
-                        guard MailView.canSendMail else {
-                            showingCannotSendEmailAlert = true
-                            return
-                        }
-                        showBugReport = true
-                    }) {
+                    SendBugReportEmail {
                         Label("Report a Bug", systemImage: "ladybug")
-                    }
-                    .alert(isPresented: $showingCannotSendEmailAlert) {
-                        CannotSendEmailAlert
-                    }
-                    .sheet(isPresented: $showBugReport) {
-                        BugReportEmailView()
                     }
                 }
                 Section() {

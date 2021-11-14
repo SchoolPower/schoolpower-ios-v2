@@ -6,6 +6,8 @@
   
 */
 
+"App.Copyright" = "Made with ❤️ by SchoolPower 工作室";
+
 // Navigations
 "Courses" = "課程";
 "Attendances" = "出勤";
@@ -118,7 +120,7 @@ PowerSchool用戶名與密碼（可選，有助於我們更快修復問題）：
 
 "Email.CannotSendEmail.Title" = "無法發送郵件";
 "Email.CannotSendEmail.Message %@" = "
-無法啟動郵箱客戶端，請手動將 Bug 報告郵件發送到以下電郵地址：
+無法啟動郵箱客戶端，請手動發送 Bug 報告郵件到以下電郵地址：
 
 %@
 

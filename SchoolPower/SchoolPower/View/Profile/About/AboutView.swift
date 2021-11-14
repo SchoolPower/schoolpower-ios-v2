@@ -18,13 +18,24 @@ struct AboutView: View {
                     detail: appVersion
                 )
             }
+            
             SupportSection()
             Section {
                 NavigationLink(destination: AboutView()) {
                     Text("Licenses")
                 }
             }
+            
+            VStack {
+                Text("App.Copyright")
+                    .font(.caption2)
+                    .foregroundColor(.gray)
+                    .padding(.top)
+                    .frame(maxWidth: .infinity)
+            }
+            .listRowBackground(Color(.systemGroupedBackground))
         }
+        
         .navigationBarTitleDisplayMode(.inline)
     }
 }

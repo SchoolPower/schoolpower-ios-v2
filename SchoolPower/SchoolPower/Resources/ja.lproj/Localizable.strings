@@ -6,6 +6,8 @@
   
 */
 
+"App.Copyright" = "Made with ❤️ by SchoolPower スタジオ";
+
 // Navigations
 "Courses" = "コース";
 "Attendances" = "出席";
