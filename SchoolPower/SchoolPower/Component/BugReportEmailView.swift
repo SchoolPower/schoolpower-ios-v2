@@ -11,7 +11,7 @@ struct BugReportEmailView: View {
     @Environment(\.locale) var locale
     
     var body: some View {
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+        let version = Utils.getFormattedAppVersionBuild()
         let message = String(
             format: "Email.BugReport.Body".localized(locale.identifier),
             version

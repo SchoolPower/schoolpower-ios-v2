@@ -8,20 +8,18 @@
 import SwiftUI
 
 struct AboutView: View {
-    private let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-    
     var body: some View {
         List {
             Section {
                 SettingItem(
                     title: "Version",
-                    detail: appVersion
+                    detail: Utils.getFormattedAppVersionBuild()
                 )
             }
             
             SupportSection()
             Section {
-                NavigationLink(destination: AboutView()) {
+                NavigationLink(destination: LicensesView()) {
                     Text("Licenses")
                 }
             }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,9 +22,12 @@
 		4D1B09A0274037F900D03CC8 /* AlertIfError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B099F274037F900D03CC8 /* AlertIfError.swift */; };
 		4D1B09A227404E2700D03CC8 /* ImageUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09A127404E2700D03CC8 /* ImageUploadResponse.swift */; };
 		4D1B09A427404F4F00D03CC8 /* SetAvatarRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */; };
-		4D1B09B62740C9D500D03CC8 /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09B52740C9D500D03CC8 /* mock.json */; };
 		4D1B09B82740D3EA00D03CC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09B02740839000D03CC8 /* Localizable.strings */; };
 		4D1B09BE27419E4800D03CC8 /* CannotSendEmailAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09BD27419E4800D03CC8 /* CannotSendEmailAlert.swift */; };
+		4D1B09C02741C26D00D03CC8 /* generate-licenses.py in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */; };
+		4D1B09C32741C46600D03CC8 /* licenses.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09C22741C46600D03CC8 /* licenses.json */; };
+		4D1B09C62741C4F500D03CC8 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C52741C4F500D03CC8 /* LicensesView.swift */; };
+		4D1B09C82741C51900D03CC8 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C72741C51900D03CC8 /* License.swift */; };
 		4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC754273B39E5002CAD13 /* HeaderView.swift */; };
 		4D6EC757273B3A63002CAD13 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC756273B3A63002CAD13 /* AvatarView.swift */; };
 		4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */; };
@@ -124,8 +127,11 @@
 		4D1B09B2274083A500D03CC8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4D1B09B3274083AD00D03CC8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4D1B09B42740BC5500D03CC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4D1B09B52740C9D500D03CC8 /* mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
 		4D1B09BD27419E4800D03CC8 /* CannotSendEmailAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CannotSendEmailAlert.swift; sourceTree = "<group>"; };
+		4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "generate-licenses.py"; sourceTree = "<group>"; };
+		4D1B09C22741C46600D03CC8 /* licenses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = licenses.json; sourceTree = "<group>"; };
+		4D1B09C52741C4F500D03CC8 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
+		4D1B09C72741C51900D03CC8 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		4D6EC754273B39E5002CAD13 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4D6EC756273B3A63002CAD13 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -227,7 +233,7 @@
 		4D1B09AD274082F900D03CC8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4D1B09B52740C9D500D03CC8 /* mock.json */,
+				4D1B09C22741C46600D03CC8 /* licenses.json */,
 				4D1B09B02740839000D03CC8 /* Localizable.strings */,
 				621D38EE27307D4A00825D5C /* Info.plist */,
 				4D790FAA2736CBDB00E6C4EB /* SchoolPower.entitlements */,
@@ -235,6 +241,14 @@
 				623F07AD27324902007A79F2 /* fonts */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4D1B09C42741C4CC00D03CC8 /* Licenses */ = {
+			isa = PBXGroup;
+			children = (
+				4D1B09C52741C4F500D03CC8 /* LicensesView.swift */,
+			);
+			path = Licenses;
 			sourceTree = "<group>";
 		};
 		4D6EC760273B4EA4002CAD13 /* Header */ = {
@@ -265,6 +279,7 @@
 				4D790FCB27381D2500E6C4EB /* ComposeMailData.swift */,
 				4D1B09A127404E2700D03CC8 /* ImageUploadResponse.swift */,
 				4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */,
+				4D1B09C72741C51900D03CC8 /* License.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +337,7 @@
 		4D790FD127382B6600E6C4EB /* About */ = {
 			isa = PBXGroup;
 			children = (
+				4D1B09C42741C4CC00D03CC8 /* Licenses */,
 				4D790FD227382B9800E6C4EB /* AboutView.swift */,
 			);
 			path = About;
@@ -353,6 +369,7 @@
 		621D38D927307D4000825D5C = {
 			isa = PBXGroup;
 			children = (
+				4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */,
 				621D38E427307D4000825D5C /* SchoolPower */,
 				621D38F627307D4A00825D5C /* SchoolPowerTests */,
 				621D390127307D4A00825D5C /* SchoolPowerUITests */,
@@ -506,6 +523,7 @@
 				621D38DE27307D4000825D5C /* Sources */,
 				621D38DF27307D4000825D5C /* Frameworks */,
 				621D38E027307D4000825D5C /* Resources */,
+				4D1B09C12741C2C800D03CC8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -616,7 +634,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D1B09B62740C9D500D03CC8 /* mock.json in Resources */,
+				4D1B09C32741C46600D03CC8 /* licenses.json in Resources */,
+				4D1B09C02741C26D00D03CC8 /* generate-licenses.py in Resources */,
 				4D790F9527361A7C00E6C4EB /* Proto in Resources */,
 				623F07AF273249A7007A79F2 /* Poppins-Regular.ttf in Resources */,
 				4D1B09B82740D3EA00D03CC8 /* Localizable.strings in Resources */,
@@ -642,6 +661,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D1B09C12741C2C800D03CC8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $ENABLE_PREVIEWS == \"NO\" ]\nthen\n    python3 $SRCROOT/generate-licenses.py --build-dir $BUILD_DIR --output-file $SRCROOT/SchoolPower/Resources/licenses.json\nelse\n  echo \"Skipping license generation during preview.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		621D38DE27307D4000825D5C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -662,6 +702,7 @@
 				4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */,
 				623F07A627323B54007A79F2 /* AssignmentDetailView.swift in Sources */,
 				623F078E2730BCAD007A79F2 /* CourseDetailView.swift in Sources */,
+				4D1B09C82741C51900D03CC8 /* License.swift in Sources */,
 				623F07AC27324014007A79F2 /* TermDetailView.swift in Sources */,
 				4D790F9A27361AB800E6C4EB /* ProtoTypealiases.swift in Sources */,
 				4D1B098A273F522D00D03CC8 /* DisabledInfoView.swift in Sources */,
@@ -694,6 +735,7 @@
 				4D1B0992273F717B00D03CC8 /* PullToRefresh.swift in Sources */,
 				4D790FB12737116600E6C4EB /* AttendanceDetailView.swift in Sources */,
 				4D1B09A427404F4F00D03CC8 /* SetAvatarRequest.swift in Sources */,
+				4D1B09C62741C4F500D03CC8 /* LicensesView.swift in Sources */,
 				4D790F8B27360AAD00E6C4EB /* Course.swift in Sources */,
 				4D790FDF273850E900E6C4EB /* TextField.swift in Sources */,
 				4D790FC0273773E200E6C4EB /* Constants.swift in Sources */,
@@ -885,7 +927,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SchoolPower/SchoolPower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_ASSET_PATHS = "\"SchoolPower/Preview Content\"";
 				DEVELOPMENT_TEAM = MPPUFL3L6R;
 				ENABLE_PREVIEWS = YES;
@@ -895,7 +937,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.0a1;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.schoolpower.SchoolPower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -911,7 +953,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SchoolPower/SchoolPower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_ASSET_PATHS = "\"SchoolPower/Preview Content\"";
 				DEVELOPMENT_TEAM = MPPUFL3L6R;
 				ENABLE_PREVIEWS = YES;
@@ -921,7 +963,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.0a1;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.schoolpower.SchoolPower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;

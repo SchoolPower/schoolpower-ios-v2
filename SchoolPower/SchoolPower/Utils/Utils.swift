@@ -72,4 +72,36 @@ class Utils {
             return .init(identifier: Constants.LanguageLocale[language]!)
         }
     }
+    
+    static func getAppVersion() -> String? {
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    
+    static func getAppBuild() -> String? {
+        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+    }
+    
+    static func getFormattedAppVersionBuild() -> String {
+        return "\(getAppVersion() ?? "Unknown Version") (\(getAppBuild() ?? "Unknown Build"))"
+    }
+    
+    static var licenses: [License] {
+        guard let licensesFilePath = Bundle.main.path(forResource: "licenses", ofType: "json") else {
+            print("Failed to locate licenses.json file in bundle.")
+            return []
+        }
+        guard let licensesJSON = try? String(contentsOfFile: licensesFilePath) else {
+            print("Failed to read from licenses.json file at \(licensesFilePath).")
+            return []
+        }
+        guard let licensesData = licensesJSON.data(using: .utf8) else {
+            print("Failed to read from licenses data from JSON \(licensesJSON).")
+            return []
+        }
+        guard let decodedLicenses = try? JSONDecoder().decode(Licenses.self, from: licensesData) else {
+            print("Failed to decode licenses from data. JSON: \(licensesJSON).")
+            return []
+        }
+        return decodedLicenses.licenses
+    }
 }
