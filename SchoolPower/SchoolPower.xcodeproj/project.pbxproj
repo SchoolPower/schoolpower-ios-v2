@@ -236,7 +236,6 @@
 				4D1B09C22741C46600D03CC8 /* licenses.json */,
 				4D1B09B02740839000D03CC8 /* Localizable.strings */,
 				621D38EE27307D4A00825D5C /* Info.plist */,
-				4D790FAA2736CBDB00E6C4EB /* SchoolPower.entitlements */,
 				621D38E927307D4A00825D5C /* Assets.xcassets */,
 				623F07AD27324902007A79F2 /* fonts */,
 			);
@@ -391,6 +390,7 @@
 		621D38E427307D4000825D5C /* SchoolPower */ = {
 			isa = PBXGroup;
 			children = (
+				4D790FAA2736CBDB00E6C4EB /* SchoolPower.entitlements */,
 				621D38E527307D4000825D5C /* SchoolPowerApp.swift */,
 				623F07902730DEC2007A79F2 /* View */,
 				623F07A727323ECF007A79F2 /* Component */,
@@ -937,7 +937,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0a1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.schoolpower.SchoolPower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -963,7 +963,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0a1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.schoolpower.SchoolPower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
