@@ -8,12 +8,14 @@
 import SwiftUI
 
 fileprivate struct CoursesList: View {
+    
     @EnvironmentObject var settings: SettingsStore
     
     @State var errorResponse: ErrorResponse? = nil
     @State var showingError: Bool = false
     
     var courses: [Course]
+    var horizontalSizeClass: UserInterfaceSizeClass?
     
     private var coursesToDisplay: [Course] {
         if !settings.showInactiveCourses {
@@ -51,24 +53,59 @@ fileprivate struct CoursesList: View {
     
     var body: some View {
         ZStack {
-            List {
-                ForEach(coursesToDisplay) { course in
-                    DashboardCourseItem(course: course)
-                        .background(NavigationLink(
-                            destination: CourseDetailView(course: course)
-                        ) {}.opacity(0))
-                        .listRowInsets(EdgeInsets())
+            if horizontalSizeClass == .regular {
+                
+                List {
+                    InfoCard()
+                    ForEach(coursesToDisplay) { course in
+                        DashboardCourseItem(course: course)
+                            .background(NavigationLink(
+                                destination: CourseDetailView(course: course)
+                            ) {}.opacity(0))
+                            .listRowInsets(EdgeInsets())
+                    }
                 }
+                .listStyle(.sidebar)
+                .listRowInsets(EdgeInsets())
+                .introspectTableView { tableView in
+                    guard tableView.refreshControl == nil else { return }
+                    let control = UIRefreshControl()
+                    refreshHelper.parent = self
+                    refreshHelper.refreshControl = control
+                    control.addTarget(refreshHelper, action: #selector(RefreshHelper.didRefresh), for: .valueChanged)
+                    tableView.refreshControl = control
+                }
+                .navigationTitle("Courses")
+            } else {
+                List {
+                    Section {
+                        InfoCard()
+                    }
+                    .padding(0)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color(.systemGroupedBackground))
+                    Section {
+                        ForEach(coursesToDisplay) { course in
+                            DashboardCourseItem(course: course)
+                                .background(NavigationLink(
+                                    destination: CourseDetailView(course: course)
+                                ) {}.opacity(0))
+                                .listRowInsets(EdgeInsets())
+                        }
+                    }
+                }
+                .listStyle(.insetGrouped)
+                .listRowInsets(EdgeInsets())
+                .introspectTableView { tableView in
+                    guard tableView.refreshControl == nil else { return }
+                    let control = UIRefreshControl()
+                    refreshHelper.parent = self
+                    refreshHelper.refreshControl = control
+                    control.addTarget(refreshHelper, action: #selector(RefreshHelper.didRefresh), for: .valueChanged)
+                    tableView.refreshControl = control
+                }
+                .navigationTitle("Courses")
             }
-            .introspectTableView { tableView in
-                guard tableView.refreshControl == nil else { return }
-                let control = UIRefreshControl()
-                refreshHelper.parent = self
-                refreshHelper.refreshControl = control
-                control.addTarget(refreshHelper, action: #selector(RefreshHelper.didRefresh), for: .valueChanged)
-                tableView.refreshControl = control
-            }
-            .navigationTitle("Courses")
             AlertIfError(showingAlert: $showingError, errorResponse: $errorResponse)
         }
     }
@@ -99,20 +136,20 @@ struct DashboardView: View {
     var body: some View {
         ZStack {
             switch (UIDevice.current.userInterfaceIdiom) {
-            case .pad, .mac:
+            case .pad:
                 NavigationView {
                     if showPlaceholder {
-                        CoursesList(courses: coursesToDisplay)
+                        CoursesList(courses: coursesToDisplay, horizontalSizeClass: horizontalSizeClass)
                         placeholder
                     } else {
-                        CoursesList(courses: coursesToDisplay)
+                        CoursesList(courses: coursesToDisplay, horizontalSizeClass: horizontalSizeClass)
                         Text("")
                         Text("")
                     }
                 }
             default:
                 NavigationView {
-                    CoursesList(courses: coursesToDisplay)
+                    CoursesList(courses: coursesToDisplay, horizontalSizeClass: horizontalSizeClass)
                     if showPlaceholder {
                         placeholder
                     } else {
@@ -143,7 +180,7 @@ struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         DashboardView(courses: [Course](repeating: fakeCourse(), count: 10))
             .environmentObject(SettingsStore.shared)
-            .environment(\.locale, .init(identifier: "zh-Hans"))
+            .environment(\.locale, .init(identifier: "ja"))
         DashboardView(courses: [])
             .environmentObject(SettingsStore.shared)
             .environment(\.locale, .init(identifier: "zh-Hans"))

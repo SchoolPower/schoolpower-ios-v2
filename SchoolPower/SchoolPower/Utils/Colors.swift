@@ -86,7 +86,7 @@ public extension UIColor {
     }
 }
 
-fileprivate extension Color {
+public extension Color {
     init?(hexString: String?) {
         guard let hexString = hexString,
               let uiColor = UIColor(hexString: hexString) else { return nil }
