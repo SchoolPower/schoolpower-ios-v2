@@ -25,7 +25,6 @@
 		4D1B09B82740D3EA00D03CC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09B02740839000D03CC8 /* Localizable.strings */; };
 		4D1B09BE27419E4800D03CC8 /* CannotSendEmailAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09BD27419E4800D03CC8 /* CannotSendEmailAlert.swift */; };
 		4D1B09C02741C26D00D03CC8 /* generate-licenses.py in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */; };
-		4D1B09C32741C46600D03CC8 /* licenses.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09C22741C46600D03CC8 /* licenses.json */; };
 		4D1B09C62741C4F500D03CC8 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C52741C4F500D03CC8 /* LicensesView.swift */; };
 		4D1B09C82741C51900D03CC8 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C72741C51900D03CC8 /* License.swift */; };
 		4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC754273B39E5002CAD13 /* HeaderView.swift */; };
@@ -90,6 +89,7 @@
 		623F07AC27324014007A79F2 /* TermDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F07AB27324014007A79F2 /* TermDetailView.swift */; };
 		623F07AF273249A7007A79F2 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 623F07AE273249A7007A79F2 /* Poppins-Regular.ttf */; };
 		623F07B1273249BA007A79F2 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 623F07B0273249BA007A79F2 /* Poppins-SemiBold.ttf */; };
+		623F07B32742C75A007A79F2 /* licenses.json in Resources */ = {isa = PBXBuildFile; fileRef = 623F07B22742C75A007A79F2 /* licenses.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,7 +129,6 @@
 		4D1B09B42740BC5500D03CC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4D1B09BD27419E4800D03CC8 /* CannotSendEmailAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CannotSendEmailAlert.swift; sourceTree = "<group>"; };
 		4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "generate-licenses.py"; sourceTree = "<group>"; };
-		4D1B09C22741C46600D03CC8 /* licenses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = licenses.json; sourceTree = "<group>"; };
 		4D1B09C52741C4F500D03CC8 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
 		4D1B09C72741C51900D03CC8 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		4D6EC754273B39E5002CAD13 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -198,6 +197,7 @@
 		623F07AB27324014007A79F2 /* TermDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailView.swift; sourceTree = "<group>"; };
 		623F07AE273249A7007A79F2 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		623F07B0273249BA007A79F2 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		623F07B22742C75A007A79F2 /* licenses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = licenses.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,7 +233,7 @@
 		4D1B09AD274082F900D03CC8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4D1B09C22741C46600D03CC8 /* licenses.json */,
+				623F07B22742C75A007A79F2 /* licenses.json */,
 				4D1B09B02740839000D03CC8 /* Localizable.strings */,
 				621D38EE27307D4A00825D5C /* Info.plist */,
 				621D38E927307D4A00825D5C /* Assets.xcassets */,
@@ -634,10 +634,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D1B09C32741C46600D03CC8 /* licenses.json in Resources */,
 				4D1B09C02741C26D00D03CC8 /* generate-licenses.py in Resources */,
 				4D790F9527361A7C00E6C4EB /* Proto in Resources */,
 				623F07AF273249A7007A79F2 /* Poppins-Regular.ttf in Resources */,
+				623F07B32742C75A007A79F2 /* licenses.json in Resources */,
 				4D1B09B82740D3EA00D03CC8 /* Localizable.strings in Resources */,
 				623F07B1273249BA007A79F2 /* Poppins-SemiBold.ttf in Resources */,
 				621D38ED27307D4A00825D5C /* Preview Assets.xcassets in Resources */,

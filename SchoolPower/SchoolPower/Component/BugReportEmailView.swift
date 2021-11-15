@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct BugReportEmailView: View {
-    @Environment(\.locale) var locale
-    
     var body: some View {
         let version = Utils.getFormattedAppVersionBuild()
         let message = String(
-            format: "Email.BugReport.Body".localized(locale.identifier),
+            format: "Email.BugReport.Body".localized,
             version
         )
         MailView(data: ComposeMailData(
-            subject: "Email.BugReport.Subject".localized(locale.identifier),
+            subject: "Email.BugReport.Subject".localized,
             recipients: Constants.bugReportEmails,
             message: message,
             attachments: []
