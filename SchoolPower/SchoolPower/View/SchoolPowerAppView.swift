@@ -21,7 +21,6 @@ private struct AppView: View {
                         Image(systemName: "list.bullet.circle")
                         Text("Courses")
                     }.tag(1)
-                    .animation(.none)
                 
                 AttendanceView(
                     attendances: studentDataStore.studentData.attendances,

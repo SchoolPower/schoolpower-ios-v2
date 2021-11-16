@@ -21,7 +21,10 @@ final class StudentDataStore: ObservableObject {
     
     func loadThenTryFetchAndSave() {
         StudentDataStore.tryLoadAndIfSuccess { data in self.studentData = data }
-        StudentDataStore.tryFetchAndIfSuccess { data in self.save(studentData: data) }
+        StudentDataStore.tryFetchAndIfSuccess { data in
+            self.save(studentData: data)
+            
+        }
     }
     
     func save(studentData: StudentData) {
@@ -50,7 +53,10 @@ final class StudentDataStore: ObservableObject {
                 completion(success, errorResponse, error)
             }
         } else {
-            completion(false, ErrorResponse(title: "Failed to refresh data", description: "No credential available, please try log in again."), nil)
+            completion(false, ErrorResponse(
+                title: "Failed to refresh data",
+                description: "No credential available, please try log in again."
+            ), nil)
         }
     }
 }
@@ -87,12 +93,10 @@ extension StudentDataStore {
         requestData: RequestData? = nil,
         callback: @escaping (StudentData) -> Void
     ) {
-        if let requestData = requestData {
-            tryFetch(requestData: requestData) { success, data, errorResponse, error in
-                guard success else { return }
-                if let data = data {
-                    callback(data)
-                }
+        tryFetch(requestData: requestData) { success, data, errorResponse, error in
+            guard success else { return }
+            if let data = data {
+                callback(data)
             }
         }
     }
@@ -101,39 +105,49 @@ extension StudentDataStore {
         requestData: RequestData? = AuthenticationStore.shared.requestData,
         completion: @escaping (Bool, StudentData?, ErrorResponse?, String?) -> Void
     ) {
-        AF.request(
-            Constants.getStudentDataURL,
-            method: .post,
-            parameters: requestData,
-            encoder: JSONParameterEncoder.default
-        )
-            .validate(statusCode: 200..<300)
-            .validate(contentType: ["application/json"])
-            .responseString { response in
-                switch response.result {
-                case .success:
-                    guard let jsonString = response.value else { return }
-                    debugPrint(jsonString)
-                    debugPrint("JSON fetched")
-                    do {
-                        let data = try StudentData(jsonString: jsonString)
-                        completion(true, data, nil, nil)
-                    } catch {
+        if let requestData = requestData ?? AuthenticationStore.shared.requestData {
+            AF.request(
+                Constants.getStudentDataURL,
+                method: .post,
+                parameters: requestData,
+                encoder: JSONParameterEncoder.default
+            )
+                .validate(statusCode: 200..<300)
+                .validate(contentType: ["application/json"])
+                .responseString { response in
+                    switch response.result {
+                    case .success:
+                        guard let jsonString = response.value else { return }
+                        debugPrint(jsonString)
+                        debugPrint("JSON fetched")
                         do {
-                            let errorResponse = try JSONDecoder()
-                                .decode(ErrorResponse.self, from: jsonString.data(using: .utf8)!)
-                            completion(false, nil, errorResponse, nil)
+                            let data = try StudentData(jsonString: jsonString)
+                            completion(true, data, nil, nil)
                         } catch {
-                            completion(
-                                false, nil, nil,
-                                error.localizedDescription +
-                                " Response:\n\(jsonString)"
-                            )
+                            do {
+                                let errorResponse = try JSONDecoder()
+                                    .decode(ErrorResponse.self, from: jsonString.data(using: .utf8)!)
+                                if !errorResponse.hasErrorMessage {
+                                    completion(
+                                        false, nil, nil,
+                                        error.localizedDescription +
+                                        " Response:\n\(jsonString)"
+                                    )
+                                } else {
+                                    completion(false, nil, errorResponse, nil)
+                                }
+                            } catch {
+                                completion(
+                                    false, nil, nil,
+                                    error.localizedDescription +
+                                    " Response:\n\(jsonString)"
+                                )
+                            }
                         }
+                    case let .failure(error):
+                        completion(false, nil, nil, error.localizedDescription)
                     }
-                case let .failure(error):
-                    completion(false, nil, nil, error.localizedDescription)
                 }
-            }
+        }
     }
 }

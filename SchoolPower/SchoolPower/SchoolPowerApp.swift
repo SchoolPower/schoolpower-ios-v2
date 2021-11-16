@@ -17,6 +17,7 @@ struct SchoolPowerApp: App {
     @StateObject var authentication = AuthenticationStore.shared
     @StateObject var settingsStore = SettingsStore.shared
     @StateObject var studentDataStore = StudentDataStore.shared
+    @StateObject var infoCardStore = InfoCardStore.shared
     
     var body: some Scene {
         WindowGroup {
@@ -37,6 +38,7 @@ struct SchoolPowerApp: App {
             .environmentObject(authentication)
             .environmentObject(settingsStore)
             .environmentObject(studentDataStore)
+            .environmentObject(infoCardStore)
             .environment(
                 \.locale,
                  Utils.getLocale(

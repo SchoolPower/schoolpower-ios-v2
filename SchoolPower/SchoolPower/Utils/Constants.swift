@@ -22,7 +22,7 @@ class Constants {
     public static let sourceCodeURL = "https://github.com/schoolpower"
     public static let imageUploadURL = "https://sm.ms/api/v2/upload"
     
-    public static let studentDataFileName = "studentData.json"
+    public static let studentDataFileName = "student_data_v2.json"
     
     enum Language: String, CaseIterable {
         case systemDefault = "System Default"
@@ -38,8 +38,4 @@ class Constants {
         .chineseTraditional: "zh-Hant",
         .japanese: "ja"
     ]
-    
-    public static var SupportedLocales: Set<String> {
-        Set(LanguageLocale.values)
-    }
 }

@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct InfoCard: View {
+    var content: InfoCardContent
+    
     var body: some View {
         VStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(alignment: .top) {
-                    Text("プロジェクトセカイ").font(.title).bold().fixedSize(horizontal: false, vertical: true)
+                    Text(content.localizedTitle).font(.title).bold().fixedSize(horizontal: false, vertical: true)
                         .padding(.top, 24)
                         .padding(.horizontal, 24)
                     Spacer()
                     Button {
-                        print("aaa")
+                        withAnimation {
+                            InfoCardStore.shared.dismiss()
+                        }
                     } label: {
                         Image(systemName: "xmark.circle.fill")
                     }
@@ -34,13 +38,14 @@ struct InfoCard: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(Color(hexString: "#C3B9A9"))
-            VStack {
+            VStack(alignment: .leading) {
+                Text(content.localizedDescription).font(.body).fixedSize(horizontal: false, vertical: true)
                 HStack {
-                    Text("フィチャリングハツネミク").font(.body)
                     Spacer()
                     Button(action: {}) {
-                        Text("プレイ").font(.headline).bold()
+                        Text(content.localizedCTAText).font(.headline).bold()
                     }
+                    .buttonStyle(.plain)
                     .padding(6)
                     .padding(.horizontal, 12)
                     .background(Color.white)
@@ -60,7 +65,9 @@ struct InfoCard: View {
 
 struct InfoCard_Previews: PreviewProvider {
     static var previews: some View {
-        InfoCard()
-            .previewLayout(.fixed(width: 300, height: 400))
+        List {
+            InfoCard(content: fakeInfoCardContent())
+            InfoCard(content: fakeLongInfoCardContent())
+        }
     }
 }

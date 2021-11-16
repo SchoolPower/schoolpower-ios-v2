@@ -13,4 +13,10 @@ struct ErrorResponse: Codable {
     var description: String?
     var code: Int?
     var code2: Int?
+    
+    var hasErrorMessage: Bool {
+        let hasTitle = title?.isEmpty == false
+        let hasDescription = description?.isEmpty == false
+        return hasTitle || hasDescription
+    }
 }

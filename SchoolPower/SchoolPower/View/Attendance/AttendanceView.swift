@@ -8,42 +8,21 @@
 import SwiftUI
 import Introspect
 
-struct AttendanceView: View {
+struct AttendanceView: View, ErrorHandler {
     var attendances: [Attendance]
     var disabledInfo: DisabledInfo?
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
     @State var errorResponse: ErrorResponse? = nil
     @State var showingError: Bool = false
+    
+    private let refreshHelper = RefreshHelper<AttendanceView>()
     
     private var attendancesToDisplay: [Attendance] {
         disabledInfo != nil ? [] : attendances
     }
     
-    private let refreshHelper = RefreshHelper()
-    
-    class RefreshHelper {
-        var parent: AttendanceView?
-        var refreshControl: UIRefreshControl?
-        
-        @objc func didRefresh() {
-            guard let parent = parent, let refreshControl = refreshControl
-            else { return }
-            StudentDataStore.shared.refresh { success, errorResponse, error in
-                refreshControl.endRefreshing()
-                if success {
-                    
-                } else {
-                    parent.errorResponse = errorResponse
-                    ?? ErrorResponse(
-                        title: "Failed to refresh data",
-                        description: error ?? "Unknown error."
-                    )
-                    parent.showingError = true
-                }
-            }
-        }
-    }
     
     private var showPlaceholder: Bool {
         disabledInfo != nil || attendancesToDisplay.isEmpty
@@ -68,14 +47,7 @@ struct AttendanceView: View {
                             ) {}.opacity(0))
                     }
                 }
-                .introspectTableView { tableView in
-                    guard tableView.refreshControl == nil else { return }
-                    let control = UIRefreshControl()
-                    refreshHelper.parent = self
-                    refreshHelper.refreshControl = control
-                    control.addTarget(refreshHelper, action: #selector(RefreshHelper.didRefresh), for: .valueChanged)
-                    tableView.refreshControl = control
-                }
+                .withRefresh(parent: self, refreshHelper: refreshHelper)
                 .navigationTitle("Attendances")
                 if showPlaceholder {
                     placeholder

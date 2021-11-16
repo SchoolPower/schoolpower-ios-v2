@@ -74,6 +74,10 @@
 		4DB6DF0E2733789B00FA7B40 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0D2733789B00FA7B40 /* Colors.swift */; };
 		4DB6DF102733813E00FA7B40 /* AssignmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0F2733813E00FA7B40 /* AssignmentItem.swift */; };
 		4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF112733816E00FA7B40 /* TermItem.swift */; };
+		4DDA514F2743354D00B56FDB /* RefreshHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA514E2743354D00B56FDB /* RefreshHelper.swift */; };
+		4DDA515127433D1600B56FDB /* CoursesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA515027433D1600B56FDB /* CoursesListView.swift */; };
+		4DDA515327433F9500B56FDB /* InfoCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA515227433F9500B56FDB /* InfoCardContent.swift */; };
+		4DDA51552743486200B56FDB /* InfoCardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA51542743486200B56FDB /* InfoCardStore.swift */; };
 		621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E527307D4000825D5C /* SchoolPowerApp.swift */; };
 		621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E727307D4000825D5C /* SchoolPowerAppView.swift */; };
 		621D38EA27307D4A00825D5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621D38E927307D4A00825D5C /* Assets.xcassets */; };
@@ -176,6 +180,10 @@
 		4DB6DF0D2733789B00FA7B40 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4DB6DF0F2733813E00FA7B40 /* AssignmentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentItem.swift; sourceTree = "<group>"; };
 		4DB6DF112733816E00FA7B40 /* TermItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermItem.swift; sourceTree = "<group>"; };
+		4DDA514E2743354D00B56FDB /* RefreshHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHelper.swift; sourceTree = "<group>"; };
+		4DDA515027433D1600B56FDB /* CoursesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesListView.swift; sourceTree = "<group>"; };
+		4DDA515227433F9500B56FDB /* InfoCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardContent.swift; sourceTree = "<group>"; };
+		4DDA51542743486200B56FDB /* InfoCardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardStore.swift; sourceTree = "<group>"; };
 		621D38E227307D4000825D5C /* SchoolPower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolPower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		621D38E527307D4000825D5C /* SchoolPowerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerApp.swift; sourceTree = "<group>"; };
 		621D38E727307D4000825D5C /* SchoolPowerAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerAppView.swift; sourceTree = "<group>"; };
@@ -279,6 +287,7 @@
 				4D1B09A127404E2700D03CC8 /* ImageUploadResponse.swift */,
 				4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */,
 				4D1B09C72741C51900D03CC8 /* License.swift */,
+				4DDA515227433F9500B56FDB /* InfoCardContent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,6 +338,7 @@
 				4D790FB82737431900E6C4EB /* SettingsStore.swift */,
 				4D790FBA27374BC200E6C4EB /* StudentDataStore.swift */,
 				4D790FD927383A8700E6C4EB /* AuthenticationStore.swift */,
+				4DDA51542743486200B56FDB /* InfoCardStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -437,6 +447,7 @@
 				623F07882730B343007A79F2 /* DashboardView.swift */,
 				623F078A2730B353007A79F2 /* DashboardViewModel.swift */,
 				4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */,
+				4DDA515027433D1600B56FDB /* CoursesListView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -488,6 +499,7 @@
 				4D1B099F274037F900D03CC8 /* AlertIfError.swift */,
 				4D790FCD27381ED000E6C4EB /* BugReportEmailView.swift */,
 				4D1B09BD27419E4800D03CC8 /* SendBugReportEmail.swift */,
+				4DDA514E2743354D00B56FDB /* RefreshHelper.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -715,6 +727,7 @@
 				4D790FD82738386800E6C4EB /* LoginView.swift in Sources */,
 				4D790FCC27381D2500E6C4EB /* ComposeMailData.swift in Sources */,
 				4D1B09A227404E2700D03CC8 /* ImageUploadResponse.swift in Sources */,
+				4DDA515127433D1600B56FDB /* CoursesListView.swift in Sources */,
 				4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */,
 				623F07A627323B54007A79F2 /* AssignmentDetailView.swift in Sources */,
 				623F078E2730BCAD007A79F2 /* CourseDetailView.swift in Sources */,
@@ -727,6 +740,7 @@
 				4D6EC762273B5D22002CAD13 /* HeaderViewState.swift in Sources */,
 				4D790FE12738675600E6C4EB /* ErrorResponse.swift in Sources */,
 				4D790FB4273719C300E6C4EB /* ProfileView.swift in Sources */,
+				4DDA51552743486200B56FDB /* InfoCardStore.swift in Sources */,
 				4D790FD027382B0200E6C4EB /* SupportSection.swift in Sources */,
 				4D790F9C2736296100E6C4EB /* TermGrade.swift in Sources */,
 				4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */,
@@ -742,10 +756,12 @@
 				4D790FB7273721E900E6C4EB /* SettingsView.swift in Sources */,
 				4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */,
 				4D1B0986273F4C2300D03CC8 /* DisabledInfo.swift in Sources */,
+				4DDA514F2743354D00B56FDB /* RefreshHelper.swift in Sources */,
 				4D1B0988273F4C8C00D03CC8 /* PlaceholderInfoView.swift in Sources */,
 				4D790FBE27376C9100E6C4EB /* AppDelegate.swift in Sources */,
 				4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */,
 				4D790FB92737431900E6C4EB /* SettingsStore.swift in Sources */,
+				4DDA515327433F9500B56FDB /* InfoCardContent.swift in Sources */,
 				4D790F8827360AAD00E6C4EB /* Grade.swift in Sources */,
 				4DB6DF092733705800FA7B40 /* View+cornerRadius.swift in Sources */,
 				4D790FB12737116600E6C4EB /* AttendanceDetailView.swift in Sources */,

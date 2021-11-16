@@ -62,7 +62,7 @@ struct CourseDetailView: View {
                         .foregroundColor(.primary)
                         .padding(.top, 32)
                 }
-            }.padding(.leading, -16).padding(.trailing, -16)
+            }.padding(.horizontal, -16)
             ) {
                 ForEach(course.assignments) { assignment in
                     AssignmentItem(assignment: assignment)
