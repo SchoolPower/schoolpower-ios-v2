@@ -19,6 +19,7 @@ final class SettingsStore: ObservableObject {
         static let notificationEnabled = "notifications_enabled"
         static let showGradesInNotification = "show_grades_in_notification"
         static let notifyUngradedAssignments = "notify_ungraded_assignments"
+        static let dismissedInfoCardUUIDs = "dismissed_info_card_uuids"
     }
     
     private static let defaultSettings: [String: Any] = [
@@ -28,7 +29,8 @@ final class SettingsStore: ObservableObject {
         Keys.showInactiveCourses: true,
         Keys.notificationEnabled: true,
         Keys.showGradesInNotification: true,
-        Keys.notifyUngradedAssignments: true
+        Keys.notifyUngradedAssignments: true,
+        Keys.dismissedInfoCardUUIDs: [:],
     ]
     
     private let defaults = UserDefaults.standard
@@ -94,6 +96,14 @@ extension SettingsStore {
     var notifyUngradedAssignments: Bool {
         set { defaults.set(newValue, forKey: Keys.notifyUngradedAssignments) }
         get { defaults.bool(forKey: Keys.notifyUngradedAssignments) }
+    }
+}
+
+// MARK: InfoCards
+extension SettingsStore {
+    var dismissedInfoCardUUIDs: [String: Any] {
+        set { defaults.set(newValue, forKey: Keys.dismissedInfoCardUUIDs) }
+        get { defaults.dictionary(forKey: Keys.dismissedInfoCardUUIDs) ?? [:] }
     }
 }
 

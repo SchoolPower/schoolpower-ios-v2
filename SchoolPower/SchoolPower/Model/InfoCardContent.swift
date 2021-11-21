@@ -11,15 +11,32 @@ struct InfoCardContent {
     var uuid: String
     var localizedTitle: String
     var localizedDescription: String
-    var localizedCTAText: String
+    var localizedCtaText: String
+    var ctaURL: String
     var imageURL: String
-    var debugging: Bool
+    var colorHex: String
+    var colorDarkHex: String
+    var activated: Bool
 }
 
 func fakeInfoCardContent() -> InfoCardContent {
-    return InfoCardContent(uuid: "1", localizedTitle: "Title", localizedDescription: "Description", localizedCTAText: "CTA", imageURL: "", debugging: true)
-}
+    return InfoCardContent(
+        uuid: "7",
+        localizedTitle: "フォニー",
+        localizedDescription: """
+            この世で造花より綺麗な花は無いわ
+            何故ならば総ては嘘で出来ている
+            antipathy world
 
-func fakeLongInfoCardContent() -> InfoCardContent {
-    return InfoCardContent(uuid: "1", localizedTitle: "Title", localizedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel ante id sapien auctor cursus. Sed vel magna eget justo semper maximus a vitae dolor. Pellentesque fringilla sapien ornare metus lobortis, at vehicula libero interdum. Curabitur orci purus, egestas quis ex a, dignissim maximus erat. Quisque placerat elementum lacus, id tempus sapien venenatis quis. Vestibulum erat tortor, facilisis vel sollicitudin a, cursus eu turpis. Mauris vitae nisl ut nisl blandit fermentum id vel eros. In lobortis purus orci, in viverra ex ornare at. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ut fringilla felis. Nulla facilisi. Maecenas at purus in enim efficitur sodales vitae at sapien. Duis rutrum varius purus, eu semper felis rutrum quis. Morbi urna est, suscipit eu neque ac, dictum pulvinar sem.", localizedCTAText: "CTA", imageURL: "", debugging: true)
+            絶望の雨はあたしの傘を突いて
+            湿らす前髪とこころの裏面
+            煩わしいわ
+            """,
+        localizedCtaText: "プレイ",
+        ctaURL: "https://www.youtube.com/watch?v=9QLT1Aw_45s",
+        imageURL: "https://i.ytimg.com/vi/9QLT1Aw_45s/maxresdefault.jpg",
+        colorHex: "#C3B9A9",
+        colorDarkHex: "#AE9F90",
+        activated: true
+    )
 }

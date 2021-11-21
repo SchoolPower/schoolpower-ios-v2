@@ -47,8 +47,7 @@ struct CoursesListView: View, ErrorHandler {
                     if let infoCard = infoCardContent {
                         Section {
                             InfoCard(content: infoCard)
-                                .padding(.horizontal, -20)
-                                .padding(.vertical, -20)
+                                .padding(.horizontal, -16)
                         }
                         .listRowBackground(Color(.systemGroupedBackground))
                     }
