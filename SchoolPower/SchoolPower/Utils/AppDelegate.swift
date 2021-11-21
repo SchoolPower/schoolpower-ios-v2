@@ -36,6 +36,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         didReceiveRemoteNotification userInfo: [AnyHashable : Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
+        if let isTesting = userInfo["testing"] as? Bool, isTesting == true {
+            PushNotification.handleTestNotification(onComplete: completionHandler)
+            return
+        }
         PushNotification.handleRemoteNotification(onComplete: completionHandler)
     }
 }

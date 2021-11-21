@@ -33,6 +33,10 @@
 // Placeholders
 "PS Turned Off" = "PowerSchool Turned Off";
 
+// Notification
+"Notification.NewAssignment.Title" = "%lld New Assignments";
+"Notification.NewAttendance.Title" = "%lld New Attendances";
+
 // Email
 "Email.BugReport.Subject" = "Found Bug(s) in SchoolPower";
 "Email.BugReport.Body" = "

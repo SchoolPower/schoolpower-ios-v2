@@ -110,6 +110,11 @@
 "Perfect attendance" = "全勤";
 "PS Turned Off" = "PowerSchool 關了";
 
+// Notification
+"Notification.NewAssignment.Title" = "%lld 項新作業";
+"Notification.NewAttendance.Title" = "%lld 項新出勤";
+"Testing Notification" = "通知測試";
+
 // Email
 "Email.BugReport.Subject" = "SchoolPower 有 Bug";
 "Email.BugReport.Body" = "

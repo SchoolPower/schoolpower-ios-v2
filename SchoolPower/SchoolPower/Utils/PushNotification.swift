@@ -70,16 +70,37 @@ extension PushNotification {
 extension PushNotification {
     private static let sendNotificationDelaySeconds: Double = 1
     
+    static func handleTestNotification(
+        onComplete: @escaping (UIBackgroundFetchResult) -> Void
+    ) {
+        ifAuthorized {
+            sendLocalNotification(
+                title: "Testing Notification",
+                subtitle: "",
+                body: "This is a test notification, please ignore it.",
+                when: sendNotificationDelaySeconds
+            )
+            onComplete(.newData)
+        }
+    }
+    
     static func handleRemoteNotification(
         onComplete: @escaping (UIBackgroundFetchResult) -> Void
     ) {
         ifAuthorized {
             let settingsStore = SettingsStore.shared
-            guard settingsStore.isNotificationEnabled else { return }
+            guard settingsStore.isNotificationEnabled else {
+                onComplete(.failed)
+                return
+            }
             
             StudentDataStore.tryLoadAndIfSuccess { oldData in
                 StudentDataStore.tryFetchAndIfSuccess { newData in
                     let (newAssignments, newAttendances) = StudentDataUtils.diff(oldData: oldData, newData: newData)
+                    
+                    if (newAssignments.isEmpty && newAssignments.isEmpty) {
+                        onComplete(.noData)
+                    }
                     
                     sendNewAssignmentsNotification(
                         newAssignments: newAssignments,
@@ -87,6 +108,8 @@ extension PushNotification {
                         showUngraded: settingsStore.notifyUngradedAssignments
                     )
                     sendNewAttendancesNotification(newAttendances: newAttendances)
+                    
+                    onComplete(.newData)
                 }
             }
         }
@@ -110,7 +133,10 @@ extension PushNotification {
         }).joined(separator: "\n")
         
         sendLocalNotification(
-            title: "\(assignmentsToShow.count) New assignments",
+            title: String(
+                format: "Notification.NewAssignment.Title".localized,
+                assignmentsToShow.count
+            ),
             subtitle: "",
             body: body,
             when: sendNotificationDelaySeconds
@@ -129,7 +155,10 @@ extension PushNotification {
         }).joined(separator: "\n")
         
         sendLocalNotification(
-            title: "\(newAttendances.count) New attendances",
+            title: String(
+                format: "Notification.NewAttendance.Title".localized,
+                newAttendances.count
+            ),
             subtitle: "",
             body: body,
             when: sendNotificationDelaySeconds

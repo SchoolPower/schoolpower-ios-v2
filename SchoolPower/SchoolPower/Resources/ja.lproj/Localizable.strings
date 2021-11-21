@@ -111,6 +111,11 @@
 "Perfect attendance" = "皆勤";
 "PS Turned Off" = "PowerSchool がオフになった";
 
+// Notification
+"Notification.NewAssignment.Title" = "%lldつの新しい宿題";
+"Notification.NewAttendance.Title" = "%lldつの新しい出勤状況";
+"Testing Notification" = "通知テスト";
+
 // Email
 "Email.BugReport.Subject" = "SchoolPower にバグがあります";
 "Email.BugReport.Body" = "
