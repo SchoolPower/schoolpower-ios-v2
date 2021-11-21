@@ -9,13 +9,14 @@ import SwiftUI
 
 struct NoGradesView: View {
     @Environment(\.colorScheme) var colorScheme
+    var imageOnly: Bool? = nil
     
     var image: Image {
         colorScheme == .dark ? Image("no_grades_dark") : Image("no_grades")
     }
     
     var body: some View {
-        PlaceholderInfoView(title: "Nothing here", message: nil, image: image, opacity: 0.8)
+        PlaceholderInfoView(title: imageOnly == true ? nil : "Nothing here", message: nil, image: image, opacity: 0.8)
     }
 }
 

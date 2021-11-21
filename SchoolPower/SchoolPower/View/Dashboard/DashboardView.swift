@@ -28,26 +28,19 @@ struct DashboardView: View {
     
     var body: some View {
         ZStack {
-            switch (UIDevice.current.userInterfaceIdiom) {
-            case .pad:
-                NavigationView {
-                    if viewModel.showPlaceholder {
-                        coursesList
-                        viewModel.placeholder
-                    } else {
-                        coursesList
-                        Text("")
-                        Text("")
-                    }
+            NavigationView {
+                coursesList
+                if viewModel.showPlaceholder {
+                    viewModel.placeholder
+                } else {
+                    NoGradesView(imageOnly: true)
                 }
-            default:
-                NavigationView {
-                    coursesList
-                    if viewModel.showPlaceholder {
-                        viewModel.placeholder
-                    } else {
-                        Text("")
-                    }
+            }
+            .introspectNavigationController { nvc in
+                if let svc = nvc.splitViewController {
+                    svc.minimumPrimaryColumnWidth = 300
+                    svc.maximumPrimaryColumnWidth = .infinity
+                    svc.preferredPrimaryColumnWidthFraction = 0.4
                 }
             }
             if horizontalSizeClass == .compact,
@@ -62,7 +55,6 @@ struct DashboardView: View {
 extension UISplitViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
-        preferredDisplayMode = .oneBesideSecondary
         preferredSplitBehavior = .tile
         show(.primary)
     }

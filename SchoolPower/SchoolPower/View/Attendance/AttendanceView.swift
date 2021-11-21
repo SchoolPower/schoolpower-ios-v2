@@ -52,7 +52,7 @@ struct AttendanceView: View, ErrorHandler {
                 if showPlaceholder {
                     placeholder
                 } else {
-                    Text("")
+                    NoAttendanceView(imageOnly: true)
                 }
             }
             if horizontalSizeClass == .compact {
