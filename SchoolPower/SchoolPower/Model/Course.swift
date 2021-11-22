@@ -16,6 +16,13 @@ extension Course: Identifiable, Hashable {
     }
 }
 
+
+extension Course.Schedule: Identifiable, Hashable {
+    var id: String {
+        "\(startTime):\(endTime)"
+    }
+}
+
 func fakeCourse() -> Course {
     var course = Course()
     course.name = "Calculus 12"

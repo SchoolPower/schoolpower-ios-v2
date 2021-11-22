@@ -32,6 +32,13 @@ private struct AppView: View {
                     }.tag(2)
                     .animation(.none)
                 
+                ScheduleView(courses: studentDataStore.studentData.courses)
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Calendar")
+                }.tag(2)
+                .animation(.none)
+                
                 ProfileView(
                     profile: studentDataStore.studentData.profile,
                     extraInfo: studentDataStore.studentData.extraInfo

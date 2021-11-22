@@ -118,7 +118,7 @@ extension StudentDataStore {
                     switch response.result {
                     case .success:
                         guard let jsonString = response.value else { return }
-                        debugPrint(jsonString)
+//                        debugPrint(jsonString)
                         debugPrint("JSON fetched")
                         do {
                             let data = try StudentData(jsonString: jsonString)
