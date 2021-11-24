@@ -8,38 +8,61 @@
 import SwiftUI
 import KVKCalendar
 
+struct CourseModal: View {
+    @Environment(\.presentationMode) var presentationMode
+    
+    @Binding var selectedCourse: Course?
+    
+    var body: some View {
+        NavigationView {
+            DynamicCourseDetailView(course: $selectedCourse)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }){
+                            Text("Close")
+                        }
+                    }
+                }
+        }
+    }
+}
+
 struct ScheduleView: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
-    var courses: [Course]
-    
-    private var events: [Event] {
-        courses
-            .flatMap { course in
-                course.schedule
-                    .map { it in
-                        var event = Event(ID: it.id)
-                        event.text = course.name
-                        event.start = it.startTime.asMillisDate()
-                        event.end = it.endTime.asMillisDate()
-                        event.color = Event.Color((course.displayGrade()?.color() ?? .F_score_purple).uiColor())
-                        return event
-                    }
-            }
-    }
+    var schedule: [Event]
     
     @State private var type: CalendarType = .day
+    @State private var selectedCourse: Course? = nil
+    @State private var isViewingCourse: Bool = false
     
     var body: some View {
         NavigationView {
             ZStack {
             GeometryReader { geo in
-                CalendarDisplayView(
-                    events: events,
-                    frame: geo.frame(in: .local),
-                    type: type
-                )
+                ZStack {
+                    CalendarDisplayView(
+                        events: schedule,
+                        frame: geo.frame(in: .local),
+                        type: type
+                    ) { eventId in
+                        let courseId = Course.idFromScheduleEventId(eventId)
+                        if let courseId = courseId,
+                           let course = StudentDataStore.shared.courseById[courseId] {
+                            self.isViewingCourse = true
+                            self.selectedCourse = course
+                        }
+                    }
+                    .sheet(isPresented: $isViewingCourse) {
+                        self.isViewingCourse = false
+                        self.selectedCourse = nil
+                    } content: {
+                        CourseModal(selectedCourse: $selectedCourse)
+                    }
+                }
             }
             .navigationTitle("Calendar")
             .navigationBarTitleDisplayMode(.inline)

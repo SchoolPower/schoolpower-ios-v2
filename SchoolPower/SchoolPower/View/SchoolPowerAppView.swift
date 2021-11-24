@@ -32,7 +32,7 @@ private struct AppView: View {
                     }.tag(2)
                     .animation(.none)
                 
-                ScheduleView(courses: studentDataStore.studentData.courses)
+                ScheduleView(schedule: studentDataStore.schedule)
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Calendar")

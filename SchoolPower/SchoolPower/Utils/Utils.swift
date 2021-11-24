@@ -39,6 +39,10 @@ extension String {
             comment: ""
         )
     }
+    
+    func localized(_ with: CVarArg...) -> String {
+        return String(format: self.localized, arguments: with)
+    }
 }
 
 extension Int64 {
@@ -51,6 +55,12 @@ extension Date {
     func formatted() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
+        return formatter.string(from: self)
+    }
+    
+    func time() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
         return formatter.string(from: self)
     }
 }

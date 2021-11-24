@@ -9,11 +9,29 @@ import Foundation
 import Combine
 import Alamofire
 import SwiftProtobuf
+import KVKCalendar
 
 final class StudentDataStore: ObservableObject {
     static let shared = StudentDataStore()
     
     @Published var studentData: StudentData = StudentData()
+    
+    var courseById: [String : Course] = [:]
+    
+    var schedule: [Event] {
+        studentData.courses
+            .flatMap { course in
+                course.schedule
+                    .map { it in
+                        var event = Event(ID: "\(course.id)::\(it.id)")
+                        event.text = scheduleEventText(course, it)
+                        event.start = it.startTime.asMillisDate()
+                        event.end = it.endTime.asMillisDate()
+                        event.color = Event.Color((course.displayGrade()?.color() ?? .F_score_purple).uiColor())
+                        return event
+                    }
+            }
+    }
     
     private init() {
         loadThenTryFetchAndSave()
@@ -23,12 +41,15 @@ final class StudentDataStore: ObservableObject {
         StudentDataStore.tryLoadAndIfSuccess { data in self.studentData = data }
         StudentDataStore.tryFetchAndIfSuccess { data in
             self.save(studentData: data)
-            
         }
     }
     
     func save(studentData: StudentData) {
         self.studentData = studentData
+        self.courseById = studentData.courses.reduce(into: [String : Course]()) {
+            partialResult, course in
+            partialResult[course.id] = course
+        }
         do {
             let dataJsonString = try studentData.jsonString()
             Utils.saveStringToFile(filename: Constants.studentDataFileName, data: dataJsonString)
@@ -70,6 +91,23 @@ extension StudentDataStore {
     }
     func tryGetDisabledInfo() -> DisabledInfo? {
         return disabled() ? studentData.disabledInfo : nil
+    }
+}
+
+extension StudentDataStore {
+    private func scheduleEventText(
+        _ course: Course,
+        _ schedule: Course.Schedule
+    ) -> String {
+        let start = schedule.startTime.asMillisDate().time()
+        let end = schedule.endTime.asMillisDate().time()
+        // Start to end, decided not to show
+        let _ = "General.A_To_B".localized(start, end)
+        return """
+            \(course.name)
+            \(course.block)
+            \(course.room)
+            """
     }
 }
 

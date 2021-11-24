@@ -8,6 +8,9 @@
 
 "App.Copyright" = "Built with ❤️ by SchoolPower スタジオ";
 
+/// General
+"General.A_To_B" = "%@ から %@ まで";
+
 // Navigations
 "Courses" = "コース";
 "Attendances" = "出席";

@@ -133,10 +133,8 @@ extension PushNotification {
         }).joined(separator: "\n")
         
         sendLocalNotification(
-            title: String(
-                format: "Notification.NewAssignment.Title".localized,
-                assignmentsToShow.count
-            ),
+            title: "Notification.NewAssignment.Title"
+                .localized(assignmentsToShow.count),
             subtitle: "",
             body: body,
             when: sendNotificationDelaySeconds
@@ -155,10 +153,8 @@ extension PushNotification {
         }).joined(separator: "\n")
         
         sendLocalNotification(
-            title: String(
-                format: "Notification.NewAttendance.Title".localized,
-                newAttendances.count
-            ),
+            title: "Notification.NewAttendance.Title"
+                .localized(newAttendances.count),
             subtitle: "",
             body: body,
             when: sendNotificationDelaySeconds

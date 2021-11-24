@@ -8,6 +8,9 @@
 
 "App.Copyright" = "Built with ❤️ by SchoolPower 工作室";
 
+/// General
+"General.A_To_B" = "%@ 至 %@";
+
 // Navigations
 "Courses" = "課程";
 "Attendances" = "出勤";
