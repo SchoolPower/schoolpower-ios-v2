@@ -33,6 +33,8 @@ struct ScheduleView: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
+    @Environment(\.locale) private var locale: Locale
+    
     var schedule: [Event]
     
     @State private var type: CalendarType = .day
@@ -47,7 +49,8 @@ struct ScheduleView: View {
                     CalendarDisplayView(
                         events: schedule,
                         frame: geo.frame(in: .local),
-                        type: type
+                        type: type,
+                        locale: locale
                     ) { eventId in
                         let courseId = Course.idFromScheduleEventId(eventId)
                         if let courseId = courseId,
@@ -87,6 +90,5 @@ struct ScheduleView: View {
             }
         }
         .navigationViewStyle(.stack)
-        
     }
 }

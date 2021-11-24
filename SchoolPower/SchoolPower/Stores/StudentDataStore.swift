@@ -23,7 +23,7 @@ final class StudentDataStore: ObservableObject {
             .flatMap { course in
                 course.schedule
                     .map { it in
-                        var event = Event(ID: "\(course.id)::\(it.id)")
+                        var event = Event(ID: course.toScheduleEventId(with: it))
                         event.text = scheduleEventText(course, it)
                         event.start = it.startTime.asMillisDate()
                         event.end = it.endTime.asMillisDate()

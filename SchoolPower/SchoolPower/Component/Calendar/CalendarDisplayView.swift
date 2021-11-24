@@ -14,6 +14,7 @@ struct CalendarDisplayView: UIViewRepresentable {
     var frame: CGRect
     var type: CalendarType
     var style: Style = Style()
+    var locale: Locale
     var didSelectEvent: (String) -> Void
 
     private var calendar: CalendarView = {
@@ -36,6 +37,10 @@ struct CalendarDisplayView: UIViewRepresentable {
             context.coordinator.frame = frame
         }
         
+        if context.coordinator.locale != locale {
+            context.coordinator.locale = locale
+        }
+        
         if !context.coordinator.initialized {
             context.coordinator.events = events
             context.coordinator.didSelectEvent = didSelectEvent
@@ -53,11 +58,13 @@ struct CalendarDisplayView: UIViewRepresentable {
         events: [Event],
         frame: CGRect,
         type: CalendarType,
+        locale: Locale,
         didSelectEvent: @escaping (String) -> Void
     ) {
         self.events = events
         self.frame = frame
         self.type = type
+        self.locale = locale
         self.didSelectEvent = didSelectEvent
     }
     
@@ -104,6 +111,12 @@ struct CalendarDisplayView: UIViewRepresentable {
             }
         }
         
+        var locale: Locale = Locale.current {
+            didSet {
+                style.locale = locale
+            }
+        }
+        
         var didSelectEvent: (String) -> Void = { _ in }
         
         func maybeReload() {
@@ -126,7 +139,6 @@ struct CalendarDisplayView: UIViewRepresentable {
         }
         
         func didSelectEvent(_ event: Event, type: CalendarType, frame: CGRect?) {
-            print(event.ID)
             self.didSelectEvent(event.ID)
         }
         
