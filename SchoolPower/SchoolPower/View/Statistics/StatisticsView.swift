@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct StatisticsView: View {
     @State var progressValue: Double = 0.97
     var body: some View {

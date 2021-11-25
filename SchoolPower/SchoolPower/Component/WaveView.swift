@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WaveView: View {
+    // in 0..<1
     var progressFraction: Double
     
     var body: some View {
@@ -30,64 +31,61 @@ fileprivate struct WaveViewModifier: AnimatableModifier {
     }
 }
 
-fileprivate struct WaveViewBase: View, Animatable {
+// Credit: https://stackoverflow.com/a/63412977
+fileprivate struct WaveViewBase: View {
     @State private var waveOffset = Angle(degrees: 360)
     
     var progressFraction: Double
     
-    var color: Color {
+    private var color: Color {
         progressFraction.fromPercentage().toLetterGrade().getLetterGradeColor()
     }
     
-    var wave1: some View {
+    private var waveBack: some View {
         Wave(
-            offset: Angle(degrees: self.waveOffset.degrees),
+            offset: Angle(degrees: waveOffset.degrees + 180),
             percentFraction: progressFraction
         )
             .fill(color.opacity(0.5))
             .clipShape(Circle())
     }
     
-    var wave2: some View {
+    private var waveFront: some View {
         Wave(
-            offset: Angle(degrees: self.waveOffset.degrees - 180),
-             percentFraction: progressFraction
+            offset: Angle(degrees: waveOffset.degrees),
+            percentFraction: progressFraction
         )
             .fill(color)
             .clipShape(Circle())
     }
     
-    var text: some View {
+    private var text: some View {
         Text(String(format: "%.2f%%", progressFraction * 100.0))
             .font(.largeTitle)
             .bold()
     }
     
     var body: some View {
-        ZStack {
-            GeometryReader { geo in
-                Circle()
-                    .strokeBorder(color, lineWidth: 5)
-                    .overlay(
-                        ZStack {
-                            text.foregroundColor(.black)
-                            wave1
-                            wave2
-                            text.foregroundColor(.white).blendMode(.overlay)
-                        }
-                    )
-                    .animation(
-                        .linear(duration: 1).repeatForever(autoreverses: false),
-                        value: waveOffset.degrees
-                    )
-            }
+        Circle()
+            .strokeBorder(color, lineWidth: 5)
+            .overlay(
+                ZStack {
+                    text.foregroundColor(.black)
+                    waveBack
+                    waveFront
+                    text.foregroundColor(.white).blendMode(.overlay)
+                }
+            )
+            .animation(
+                .linear(duration: 1).repeatForever(autoreverses: false),
+                value: waveOffset.degrees
+            )
             .animation(.easeInOut)
-            .aspectRatio(1, contentMode: .fit)
-            .onAppear { self.waveOffset = Angle(degrees: 0) }
-        }
+            .onAppear { waveOffset = Angle(degrees: 0) }
     }
 }
 
+// Credit: https://stackoverflow.com/a/63412977
 fileprivate struct Wave: Shape {
     var offset: Angle
     var percentFraction: Double
@@ -98,20 +96,18 @@ fileprivate struct Wave: Shape {
     }
     
     func path(in rect: CGRect) -> Path {
-        var p = Path()
-        let lowfudge = 0.02
-        let highfudge = 0.98
+        var path = Path()
         
-        let newPercent = lowfudge + (highfudge - lowfudge) * percentFraction
-        let waveHeight = 0.015 * rect.height
-        let yOffset = CGFloat(1 - newPercent) * (rect.height - 4 * waveHeight) + 2 * waveHeight
         let startAngle = offset
         let endAngle = startAngle + Angle(degrees: 360)
         
-        p.move(to: CGPoint(
-            x: 0,
-            y: yOffset + waveHeight * CGFloat(sin(offset.radians))
-        ))
+        let amplitude = 0.015 * rect.height
+        let disturbedPercentFraction = 0.02 + 0.96 * percentFraction
+        
+        let offsetY = CGFloat(1 - disturbedPercentFraction) * rect.height
+        let startY = offsetY + amplitude * CGFloat(sin(offset.radians))
+        
+        path.move(to: CGPoint(x: 0, y: startY))
         
         for angle in stride(
             from: startAngle.degrees,
@@ -119,17 +115,15 @@ fileprivate struct Wave: Shape {
             by: 5
         ) {
             let x = CGFloat((angle - startAngle.degrees) / 360) * rect.width
-            p.addLine(to: CGPoint(
-                x: x,
-                y: yOffset + waveHeight * CGFloat(sin(Angle(degrees: angle).radians))
-            ))
+            let y = offsetY + amplitude * CGFloat(sin(Angle(degrees: angle).radians))
+            path.addLine(to: CGPoint(x: x, y: y))
         }
         
-        p.addLine(to: CGPoint(x: rect.width, y: rect.height))
-        p.addLine(to: CGPoint(x: 0, y: rect.height))
-        p.closeSubpath()
+        path.addLine(to: CGPoint(x: rect.width, y: rect.height))
+        path.addLine(to: CGPoint(x: 0, y: rect.height))
+        path.closeSubpath()
         
-        return p
+        return path
     }
 }
 
