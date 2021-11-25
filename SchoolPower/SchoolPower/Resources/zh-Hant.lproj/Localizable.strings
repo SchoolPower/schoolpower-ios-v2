@@ -10,6 +10,7 @@
 
 /// General
 "General.A_To_B" = "%@ 至 %@";
+"Close" = "關閉";
 
 // Navigations
 "Courses" = "課程";

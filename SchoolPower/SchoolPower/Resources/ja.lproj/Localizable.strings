@@ -10,6 +10,7 @@
 
 /// General
 "General.A_To_B" = "%@ から %@ まで";
+"Close" = "閉じる";
 
 // Navigations
 "Courses" = "コース";
