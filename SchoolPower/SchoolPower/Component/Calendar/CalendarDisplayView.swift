@@ -142,6 +142,10 @@ struct CalendarDisplayView: UIViewRepresentable {
         
         func didSelectEvent(_ event: Event, type: CalendarType, frame: CGRect?) {
             self.didSelectEvent(event.ID)
+            // Highlight for a bit to be responsive
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.view.calendar.deselectEvent(event, animated: true)
+            }
         }
         
         func eventsForCalendar(systemEvents: [EKEvent]) -> [Event] {
