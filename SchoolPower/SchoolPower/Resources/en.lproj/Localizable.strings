@@ -8,6 +8,13 @@
 
 "App.Copyright" = "Built with ❤️ by SchoolPower Studio";
 
+/// General
+"General.A_To_B" = "%@ to %@";
+
+// Schedule
+"day" = "Day";
+"week" = "Week";
+
 /// Avatar
 "image_upload_agreement_content" = "
     SchoolPower uses the third-party website SM.MS (\"the website\") to store the user\'s avatar.
@@ -51,4 +58,3 @@ Unable to launch email client, please send the bug report email to the following
 %@
 
 Thank you for your help!";
-

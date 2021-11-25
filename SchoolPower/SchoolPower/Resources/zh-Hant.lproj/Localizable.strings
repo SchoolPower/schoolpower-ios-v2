@@ -8,10 +8,15 @@
 
 "App.Copyright" = "Built with ❤️ by SchoolPower 工作室";
 
+/// General
+"General.A_To_B" = "%@ 至 %@";
+"Close" = "關閉";
+
 // Navigations
 "Courses" = "課程";
 "Attendances" = "出勤";
 "Profile" = "我";
+"Schedule" = "日程";
 
 // Profile
 "Settings" = "設置";
@@ -35,6 +40,10 @@
 "Comment" = "評語";
 "Course" = "課程";
 "Evaluation" = "評估";
+
+// Schedule
+"day" = "日";
+"week" = "週";
 
 /// Flags
 "collected" = "已交";
@@ -103,7 +112,7 @@
 "Unknown error." = "未知錯誤。";
 "Cannot get image JPEG data." = "無法獲得圖像 JPEG 數據。";
 "No image selected." = "未選擇圖像。";
-"No credential available, please try log in again." = "沒有可用的登錄憑證，請重新登錄。";
+"No credential available, please try to log in again." = "沒有可用的登錄憑證，請重新登錄。";
 
 // Placeholders
 "Nothing here" = "什麼都沒有";

@@ -14,6 +14,21 @@ extension Course: Identifiable, Hashable {
         // TODO
         return grades.first?.grade
     }
+    
+    func toScheduleEventId(with schedule: Course.Schedule) -> String {
+        "\(id)::\(schedule.id)"
+    }
+    
+    static func idFromScheduleEventId(_ scheduleEventId: String) -> String? {
+        return scheduleEventId.components(separatedBy: "::").first
+    }
+}
+
+
+extension Course.Schedule: Identifiable, Hashable {
+    var id: String {
+        "\(startTime):\(endTime)"
+    }
 }
 
 func fakeCourse() -> Course {

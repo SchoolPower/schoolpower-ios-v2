@@ -8,10 +8,15 @@
 
 "App.Copyright" = "Built with ❤️ by SchoolPower 工作室";
 
+/// General
+"General.A_To_B" = "%@ 至 %@";
+"Close" = "关闭";
+
 // Navigations
 "Courses" = "课程";
 "Attendances" = "出勤";
 "Profile" = "我";
+"Schedule" = "日程";
 
 // Profile
 "Settings" = "设置";
@@ -35,6 +40,10 @@
 "Comment" = "评语";
 "Course" = "课程";
 "Evaluation" = "评估";
+
+// Schedule
+"day" = "日";
+"week" = "周";
 
 /// Flags
 "collected" = "已交";
@@ -103,7 +112,7 @@
 "Unknown error." = "未知错误。";
 "Cannot get image JPEG data." = "无法获得图像 JPEG 数据。";
 "No image selected." = "未选择图像。";
-"No credential available, please try log in again." = "没有可用的登录凭证，请重新登录。";
+"No credential available, please try to log in again." = "没有可用的登录凭证，请重新登录。";
 
 // Placeholders
 "Nothing here" = "什么都没有";

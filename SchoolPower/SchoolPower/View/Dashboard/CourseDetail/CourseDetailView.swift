@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+struct DynamicCourseDetailView: View {
+    @Binding var course: Course?
+    var body: some View {
+        if let course = course {
+            CourseDetailView(course: course)
+        }
+    }
+}
+
 struct CourseDetailView: View {
     var course: Course
     
