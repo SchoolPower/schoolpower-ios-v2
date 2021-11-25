@@ -42,6 +42,14 @@ private struct AppView: View {
             .animation(.none)
     }
     
+    var statistics: some View {
+        StatisticsView()
+            .tabItem {
+                Image(systemName: "chart.pie")
+                Text("Statistics")
+            }.tag(2)
+    }
+    
     var profile: some View {
         ProfileView(
             profile: studentDataStore.studentData.profile,
@@ -60,6 +68,7 @@ private struct AppView: View {
                 courses
                 attendance
                 schedule
+                statistics
                 profile
             }
         }
@@ -72,7 +81,7 @@ struct SchoolPowerAppView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SchoolPowerAppView_Previews: PreviewProvider {
     static var previews: some View {
         SchoolPowerAppView()
             .environmentObject(SettingsStore.shared)

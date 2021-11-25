@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D13B983274F19C800E05FCA /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13B982274F19C800E05FCA /* StatisticsView.swift */; };
+		4D13B988274F33F800E05FCA /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13B987274F33F800E05FCA /* WaveView.swift */; };
 		4D1B0986273F4C2300D03CC8 /* DisabledInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0985273F4C2300D03CC8 /* DisabledInfo.swift */; };
 		4D1B0988273F4C8C00D03CC8 /* PlaceholderInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0987273F4C8C00D03CC8 /* PlaceholderInfoView.swift */; };
 		4D1B098A273F522D00D03CC8 /* DisabledInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0989273F522D00D03CC8 /* DisabledInfoView.swift */; };
@@ -119,6 +121,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D13B982274F19C800E05FCA /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		4D13B987274F33F800E05FCA /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		4D1B0985273F4C2300D03CC8 /* DisabledInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledInfo.swift; sourceTree = "<group>"; };
 		4D1B0987273F4C8C00D03CC8 /* PlaceholderInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderInfoView.swift; sourceTree = "<group>"; };
 		4D1B0989273F522D00D03CC8 /* DisabledInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledInfoView.swift; sourceTree = "<group>"; };
@@ -248,6 +252,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D13B981274F191600E05FCA /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				4D13B982274F19C800E05FCA /* StatisticsView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		4D1B09AD274082F900D03CC8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,18 +384,11 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		4D8E64CA274B1A4D00F602C4 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
 		4D8E64CD274B248600F602C4 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
 				4D8E64CE274B249400F602C4 /* ScheduleView.swift */,
+				4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -494,8 +499,9 @@
 		623F07902730DEC2007A79F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4D8E64CD274B248600F602C4 /* Schedule */,
 				621D38E727307D4000825D5C /* SchoolPowerAppView.swift */,
+				4D13B981274F191600E05FCA /* Statistics */,
+				4D8E64CD274B248600F602C4 /* Schedule */,
 				4D790FD42738301300E6C4EB /* Login */,
 				4D790FB22737173100E6C4EB /* Profile */,
 				623F07852730B303007A79F2 /* Dashboard */,
@@ -515,7 +521,6 @@
 		623F07A727323ECF007A79F2 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				4D8E64CA274B1A4D00F602C4 /* Calendar */,
 				62A45EBE2742F4AE00BBE8D9 /* Placeholder */,
 				62A45EBD2742F45600BBE8D9 /* Extension */,
 				4D6EC756273B3A63002CAD13 /* AvatarView.swift */,
@@ -530,6 +535,7 @@
 				4D1B09BD27419E4800D03CC8 /* SendBugReportEmail.swift */,
 				4DDA514E2743354D00B56FDB /* RefreshHelper.swift */,
 				4D8D7D312749E958001A1562 /* AsyncImageView.swift */,
+				4D13B987274F33F800E05FCA /* WaveView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -778,6 +784,7 @@
 				4D790FD027382B0200E6C4EB /* SupportSection.swift in Sources */,
 				4D790F9C2736296100E6C4EB /* TermGrade.swift in Sources */,
 				4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */,
+				4D13B988274F33F800E05FCA /* WaveView.swift in Sources */,
 				4D1B09BE27419E4800D03CC8 /* SendBugReportEmail.swift in Sources */,
 				623F07892730B343007A79F2 /* DashboardView.swift in Sources */,
 				4D1B0994273F78E600D03CC8 /* View+userInteractionDisabled.swift in Sources */,
@@ -821,6 +828,7 @@
 				621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */,
 				623F078B2730B353007A79F2 /* DashboardViewModel.swift in Sources */,
 				4D790FBB27374BC200E6C4EB /* StudentDataStore.swift in Sources */,
+				4D13B983274F19C800E05FCA /* StatisticsView.swift in Sources */,
 				4D6EC75D273B4C3F002CAD13 /* StudentData.swift in Sources */,
 				62A45EC02742F54200BBE8D9 /* InfoCard.swift in Sources */,
 			);

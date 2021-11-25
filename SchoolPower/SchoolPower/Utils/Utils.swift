@@ -11,6 +11,14 @@ extension Double {
     func rounded(digits: Int) -> String {
         return String(format: "%.\(digits)f", self)
     }
+    
+    func toPercentage() -> Double {
+        return self / 100
+    }
+    
+    func fromPercentage() -> Double {
+        return self * 100
+    }
 }
 
 extension String {
