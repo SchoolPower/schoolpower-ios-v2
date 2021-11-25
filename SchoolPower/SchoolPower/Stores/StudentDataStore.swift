@@ -14,24 +14,13 @@ import KVKCalendar
 final class StudentDataStore: ObservableObject {
     static let shared = StudentDataStore()
     
-    @Published var studentData: StudentData = StudentData()
-    
-    var courseById: [String : Course] = [:]
-    
-    var schedule: [Event] {
-        studentData.courses
-            .flatMap { course in
-                course.schedule
-                    .map { it in
-                        var event = Event(ID: course.toScheduleEventId(with: it))
-                        event.text = scheduleEventText(course, it)
-                        event.start = it.startTime.asMillisDate()
-                        event.end = it.endTime.asMillisDate()
-                        event.color = Event.Color((course.displayGrade()?.color() ?? .F_score_purple).uiColor())
-                        return event
-                    }
-            }
+    @Published var studentData: StudentData = StudentData() {
+        didSet { self.didSetStudentData() }
     }
+    
+    @Published var courseById: [String : Course] = [:]
+    
+    @Published var schedule: [Event] = []
     
     private init() {
         loadThenTryFetchAndSave()
@@ -46,10 +35,6 @@ final class StudentDataStore: ObservableObject {
     
     func save(studentData: StudentData) {
         self.studentData = studentData
-        self.courseById = studentData.courses.reduce(into: [String : Course]()) {
-            partialResult, course in
-            partialResult[course.id] = course
-        }
         do {
             let dataJsonString = try studentData.jsonString()
             Utils.saveStringToFile(filename: Constants.studentDataFileName, data: dataJsonString)
@@ -76,8 +61,27 @@ final class StudentDataStore: ObservableObject {
         } else {
             completion(false, ErrorResponse(
                 title: "Failed to refresh data",
-                description: "No credential available, please try log in again."
+                description: "No credential available, please try to log in again."
             ), nil)
+        }
+    }
+    
+    private func didSetStudentData() {
+        self.schedule = studentData.courses
+            .flatMap { course in
+                course.schedule
+                    .map { it in
+                        var event = Event(ID: course.toScheduleEventId(with: it))
+                        event.text = scheduleEventText(course, it)
+                        event.start = it.startTime.asMillisDate()
+                        event.end = it.endTime.asMillisDate()
+                        event.color = Event.Color((course.displayGrade()?.color() ?? .F_score_purple).uiColor())
+                        return event
+                    }
+            }
+        self.courseById = studentData.courses.reduce(into: [String : Course]()) {
+            partialResult, course in
+            partialResult[course.id] = course
         }
     }
 }

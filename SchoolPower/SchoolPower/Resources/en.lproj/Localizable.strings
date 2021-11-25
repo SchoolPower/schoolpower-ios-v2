@@ -11,6 +11,10 @@
 /// General
 "General.A_To_B" = "%@ to %@";
 
+// Schedule
+"day" = "Day";
+"week" = "Week";
+
 /// Avatar
 "image_upload_agreement_content" = "
     SchoolPower uses the third-party website SM.MS (\"the website\") to store the user\'s avatar.

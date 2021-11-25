@@ -70,7 +70,7 @@ class HeaderViewState: ObservableObject {
         completion: @escaping (Bool, ErrorResponse?, String?) -> Void
     ) {
         guard let requestData = AuthenticationStore.shared.requestData else {
-            completion(false, nil, "No credential available, please try log in again.")
+            completion(false, nil, "No credential available, please try to log in again.")
             return
         }
         

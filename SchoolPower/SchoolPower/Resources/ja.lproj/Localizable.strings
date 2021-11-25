@@ -15,6 +15,7 @@
 "Courses" = "コース";
 "Attendances" = "出席";
 "Profile" = "プロフィール";
+"Schedule" = "スケジュール";
 
 // Profile
 "Settings" = "設定";
@@ -38,6 +39,10 @@
 "Comment" = "コメント";
 "Course" = "コース";
 "Evaluation" = "評価";
+
+// Schedule
+"day" = "日";
+"week" = "週";
 
 /// Flags
 "collected" = "提出した";
@@ -107,7 +112,7 @@
 "Unknown error." = "不明なエラー。";
 "Cannot get image JPEG data." = "画像JPEGデータを取得できません。";
 "No image selected." = "画像が選択されていません。";
-"No credential available, please try log in again." = "利用可能なクレデンシャルがありません。もう一度ログインしてください。";
+"No credential available, please try to log in again." = "利用可能なクレデンシャルがありません。もう一度ログインしてください。";
 
 // Placeholders
 "Nothing here" = "何もないよ";

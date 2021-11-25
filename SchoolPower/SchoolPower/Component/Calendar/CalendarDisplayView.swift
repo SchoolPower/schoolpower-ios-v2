@@ -13,12 +13,14 @@ struct CalendarDisplayView: UIViewRepresentable {
     var events: [Event]
     var frame: CGRect
     var type: CalendarType
-    var style: Style = Style()
     var locale: Locale
     var didSelectEvent: (String) -> Void
 
     private var calendar: CalendarView = {
-        return CalendarView(frame: UIScreen.main.bounds, style: Coordinator.defaultStyle)
+        return CalendarView(
+            frame: UIScreen.main.bounds,
+            style: Coordinator.defaultStyle
+        )
     }()
         
     func makeUIView(context: UIViewRepresentableContext<CalendarDisplayView>) -> CalendarView {
