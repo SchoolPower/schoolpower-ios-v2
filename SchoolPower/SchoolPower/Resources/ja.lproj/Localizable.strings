@@ -46,6 +46,10 @@
 "day" = "日";
 "week" = "週";
 
+// Statistics
+"Radar Chart" = "レーダーチャート";
+"Bar Chart" = "棒グラフ";
+
 /// Flags
 "collected" = "提出した";
 "incomplete" = "未完成";

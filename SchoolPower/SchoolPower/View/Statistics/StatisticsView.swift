@@ -27,14 +27,13 @@ struct StatisticsView: View {
                 }
                 Section {
                     NavigationLink {
-                        BarChartStatisticsView(courses: courses)
+                        RadarChartStatisticsView(courses: courses)
                     } label: {
                         Label {
                             Text("Radar Chart")
                         } icon: {
                             Image(systemName: "hexagon")
                         }
-
                     }
                     NavigationLink {
                         BarChartStatisticsView(courses: courses)
@@ -44,7 +43,6 @@ struct StatisticsView: View {
                         } icon: {
                             Image(systemName: "chart.bar")
                         }
-
                     }
                 }
             }

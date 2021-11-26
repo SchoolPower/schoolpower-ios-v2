@@ -10,6 +10,7 @@ import Combine
 import Alamofire
 import SwiftProtobuf
 import KVKCalendar
+import UIKit
 
 final class StudentDataStore: ObservableObject {
     static let shared = StudentDataStore()
@@ -21,6 +22,8 @@ final class StudentDataStore: ObservableObject {
     @Published var courseById: [String : Course] = [:]
     
     @Published var schedule: [Event] = []
+    
+    @Published var availableTerms: [Term] = []
     
     private init() {
         loadThenTryFetchAndSave()
@@ -40,7 +43,6 @@ final class StudentDataStore: ObservableObject {
         do {
             let dataJsonString = try studentData.jsonString()
             SettingsStore.shared.studentDataJSON = dataJsonString
-//            Utils.saveStringToFile(filename: Constants.studentDataFileName, data: dataJsonString)
         } catch {
             print("Failed to save student data: \(error)")
         }
@@ -86,6 +88,12 @@ final class StudentDataStore: ObservableObject {
             partialResult, course in
             partialResult[course.id] = course
         }
+        self.availableTerms = Array(
+            studentData.courses
+                .flatMap({ it in it.grades })
+                .compactMap({ it in it.reallyHasGrade ? it.term : nil })
+                .uniqued()
+        )
     }
 }
 
@@ -149,6 +157,8 @@ extension StudentDataStore {
     
     static func tryFetch(
         requestData: RequestData? = AuthenticationStore.shared.requestData,
+        action: Constants.GetDataAction = .manual,
+        locale: Locale = Locale.current,
         completion: @escaping (Bool, StudentData?, ErrorResponse?, String?) -> Void
     ) {
         if let requestData = requestData ?? AuthenticationStore.shared.requestData {
@@ -156,7 +166,29 @@ extension StudentDataStore {
                 Constants.getStudentDataURL,
                 method: .post,
                 parameters: requestData,
-                encoder: JSONParameterEncoder.default
+                encoder: JSONParameterEncoder.default,
+                headers: HTTPHeaders([
+                    HTTPHeader(
+                        name: "X-OS",
+                        value: "ios"
+                    ),
+                    HTTPHeader(
+                        name: "X-OS-Version",
+                        value: UIDevice.current.systemVersion
+                    ),
+                    HTTPHeader(
+                        name: "X-App-Version",
+                        value: Utils.getFormattedAppVersionBuild()
+                    ),
+                    HTTPHeader(
+                        name: "X-Action",
+                        value: action.rawValue
+                    ),
+                    HTTPHeader(
+                        name: "X-Locale",
+                        value: locale.identifier
+                    ),
+                ])
             )
                 .validate(statusCode: 200..<300)
                 .validate(contentType: ["application/json"])
@@ -164,7 +196,6 @@ extension StudentDataStore {
                     switch response.result {
                     case .success:
                         guard let jsonString = response.value else { return }
-//                        debugPrint(jsonString)
                         debugPrint("JSON fetched")
                         do {
                             let data = try StudentData(jsonString: jsonString)

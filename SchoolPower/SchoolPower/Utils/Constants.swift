@@ -32,6 +32,12 @@ class Constants {
         case japanese = "日本語"
     }
     
+    enum GetDataAction: String, CaseIterable {
+        case manual = "manual_pull_data"
+        case job = "pull_data_job"
+        case login = "login"
+    }
+    
     public static let LanguageLocale: [Language: String] = [
         .english: "en",
         .chineseSimplified: "zh-Hans",

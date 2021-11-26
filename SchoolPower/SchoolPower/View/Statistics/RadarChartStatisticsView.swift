@@ -1,22 +1,24 @@
 //
-//  BarChartStatisticsView.swift
+//  RadarChartStatisticsView.swift
 //  SchoolPower
 //
-//  Created by Mark Wang on 11/25/21.
+//  Created by Mark Wang on 11/26/21.
 //
 
 import SwiftUI
 
-struct BarChartStatisticsView: View {
+struct RadarChartStatisticsView: View {
     var courses: [Course]
+    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
     @EnvironmentObject var studentDataStore: StudentDataStore
     @State private var selectTerm: Term = .all
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Bar Chart").font(.largeTitle).bold().foregroundColor(.primary).padding(.bottom).padding(.top, -12)
-            BarChart(courses: courses.filterHasGrades(selectTerm)).padding(.vertical)
+            Text("Radar Chart").font(.largeTitle).bold().foregroundColor(.primary).padding(.top, -12).padding(.bottom)
+            RadarChart(courses: courses.filterHasGrades(selectTerm)).padding(.bottom, 100)
         }
         .padding()
         .toolbar {
@@ -41,9 +43,9 @@ struct BarChartStatisticsView: View {
     }
 }
 
-struct BarChartStatisticsView_Previews: PreviewProvider {
+struct RadarChartStatisticsView_Previews: PreviewProvider {
     static var previews: some View {
-        BarChartStatisticsView(courses: [fakeCourse(), fakeCourse(), fakeCourse()])
+        RadarChartStatisticsView(courses: [fakeCourse(), fakeCourse(), fakeCourse()])
             .environmentObject(SettingsStore.shared)
             .environmentObject(StudentDataStore.shared)
             .environmentObject(AuthenticationStore.shared)

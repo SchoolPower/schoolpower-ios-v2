@@ -21,7 +21,7 @@ struct InfoCardContent {
 
 func fakeInfoCardContent() -> InfoCardContent {
     return InfoCardContent(
-        uuid: "7",
+        uuid: "9",
         localizedTitle: "フォニー",
         localizedDescription: """
             この世で造花より綺麗な花は無いわ

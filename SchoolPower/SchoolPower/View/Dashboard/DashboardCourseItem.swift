@@ -31,9 +31,14 @@ fileprivate struct GradePercentageView: View {
 
 struct DashboardCourseItem: View {
     var course: Course
+    var term: Term
+    
+    private var displayGrade: Grade? {
+        course.displayGrade(term)
+    }
     
     private var color: Color? {
-        course.displayGrade().color()
+        displayGrade.color()
     }
     
     var body: some View {
@@ -41,7 +46,7 @@ struct DashboardCourseItem: View {
             HStack(spacing: 0) {
                 HStack {
                     if geometry.size.width >= COMPACT_PERCENTAGE_WIDTH_BREAKPOINT {
-                        Text(course.displayGrade()?.letter ?? "--")
+                        Text(displayGrade?.letter ?? "--")
                             .frame(width: 40, height: 40)
                             .foregroundColor(.white)
                             .background(
@@ -81,9 +86,9 @@ struct DashboardCourseItem: View {
                 }
                 .padding(16)
                 if geometry.size.width < COMPACT_PERCENTAGE_WIDTH_BREAKPOINT {
-                    GradePercentageView(percentage: course.displayGrade()?.percentage, width: 50, color: color)
+                    GradePercentageView(percentage: displayGrade?.percentage, width: 50, color: color)
                 } else {
-                    GradePercentageView(percentage: course.displayGrade()?.percentage, width: 70, color: color)
+                    GradePercentageView(percentage: displayGrade?.percentage, width: 70, color: color)
                 }
             }
             .padding(.top, 8)
@@ -96,7 +101,7 @@ struct DashboardCourseItem: View {
 struct DashboardCourseItem_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DashboardCourseItem(course: fakeCourse())
+            DashboardCourseItem(course: fakeCourse(), term: .all)
         }
         .previewLayout(.fixed(width: 383, height: 96))
     }

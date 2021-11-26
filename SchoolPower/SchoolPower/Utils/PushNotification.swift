@@ -46,7 +46,7 @@ extension PushNotification {
         print("Registered Push Notification Device Token: \(tokenString).")
         
         AF.request(
-            Constants.getStudentDataURL,
+            Constants.registerAPNSDeviceTokenURL,
             method: .post,
             parameters: [
                 "device_token": tokenString

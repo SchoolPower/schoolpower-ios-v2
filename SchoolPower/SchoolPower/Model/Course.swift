@@ -10,12 +10,35 @@ import Foundation
 extension Course: Identifiable, Hashable {
     internal var id: String { self.name }
     
-    func displayGrade() -> Grade? {
-        // TODO
-        if let termGrade = grades.first, termGrade.reallyHasGrade {
+    func displayGrade(_ term: Term = .all) -> Grade? {
+        let termGrade = grades.first(where: { it in
+            term != .all && it.term == term
+        }) ?? grades.filter {
+            // Do not include "--" grades
+            it in it.reallyHasGrade
+        }.first
+        
+        if let termGrade = termGrade, termGrade.reallyHasGrade {
             return termGrade.grade
         }
+        
         return nil
+    }
+    
+    func hasGradeInTerm(_ term: Term = .all) -> Bool {
+        guard term != .all else { return true }
+        return grades.first { it in
+            // Include "--" grades
+            it.hasGrade && it.term == term
+        } != nil
+    }
+    
+    func reallyHasGradeInTerm(_ term: Term = .all) -> Bool {
+        guard term != .all else { return true }
+        return grades.first { it in
+            // Do not nclude "--" grades
+            it.reallyHasGrade && it.term == term
+        } != nil
     }
     
     func toScheduleEventId(with schedule: Course.Schedule) -> String {

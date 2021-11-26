@@ -44,7 +44,8 @@ struct DashboardView: View {
                 }
             }
             if horizontalSizeClass == .compact,
-               viewModel.showPlaceholder {
+               viewModel.showPlaceholder &&
+                !InfoCardStore.shared.shouldShowInfoCard {
                 viewModel.placeholder
             }
         }

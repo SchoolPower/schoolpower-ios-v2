@@ -38,7 +38,30 @@ extension String {
         return String(format: self.localized, arguments: with)
     }
     
-    func trunc(_ length: Int, trailing: String = "…") -> String {
-        return (self.count > length) ? self.prefix(length - 1) + trailing : self
+    func truncate(_ length: Int, trailing: String = "…") -> String {
+        return (count > length)
+        ? prefix(length - 1) + trailing
+        : self
+    }
+    
+    func truncateMiddle(_ length: Int, middle: String = "…") -> String {
+        return (count > length)
+        ? "\(prefix((length + 1) / 2))\(middle)\(suffix(length / 2))"
+        : self
+    }
+    
+    func softBreakEvery(_ tolerate: Int, hardBreak: Int = .max) -> String {
+        var broken = ""
+        var lastLineLength = 0
+        for part in self.split(separator: " ") {
+            if part.count < tolerate, lastLineLength + part.count + 1 < hardBreak {
+                broken.append(" " + part)
+                lastLineLength += part.count + 1
+            } else {
+                broken.append("\n" + part)
+                lastLineLength = part.count
+            }
+        }
+        return broken
     }
 }

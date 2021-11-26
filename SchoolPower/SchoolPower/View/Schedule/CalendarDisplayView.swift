@@ -19,7 +19,8 @@ struct CalendarDisplayView: UIViewRepresentable {
     private var calendar: CalendarView = {
         return CalendarView(
             frame: UIScreen.main.bounds,
-            style: Coordinator.defaultStyle
+            style: Coordinator.defaultStyle,
+            years: 2
         )
     }()
         
@@ -31,12 +32,12 @@ struct CalendarDisplayView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: CalendarView, context: UIViewRepresentableContext<CalendarDisplayView>) {
-        if context.coordinator.type != type {
-            context.coordinator.type = type
-        }
-        
         if context.coordinator.frame != frame {
             context.coordinator.frame = frame
+        }
+        
+        if context.coordinator.type != type {
+            context.coordinator.type = type
         }
         
         if context.coordinator.locale != locale {
@@ -48,8 +49,6 @@ struct CalendarDisplayView: UIViewRepresentable {
             context.coordinator.didSelectEvent = didSelectEvent
             context.coordinator.initialized = true
         }
-        
-        context.coordinator.maybeReload()
     }
     
     func makeCoordinator() -> CalendarDisplayView.Coordinator {
@@ -96,40 +95,30 @@ struct CalendarDisplayView: UIViewRepresentable {
         
         var frame: CGRect = CGRect() {
             didSet {
-                shouldReloadFrame = true
+                view.calendar.reloadFrame(frame)
             }
         }
         
         var type: CalendarType = .day {
             didSet {
                 view.calendar.set(type: type, date: Date())
-                shouldReloadFrame = true
+                view.calendar.reloadData()
+                if !frame.isEmpty {
+                    view.calendar.reloadFrame(frame)
+                }
             }
         }
         
-        var style: Style = Coordinator.defaultStyle {
-            didSet {
-                view.calendar.updateStyle(style)
-            }
-        }
+        var style: Style = Coordinator.defaultStyle
         
         var locale: Locale = Locale.current {
             didSet {
                 style.locale = locale
+                view.calendar.reloadData()
             }
         }
         
         var didSelectEvent: (String) -> Void = { _ in }
-        
-        func maybeReload() {
-            if shouldReloadFrame {
-                DispatchQueue.main.async { [self] in
-                    view.calendar.reloadFrame(frame)
-                    view.calendar.reloadData()
-                    shouldReloadFrame = false
-                }
-            }
-        }
         
         init(_ view: CalendarDisplayView) {
             self.view = view

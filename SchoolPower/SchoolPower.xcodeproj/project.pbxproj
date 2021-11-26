@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4D05171A2750852F00D6891B /* BarChartStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0517192750852F00D6891B /* BarChartStatisticsView.swift */; };
-		4D05171C2750866E00D6891B /* RadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D05171B2750866E00D6891B /* RadarChart.swift */; };
 		4D05171F2750885700D6891B /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 4D05171E2750885700D6891B /* Charts */; };
 		4D051721275088AF00D6891B /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D051720275088AF00D6891B /* BarChart.swift */; };
+		4D0517242751628E00D6891B /* RadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0517232751628E00D6891B /* RadarChart.swift */; };
+		4D051726275165F400D6891B /* RadarChartStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D051725275165F400D6891B /* RadarChartStatisticsView.swift */; };
 		4D13B983274F19C800E05FCA /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13B982274F19C800E05FCA /* StatisticsView.swift */; };
 		4D13B988274F33F800E05FCA /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13B987274F33F800E05FCA /* WaveView.swift */; };
 		4D1B0986273F4C2300D03CC8 /* DisabledInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0985273F4C2300D03CC8 /* DisabledInfo.swift */; };
@@ -132,8 +133,9 @@
 
 /* Begin PBXFileReference section */
 		4D0517192750852F00D6891B /* BarChartStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartStatisticsView.swift; sourceTree = "<group>"; };
-		4D05171B2750866E00D6891B /* RadarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChart.swift; sourceTree = "<group>"; };
 		4D051720275088AF00D6891B /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		4D0517232751628E00D6891B /* RadarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChart.swift; sourceTree = "<group>"; };
+		4D051725275165F400D6891B /* RadarChartStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChartStatisticsView.swift; sourceTree = "<group>"; };
 		4D13B982274F19C800E05FCA /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		4D13B987274F33F800E05FCA /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		4D1B0985273F4C2300D03CC8 /* DisabledInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledInfo.swift; sourceTree = "<group>"; };
@@ -276,7 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				4D051720275088AF00D6891B /* BarChart.swift */,
-				4D05171B2750866E00D6891B /* RadarChart.swift */,
+				4D0517232751628E00D6891B /* RadarChart.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -287,6 +289,7 @@
 				4D13B982274F19C800E05FCA /* StatisticsView.swift */,
 				4D50B935275069D4005EC5A9 /* GPAView.swift */,
 				4D0517192750852F00D6891B /* BarChartStatisticsView.swift */,
+				4D051725275165F400D6891B /* RadarChartStatisticsView.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				4D05171A2750852F00D6891B /* BarChartStatisticsView.swift in Sources */,
 				621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */,
 				4DB6DF052733700000FA7B40 /* Utils.swift in Sources */,
+				4D051726275165F400D6891B /* RadarChartStatisticsView.swift in Sources */,
 				4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */,
 				4D6EC762273B5D22002CAD13 /* HeaderViewState.swift in Sources */,
 				4D790FE12738675600E6C4EB /* ErrorResponse.swift in Sources */,
@@ -833,6 +837,7 @@
 				4D790FB4273719C300E6C4EB /* ProfileView.swift in Sources */,
 				4DDA51552743486200B56FDB /* InfoCardStore.swift in Sources */,
 				4D790FD027382B0200E6C4EB /* SupportSection.swift in Sources */,
+				4D0517242751628E00D6891B /* RadarChart.swift in Sources */,
 				4D790F9C2736296100E6C4EB /* TermGrade.swift in Sources */,
 				4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */,
 				4D13B988274F33F800E05FCA /* WaveView.swift in Sources */,
@@ -879,7 +884,6 @@
 				4D50B94127506EF4005EC5A9 /* String+Extensions.swift in Sources */,
 				4D790FA927363EF700E6C4EB /* Term.swift in Sources */,
 				4D1B0990273F5D9100D03CC8 /* AvatarButton.swift in Sources */,
-				4D05171C2750866E00D6891B /* RadarChart.swift in Sources */,
 				4D790FAF2737106200E6C4EB /* AttendanceItem.swift in Sources */,
 				621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */,
 				623F078B2730B353007A79F2 /* DashboardViewModel.swift in Sources */,

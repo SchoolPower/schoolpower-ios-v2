@@ -31,8 +31,11 @@ extension Array where Element: BinaryFloatingPoint {
 }
 
 extension Array where Element == Course {
-    func filterHasGrades() -> [Course] {
-        self.filter { it in it.displayGrade() != nil }
+    func filterHasGrades(_ term: Term = .all) -> [Course] {
+        self.filter { it in it.hasGradeInTerm(term) }
+    }
+    func filterReallyHasGrades(_ term: Term = .all) -> [Course] {
+        self.filter { it in it.reallyHasGradeInTerm(term) }
     }
     func mapToIds() -> [String] {
         self.map { it in it.id }

@@ -13,11 +13,12 @@ struct GPAView: View {
     @State private var gpaPercentFraction: Double = 0
     @State private var selectedCourseIds: Set<String> = Set()
     @State private var editMode: EditMode = .active
+    @State private var selectTerm: Term = .all
     
     @EnvironmentObject var studentDataStore: StudentDataStore
     
     private var coursesWithGrade: [Course] {
-        courses.filterHasGrades()
+        courses.filterReallyHasGrades(selectTerm)
     }
     
     private var courseIdsWithGrade: [String] {
@@ -83,6 +84,28 @@ struct GPAView: View {
             )
             .edgesIgnoringSafeArea(.all)
         }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                if selectTerm != .all {
+                    Menu {
+                        Picker(selection: $selectTerm, label: Text("Select term")) {
+                            ForEach(studentDataStore.availableTerms, id: \.self) { term in
+                                Text(term).tag(term)
+                            }
+                        }
+                    } label: { Text(selectTerm.displayText()) }
+                } else {
+                    EmptyView()
+                }
+            }
+        }
+        .onChange(of: selectTerm) { _ in
+            selectedCourseIds.formIntersection(courseIdsWithGrade)
+        }
+        .onAppear {
+            selectTerm = studentDataStore.availableTerms.first ?? .all
+        }
+        .navigationBarTitleDisplayMode(.large)
         .navigationTitle("GPA")
     }
     

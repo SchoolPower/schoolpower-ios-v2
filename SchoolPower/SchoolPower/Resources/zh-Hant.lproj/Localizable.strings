@@ -46,6 +46,10 @@
 "day" = "日";
 "week" = "週";
 
+// Statistics
+"Radar Chart" = "雷達圖";
+"Bar Chart" = "條形圖";
+
 /// Flags
 "collected" = "已交";
 "incomplete" = "未完成";

@@ -37,6 +37,7 @@ class InfoCardStore: ObservableObject {
     }
     
     func loadInfoCard() {
+        // TODO
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.infoCardReceived = fakeInfoCardContent()
             self.maybeShowInfoCard()

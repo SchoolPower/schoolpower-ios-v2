@@ -116,7 +116,8 @@ struct LoginView: View {
                                         .opacity(0.3)
                                     }
                                     .padding(.top, 48)
-                                    Text("App.Copyright").font(.caption2).foregroundColor(.gray).padding(.top)
+                                    Text("App.Copyright").font(.caption2).foregroundColor(.gray)
+                                        .padding(.vertical)
                                 }
                                 .frame(minHeight: geo.size.height - 96)
                                 .padding(.top, 48)
