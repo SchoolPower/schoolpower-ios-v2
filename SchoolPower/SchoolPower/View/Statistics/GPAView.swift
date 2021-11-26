@@ -48,22 +48,6 @@ struct GPAView: View {
                     tableView.showsVerticalScrollIndicator = false
                     tableView.showsHorizontalScrollIndicator = false
                 })
-                .onChange(of: selectedCourseIds) { _ in
-                    SettingsStore.shared.selectedGPACourseIds = Array(selectedCourseIds)
-                    updateWaveView()
-                }
-                .onAppear {
-                    let selectedGPACourseIds = SettingsStore.shared.selectedGPACourseIds
-                    let intersection = Set(courseIdsWithGrade).intersection(selectedGPACourseIds)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        if intersection.isEmpty {
-                            selectedCourseIds = Set(courseIdsWithGrade)
-                        } else {
-                            selectedCourseIds = Set(intersection)
-                        }
-                        updateWaveView()
-                    }
-                }
                 .listStyle(.insetGrouped)
                 .frame(maxWidth: 600)
                 .environment(\.editMode, $editMode)
@@ -99,11 +83,43 @@ struct GPAView: View {
                 }
             }
         }
+        .onChange(of: selectedCourseIds) { _ in
+            var temp = SettingsStore.shared.selectedGPACourseIdsByTerm as? [Term: [String]] ?? [:]
+            temp[selectTerm] = Array(selectedCourseIds)
+            SettingsStore.shared.selectedGPACourseIdsByTerm = temp
+            updateWaveView()
+        }
         .onChange(of: selectTerm) { _ in
-            selectedCourseIds.formIntersection(courseIdsWithGrade)
+            SettingsStore.shared.selectedGPAViewingTerm = selectTerm
+            let selectedGPACourseIdsByTerm = SettingsStore.shared
+                .selectedGPACourseIdsByTerm as? [Term: [String]] ?? [:]
+            let selectedGPACourseIds = selectedGPACourseIdsByTerm[selectTerm]
+            
+            if let stored = selectedGPACourseIds {
+                selectedCourseIds = Set(stored)
+            } else {
+                selectedCourseIds = Set(courseIdsWithGrade)
+            }
         }
         .onAppear {
-            selectTerm = studentDataStore.availableTerms.first ?? .all
+            let selectedGPAViewingTerm = SettingsStore.shared.selectedGPAViewingTerm
+            if studentDataStore.availableTerms.contains(selectedGPAViewingTerm) {
+                selectTerm = selectedGPAViewingTerm
+            } else {
+                selectTerm = studentDataStore.availableTerms.first ?? .all
+            }
+            
+            let selectedGPACourseIdsByTerm = SettingsStore.shared
+                .selectedGPACourseIdsByTerm as? [Term: [String]] ?? [:]
+            let selectedGPACourseIds = selectedGPACourseIdsByTerm[selectTerm]
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                if let stored = selectedGPACourseIds {
+                    selectedCourseIds = Set(stored)
+                } else {
+                    selectedCourseIds = Set(courseIdsWithGrade)
+                }
+                updateWaveView()
+            }
         }
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle("GPA")

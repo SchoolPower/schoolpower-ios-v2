@@ -21,7 +21,8 @@ final class SettingsStore: ObservableObject {
         static let notifyUngradedAssignments = "notify_ungraded_assignments"
         static let dismissedInfoCardUUIDs = "dismissed_info_card_uuids"
         static let studentDataJSON = "student_data_json"
-        static let selectedGPACourseIds = "selected_gpa_course_ids"
+        static let selectedGPACourseIdsByTerm = "selected_gpa_course_ids_by_term"
+        static let selectedGPAViewingTerm = "selected_gpa_viewing_term"
     }
     
     private static let defaultSettings: [String: Any] = [
@@ -34,7 +35,8 @@ final class SettingsStore: ObservableObject {
         Keys.notifyUngradedAssignments: true,
         Keys.dismissedInfoCardUUIDs: [:],
         Keys.studentDataJSON: "",
-        Keys.selectedGPACourseIds: [],
+        Keys.selectedGPACourseIdsByTerm: [:],
+        Keys.selectedGPAViewingTerm: "",
     ]
     
     private let defaults = UserDefaults.standard
@@ -121,9 +123,14 @@ extension SettingsStore {
 
 // MARK: GPA
 extension SettingsStore {
-    var selectedGPACourseIds: [String] {
-        set { defaults.set(newValue, forKey: Keys.selectedGPACourseIds) }
-        get { defaults.stringArray(forKey: Keys.selectedGPACourseIds) ?? [] }
+    var selectedGPACourseIdsByTerm: [Term: Any] {
+        set { defaults.set(newValue, forKey: Keys.selectedGPACourseIdsByTerm) }
+        get { defaults.dictionary(forKey: Keys.selectedGPACourseIdsByTerm) ?? [:] }
+    }
+    
+    var selectedGPAViewingTerm: Term {
+        set { defaults.set(newValue, forKey: Keys.selectedGPAViewingTerm) }
+        get { defaults.string(forKey: Keys.selectedGPAViewingTerm) ?? "" }
     }
 }
 
