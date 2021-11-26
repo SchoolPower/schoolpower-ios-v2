@@ -8,39 +8,22 @@
 import SwiftUI
 
 struct StatisticsView: View {
-    @State var progressValue: Double = 0.97
+    var courses: [Course]
     var body: some View {
-        ZStack {
-            VStack {
-                WaveView(progressFraction: self.progressValue)
-                Spacer()
-                Button(action: {
-                    self.incrementProgress()
-                }) {
-                    HStack {
-                        Image(systemName: "wand.and.rays")
-                    }
-                    .padding(15.0)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15.0)
-                            .stroke(lineWidth: 2.0)
-                    )
-                }
+        NavigationView {
+            NavigationLink {
+                GPAView(courses: courses)
+            } label: {
+                Text("GPA")
             }
         }
-    }
-    
-    func incrementProgress() {
-        let randomValue = Double.random(in: 0..<1)
-        withAnimation(.easeInOut(duration: 0.75)) {
-            self.progressValue = randomValue
-        }
+        .navigationTitle("Statistics")
     }
 }
 
 struct StatisticsView_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticsView()
+        StatisticsView(courses: [fakeCourse()])
             .environmentObject(SettingsStore.shared)
             .environmentObject(StudentDataStore.shared)
             .environmentObject(AuthenticationStore.shared)

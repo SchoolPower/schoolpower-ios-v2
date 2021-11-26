@@ -10,10 +10,11 @@ import SwiftUI
 struct WaveView: View {
     // in 0..<1
     var progressFraction: Double
+    var maxSize: CGFloat = 400
     
     var body: some View {
         VStack {}
-        .frame(maxWidth: 300, maxHeight: 300)
+        .frame(minWidth: 150, maxWidth: maxSize, minHeight: 150, maxHeight: maxSize)
         .modifier(WaveViewModifier(progressFraction: progressFraction))
     }
 }
@@ -33,29 +34,31 @@ fileprivate struct WaveViewModifier: AnimatableModifier {
 
 // Credit: https://stackoverflow.com/a/63412977
 fileprivate struct WaveViewBase: View {
-    @State private var waveOffset = Angle(degrees: 360)
+    @State private var waveOffsetDegrees: Double = 360
     
     var progressFraction: Double
     
     private var color: Color {
-        progressFraction.fromPercentage().toLetterGrade().getLetterGradeColor()
+        progressFraction.denormalizePercentage().toLetterGrade().getLetterGradeColor()
     }
     
     private var waveBack: some View {
         Wave(
-            offset: Angle(degrees: waveOffset.degrees + 180),
+            offset: Angle(degrees: waveOffsetDegrees + 180),
             percentFraction: progressFraction
         )
             .fill(color.opacity(0.5))
+            .animation(.easeInOut, value: color)
             .clipShape(Circle())
     }
     
     private var waveFront: some View {
         Wave(
-            offset: Angle(degrees: waveOffset.degrees),
+            offset: Angle(degrees: waveOffsetDegrees),
             percentFraction: progressFraction
         )
             .fill(color)
+            .animation(.easeInOut, value: color)
             .clipShape(Circle())
     }
     
@@ -68,6 +71,7 @@ fileprivate struct WaveViewBase: View {
     var body: some View {
         Circle()
             .strokeBorder(color, lineWidth: 5)
+            .animation(.easeInOut, value: color)
             .overlay(
                 ZStack {
                     text.foregroundColor(.black)
@@ -76,12 +80,13 @@ fileprivate struct WaveViewBase: View {
                     text.foregroundColor(.white).blendMode(.overlay)
                 }
             )
-            .animation(
-                .linear(duration: 1).repeatForever(autoreverses: false),
-                value: waveOffset.degrees
-            )
-            .animation(.easeInOut)
-            .onAppear { waveOffset = Angle(degrees: 0) }
+            .onAppear {
+                DispatchQueue.main.async {
+                    withAnimation(.linear(duration: 1).repeatForever(autoreverses: false)) {
+                        waveOffsetDegrees = 0
+                    }
+                }
+            }
     }
 }
 

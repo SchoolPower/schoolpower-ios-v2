@@ -27,9 +27,11 @@ final class StudentDataStore: ObservableObject {
     }
     
     func loadThenTryFetchAndSave() {
-        StudentDataStore.tryLoadAndIfSuccess { data in self.studentData = data }
-        StudentDataStore.tryFetchAndIfSuccess { data in
-            self.save(studentData: data)
+        StudentDataStore.tryLoadAndIfSuccess { data in self.save(studentData: data) }
+        DispatchQueue.main.async {
+            StudentDataStore.tryFetchAndIfSuccess { data in
+                self.save(studentData: data)
+            }
         }
     }
     
@@ -37,9 +39,10 @@ final class StudentDataStore: ObservableObject {
         self.studentData = studentData
         do {
             let dataJsonString = try studentData.jsonString()
-            Utils.saveStringToFile(filename: Constants.studentDataFileName, data: dataJsonString)
+            SettingsStore.shared.studentDataJSON = dataJsonString
+//            Utils.saveStringToFile(filename: Constants.studentDataFileName, data: dataJsonString)
         } catch {
-            print("Failed to save student data to file:" + " \(Constants.studentDataFileName): \(error)")
+            print("Failed to save student data: \(error)")
         }
     }
     
@@ -121,12 +124,13 @@ extension StudentDataStore {
     }
     
     static func tryLoadAndIfSuccess(callback: @escaping (StudentData) -> Void) {
-        if let dataJsonString = Utils.readStringFromFile(filename: Constants.studentDataFileName) {
+        let dataJsonString = SettingsStore.shared.studentDataJSON
+        if !dataJsonString.isEmpty {
             do {
                 let data = try StudentData(jsonString: dataJsonString)
                 callback(data)
             } catch {
-                print("Failed to serialize student data from file:" + " \(error)")
+                print("Failed to serialize student data from store:" + " \(error)")
             }
         }
     }

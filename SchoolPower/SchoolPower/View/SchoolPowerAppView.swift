@@ -30,7 +30,6 @@ private struct AppView: View {
                 Image(systemName: "clock")
                 Text("Attendances")
             }.tag(2)
-            .animation(.none)
     }
     
     var schedule: some View {
@@ -39,11 +38,10 @@ private struct AppView: View {
                 Image(systemName: "calendar.circle")
                 Text("Schedule")
             }.tag(2)
-            .animation(.none)
     }
     
     var statistics: some View {
-        StatisticsView()
+        StatisticsView(courses: studentDataStore.studentData.courses)
             .tabItem {
                 Image(systemName: "chart.pie")
                 Text("Statistics")
@@ -59,7 +57,6 @@ private struct AppView: View {
                 Image(systemName: "person.crop.circle")
                 Text("Profile")
             }.tag(2)
-            .animation(.none)
     }
     
     var body: some View {

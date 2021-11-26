@@ -20,6 +20,7 @@ final class SettingsStore: ObservableObject {
         static let showGradesInNotification = "show_grades_in_notification"
         static let notifyUngradedAssignments = "notify_ungraded_assignments"
         static let dismissedInfoCardUUIDs = "dismissed_info_card_uuids"
+        static let studentDataJSON = "student_data_json"
     }
     
     private static let defaultSettings: [String: Any] = [
@@ -31,6 +32,7 @@ final class SettingsStore: ObservableObject {
         Keys.showGradesInNotification: true,
         Keys.notifyUngradedAssignments: true,
         Keys.dismissedInfoCardUUIDs: [:],
+        Keys.studentDataJSON: "",
     ]
     
     private let defaults = UserDefaults.standard
@@ -104,6 +106,14 @@ extension SettingsStore {
     var dismissedInfoCardUUIDs: [String: Any] {
         set { defaults.set(newValue, forKey: Keys.dismissedInfoCardUUIDs) }
         get { defaults.dictionary(forKey: Keys.dismissedInfoCardUUIDs) ?? [:] }
+    }
+}
+
+// MARK: StudentData
+extension SettingsStore {
+    var studentDataJSON: String {
+        set { defaults.set(newValue, forKey: Keys.studentDataJSON) }
+        get { defaults.string(forKey: Keys.studentDataJSON) ?? "" }
     }
 }
 

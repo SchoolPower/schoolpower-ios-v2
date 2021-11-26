@@ -28,6 +28,12 @@
 		4D1B09C02741C26D00D03CC8 /* generate-licenses.py in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */; };
 		4D1B09C62741C4F500D03CC8 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C52741C4F500D03CC8 /* LicensesView.swift */; };
 		4D1B09C82741C51900D03CC8 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C72741C51900D03CC8 /* License.swift */; };
+		4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B935275069D4005EC5A9 /* GPAView.swift */; };
+		4D50B93927506E3B005EC5A9 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */; };
+		4D50B93B27506E8D005EC5A9 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */; };
+		4D50B93D27506EBC005EC5A9 /* Int64+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93C27506EBC005EC5A9 /* Int64+Extensions.swift */; };
+		4D50B93F27506ED8005EC5A9 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93E27506ED8005EC5A9 /* Date+Extensions.swift */; };
+		4D50B94127506EF4005EC5A9 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B94027506EF4005EC5A9 /* String+Extensions.swift */; };
 		4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC754273B39E5002CAD13 /* HeaderView.swift */; };
 		4D6EC757273B3A63002CAD13 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC756273B3A63002CAD13 /* AvatarView.swift */; };
 		4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */; };
@@ -143,6 +149,12 @@
 		4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "generate-licenses.py"; sourceTree = "<group>"; };
 		4D1B09C52741C4F500D03CC8 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
 		4D1B09C72741C51900D03CC8 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		4D50B935275069D4005EC5A9 /* GPAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAView.swift; sourceTree = "<group>"; };
+		4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		4D50B93C27506EBC005EC5A9 /* Int64+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Extensions.swift"; sourceTree = "<group>"; };
+		4D50B93E27506ED8005EC5A9 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		4D50B94027506EF4005EC5A9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		4D6EC754273B39E5002CAD13 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4D6EC756273B3A63002CAD13 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -256,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				4D13B982274F19C800E05FCA /* StatisticsView.swift */,
+				4D50B935275069D4005EC5A9 /* GPAView.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -279,6 +292,18 @@
 				4D1B09C52741C4F500D03CC8 /* LicensesView.swift */,
 			);
 			path = Licenses;
+			sourceTree = "<group>";
+		};
+		4D50B93727506E16005EC5A9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */,
+				4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */,
+				4D50B94027506EF4005EC5A9 /* String+Extensions.swift */,
+				4D50B93C27506EBC005EC5A9 /* Int64+Extensions.swift */,
+				4D50B93E27506ED8005EC5A9 /* Date+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4D6EC760273B4EA4002CAD13 /* Header */ = {
@@ -396,6 +421,7 @@
 		4DB6DF0C2733788400FA7B40 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4D50B93727506E16005EC5A9 /* Extensions */,
 				4DB6DF042733700000FA7B40 /* Utils.swift */,
 				4DB6DF0D2733789B00FA7B40 /* Colors.swift */,
 				4D790FBD27376C9100E6C4EB /* AppDelegate.swift */,
@@ -765,6 +791,7 @@
 				4D790FCE27381ED000E6C4EB /* BugReportEmailView.swift in Sources */,
 				4D790FC827381BAA00E6C4EB /* SettingItem.swift in Sources */,
 				4D790FD82738386800E6C4EB /* LoginView.swift in Sources */,
+				4D50B93B27506E8D005EC5A9 /* Array+Extensions.swift in Sources */,
 				4D790FCC27381D2500E6C4EB /* ComposeMailData.swift in Sources */,
 				4D1B09A227404E2700D03CC8 /* ImageUploadResponse.swift in Sources */,
 				4DDA515127433D1600B56FDB /* CoursesListView.swift in Sources */,
@@ -777,8 +804,10 @@
 				4D1B098A273F522D00D03CC8 /* DisabledInfoView.swift in Sources */,
 				621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */,
 				4DB6DF052733700000FA7B40 /* Utils.swift in Sources */,
+				4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */,
 				4D6EC762273B5D22002CAD13 /* HeaderViewState.swift in Sources */,
 				4D790FE12738675600E6C4EB /* ErrorResponse.swift in Sources */,
+				4D50B93F27506ED8005EC5A9 /* Date+Extensions.swift in Sources */,
 				4D790FB4273719C300E6C4EB /* ProfileView.swift in Sources */,
 				4DDA51552743486200B56FDB /* InfoCardStore.swift in Sources */,
 				4D790FD027382B0200E6C4EB /* SupportSection.swift in Sources */,
@@ -794,6 +823,7 @@
 				4D6EC75F273B4C9E002CAD13 /* ExtraInfo.swift in Sources */,
 				4D790FC22737828700E6C4EB /* PushNotification.swift in Sources */,
 				4D790FAD27370BCE00E6C4EB /* AttendanceView.swift in Sources */,
+				4D50B93927506E3B005EC5A9 /* Double+Extensions.swift in Sources */,
 				4D790FB7273721E900E6C4EB /* SettingsView.swift in Sources */,
 				4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */,
 				4D1B0986273F4C2300D03CC8 /* DisabledInfo.swift in Sources */,
@@ -819,9 +849,11 @@
 				4D790FA3273632C600E6C4EB /* RequestData.swift in Sources */,
 				4D1B099E2740268400D03CC8 /* ImageCropper.swift in Sources */,
 				4D1B09A0274037F900D03CC8 /* AlertIfError.swift in Sources */,
+				4D50B93D27506EBC005EC5A9 /* Int64+Extensions.swift in Sources */,
 				4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */,
 				4D790FDA27383A8700E6C4EB /* AuthenticationStore.swift in Sources */,
 				623F07A927323EE0007A79F2 /* InfoItem.swift in Sources */,
+				4D50B94127506EF4005EC5A9 /* String+Extensions.swift in Sources */,
 				4D790FA927363EF700E6C4EB /* Term.swift in Sources */,
 				4D1B0990273F5D9100D03CC8 /* AvatarButton.swift in Sources */,
 				4D790FAF2737106200E6C4EB /* AttendanceItem.swift in Sources */,
