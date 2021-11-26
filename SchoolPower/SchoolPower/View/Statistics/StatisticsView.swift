@@ -11,13 +11,45 @@ struct StatisticsView: View {
     var courses: [Course]
     var body: some View {
         NavigationView {
-            NavigationLink {
-                GPAView(courses: courses)
-            } label: {
-                Text("GPA")
+            List {
+                Section {
+                    NavigationLink {
+                        GPAView(courses: courses)
+                    } label: {
+                        Label {
+                            Text("GPA")
+                        } icon: {
+                            Image(systemName: "sleep")
+                                .rotationEffect(.degrees(180))
+                        }
+
+                    }
+                }
+                Section {
+                    NavigationLink {
+                        GPAView(courses: courses)
+                    } label: {
+                        Label {
+                            Text("Radar Chart")
+                        } icon: {
+                            Image(systemName: "hexagon")
+                        }
+
+                    }
+                    NavigationLink {
+                        GPAView(courses: courses)
+                    } label: {
+                        Label {
+                            Text("Bar Chart")
+                        } icon: {
+                            Image(systemName: "chart.bar")
+                        }
+
+                    }
+                }
             }
+            .navigationTitle("Statistics")
         }
-        .navigationTitle("Statistics")
     }
 }
 

@@ -21,6 +21,7 @@ final class SettingsStore: ObservableObject {
         static let notifyUngradedAssignments = "notify_ungraded_assignments"
         static let dismissedInfoCardUUIDs = "dismissed_info_card_uuids"
         static let studentDataJSON = "student_data_json"
+        static let selectedGPACourseIds = "selected_gpa_course_ids"
     }
     
     private static let defaultSettings: [String: Any] = [
@@ -33,6 +34,7 @@ final class SettingsStore: ObservableObject {
         Keys.notifyUngradedAssignments: true,
         Keys.dismissedInfoCardUUIDs: [:],
         Keys.studentDataJSON: "",
+        Keys.selectedGPACourseIds: [],
     ]
     
     private let defaults = UserDefaults.standard
@@ -114,6 +116,14 @@ extension SettingsStore {
     var studentDataJSON: String {
         set { defaults.set(newValue, forKey: Keys.studentDataJSON) }
         get { defaults.string(forKey: Keys.studentDataJSON) ?? "" }
+    }
+}
+
+// MARK: GPA
+extension SettingsStore {
+    var selectedGPACourseIds: [String] {
+        set { defaults.set(newValue, forKey: Keys.selectedGPACourseIds) }
+        get { defaults.stringArray(forKey: Keys.selectedGPACourseIds) ?? [] }
     }
 }
 

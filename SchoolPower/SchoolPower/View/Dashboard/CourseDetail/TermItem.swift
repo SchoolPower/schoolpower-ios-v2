@@ -16,7 +16,11 @@ struct TermItem: View {
                 .foregroundColor(.white)
                 .font(.body)
                 .bold()
-            Text(termGrade.grade.percentage.rounded(digits: 0))
+            Text(
+                termGrade.reallyHasGrade
+                ? termGrade.grade.percentage.rounded(digits: 0)
+                : "--"
+            )
                 .frame(width: 40, height: 40)
                 .foregroundColor(termGrade.grade.color())
                 .background(

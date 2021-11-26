@@ -17,7 +17,9 @@ struct TermDetailView: View {
                     leadingCircleColor: termGrade.grade.color(),
                     leadingCircleText: termGrade.grade.letter,
                     label: "Grade",
-                    text: termGrade.grade.percentage.rounded(digits: 2)
+                    text: termGrade.reallyHasGrade
+                    ? termGrade.grade.percentage.rounded(digits: 2)
+                    : "--"
                 )
                 if !termGrade.evaluation.isEmpty {
                     InfoItem(

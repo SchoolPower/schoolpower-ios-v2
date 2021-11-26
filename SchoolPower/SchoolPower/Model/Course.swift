@@ -12,7 +12,10 @@ extension Course: Identifiable, Hashable {
     
     func displayGrade() -> Grade? {
         // TODO
-        return grades.first?.grade
+        if let termGrade = grades.first, termGrade.reallyHasGrade {
+            return termGrade.grade
+        }
+        return nil
     }
     
     func toScheduleEventId(with schedule: Course.Schedule) -> String {
