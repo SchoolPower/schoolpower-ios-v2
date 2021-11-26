@@ -27,7 +27,7 @@ struct StatisticsView: View {
                 }
                 Section {
                     NavigationLink {
-                        GPAView(courses: courses)
+                        BarChartStatisticsView(courses: courses)
                     } label: {
                         Label {
                             Text("Radar Chart")
@@ -37,7 +37,7 @@ struct StatisticsView: View {
 
                     }
                     NavigationLink {
-                        GPAView(courses: courses)
+                        BarChartStatisticsView(courses: courses)
                     } label: {
                         Label {
                             Text("Bar Chart")
@@ -55,7 +55,7 @@ struct StatisticsView: View {
 
 struct StatisticsView_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticsView(courses: [fakeCourse()])
+        StatisticsView(courses: [fakeCourse() ,fakeCourse(), fakeCourse()])
             .environmentObject(SettingsStore.shared)
             .environmentObject(StudentDataStore.shared)
             .environmentObject(AuthenticationStore.shared)

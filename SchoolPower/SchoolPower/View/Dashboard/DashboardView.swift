@@ -51,15 +51,6 @@ struct DashboardView: View {
     }
 }
 
-
-extension UISplitViewController {
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        preferredSplitBehavior = .tile
-        show(.primary)
-    }
-}
-
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         DashboardView(courses: [Course](repeating: fakeCourse(), count: 10))

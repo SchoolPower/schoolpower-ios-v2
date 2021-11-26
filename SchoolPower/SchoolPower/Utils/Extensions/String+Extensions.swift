@@ -37,4 +37,8 @@ extension String {
     func localized(_ with: CVarArg...) -> String {
         return String(format: self.localized, arguments: with)
     }
+    
+    func trunc(_ length: Int, trailing: String = "…") -> String {
+        return (self.count > length) ? self.prefix(length - 1) + trailing : self
+    }
 }

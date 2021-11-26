@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D05171A2750852F00D6891B /* BarChartStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0517192750852F00D6891B /* BarChartStatisticsView.swift */; };
+		4D05171C2750866E00D6891B /* RadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D05171B2750866E00D6891B /* RadarChart.swift */; };
+		4D05171F2750885700D6891B /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 4D05171E2750885700D6891B /* Charts */; };
+		4D051721275088AF00D6891B /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D051720275088AF00D6891B /* BarChart.swift */; };
 		4D13B983274F19C800E05FCA /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13B982274F19C800E05FCA /* StatisticsView.swift */; };
 		4D13B988274F33F800E05FCA /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13B987274F33F800E05FCA /* WaveView.swift */; };
 		4D1B0986273F4C2300D03CC8 /* DisabledInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0985273F4C2300D03CC8 /* DisabledInfo.swift */; };
@@ -127,6 +131,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D0517192750852F00D6891B /* BarChartStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartStatisticsView.swift; sourceTree = "<group>"; };
+		4D05171B2750866E00D6891B /* RadarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChart.swift; sourceTree = "<group>"; };
+		4D051720275088AF00D6891B /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
 		4D13B982274F19C800E05FCA /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		4D13B987274F33F800E05FCA /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		4D1B0985273F4C2300D03CC8 /* DisabledInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledInfo.swift; sourceTree = "<group>"; };
@@ -240,6 +247,7 @@
 			files = (
 				4D790F752735EDC400E6C4EB /* SwiftProtobuf in Frameworks */,
 				4D1B0997273F7BDE00D03CC8 /* Introspect in Frameworks */,
+				4D05171F2750885700D6891B /* Charts in Frameworks */,
 				4D790FA12736327400E6C4EB /* Alamofire in Frameworks */,
 				4D1B099A274021A700D03CC8 /* CropViewController in Frameworks */,
 				4D790FDD27383EC600E6C4EB /* KeychainAccess in Frameworks */,
@@ -264,11 +272,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D051722275088BB00D6891B /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				4D051720275088AF00D6891B /* BarChart.swift */,
+				4D05171B2750866E00D6891B /* RadarChart.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
 		4D13B981274F191600E05FCA /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
 				4D13B982274F19C800E05FCA /* StatisticsView.swift */,
 				4D50B935275069D4005EC5A9 /* GPAView.swift */,
+				4D0517192750852F00D6891B /* BarChartStatisticsView.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -547,6 +565,7 @@
 		623F07A727323ECF007A79F2 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				4D051722275088BB00D6891B /* Charts */,
 				62A45EBE2742F4AE00BBE8D9 /* Placeholder */,
 				62A45EBD2742F45600BBE8D9 /* Extension */,
 				4D6EC756273B3A63002CAD13 /* AvatarView.swift */,
@@ -627,6 +646,7 @@
 				4D1B0996273F7BDE00D03CC8 /* Introspect */,
 				4D1B0999274021A700D03CC8 /* CropViewController */,
 				4D8E64C8274B1A4400F602C4 /* KVKCalendar */,
+				4D05171E2750885700D6891B /* Charts */,
 			);
 			productName = SchoolPower;
 			productReference = 621D38E227307D4000825D5C /* SchoolPower.app */;
@@ -709,6 +729,7 @@
 				4D1B0995273F7BDE00D03CC8 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				4D1B0998274021A700D03CC8 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 				4D8E64C7274B1A4400F602C4 /* XCRemoteSwiftPackageReference "KVKCalendar" */,
+				4D05171D2750885700D6891B /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 621D38E327307D4000825D5C /* Products */;
 			projectDirPath = "";
@@ -802,6 +823,7 @@
 				623F07AC27324014007A79F2 /* TermDetailView.swift in Sources */,
 				4D790F9A27361AB800E6C4EB /* ProtoTypealiases.swift in Sources */,
 				4D1B098A273F522D00D03CC8 /* DisabledInfoView.swift in Sources */,
+				4D05171A2750852F00D6891B /* BarChartStatisticsView.swift in Sources */,
 				621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */,
 				4DB6DF052733700000FA7B40 /* Utils.swift in Sources */,
 				4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */,
@@ -852,10 +874,12 @@
 				4D50B93D27506EBC005EC5A9 /* Int64+Extensions.swift in Sources */,
 				4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */,
 				4D790FDA27383A8700E6C4EB /* AuthenticationStore.swift in Sources */,
+				4D051721275088AF00D6891B /* BarChart.swift in Sources */,
 				623F07A927323EE0007A79F2 /* InfoItem.swift in Sources */,
 				4D50B94127506EF4005EC5A9 /* String+Extensions.swift in Sources */,
 				4D790FA927363EF700E6C4EB /* Term.swift in Sources */,
 				4D1B0990273F5D9100D03CC8 /* AvatarButton.swift in Sources */,
+				4D05171C2750866E00D6891B /* RadarChart.swift in Sources */,
 				4D790FAF2737106200E6C4EB /* AttendanceItem.swift in Sources */,
 				621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */,
 				623F078B2730B353007A79F2 /* DashboardViewModel.swift in Sources */,
@@ -1206,6 +1230,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4D05171D2750885700D6891B /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		4D1B0995273F7BDE00D03CC8 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
@@ -1257,6 +1289,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4D05171E2750885700D6891B /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D05171D2750885700D6891B /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		4D1B0996273F7BDE00D03CC8 /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4D1B0995273F7BDE00D03CC8 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;

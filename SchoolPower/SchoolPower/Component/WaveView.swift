@@ -74,7 +74,7 @@ fileprivate struct WaveViewBase: View {
             .animation(.easeInOut, value: color)
             .overlay(
                 ZStack {
-                    text.foregroundColor(.black)
+                    text.foregroundColor(.primary)
                     waveBack
                     waveFront
                     text.foregroundColor(.white).blendMode(.overlay)

@@ -28,7 +28,7 @@ struct GPAView: View {
         VStack {
             WaveView(progressFraction: gpaPercentFraction)
                 .padding(.horizontal, 64)
-                .padding(.vertical)
+                .padding(.vertical, 24)
             ZStack {
                 Color(.systemGroupedBackground)
                     .edgesIgnoringSafeArea(.all)
@@ -36,7 +36,7 @@ struct GPAView: View {
                     SettingItem(
                         title: LocalizedStringKey(course.name),
                         detail: course.displayGrade()?
-                            .percentage.rounded(digits: 2).asPercentage(),
+                            .percentage.rounded(digits: 0).asPercentage(),
                         image: nil,
                         description: nil
                     )
