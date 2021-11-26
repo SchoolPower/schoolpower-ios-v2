@@ -18,7 +18,7 @@ struct CoursesListView: View, ErrorHandler {
     @State internal var errorResponse: ErrorResponse? = nil
     @State internal var showingError: Bool = false
     @State private var showingSelectTermMenu = true
-    @State private var selectTerm: Term = .all
+    @State private var selectTerm: Term = SettingsStore.shared.courseViewingTerm
     
     private let refreshHelper = RefreshHelper<CoursesListView>()
     
@@ -85,6 +85,9 @@ struct CoursesListView: View, ErrorHandler {
             withAnimation {
                 self.infoCardContent = infoCardContent
             }
+        }
+        .onChange(of: selectTerm) { newValue in
+            settings.courseViewingTerm = newValue
         }
     }
 }
