@@ -40,6 +40,7 @@ struct ScheduleView: View {
     @State private var type: CalendarType = .day
     @State private var selectedCourse: Course? = nil
     @State private var isViewingCourse: Bool = false
+    @State private var didSelectToday: () -> Void = {}
     
     var body: some View {
         NavigationView {
@@ -50,7 +51,8 @@ struct ScheduleView: View {
                         events: schedule,
                         frame: geo.frame(in: .local),
                         type: type,
-                        locale: locale
+                        locale: locale,
+                        didSelectToday: $didSelectToday
                     ) { eventId in
                         let courseId = Course.idFromScheduleEventId(eventId)
                         if let courseId = courseId,
@@ -85,6 +87,13 @@ struct ScheduleView: View {
                         }
                         .pickerStyle(.segmented)
                         .frame(width: 150)
+                    }
+                    ToolbarItem(placement: .primaryAction) {
+                        Button {
+                            didSelectToday()
+                        } label: {
+                            Text("Today")
+                        }
                     }
                 }
             }

@@ -17,6 +17,7 @@
 "Attendances" = "出席";
 "Profile" = "プロフィール";
 "Schedule" = "スケジュール";
+"Statistics" = "統計";
 
 // Profile
 "Settings" = "設定";
@@ -40,10 +41,18 @@
 "Comment" = "コメント";
 "Course" = "コース";
 "Evaluation" = "評価";
+"All terms" = "全学期";
+"Select term" = "学期を選択";
 
 // Schedule
 "day" = "日";
 "week" = "週";
+"Today" = "今日";
+
+// Statistics
+"Radar Chart" = "レーダーチャート";
+"Bar Chart" = "棒グラフ";
+"No Data" = "データがありません";
 
 /// Flags
 "collected" = "提出した";

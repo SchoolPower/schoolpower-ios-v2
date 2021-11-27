@@ -9,6 +9,10 @@ import Foundation
 
 extension TermGrade: Identifiable, Hashable {
     internal var id: String { "\(term):\(grade)" }
+    
+    var reallyHasGrade: Bool {
+        hasGrade && grade.letter != "--"
+    }
 }
 
 func fakeTermGrade() -> TermGrade {

@@ -46,7 +46,7 @@ extension PushNotification {
         print("Registered Push Notification Device Token: \(tokenString).")
         
         AF.request(
-            Constants.getStudentDataURL,
+            Constants.registerAPNSDeviceTokenURL,
             method: .post,
             parameters: [
                 "device_token": tokenString
@@ -95,7 +95,7 @@ extension PushNotification {
             }
             
             StudentDataStore.tryLoadAndIfSuccess { oldData in
-                StudentDataStore.tryFetchAndIfSuccess { newData in
+                StudentDataStore.tryFetchAndIfSuccess(action: .job) { newData in
                     let (newAssignments, newAttendances) = StudentDataUtils.diff(oldData: oldData, newData: newData)
                     
                     if (newAssignments.isEmpty && newAssignments.isEmpty) {

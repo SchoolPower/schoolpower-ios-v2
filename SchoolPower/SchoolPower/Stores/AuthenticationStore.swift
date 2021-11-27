@@ -11,7 +11,7 @@ import KeychainAccess
 class AuthenticationStore: ObservableObject {
     static let shared = AuthenticationStore()
     
-    @Published var authenticated = false
+    @Published var authenticated: Bool
     
     private let settingsStore = SettingsStore.shared
     private let keychain = Keychain(service: "studio.schoolpower.SchoolPower")

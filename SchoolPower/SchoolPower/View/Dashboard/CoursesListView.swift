@@ -12,16 +12,19 @@ struct CoursesListView: View, ErrorHandler {
     var horizontalSizeClass: UserInterfaceSizeClass?
     
     @EnvironmentObject var settings: SettingsStore
+    @EnvironmentObject var studentDataStore: StudentDataStore
     
-    @State var infoCardContent: InfoCardContent? = nil
-    @State var errorResponse: ErrorResponse? = nil
-    @State var showingError: Bool = false
+    @State private var informationCard: InformationCard? = nil
+    @State internal var errorResponse: ErrorResponse? = nil
+    @State internal var showingError: Bool = false
+    @State private var showingSelectTermMenu = true
+    @State private var selectTerm: Term = SettingsStore.shared.courseViewingTerm
     
     private let refreshHelper = RefreshHelper<CoursesListView>()
     
     private var content: some View {
-        ForEach(viewModel.coursesToDisplay) { course in
-            DashboardCourseItem(course: course)
+        ForEach(viewModel.coursesToDisplay.filterHasGrades(selectTerm)) { course in
+            DashboardCourseItem(course: course, term: selectTerm)
                 .background(NavigationLink(
                     destination: CourseDetailView(course: course)
                 ) {}.opacity(0))
@@ -33,7 +36,7 @@ struct CoursesListView: View, ErrorHandler {
         ZStack {
             if horizontalSizeClass == .regular {
                 List {
-                    if let infoCard = infoCardContent {
+                    if let infoCard = informationCard {
                         InfoCard(content: infoCard)
                     }
                     content
@@ -44,7 +47,7 @@ struct CoursesListView: View, ErrorHandler {
                 .navigationTitle("Courses")
             } else {
                 List {
-                    if let infoCard = infoCardContent {
+                    if let infoCard = informationCard {
                         Section {
                             InfoCard(content: infoCard)
                                 .padding(.horizontal, -16)
@@ -66,10 +69,32 @@ struct CoursesListView: View, ErrorHandler {
                 errorResponse: $errorResponse
             )
         }
-        .onReceive(InfoCardStore.shared.$infoCardToShow) { infoCardContent in
-            withAnimation {
-                self.infoCardContent = infoCardContent
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                if !viewModel.showPlaceholder {
+                    Menu {
+                        Picker(selection: $selectTerm, label: Text("Select term")) {
+                            Text(verbatim: .all.displayText()).tag(Term.all)
+                            ForEach(studentDataStore.availableTerms, id: \.self) { term in
+                                Text(term).tag(term)
+                            }
+                        }
+                    } label: { Label(selectTerm.displayText(), systemImage: "chevron.down").labelStyle(.horizontal) }
+                    
+                }
+                else {
+                    EmptyView()
+                }
             }
+        }
+        .onReceive(InfoCardStore.shared.$infoCardToShow) { informationCard in
+            withAnimation {
+                self.informationCard = informationCard
+            }
+        }
+        .onChange(of: selectTerm) { newValue in
+            settings.courseViewingTerm = newValue
         }
     }
 }
+

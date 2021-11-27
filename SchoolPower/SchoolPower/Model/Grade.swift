@@ -21,6 +21,7 @@ extension Optional where Wrapped == Grade {
     }
 }
 
+
 func fakeGrade() -> Grade {
     var grade = Grade()
     grade.percentage = 84.0

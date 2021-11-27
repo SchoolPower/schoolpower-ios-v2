@@ -63,13 +63,13 @@ struct LoginView: View {
                                                 authentication.authenticate(data: data)
                                             } else if let errorResponse = errorResponse {
                                                 showAlert(
-                                                    title: errorResponse.title ?? "Failed to sign in",
-                                                    body: errorResponse.description ?? "Unknown error."
+                                                    title: errorResponse.title ?? "Failed to sign in".localized,
+                                                    body: errorResponse.description ?? "Unknown error.".localized
                                                 )
                                             } else {
                                                 showAlert(
-                                                    title: "Failed to sign in",
-                                                    body: error ?? "Unknown error."
+                                                    title: "Failed to sign in".localized,
+                                                    body: error ?? "Unknown error.".localized
                                                 )
                                             }
                                         }
@@ -116,7 +116,8 @@ struct LoginView: View {
                                         .opacity(0.3)
                                     }
                                     .padding(.top, 48)
-                                    Text("App.Copyright").font(.caption2).foregroundColor(.gray).padding(.top)
+                                    Text("App.Copyright").font(.caption2).foregroundColor(.gray)
+                                        .padding(.vertical)
                                 }
                                 .frame(minHeight: geo.size.height - 96)
                                 .padding(.top, 48)

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D05171A2750852F00D6891B /* BarChartStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0517192750852F00D6891B /* BarChartStatisticsView.swift */; };
+		4D05171F2750885700D6891B /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 4D05171E2750885700D6891B /* Charts */; };
+		4D051721275088AF00D6891B /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D051720275088AF00D6891B /* BarChart.swift */; };
+		4D0517242751628E00D6891B /* RadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0517232751628E00D6891B /* RadarChart.swift */; };
+		4D051726275165F400D6891B /* RadarChartStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D051725275165F400D6891B /* RadarChartStatisticsView.swift */; };
+		4D13B983274F19C800E05FCA /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13B982274F19C800E05FCA /* StatisticsView.swift */; };
+		4D13B988274F33F800E05FCA /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13B987274F33F800E05FCA /* WaveView.swift */; };
 		4D1B0986273F4C2300D03CC8 /* DisabledInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0985273F4C2300D03CC8 /* DisabledInfo.swift */; };
 		4D1B0988273F4C8C00D03CC8 /* PlaceholderInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0987273F4C8C00D03CC8 /* PlaceholderInfoView.swift */; };
 		4D1B098A273F522D00D03CC8 /* DisabledInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0989273F522D00D03CC8 /* DisabledInfoView.swift */; };
@@ -26,6 +33,14 @@
 		4D1B09C02741C26D00D03CC8 /* generate-licenses.py in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */; };
 		4D1B09C62741C4F500D03CC8 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C52741C4F500D03CC8 /* LicensesView.swift */; };
 		4D1B09C82741C51900D03CC8 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C72741C51900D03CC8 /* License.swift */; };
+		4D4682112751DA28002DE272 /* LabelStyle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */; };
+		4D4682132751F4C4002DE272 /* JSONDecodingOptions+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */; };
+		4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B935275069D4005EC5A9 /* GPAView.swift */; };
+		4D50B93927506E3B005EC5A9 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */; };
+		4D50B93B27506E8D005EC5A9 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */; };
+		4D50B93D27506EBC005EC5A9 /* Int64+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93C27506EBC005EC5A9 /* Int64+Extensions.swift */; };
+		4D50B93F27506ED8005EC5A9 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93E27506ED8005EC5A9 /* Date+Extensions.swift */; };
+		4D50B94127506EF4005EC5A9 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B94027506EF4005EC5A9 /* String+Extensions.swift */; };
 		4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC754273B39E5002CAD13 /* HeaderView.swift */; };
 		4D6EC757273B3A63002CAD13 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC756273B3A63002CAD13 /* AvatarView.swift */; };
 		4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */; };
@@ -81,7 +96,7 @@
 		4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF112733816E00FA7B40 /* TermItem.swift */; };
 		4DDA514F2743354D00B56FDB /* RefreshHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA514E2743354D00B56FDB /* RefreshHelper.swift */; };
 		4DDA515127433D1600B56FDB /* CoursesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA515027433D1600B56FDB /* CoursesListView.swift */; };
-		4DDA515327433F9500B56FDB /* InfoCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA515227433F9500B56FDB /* InfoCardContent.swift */; };
+		4DDA515327433F9500B56FDB /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA515227433F9500B56FDB /* InformationCard.swift */; };
 		4DDA51552743486200B56FDB /* InfoCardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA51542743486200B56FDB /* InfoCardStore.swift */; };
 		621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E527307D4000825D5C /* SchoolPowerApp.swift */; };
 		621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E727307D4000825D5C /* SchoolPowerAppView.swift */; };
@@ -119,6 +134,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D0517192750852F00D6891B /* BarChartStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartStatisticsView.swift; sourceTree = "<group>"; };
+		4D051720275088AF00D6891B /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		4D0517232751628E00D6891B /* RadarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChart.swift; sourceTree = "<group>"; };
+		4D051725275165F400D6891B /* RadarChartStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChartStatisticsView.swift; sourceTree = "<group>"; };
+		4D13B982274F19C800E05FCA /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		4D13B987274F33F800E05FCA /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		4D1B0985273F4C2300D03CC8 /* DisabledInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledInfo.swift; sourceTree = "<group>"; };
 		4D1B0987273F4C8C00D03CC8 /* PlaceholderInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderInfoView.swift; sourceTree = "<group>"; };
 		4D1B0989273F522D00D03CC8 /* DisabledInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledInfoView.swift; sourceTree = "<group>"; };
@@ -139,6 +160,14 @@
 		4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "generate-licenses.py"; sourceTree = "<group>"; };
 		4D1B09C52741C4F500D03CC8 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
 		4D1B09C72741C51900D03CC8 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LabelStyle+Extensions.swift"; sourceTree = "<group>"; };
+		4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecodingOptions+Extension.swift"; sourceTree = "<group>"; };
+		4D50B935275069D4005EC5A9 /* GPAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAView.swift; sourceTree = "<group>"; };
+		4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		4D50B93C27506EBC005EC5A9 /* Int64+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Extensions.swift"; sourceTree = "<group>"; };
+		4D50B93E27506ED8005EC5A9 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		4D50B94027506EF4005EC5A9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		4D6EC754273B39E5002CAD13 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4D6EC756273B3A63002CAD13 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -191,7 +220,7 @@
 		4DB6DF112733816E00FA7B40 /* TermItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermItem.swift; sourceTree = "<group>"; };
 		4DDA514E2743354D00B56FDB /* RefreshHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHelper.swift; sourceTree = "<group>"; };
 		4DDA515027433D1600B56FDB /* CoursesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesListView.swift; sourceTree = "<group>"; };
-		4DDA515227433F9500B56FDB /* InfoCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardContent.swift; sourceTree = "<group>"; };
+		4DDA515227433F9500B56FDB /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		4DDA51542743486200B56FDB /* InfoCardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardStore.swift; sourceTree = "<group>"; };
 		621D38E227307D4000825D5C /* SchoolPower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolPower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		621D38E527307D4000825D5C /* SchoolPowerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerApp.swift; sourceTree = "<group>"; };
@@ -224,6 +253,7 @@
 			files = (
 				4D790F752735EDC400E6C4EB /* SwiftProtobuf in Frameworks */,
 				4D1B0997273F7BDE00D03CC8 /* Introspect in Frameworks */,
+				4D05171F2750885700D6891B /* Charts in Frameworks */,
 				4D790FA12736327400E6C4EB /* Alamofire in Frameworks */,
 				4D1B099A274021A700D03CC8 /* CropViewController in Frameworks */,
 				4D790FDD27383EC600E6C4EB /* KeychainAccess in Frameworks */,
@@ -248,6 +278,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D051722275088BB00D6891B /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				4D051720275088AF00D6891B /* BarChart.swift */,
+				4D0517232751628E00D6891B /* RadarChart.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		4D13B981274F191600E05FCA /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				4D13B982274F19C800E05FCA /* StatisticsView.swift */,
+				4D50B935275069D4005EC5A9 /* GPAView.swift */,
+				4D0517192750852F00D6891B /* BarChartStatisticsView.swift */,
+				4D051725275165F400D6891B /* RadarChartStatisticsView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		4D1B09AD274082F900D03CC8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +317,20 @@
 				4D1B09C52741C4F500D03CC8 /* LicensesView.swift */,
 			);
 			path = Licenses;
+			sourceTree = "<group>";
+		};
+		4D50B93727506E16005EC5A9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */,
+				4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */,
+				4D50B94027506EF4005EC5A9 /* String+Extensions.swift */,
+				4D50B93C27506EBC005EC5A9 /* Int64+Extensions.swift */,
+				4D50B93E27506ED8005EC5A9 /* Date+Extensions.swift */,
+				4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */,
+				4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4D6EC760273B4EA4002CAD13 /* Header */ = {
@@ -298,7 +362,7 @@
 				4D1B09A127404E2700D03CC8 /* ImageUploadResponse.swift */,
 				4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */,
 				4D1B09C72741C51900D03CC8 /* License.swift */,
-				4DDA515227433F9500B56FDB /* InfoCardContent.swift */,
+				4DDA515227433F9500B56FDB /* InformationCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,18 +436,11 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		4D8E64CA274B1A4D00F602C4 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
 		4D8E64CD274B248600F602C4 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
 				4D8E64CE274B249400F602C4 /* ScheduleView.swift */,
+				4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -391,6 +448,7 @@
 		4DB6DF0C2733788400FA7B40 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4D50B93727506E16005EC5A9 /* Extensions */,
 				4DB6DF042733700000FA7B40 /* Utils.swift */,
 				4DB6DF0D2733789B00FA7B40 /* Colors.swift */,
 				4D790FBD27376C9100E6C4EB /* AppDelegate.swift */,
@@ -494,8 +552,9 @@
 		623F07902730DEC2007A79F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4D8E64CD274B248600F602C4 /* Schedule */,
 				621D38E727307D4000825D5C /* SchoolPowerAppView.swift */,
+				4D13B981274F191600E05FCA /* Statistics */,
+				4D8E64CD274B248600F602C4 /* Schedule */,
 				4D790FD42738301300E6C4EB /* Login */,
 				4D790FB22737173100E6C4EB /* Profile */,
 				623F07852730B303007A79F2 /* Dashboard */,
@@ -515,7 +574,7 @@
 		623F07A727323ECF007A79F2 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				4D8E64CA274B1A4D00F602C4 /* Calendar */,
+				4D051722275088BB00D6891B /* Charts */,
 				62A45EBE2742F4AE00BBE8D9 /* Placeholder */,
 				62A45EBD2742F45600BBE8D9 /* Extension */,
 				4D6EC756273B3A63002CAD13 /* AvatarView.swift */,
@@ -530,6 +589,7 @@
 				4D1B09BD27419E4800D03CC8 /* SendBugReportEmail.swift */,
 				4DDA514E2743354D00B56FDB /* RefreshHelper.swift */,
 				4D8D7D312749E958001A1562 /* AsyncImageView.swift */,
+				4D13B987274F33F800E05FCA /* WaveView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -595,6 +655,7 @@
 				4D1B0996273F7BDE00D03CC8 /* Introspect */,
 				4D1B0999274021A700D03CC8 /* CropViewController */,
 				4D8E64C8274B1A4400F602C4 /* KVKCalendar */,
+				4D05171E2750885700D6891B /* Charts */,
 			);
 			productName = SchoolPower;
 			productReference = 621D38E227307D4000825D5C /* SchoolPower.app */;
@@ -677,6 +738,7 @@
 				4D1B0995273F7BDE00D03CC8 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				4D1B0998274021A700D03CC8 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 				4D8E64C7274B1A4400F602C4 /* XCRemoteSwiftPackageReference "KVKCalendar" */,
+				4D05171D2750885700D6891B /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 621D38E327307D4000825D5C /* Products */;
 			projectDirPath = "";
@@ -739,7 +801,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $ENABLE_PREVIEWS == \"NO\" ]\nthen\n    python3 $SRCROOT/generate-licenses.py --build-dir $BUILD_DIR --output-file $SRCROOT/SchoolPower/Resources/licenses.json\nelse\n  echo \"Skipping license generation during preview.\"\nfi\n";
+			shellScript = "if [ $ENABLE_PREVIEWS == \"NO\" ]\nthen\n    python3 $SRCROOT/generate-licenses.py --build-dir $BUILD_DIR --output-file $SRCROOT/SchoolPower/Resources/licenses.json\n    $SRCROOT/Proto/buildProto.sh $SRCROOT\nelse\n  echo \"Skipping license and proto generation during preview.\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -759,6 +821,7 @@
 				4D790FCE27381ED000E6C4EB /* BugReportEmailView.swift in Sources */,
 				4D790FC827381BAA00E6C4EB /* SettingItem.swift in Sources */,
 				4D790FD82738386800E6C4EB /* LoginView.swift in Sources */,
+				4D50B93B27506E8D005EC5A9 /* Array+Extensions.swift in Sources */,
 				4D790FCC27381D2500E6C4EB /* ComposeMailData.swift in Sources */,
 				4D1B09A227404E2700D03CC8 /* ImageUploadResponse.swift in Sources */,
 				4DDA515127433D1600B56FDB /* CoursesListView.swift in Sources */,
@@ -769,15 +832,21 @@
 				623F07AC27324014007A79F2 /* TermDetailView.swift in Sources */,
 				4D790F9A27361AB800E6C4EB /* ProtoTypealiases.swift in Sources */,
 				4D1B098A273F522D00D03CC8 /* DisabledInfoView.swift in Sources */,
+				4D05171A2750852F00D6891B /* BarChartStatisticsView.swift in Sources */,
 				621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */,
 				4DB6DF052733700000FA7B40 /* Utils.swift in Sources */,
+				4D051726275165F400D6891B /* RadarChartStatisticsView.swift in Sources */,
+				4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */,
 				4D6EC762273B5D22002CAD13 /* HeaderViewState.swift in Sources */,
 				4D790FE12738675600E6C4EB /* ErrorResponse.swift in Sources */,
+				4D50B93F27506ED8005EC5A9 /* Date+Extensions.swift in Sources */,
 				4D790FB4273719C300E6C4EB /* ProfileView.swift in Sources */,
 				4DDA51552743486200B56FDB /* InfoCardStore.swift in Sources */,
 				4D790FD027382B0200E6C4EB /* SupportSection.swift in Sources */,
+				4D0517242751628E00D6891B /* RadarChart.swift in Sources */,
 				4D790F9C2736296100E6C4EB /* TermGrade.swift in Sources */,
 				4D6EC75B273B4AD2002CAD13 /* ImageLoader.swift in Sources */,
+				4D13B988274F33F800E05FCA /* WaveView.swift in Sources */,
 				4D1B09BE27419E4800D03CC8 /* SendBugReportEmail.swift in Sources */,
 				623F07892730B343007A79F2 /* DashboardView.swift in Sources */,
 				4D1B0994273F78E600D03CC8 /* View+userInteractionDisabled.swift in Sources */,
@@ -787,6 +856,7 @@
 				4D6EC75F273B4C9E002CAD13 /* ExtraInfo.swift in Sources */,
 				4D790FC22737828700E6C4EB /* PushNotification.swift in Sources */,
 				4D790FAD27370BCE00E6C4EB /* AttendanceView.swift in Sources */,
+				4D50B93927506E3B005EC5A9 /* Double+Extensions.swift in Sources */,
 				4D790FB7273721E900E6C4EB /* SettingsView.swift in Sources */,
 				4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */,
 				4D1B0986273F4C2300D03CC8 /* DisabledInfo.swift in Sources */,
@@ -795,7 +865,7 @@
 				4D790FBE27376C9100E6C4EB /* AppDelegate.swift in Sources */,
 				4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */,
 				4D790FB92737431900E6C4EB /* SettingsStore.swift in Sources */,
-				4DDA515327433F9500B56FDB /* InfoCardContent.swift in Sources */,
+				4DDA515327433F9500B56FDB /* InformationCard.swift in Sources */,
 				4D8E64CC274B1A6700F602C4 /* CalendarDisplayView.swift in Sources */,
 				4D790F8827360AAD00E6C4EB /* Grade.swift in Sources */,
 				4DB6DF092733705800FA7B40 /* View+cornerRadius.swift in Sources */,
@@ -812,15 +882,21 @@
 				4D790FA3273632C600E6C4EB /* RequestData.swift in Sources */,
 				4D1B099E2740268400D03CC8 /* ImageCropper.swift in Sources */,
 				4D1B09A0274037F900D03CC8 /* AlertIfError.swift in Sources */,
+				4D50B93D27506EBC005EC5A9 /* Int64+Extensions.swift in Sources */,
 				4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */,
+				4D4682112751DA28002DE272 /* LabelStyle+Extensions.swift in Sources */,
 				4D790FDA27383A8700E6C4EB /* AuthenticationStore.swift in Sources */,
+				4D051721275088AF00D6891B /* BarChart.swift in Sources */,
 				623F07A927323EE0007A79F2 /* InfoItem.swift in Sources */,
+				4D50B94127506EF4005EC5A9 /* String+Extensions.swift in Sources */,
 				4D790FA927363EF700E6C4EB /* Term.swift in Sources */,
 				4D1B0990273F5D9100D03CC8 /* AvatarButton.swift in Sources */,
 				4D790FAF2737106200E6C4EB /* AttendanceItem.swift in Sources */,
 				621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */,
 				623F078B2730B353007A79F2 /* DashboardViewModel.swift in Sources */,
+				4D4682132751F4C4002DE272 /* JSONDecodingOptions+Extension.swift in Sources */,
 				4D790FBB27374BC200E6C4EB /* StudentDataStore.swift in Sources */,
+				4D13B983274F19C800E05FCA /* StatisticsView.swift in Sources */,
 				4D6EC75D273B4C3F002CAD13 /* StudentData.swift in Sources */,
 				62A45EC02742F54200BBE8D9 /* InfoCard.swift in Sources */,
 			);
@@ -1166,6 +1242,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4D05171D2750885700D6891B /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		4D1B0995273F7BDE00D03CC8 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
@@ -1217,6 +1301,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4D05171E2750885700D6891B /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D05171D2750885700D6891B /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		4D1B0996273F7BDE00D03CC8 /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4D1B0995273F7BDE00D03CC8 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;

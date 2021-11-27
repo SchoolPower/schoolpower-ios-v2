@@ -10,6 +10,12 @@ import SwiftUI
 private struct AppView: View {
     @EnvironmentObject private var studentDataStore: StudentDataStore
     
+    enum Tab {
+        case courses, attendance, schedule, statistics, profile
+    }
+    
+    @State var selectedTab = Tab.courses
+    
     var courses: some View {
         DashboardView(
             courses: studentDataStore.studentData.courses,
@@ -18,7 +24,7 @@ private struct AppView: View {
             .tabItem {
                 Image(systemName: "list.bullet.circle")
                 Text("Courses")
-            }.tag(1)
+            }.tag(Tab.courses)
     }
     
     var attendance: some View {
@@ -29,8 +35,7 @@ private struct AppView: View {
             .tabItem {
                 Image(systemName: "clock")
                 Text("Attendances")
-            }.tag(2)
-            .animation(.none)
+            }.tag(Tab.attendance)
     }
     
     var schedule: some View {
@@ -38,8 +43,15 @@ private struct AppView: View {
             .tabItem {
                 Image(systemName: "calendar.circle")
                 Text("Schedule")
-            }.tag(2)
-            .animation(.none)
+            }.tag(Tab.schedule)
+    }
+    
+    var statistics: some View {
+        StatisticsView(courses: studentDataStore.studentData.courses)
+            .tabItem {
+                Image(systemName: "chart.pie")
+                Text("Statistics")
+            }.tag(Tab.statistics)
     }
     
     var profile: some View {
@@ -50,16 +62,16 @@ private struct AppView: View {
             .tabItem {
                 Image(systemName: "person.crop.circle")
                 Text("Profile")
-            }.tag(2)
-            .animation(.none)
+            }.tag(Tab.profile)
     }
     
     var body: some View {
         VStack {
-            TabView {
+            TabView(selection: $selectedTab) {
                 courses
                 attendance
                 schedule
+                statistics
                 profile
             }
         }
@@ -72,7 +84,7 @@ struct SchoolPowerAppView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SchoolPowerAppView_Previews: PreviewProvider {
     static var previews: some View {
         SchoolPowerAppView()
             .environmentObject(SettingsStore.shared)

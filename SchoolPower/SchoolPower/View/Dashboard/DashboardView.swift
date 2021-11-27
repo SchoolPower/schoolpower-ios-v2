@@ -44,19 +44,11 @@ struct DashboardView: View {
                 }
             }
             if horizontalSizeClass == .compact,
-               viewModel.showPlaceholder {
+               viewModel.showPlaceholder,
+               !InfoCardStore.shared.shouldShowInfoCard {
                 viewModel.placeholder
             }
         }
-    }
-}
-
-
-extension UISplitViewController {
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        preferredSplitBehavior = .tile
-        show(.primary)
     }
 }
 
@@ -65,18 +57,22 @@ struct DashboardView_Previews: PreviewProvider {
         DashboardView(courses: [Course](repeating: fakeCourse(), count: 10))
             .environmentObject(SettingsStore.shared)
             .environmentObject(InfoCardStore.shared)
+            .environmentObject(StudentDataStore.shared)
             .environment(\.locale, .init(identifier: "ja"))
         DashboardView(courses: [])
             .environmentObject(SettingsStore.shared)
             .environmentObject(InfoCardStore.shared)
+            .environmentObject(StudentDataStore.shared)
             .environment(\.locale, .init(identifier: "zh-Hans"))
         DashboardView(courses: [fakeCourse()], disabledInfo: fakeDisabledInfo())
             .environmentObject(SettingsStore.shared)
             .environmentObject(InfoCardStore.shared)
+            .environmentObject(StudentDataStore.shared)
             .environment(\.locale, .init(identifier: "zh-Hans"))
         if #available(iOS 15.0, *) {
             DashboardView(courses: [fakeCourse()], disabledInfo: fakeDisabledInfo())
                 .environmentObject(SettingsStore.shared)
+                .environmentObject(StudentDataStore.shared)
                 .environment(\.locale, .init(identifier: "zh-Hans"))
                 .previewInterfaceOrientation(.landscapeLeft)
         }

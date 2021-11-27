@@ -21,36 +21,62 @@ struct SchoolPowerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                if authentication.authenticated {
-                    SchoolPowerAppView()
-                        .transition(.move(edge: .trailing))
-                        .animation(.easeInOut)
-                } else {
-                    LoginView()
-                        .transition(.asymmetric(
-                            insertion: .move(edge: .leading),
-                            removal: .move(edge: .leading)
-                        ))
-                        .animation(.easeInOut)
-                }
-            }
-            .environmentObject(authentication)
-            .environmentObject(settingsStore)
-            .environmentObject(studentDataStore)
-            .environmentObject(infoCardStore)
-            .environment(
-                \.locale,
-                 Utils.getLocale(
-                    language: settingsStore.language,
-                    defaultLocale: defaultLocale
-                 )
-            )
+            ContentView(showLogin: !authentication.authenticated)
+                .environmentObject(authentication)
+                .environmentObject(settingsStore)
+                .environmentObject(studentDataStore)
+                .environmentObject(infoCardStore)
+                .environment(
+                    \.locale,
+                     Utils.getLocale(
+                        language: settingsStore.language,
+                        defaultLocale: defaultLocale
+                     )
+                )
         }
         .onChange(of: scenePhase) { phase in
             if phase == .active {
                 UIApplication.shared.applicationIconBadgeNumber = 0
             }
         }
+    }
+}
+
+fileprivate struct ContentView: View {
+    @EnvironmentObject var authentication: AuthenticationStore
+    @EnvironmentObject var studentDataStore: StudentDataStore
+    
+    @State var showLogin: Bool
+    
+    var body: some View {
+        VStack {
+            ZStack {
+                if !showLogin {
+                    SchoolPowerAppView()
+                        .transition(.move(edge: .trailing))
+                } else {
+                    LoginView()
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .leading),
+                            removal: .move(edge: .leading)
+                        ))
+                }
+            }
+        }
+        .onReceive(authentication.$authenticated, perform: { authenticated in
+            withAnimation(.easeInOut) {
+                showLogin = !authenticated
+            }
+        })
+    }
+}
+
+// Global UISplitView behaviour
+extension UISplitViewController {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        preferredSplitBehavior = .tile
+        preferredDisplayMode = .oneBesideSecondary
+        presentsWithGesture = false
     }
 }

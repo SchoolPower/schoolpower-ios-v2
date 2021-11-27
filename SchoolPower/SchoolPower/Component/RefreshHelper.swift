@@ -28,8 +28,8 @@ class RefreshHelper<T> where T: ErrorHandler {
             } else {
                 self.parent!.errorResponse = errorResponse
                 ?? ErrorResponse(
-                    title: "Failed to refresh data",
-                    description: error ?? "Unknown error."
+                    title: "Failed to refresh data".localized,
+                    description: error ?? "Unknown error.".localized
                 )
                 self.parent!.showingError = true
             }

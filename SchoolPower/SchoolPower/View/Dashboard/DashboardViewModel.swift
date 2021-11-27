@@ -25,7 +25,6 @@ class DashboardViewModel: ObservableObject {
     }
     
     var showPlaceholder: Bool {
-        !InfoCardStore.shared.shouldShowInfoCard &&
         (disabledInfo != nil || coursesToDisplay.isEmpty)
     }
     

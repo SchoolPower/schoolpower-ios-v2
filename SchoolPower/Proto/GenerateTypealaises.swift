@@ -7,7 +7,7 @@
 
 import Foundation
 
-let protoDirectory = URL(fileURLWithPath: "../SchoolPower/Proto/")
+let protoDirectory = URL(fileURLWithPath: CommandLine.arguments[1])
 let typealiasFileName = "ProtoTypealiases.swift"
 let protoFiles = ["powerschool.proto"]
 let fileManager = FileManager.default

@@ -233,9 +233,22 @@ struct Model_ExtraInfo {
 
   var avatarURL: String = String()
 
+  var informationCard: Model_InformationCard {
+    get {return _informationCard ?? Model_InformationCard()}
+    set {_informationCard = newValue}
+  }
+  /// Returns true if `informationCard` has been explicitly set.
+  var hasInformationCard: Bool {return self._informationCard != nil}
+  /// Clears the value of `informationCard`. Subsequent reads from it will return its default value.
+  mutating func clearInformationCard() {self._informationCard = nil}
+
+  var jwt: String = String()
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
+
+  fileprivate var _informationCard: Model_InformationCard? = nil
 }
 
 struct Model_Attendance {
@@ -260,49 +273,81 @@ struct Model_Attendance {
   init() {}
 }
 
+struct Model_InformationCard {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var identifier: String = String()
+
+  var title: String = String()
+
+  var message: String = String()
+
+  var imageURL: String = String()
+
+  var primaryText: String = String()
+
+  var primaryOnClickURL: String = String()
+
+  var titleBackgroundColorHex: String = String()
+
+  var messageBackgroundColorHex: String = String()
+
+  var isActive: Bool = false
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 struct Model_StudentData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var profile: Model_Profile {
-    get {return _profile ?? Model_Profile()}
-    set {_profile = newValue}
+    get {return _storage._profile ?? Model_Profile()}
+    set {_uniqueStorage()._profile = newValue}
   }
   /// Returns true if `profile` has been explicitly set.
-  var hasProfile: Bool {return self._profile != nil}
+  var hasProfile: Bool {return _storage._profile != nil}
   /// Clears the value of `profile`. Subsequent reads from it will return its default value.
-  mutating func clearProfile() {self._profile = nil}
+  mutating func clearProfile() {_uniqueStorage()._profile = nil}
 
-  var attendances: [Model_Attendance] = []
+  var attendances: [Model_Attendance] {
+    get {return _storage._attendances}
+    set {_uniqueStorage()._attendances = newValue}
+  }
 
-  var courses: [Model_Course] = []
+  var courses: [Model_Course] {
+    get {return _storage._courses}
+    set {_uniqueStorage()._courses = newValue}
+  }
 
   var disabledInfo: Model_DisabledInfo {
-    get {return _disabledInfo ?? Model_DisabledInfo()}
-    set {_disabledInfo = newValue}
+    get {return _storage._disabledInfo ?? Model_DisabledInfo()}
+    set {_uniqueStorage()._disabledInfo = newValue}
   }
   /// Returns true if `disabledInfo` has been explicitly set.
-  var hasDisabledInfo: Bool {return self._disabledInfo != nil}
+  var hasDisabledInfo: Bool {return _storage._disabledInfo != nil}
   /// Clears the value of `disabledInfo`. Subsequent reads from it will return its default value.
-  mutating func clearDisabledInfo() {self._disabledInfo = nil}
+  mutating func clearDisabledInfo() {_uniqueStorage()._disabledInfo = nil}
 
   var extraInfo: Model_ExtraInfo {
-    get {return _extraInfo ?? Model_ExtraInfo()}
-    set {_extraInfo = newValue}
+    get {return _storage._extraInfo ?? Model_ExtraInfo()}
+    set {_uniqueStorage()._extraInfo = newValue}
   }
   /// Returns true if `extraInfo` has been explicitly set.
-  var hasExtraInfo: Bool {return self._extraInfo != nil}
+  var hasExtraInfo: Bool {return _storage._extraInfo != nil}
   /// Clears the value of `extraInfo`. Subsequent reads from it will return its default value.
-  mutating func clearExtraInfo() {self._extraInfo = nil}
+  mutating func clearExtraInfo() {_uniqueStorage()._extraInfo = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _profile: Model_Profile? = nil
-  fileprivate var _disabledInfo: Model_DisabledInfo? = nil
-  fileprivate var _extraInfo: Model_ExtraInfo? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -744,6 +789,8 @@ extension Model_ExtraInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   static let protoMessageName: String = _protobuf_package + ".ExtraInfo"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "avatarUrl"),
+    2: .same(proto: "informationCard"),
+    3: .same(proto: "jwt"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -753,20 +800,34 @@ extension Model_ExtraInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.avatarURL) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._informationCard) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.jwt) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.avatarURL.isEmpty {
       try visitor.visitSingularStringField(value: self.avatarURL, fieldNumber: 1)
+    }
+    try { if let v = self._informationCard {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    if !self.jwt.isEmpty {
+      try visitor.visitSingularStringField(value: self.jwt, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Model_ExtraInfo, rhs: Model_ExtraInfo) -> Bool {
     if lhs.avatarURL != rhs.avatarURL {return false}
+    if lhs._informationCard != rhs._informationCard {return false}
+    if lhs.jwt != rhs.jwt {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -834,6 +895,86 @@ extension Model_Attendance: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   }
 }
 
+extension Model_InformationCard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".InformationCard"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "identifier"),
+    2: .same(proto: "title"),
+    3: .same(proto: "message"),
+    4: .same(proto: "imageUrl"),
+    5: .same(proto: "primaryText"),
+    6: .same(proto: "primaryOnClickUrl"),
+    7: .same(proto: "titleBackgroundColorHex"),
+    8: .same(proto: "messageBackgroundColorHex"),
+    9: .same(proto: "isActive"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.identifier) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.imageURL) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.primaryText) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.primaryOnClickURL) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.titleBackgroundColorHex) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.messageBackgroundColorHex) }()
+      case 9: try { try decoder.decodeSingularBoolField(value: &self.isActive) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.identifier.isEmpty {
+      try visitor.visitSingularStringField(value: self.identifier, fieldNumber: 1)
+    }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 2)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 3)
+    }
+    if !self.imageURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.imageURL, fieldNumber: 4)
+    }
+    if !self.primaryText.isEmpty {
+      try visitor.visitSingularStringField(value: self.primaryText, fieldNumber: 5)
+    }
+    if !self.primaryOnClickURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.primaryOnClickURL, fieldNumber: 6)
+    }
+    if !self.titleBackgroundColorHex.isEmpty {
+      try visitor.visitSingularStringField(value: self.titleBackgroundColorHex, fieldNumber: 7)
+    }
+    if !self.messageBackgroundColorHex.isEmpty {
+      try visitor.visitSingularStringField(value: self.messageBackgroundColorHex, fieldNumber: 8)
+    }
+    if self.isActive != false {
+      try visitor.visitSingularBoolField(value: self.isActive, fieldNumber: 9)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Model_InformationCard, rhs: Model_InformationCard) -> Bool {
+    if lhs.identifier != rhs.identifier {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.imageURL != rhs.imageURL {return false}
+    if lhs.primaryText != rhs.primaryText {return false}
+    if lhs.primaryOnClickURL != rhs.primaryOnClickURL {return false}
+    if lhs.titleBackgroundColorHex != rhs.titleBackgroundColorHex {return false}
+    if lhs.messageBackgroundColorHex != rhs.messageBackgroundColorHex {return false}
+    if lhs.isActive != rhs.isActive {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Model_StudentData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".StudentData"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -844,51 +985,91 @@ extension Model_StudentData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     5: .same(proto: "extraInfo"),
   ]
 
+  fileprivate class _StorageClass {
+    var _profile: Model_Profile? = nil
+    var _attendances: [Model_Attendance] = []
+    var _courses: [Model_Course] = []
+    var _disabledInfo: Model_DisabledInfo? = nil
+    var _extraInfo: Model_ExtraInfo? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _profile = source._profile
+      _attendances = source._attendances
+      _courses = source._courses
+      _disabledInfo = source._disabledInfo
+      _extraInfo = source._extraInfo
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._profile) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.attendances) }()
-      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.courses) }()
-      case 4: try { try decoder.decodeSingularMessageField(value: &self._disabledInfo) }()
-      case 5: try { try decoder.decodeSingularMessageField(value: &self._extraInfo) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._profile) }()
+        case 2: try { try decoder.decodeRepeatedMessageField(value: &_storage._attendances) }()
+        case 3: try { try decoder.decodeRepeatedMessageField(value: &_storage._courses) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._disabledInfo) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._extraInfo) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._profile {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if !self.attendances.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.attendances, fieldNumber: 2)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._profile {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      if !_storage._attendances.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._attendances, fieldNumber: 2)
+      }
+      if !_storage._courses.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._courses, fieldNumber: 3)
+      }
+      try { if let v = _storage._disabledInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._extraInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
     }
-    if !self.courses.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.courses, fieldNumber: 3)
-    }
-    try { if let v = self._disabledInfo {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
-    try { if let v = self._extraInfo {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Model_StudentData, rhs: Model_StudentData) -> Bool {
-    if lhs._profile != rhs._profile {return false}
-    if lhs.attendances != rhs.attendances {return false}
-    if lhs.courses != rhs.courses {return false}
-    if lhs._disabledInfo != rhs._disabledInfo {return false}
-    if lhs._extraInfo != rhs._extraInfo {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._profile != rhs_storage._profile {return false}
+        if _storage._attendances != rhs_storage._attendances {return false}
+        if _storage._courses != rhs_storage._courses {return false}
+        if _storage._disabledInfo != rhs_storage._disabledInfo {return false}
+        if _storage._extraInfo != rhs_storage._extraInfo {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

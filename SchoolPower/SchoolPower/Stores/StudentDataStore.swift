@@ -10,6 +10,7 @@ import Combine
 import Alamofire
 import SwiftProtobuf
 import KVKCalendar
+import UIKit
 
 final class StudentDataStore: ObservableObject {
     static let shared = StudentDataStore()
@@ -22,24 +23,29 @@ final class StudentDataStore: ObservableObject {
     
     @Published var schedule: [Event] = []
     
+    @Published var availableTerms: [Term] = []
+    
     private init() {
         loadThenTryFetchAndSave()
     }
     
     func loadThenTryFetchAndSave() {
-        StudentDataStore.tryLoadAndIfSuccess { data in self.studentData = data }
-        StudentDataStore.tryFetchAndIfSuccess { data in
-            self.save(studentData: data)
+        StudentDataStore.tryLoadAndIfSuccess { data in self.save(studentData: data) }
+        DispatchQueue.main.async {
+            StudentDataStore.tryFetchAndIfSuccess(action: .manual) { data in
+                self.save(studentData: data)
+            }
         }
     }
     
+    // MARK: Save
     func save(studentData: StudentData) {
         self.studentData = studentData
         do {
             let dataJsonString = try studentData.jsonString()
-            Utils.saveStringToFile(filename: Constants.studentDataFileName, data: dataJsonString)
+            SettingsStore.shared.studentDataJSON = dataJsonString
         } catch {
-            print("Failed to save student data to file:" + " \(Constants.studentDataFileName): \(error)")
+            print("Failed to save student data: \(error)")
         }
     }
     
@@ -51,7 +57,7 @@ final class StudentDataStore: ObservableObject {
     
     func refresh(completion: @escaping (Bool, ErrorResponse?, String?) -> Void) {
         if let requestData = AuthenticationStore.shared.requestData {
-            StudentDataStore.tryFetch(requestData: requestData) {
+            StudentDataStore.tryFetch(requestData: requestData, action: .manual) {
                 success, data, errorResponse, error in
                 if success, let data = data {
                     StudentDataStore.shared.save(studentData: data)
@@ -60,12 +66,13 @@ final class StudentDataStore: ObservableObject {
             }
         } else {
             completion(false, ErrorResponse(
-                title: "Failed to refresh data",
-                description: "No credential available, please try to log in again."
+                title: "Failed to refresh data".localized,
+                description: "No credential available, please try to log in again.".localized
             ), nil)
         }
     }
     
+    // MARK: Did set
     private func didSetStudentData() {
         self.schedule = studentData.courses
             .flatMap { course in
@@ -83,9 +90,17 @@ final class StudentDataStore: ObservableObject {
             partialResult, course in
             partialResult[course.id] = course
         }
+        self.availableTerms = Array(
+            studentData.courses
+                .flatMap({ it in it.grades })
+                .compactMap({ it in it.reallyHasGrade ? it.term : nil })
+                .uniqued()
+        )
+        InfoCardStore.shared.load(studentData.extraInfo.informationCard)
     }
 }
 
+// MARK: Disabled Info
 extension StudentDataStore {
     func disabled() -> Bool {
         return studentData.hasDisabledInfo && (
@@ -98,6 +113,7 @@ extension StudentDataStore {
     }
 }
 
+// MARK: Schedule Event
 extension StudentDataStore {
     private func scheduleEventText(
         _ course: Course,
@@ -115,27 +131,30 @@ extension StudentDataStore {
     }
 }
 
+// MARK: Static IO
 extension StudentDataStore {
     static func clearLocal() {
         Utils.saveStringToFile(filename: Constants.studentDataFileName, data: "")
     }
     
     static func tryLoadAndIfSuccess(callback: @escaping (StudentData) -> Void) {
-        if let dataJsonString = Utils.readStringFromFile(filename: Constants.studentDataFileName) {
+        let dataJsonString = SettingsStore.shared.studentDataJSON
+        if !dataJsonString.isEmpty {
             do {
-                let data = try StudentData(jsonString: dataJsonString)
+                let data = try StudentData(jsonString: dataJsonString, options: .ignoreUnknown)
                 callback(data)
             } catch {
-                print("Failed to serialize student data from file:" + " \(error)")
+                print("Failed to serialize student data from store:" + " \(error)")
             }
         }
     }
     
     static func tryFetchAndIfSuccess(
         requestData: RequestData? = nil,
+        action: Constants.GetDataAction,
         callback: @escaping (StudentData) -> Void
     ) {
-        tryFetch(requestData: requestData) { success, data, errorResponse, error in
+        tryFetch(requestData: requestData, action: action) { success, data, errorResponse, error in
             guard success else { return }
             if let data = data {
                 callback(data)
@@ -145,6 +164,7 @@ extension StudentDataStore {
     
     static func tryFetch(
         requestData: RequestData? = AuthenticationStore.shared.requestData,
+        action: Constants.GetDataAction,
         completion: @escaping (Bool, StudentData?, ErrorResponse?, String?) -> Void
     ) {
         if let requestData = requestData ?? AuthenticationStore.shared.requestData {
@@ -152,7 +172,33 @@ extension StudentDataStore {
                 Constants.getStudentDataURL,
                 method: .post,
                 parameters: requestData,
-                encoder: JSONParameterEncoder.default
+                encoder: JSONParameterEncoder.default,
+                headers: HTTPHeaders([
+                    HTTPHeader(
+                        name: "X-OS",
+                        value: "ios"
+                    ),
+                    // e.g. 15.0
+                    HTTPHeader(
+                        name: "X-OS-Version",
+                        value: UIDevice.current.systemVersion
+                    ),
+                    // e.g. 2.0.0 (28)
+                    HTTPHeader(
+                        name: "X-App-Version",
+                        value: Utils.getFormattedAppVersionBuild()
+                    ),
+                    // e.g. manual_pull_data
+                    HTTPHeader(
+                        name: "X-Action",
+                        value: action.rawValue
+                    ),
+                    // e.g. zh-Hans, ja_JP, en_CA
+                    HTTPHeader(
+                        name: "X-Locale",
+                        value: Utils.getLocale().identifier
+                    ),
+                ])
             )
                 .validate(statusCode: 200..<300)
                 .validate(contentType: ["application/json"])
@@ -160,10 +206,9 @@ extension StudentDataStore {
                     switch response.result {
                     case .success:
                         guard let jsonString = response.value else { return }
-//                        debugPrint(jsonString)
                         debugPrint("JSON fetched")
                         do {
-                            let data = try StudentData(jsonString: jsonString)
+                            let data = try StudentData(jsonString: jsonString, options: .ignoreUnknown)
                             completion(true, data, nil, nil)
                         } catch {
                             do {
@@ -172,8 +217,7 @@ extension StudentDataStore {
                                 if !errorResponse.hasErrorMessage {
                                     completion(
                                         false, nil, nil,
-                                        error.localizedDescription +
-                                        " Response:\n\(jsonString)"
+                                        error.localizedDescription + "\nError: \(error)"
                                     )
                                 } else {
                                     completion(false, nil, errorResponse, nil)
@@ -181,8 +225,7 @@ extension StudentDataStore {
                             } catch {
                                 completion(
                                     false, nil, nil,
-                                    error.localizedDescription +
-                                    " Response:\n\(jsonString)"
+                                    error.localizedDescription + "\n\(error)"
                                 )
                             }
                         }

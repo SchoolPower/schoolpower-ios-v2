@@ -67,6 +67,8 @@ message DisabledInfo {
 
 message ExtraInfo {
   string avatarUrl = 1;
+  InformationCard informationCard = 2;
+  string jwt = 3;
 }
 
 message Attendance  {
@@ -76,6 +78,18 @@ message Attendance  {
   string courseName = 4;
   string courseBlock = 5;
   string comment = 6;
+}
+
+message InformationCard {
+  string identifier = 1;
+  string title = 2;
+  string message = 3;
+  string imageUrl = 4;
+  string primaryText = 5;
+  string primaryOnClickUrl = 6;
+  string titleBackgroundColorHex = 7;
+  string messageBackgroundColorHex = 8;
+  bool isActive = 9;
 }
 
 message StudentData {
