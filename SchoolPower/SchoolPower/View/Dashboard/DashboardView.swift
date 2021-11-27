@@ -44,8 +44,8 @@ struct DashboardView: View {
                 }
             }
             if horizontalSizeClass == .compact,
-               viewModel.showPlaceholder &&
-                !InfoCardStore.shared.shouldShowInfoCard {
+               viewModel.showPlaceholder,
+               !InfoCardStore.shared.shouldShowInfoCard {
                 viewModel.placeholder
             }
         }
@@ -57,18 +57,22 @@ struct DashboardView_Previews: PreviewProvider {
         DashboardView(courses: [Course](repeating: fakeCourse(), count: 10))
             .environmentObject(SettingsStore.shared)
             .environmentObject(InfoCardStore.shared)
+            .environmentObject(StudentDataStore.shared)
             .environment(\.locale, .init(identifier: "ja"))
         DashboardView(courses: [])
             .environmentObject(SettingsStore.shared)
             .environmentObject(InfoCardStore.shared)
+            .environmentObject(StudentDataStore.shared)
             .environment(\.locale, .init(identifier: "zh-Hans"))
         DashboardView(courses: [fakeCourse()], disabledInfo: fakeDisabledInfo())
             .environmentObject(SettingsStore.shared)
             .environmentObject(InfoCardStore.shared)
+            .environmentObject(StudentDataStore.shared)
             .environment(\.locale, .init(identifier: "zh-Hans"))
         if #available(iOS 15.0, *) {
             DashboardView(courses: [fakeCourse()], disabledInfo: fakeDisabledInfo())
                 .environmentObject(SettingsStore.shared)
+                .environmentObject(StudentDataStore.shared)
                 .environment(\.locale, .init(identifier: "zh-Hans"))
                 .previewInterfaceOrientation(.landscapeLeft)
         }

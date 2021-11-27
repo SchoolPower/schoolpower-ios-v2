@@ -36,6 +36,7 @@ class Constants {
         case manual = "manual_pull_data"
         case job = "pull_data_job"
         case login = "login"
+        case getAvatar = "get_avatar"
     }
     
     public static let LanguageLocale: [Language: String] = [

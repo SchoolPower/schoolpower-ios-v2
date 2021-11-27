@@ -63,13 +63,13 @@ struct LoginView: View {
                                                 authentication.authenticate(data: data)
                                             } else if let errorResponse = errorResponse {
                                                 showAlert(
-                                                    title: errorResponse.title ?? "Failed to sign in",
-                                                    body: errorResponse.description ?? "Unknown error."
+                                                    title: errorResponse.title ?? "Failed to sign in".localized,
+                                                    body: errorResponse.description ?? "Unknown error.".localized
                                                 )
                                             } else {
                                                 showAlert(
-                                                    title: "Failed to sign in",
-                                                    body: error ?? "Unknown error."
+                                                    title: "Failed to sign in".localized,
+                                                    body: error ?? "Unknown error.".localized
                                                 )
                                             }
                                         }

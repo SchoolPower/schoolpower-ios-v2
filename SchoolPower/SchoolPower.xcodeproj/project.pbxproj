@@ -34,6 +34,7 @@
 		4D1B09C62741C4F500D03CC8 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C52741C4F500D03CC8 /* LicensesView.swift */; };
 		4D1B09C82741C51900D03CC8 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C72741C51900D03CC8 /* License.swift */; };
 		4D4682112751DA28002DE272 /* LabelStyle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */; };
+		4D4682132751F4C4002DE272 /* JSONDecodingOptions+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */; };
 		4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B935275069D4005EC5A9 /* GPAView.swift */; };
 		4D50B93927506E3B005EC5A9 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */; };
 		4D50B93B27506E8D005EC5A9 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */; };
@@ -95,7 +96,7 @@
 		4DB6DF122733816E00FA7B40 /* TermItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF112733816E00FA7B40 /* TermItem.swift */; };
 		4DDA514F2743354D00B56FDB /* RefreshHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA514E2743354D00B56FDB /* RefreshHelper.swift */; };
 		4DDA515127433D1600B56FDB /* CoursesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA515027433D1600B56FDB /* CoursesListView.swift */; };
-		4DDA515327433F9500B56FDB /* InfoCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA515227433F9500B56FDB /* InfoCardContent.swift */; };
+		4DDA515327433F9500B56FDB /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA515227433F9500B56FDB /* InformationCard.swift */; };
 		4DDA51552743486200B56FDB /* InfoCardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA51542743486200B56FDB /* InfoCardStore.swift */; };
 		621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E527307D4000825D5C /* SchoolPowerApp.swift */; };
 		621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E727307D4000825D5C /* SchoolPowerAppView.swift */; };
@@ -160,6 +161,7 @@
 		4D1B09C52741C4F500D03CC8 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
 		4D1B09C72741C51900D03CC8 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LabelStyle+Extensions.swift"; sourceTree = "<group>"; };
+		4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecodingOptions+Extension.swift"; sourceTree = "<group>"; };
 		4D50B935275069D4005EC5A9 /* GPAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAView.swift; sourceTree = "<group>"; };
 		4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -218,7 +220,7 @@
 		4DB6DF112733816E00FA7B40 /* TermItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermItem.swift; sourceTree = "<group>"; };
 		4DDA514E2743354D00B56FDB /* RefreshHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHelper.swift; sourceTree = "<group>"; };
 		4DDA515027433D1600B56FDB /* CoursesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesListView.swift; sourceTree = "<group>"; };
-		4DDA515227433F9500B56FDB /* InfoCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardContent.swift; sourceTree = "<group>"; };
+		4DDA515227433F9500B56FDB /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		4DDA51542743486200B56FDB /* InfoCardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardStore.swift; sourceTree = "<group>"; };
 		621D38E227307D4000825D5C /* SchoolPower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolPower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		621D38E527307D4000825D5C /* SchoolPowerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerApp.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				4D50B93C27506EBC005EC5A9 /* Int64+Extensions.swift */,
 				4D50B93E27506ED8005EC5A9 /* Date+Extensions.swift */,
 				4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */,
+				4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,7 +362,7 @@
 				4D1B09A127404E2700D03CC8 /* ImageUploadResponse.swift */,
 				4D1B09A327404F4F00D03CC8 /* SetAvatarRequest.swift */,
 				4D1B09C72741C51900D03CC8 /* License.swift */,
-				4DDA515227433F9500B56FDB /* InfoCardContent.swift */,
+				4DDA515227433F9500B56FDB /* InformationCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -798,7 +801,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $ENABLE_PREVIEWS == \"NO\" ]\nthen\n    python3 $SRCROOT/generate-licenses.py --build-dir $BUILD_DIR --output-file $SRCROOT/SchoolPower/Resources/licenses.json\nelse\n  echo \"Skipping license generation during preview.\"\nfi\n";
+			shellScript = "if [ $ENABLE_PREVIEWS == \"NO\" ]\nthen\n    python3 $SRCROOT/generate-licenses.py --build-dir $BUILD_DIR --output-file $SRCROOT/SchoolPower/Resources/licenses.json\n    $SRCROOT/Proto/buildProto.sh $SRCROOT\nelse\n  echo \"Skipping license and proto generation during preview.\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -862,7 +865,7 @@
 				4D790FBE27376C9100E6C4EB /* AppDelegate.swift in Sources */,
 				4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */,
 				4D790FB92737431900E6C4EB /* SettingsStore.swift in Sources */,
-				4DDA515327433F9500B56FDB /* InfoCardContent.swift in Sources */,
+				4DDA515327433F9500B56FDB /* InformationCard.swift in Sources */,
 				4D8E64CC274B1A6700F602C4 /* CalendarDisplayView.swift in Sources */,
 				4D790F8827360AAD00E6C4EB /* Grade.swift in Sources */,
 				4DB6DF092733705800FA7B40 /* View+cornerRadius.swift in Sources */,
@@ -891,6 +894,7 @@
 				4D790FAF2737106200E6C4EB /* AttendanceItem.swift in Sources */,
 				621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */,
 				623F078B2730B353007A79F2 /* DashboardViewModel.swift in Sources */,
+				4D4682132751F4C4002DE272 /* JSONDecodingOptions+Extension.swift in Sources */,
 				4D790FBB27374BC200E6C4EB /* StudentDataStore.swift in Sources */,
 				4D13B983274F19C800E05FCA /* StatisticsView.swift in Sources */,
 				4D6EC75D273B4C3F002CAD13 /* StudentData.swift in Sources */,

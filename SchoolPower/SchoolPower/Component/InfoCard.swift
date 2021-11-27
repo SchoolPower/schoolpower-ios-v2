@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct InfoCard: View {
-    var content: InfoCardContent
+    var content: InformationCard
     
     var body: some View {
         VStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(alignment: .top) {
-                    Text(content.localizedTitle).font(.title).bold().fixedSize(horizontal: false, vertical: true)
+                    Text(content.title).font(.title).bold().fixedSize(horizontal: false, vertical: true)
                         .padding(.horizontal, 24)
                         .padding(.vertical)
                     Spacer()
@@ -35,16 +35,16 @@ struct InfoCard: View {
                 .frame(maxWidth: .infinity, alignment: .center)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color(hexString: content.colorHex))
+            .background(Color(hexString: content.titleBackgroundColorHex))
             VStack(alignment: .leading) {
-                Text(content.localizedDescription).font(.body).fixedSize(horizontal: false, vertical: true)
+                Text(content.message).font(.body).fixedSize(horizontal: false, vertical: true)
                 HStack {
                     Spacer()
                     Button(action: {
                         UIApplication.shared.open(
-                            URL(string: content.ctaURL)!)
+                            URL(string: content.primaryOnClickURL)!)
                     }) {
-                        Text(content.localizedCtaText).font(.headline).bold()
+                        Text(content.primaryText).font(.headline).bold()
                     }
                     .buttonStyle(.plain)
                     .padding(6)
@@ -57,7 +57,7 @@ struct InfoCard: View {
             }
             .padding(24)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color(hexString: content.colorDarkHex))
+            .background(Color(hexString: content.messageBackgroundColorHex))
         }
         .foregroundColor(.white)
         .cornerRadius(16)
@@ -66,6 +66,6 @@ struct InfoCard: View {
 
 struct InfoCard_Previews: PreviewProvider {
     static var previews: some View {
-        InfoCard(content: fakeInfoCardContent())
+        InfoCard(content: fakeInformationCard())
     }
 }

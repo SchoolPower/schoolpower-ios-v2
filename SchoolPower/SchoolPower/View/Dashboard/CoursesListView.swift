@@ -14,7 +14,7 @@ struct CoursesListView: View, ErrorHandler {
     @EnvironmentObject var settings: SettingsStore
     @EnvironmentObject var studentDataStore: StudentDataStore
     
-    @State private var infoCardContent: InfoCardContent? = nil
+    @State private var informationCard: InformationCard? = nil
     @State internal var errorResponse: ErrorResponse? = nil
     @State internal var showingError: Bool = false
     @State private var showingSelectTermMenu = true
@@ -36,7 +36,7 @@ struct CoursesListView: View, ErrorHandler {
         ZStack {
             if horizontalSizeClass == .regular {
                 List {
-                    if let infoCard = infoCardContent {
+                    if let infoCard = informationCard {
                         InfoCard(content: infoCard)
                     }
                     content
@@ -47,7 +47,7 @@ struct CoursesListView: View, ErrorHandler {
                 .navigationTitle("Courses")
             } else {
                 List {
-                    if let infoCard = infoCardContent {
+                    if let infoCard = informationCard {
                         Section {
                             InfoCard(content: infoCard)
                                 .padding(.horizontal, -16)
@@ -71,20 +71,25 @@ struct CoursesListView: View, ErrorHandler {
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Menu {
-                    Picker(selection: $selectTerm, label: Text("Select term")) {
-                        Text(verbatim: .all.displayText()).tag(Term.all)
-                        ForEach(studentDataStore.availableTerms, id: \.self) { term in
-                            Text(term).tag(term)
+                if !viewModel.showPlaceholder {
+                    Menu {
+                        Picker(selection: $selectTerm, label: Text("Select term")) {
+                            Text(verbatim: .all.displayText()).tag(Term.all)
+                            ForEach(studentDataStore.availableTerms, id: \.self) { term in
+                                Text(term).tag(term)
+                            }
                         }
-                    }
-                } label: { Label(selectTerm.displayText(), systemImage: "chevron.down").labelStyle(.horizontal) }
-                
+                    } label: { Label(selectTerm.displayText(), systemImage: "chevron.down").labelStyle(.horizontal) }
+                    
+                }
+                else {
+                    EmptyView()
+                }
             }
         }
-        .onReceive(InfoCardStore.shared.$infoCardToShow) { infoCardContent in
+        .onReceive(InfoCardStore.shared.$infoCardToShow) { informationCard in
             withAnimation {
-                self.infoCardContent = infoCardContent
+                self.informationCard = informationCard
             }
         }
         .onChange(of: selectTerm) { newValue in

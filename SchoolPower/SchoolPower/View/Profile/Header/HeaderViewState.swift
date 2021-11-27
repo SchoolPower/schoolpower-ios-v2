@@ -17,11 +17,11 @@ class HeaderViewState: ObservableObject {
     // Uploads image to sm.ms
     func uploadAvatar(completion: @escaping (Bool, ErrorResponse?, String?) -> Void) {
         guard let croppedImage = croppedImage else {
-            completion(false, ErrorResponse(title: "Failed to upload avatar", description: "No image selected."), nil)
+            completion(false, ErrorResponse(title: "Failed to upload avatar".localized, description: "No image selected.".localized), nil)
             return
         }
         guard let data = croppedImage.jpegData(compressionQuality: 0.5) else {
-            completion(false, ErrorResponse(title: "Failed to upload avatar", description: "Cannot get image JPEG data."), nil)
+            completion(false, ErrorResponse(title: "Failed to upload avatar".localized, description: "Cannot get image JPEG data.".localized), nil)
             return
         }
         self.selectedImage = nil
@@ -51,8 +51,8 @@ class HeaderViewState: ObservableObject {
                         completion(
                             false,
                             ErrorResponse(
-                                title: "Failed to upload avatar",
-                                description: "Responce:\n\(jsonString)"
+                                title: "Failed to upload avatar".localized,
+                                description: "Responce:\n\(jsonString)".localized
                             ),
                             nil
                         )
@@ -96,7 +96,7 @@ class HeaderViewState: ObservableObject {
                         let errorResponse = try JSONDecoder()
                             .decode(ErrorResponse.self, from: jsonString.data(using: .utf8)!)
                         if errorResponse.success == true {
-                            StudentDataStore.tryFetch() {
+                            StudentDataStore.tryFetch(action: .getAvatar) {
                                 success, data, errorResponse, error in
                                 
                                 if success, let data = data {

@@ -70,8 +70,8 @@ struct AvatarButton: View {
             if !success {
                 self.errorResponse = errorResponse
                 ?? ErrorResponse(
-                    title: "Failed to upload avatar",
-                    description: error ?? "Unknown error."
+                    title: "Failed to upload avatar".localized,
+                    description: error ?? "Unknown error.".localized
                 )
                 showingError = true
             }

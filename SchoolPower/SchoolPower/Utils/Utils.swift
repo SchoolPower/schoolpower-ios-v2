@@ -25,7 +25,10 @@ class Utils {
         return nil
     }
     
-    static func getLocale(language: Constants.Language, defaultLocale: Locale) -> Locale {
+    static func getLocale(
+        language: Constants.Language = SettingsStore.shared.language,
+        defaultLocale: Locale = Locale.current
+    ) -> Locale {
         if language == .systemDefault {
             return defaultLocale
         } else {

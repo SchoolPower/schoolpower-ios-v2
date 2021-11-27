@@ -95,7 +95,7 @@ extension PushNotification {
             }
             
             StudentDataStore.tryLoadAndIfSuccess { oldData in
-                StudentDataStore.tryFetchAndIfSuccess { newData in
+                StudentDataStore.tryFetchAndIfSuccess(action: .job) { newData in
                     let (newAssignments, newAttendances) = StudentDataUtils.diff(oldData: oldData, newData: newData)
                     
                     if (newAssignments.isEmpty && newAssignments.isEmpty) {

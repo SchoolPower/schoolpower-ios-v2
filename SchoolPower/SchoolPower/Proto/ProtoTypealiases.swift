@@ -15,4 +15,5 @@ typealias Profile = Model_Profile
 typealias DisabledInfo = Model_DisabledInfo
 typealias ExtraInfo = Model_ExtraInfo
 typealias Attendance = Model_Attendance
+typealias InformationCard = Model_InformationCard
 typealias StudentData = Model_StudentData

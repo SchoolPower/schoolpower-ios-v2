@@ -11,24 +11,20 @@ import SwiftUI
 class InfoCardStore: ObservableObject {
     static let shared = InfoCardStore()
     
-    private var infoCardReceived: InfoCardContent? = nil
+    private var infoCardReceived: InformationCard? = nil
     
-    @Published var infoCardToShow: InfoCardContent? = nil
+    @Published var infoCardToShow: InformationCard? = nil
     
     var shouldShowInfoCard: Bool {
         infoCardToShow != nil
     }
     
-    init() {
-        loadInfoCard()
-    }
-    
     func maybeShowInfoCard() {
         if let infoCardReceived = infoCardReceived {
-            guard infoCardReceived.activated == true else {
+            guard infoCardReceived.isActive == true else {
                 return
             }
-            let dismissedBefore = SettingsStore.shared.dismissedInfoCardUUIDs[infoCardReceived.uuid]
+            let dismissedBefore = SettingsStore.shared.dismissedInfoCardUUIDs[infoCardReceived.identifier]
             guard dismissedBefore == nil else {
                 return
             }
@@ -36,18 +32,15 @@ class InfoCardStore: ObservableObject {
         }
     }
     
-    func loadInfoCard() {
-        // TODO
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.infoCardReceived = fakeInfoCardContent()
-            self.maybeShowInfoCard()
-        }
+    func load(_ informationCard: InformationCard) {
+        self.infoCardReceived = informationCard
+        self.maybeShowInfoCard()
     }
     
     func dismiss() {
         if let infoCardToShow = infoCardToShow {
             var temp = SettingsStore.shared.dismissedInfoCardUUIDs
-            temp[infoCardToShow.uuid] = true
+            temp[infoCardToShow.identifier] = true
             SettingsStore.shared.dismissedInfoCardUUIDs = temp
             self.infoCardToShow = nil
         }
