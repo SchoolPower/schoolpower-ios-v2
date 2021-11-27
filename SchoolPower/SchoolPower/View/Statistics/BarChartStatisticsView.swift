@@ -11,12 +11,23 @@ struct BarChartStatisticsView: View {
     var courses: [Course]
     
     @EnvironmentObject var studentDataStore: StudentDataStore
+    @EnvironmentObject var settingsStore: SettingsStore
     @State private var selectTerm: Term = .all
     
     var body: some View {
         VStack(alignment: .leading) {
             Text("Bar Chart").font(.largeTitle).bold().foregroundColor(.primary).padding(.bottom).padding(.top, -12)
-            BarChart(courses: courses.filterHasGrades(selectTerm)).padding(.vertical)
+            
+            if let courses = courses.filterHasGrades(selectTerm), !courses.isEmpty {
+                BarChart(courses: courses).padding(.vertical)
+            } else {
+                VStack {
+                    Text("No Data")
+                        .foregroundColor(.gray)
+                        .font(.title2)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
         }
         .padding()
         .toolbar {
@@ -28,15 +39,23 @@ struct BarChartStatisticsView: View {
                                 Text(term).tag(term)
                             }
                         }
-                    } label: { Text(selectTerm.displayText()) }
+                    } label: { Label(selectTerm.displayText(), systemImage: "chevron.down").labelStyle(.horizontal) }
                 } else {
                     EmptyView()
                 }
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .onChange(of: selectTerm, perform: { newValue in
+            settingsStore.selectedBarChartViewingTerm = newValue
+        })
         .onAppear {
-            selectTerm = studentDataStore.availableTerms.first ?? .all
+            let stored = settingsStore.selectedBarChartViewingTerm
+            if studentDataStore.availableTerms.contains(stored) {
+                selectTerm = stored
+            } else {
+                selectTerm = studentDataStore.availableTerms.first ?? .all
+            }
         }
     }
 }

@@ -27,46 +27,55 @@ struct GPAView: View {
     
     var body: some View {
         VStack {
-            WaveView(progressFraction: gpaPercentFraction)
-                .padding(.horizontal, 64)
-                .padding(.vertical, 24)
-            ZStack {
-                Color(.systemGroupedBackground)
-                    .edgesIgnoringSafeArea(.all)
-                List(coursesWithGrade, selection: $selectedCourseIds) { course in
-                    SettingItem(
-                        title: LocalizedStringKey(course.name),
-                        detail: course.displayGrade()?
-                            .percentage.rounded(digits: 0).asPercentage(),
-                        image: nil,
-                        description: nil
-                    )
-                        .listRowBackground(Color(.systemBackground))
+            if !coursesWithGrade.isEmpty {
+                WaveView(progressFraction: gpaPercentFraction)
+                    .padding(.horizontal, 64)
+                    .padding(.vertical, 24)
+                ZStack {
+                    Color(.systemGroupedBackground)
+                        .edgesIgnoringSafeArea(.all)
+                    List(coursesWithGrade, selection: $selectedCourseIds) { course in
+                        SettingItem(
+                            title: LocalizedStringKey(course.name),
+                            detail: course.displayGrade()?
+                                .percentage.rounded(digits: 0).asPercentage(),
+                            image: nil,
+                            description: nil
+                        )
+                            .listRowBackground(Color(.systemBackground))
+                    }
+                    .animation(nil)
+                    .introspectTableView(customize: { tableView in
+                        tableView.showsVerticalScrollIndicator = false
+                        tableView.showsHorizontalScrollIndicator = false
+                    })
+                    .listStyle(.insetGrouped)
+                    .frame(maxWidth: 600)
+                    .environment(\.editMode, $editMode)
                 }
-                .animation(nil)
-                .introspectTableView(customize: { tableView in
-                    tableView.showsVerticalScrollIndicator = false
-                    tableView.showsHorizontalScrollIndicator = false
-                })
-                .listStyle(.insetGrouped)
-                .frame(maxWidth: 600)
-                .environment(\.editMode, $editMode)
+                .overlay(
+                    LinearGradient(
+                        gradient: Gradient(
+                            colors: [
+                                .gray.opacity(0.2),
+                                .gray.opacity(0.0),
+                                .clear
+                            ]
+                        ),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    ).frame(height: 10),
+                    alignment: .top
+                )
+                .edgesIgnoringSafeArea(.all)
+            } else {
+                VStack {
+                    Text("No Data")
+                        .foregroundColor(.gray)
+                        .font(.title2)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .overlay(
-                LinearGradient(
-                    gradient: Gradient(
-                        colors: [
-                            .gray.opacity(0.2),
-                            .gray.opacity(0.0),
-                            .clear
-                        ]
-                    ),
-                    startPoint: .top,
-                    endPoint: .bottom
-                ).frame(height: 10),
-                alignment: .top
-            )
-            .edgesIgnoringSafeArea(.all)
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -77,7 +86,7 @@ struct GPAView: View {
                                 Text(term).tag(term)
                             }
                         }
-                    } label: { Text(selectTerm.displayText()) }
+                    } label: { Label(selectTerm.displayText(), systemImage: "chevron.down").labelStyle(.horizontal) }
                 } else {
                     EmptyView()
                 }

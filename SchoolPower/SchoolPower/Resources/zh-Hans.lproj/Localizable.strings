@@ -41,14 +41,18 @@
 "Comment" = "评语";
 "Course" = "课程";
 "Evaluation" = "评估";
+"All terms" = "全学期";
+"Select term" = "选择学期";
 
 // Schedule
 "day" = "日";
 "week" = "周";
+"Today" = "今天";
 
 // Statistics
 "Radar Chart" = "雷达图";
 "Bar Chart" = "柱形图";
+"No Data" = "没有数据";
 
 /// Flags
 "collected" = "已交";

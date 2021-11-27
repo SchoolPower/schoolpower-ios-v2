@@ -14,6 +14,7 @@ struct CalendarDisplayView: UIViewRepresentable {
     var frame: CGRect
     var type: CalendarType
     var locale: Locale
+    @Binding var didSelectToday: () -> Void
     var didSelectEvent: (String) -> Void
 
     private var calendar: CalendarView = {
@@ -32,6 +33,8 @@ struct CalendarDisplayView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: CalendarView, context: UIViewRepresentableContext<CalendarDisplayView>) {
+        didSelectToday = context.coordinator.didSelectToday
+        
         if context.coordinator.frame != frame {
             context.coordinator.frame = frame
         }
@@ -60,12 +63,14 @@ struct CalendarDisplayView: UIViewRepresentable {
         frame: CGRect,
         type: CalendarType,
         locale: Locale,
+        didSelectToday: Binding<() -> Void>,
         didSelectEvent: @escaping (String) -> Void
     ) {
         self.events = events
         self.frame = frame
         self.type = type
         self.locale = locale
+        self._didSelectToday = didSelectToday
         self.didSelectEvent = didSelectEvent
     }
     
@@ -119,6 +124,11 @@ struct CalendarDisplayView: UIViewRepresentable {
         }
         
         var didSelectEvent: (String) -> Void = { _ in }
+        
+        lazy var didSelectToday: () -> Void = { [self] in
+            view.calendar.scrollTo(Date())
+            view.calendar.reloadData()
+        }
         
         init(_ view: CalendarDisplayView) {
             self.view = view

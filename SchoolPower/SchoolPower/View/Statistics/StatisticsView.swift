@@ -9,20 +9,36 @@ import SwiftUI
 
 struct StatisticsView: View {
     var courses: [Course]
+    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    private var shouldPreSelect: Bool {
+        return horizontalSizeClass == .regular
+    }
+    @State private var selection: Int? = 1
+    
+    var gpaLabel: some View {
+        Label {
+            Text("GPA")
+        } icon: {
+            Image(systemName: "sleep")
+                .rotationEffect(.degrees(180))
+        }
+    }
+    
     var body: some View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink {
-                        GPAView(courses: courses)
-                    } label: {
-                        Label {
-                            Text("GPA")
-                        } icon: {
-                            Image(systemName: "sleep")
-                                .rotationEffect(.degrees(180))
-                        }
-
+                    if shouldPreSelect {
+                        NavigationLink(
+                            tag: 1,
+                            selection: $selection,
+                            destination: { GPAView(courses: courses) }
+                        ) { gpaLabel }
+                    } else {
+                        NavigationLink {
+                            GPAView(courses: courses)
+                        } label: { gpaLabel }
                     }
                 }
                 Section {

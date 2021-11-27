@@ -45,11 +45,13 @@ struct BarChart: UIViewRepresentable {
         })
         dataSet.valueFont = .systemFont(ofSize: 10)
         
-        uiView.data = BarChartData(dataSet: dataSet)
+        uiView.data = entries.isEmpty ? nil : BarChartData(dataSet: dataSet)
         
         dataSet.valueFormatter = DefaultValueFormatter(formatter: formatter)
         
         uiView.noDataText = "No Data".localized
+        uiView.noDataFont = .systemFont(ofSize: 24)
+        uiView.noDataTextColor = Color.gray.uiColor()
         uiView.rightAxis.enabled = true
         uiView.rightAxis.labelFont = .systemFont(ofSize: 0)
         uiView.rightAxis.granularity = 1
@@ -71,6 +73,7 @@ struct BarChart: UIViewRepresentable {
         uiView.xAxis.wordWrapWidthPercent = 0.8
         uiView.xAxis.granularity = 1
         uiView.xAxis.valueFormatter = IndexAxisValueFormatter(values: coursesNames)
+        uiView.animate(yAxisDuration: 0.75, easingOption: .easeInOutQuart)
     }
 }
 

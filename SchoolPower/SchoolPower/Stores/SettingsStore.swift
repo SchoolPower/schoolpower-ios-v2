@@ -23,6 +23,8 @@ final class SettingsStore: ObservableObject {
         static let studentDataJSON = "student_data_json"
         static let selectedGPACourseIdsByTerm = "selected_gpa_course_ids_by_term"
         static let selectedGPAViewingTerm = "selected_gpa_viewing_term"
+        static let selectedRadarChartViewingTerm = "selected_radar_chart_viewing_term"
+        static let selectedBarChartViewingTerm = "selected_bar_chart_viewing_term"
         static let courseViewingTerm = "course_viewing_term"
     }
     
@@ -38,6 +40,8 @@ final class SettingsStore: ObservableObject {
         Keys.studentDataJSON: "",
         Keys.selectedGPACourseIdsByTerm: [:],
         Keys.selectedGPAViewingTerm: "",
+        Keys.selectedRadarChartViewingTerm: "",
+        Keys.selectedBarChartViewingTerm: "",
         Keys.courseViewingTerm: Term.all,
     ]
     
@@ -138,5 +142,18 @@ extension SettingsStore {
     var selectedGPAViewingTerm: Term {
         set { defaults.set(newValue, forKey: Keys.selectedGPAViewingTerm) }
         get { defaults.string(forKey: Keys.selectedGPAViewingTerm) ?? "" }
+    }
+}
+
+// MARK: Charts
+extension SettingsStore {
+    var selectedRadarChartViewingTerm: Term {
+        set { defaults.set(newValue, forKey: Keys.selectedRadarChartViewingTerm) }
+        get { defaults.string(forKey: Keys.selectedRadarChartViewingTerm) ?? "" }
+    }
+
+    var selectedBarChartViewingTerm: Term {
+        set { defaults.set(newValue, forKey: Keys.selectedBarChartViewingTerm) }
+        get { defaults.string(forKey: Keys.selectedBarChartViewingTerm) ?? "" }
     }
 }

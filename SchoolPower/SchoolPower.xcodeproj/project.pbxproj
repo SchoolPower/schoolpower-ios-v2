@@ -33,6 +33,7 @@
 		4D1B09C02741C26D00D03CC8 /* generate-licenses.py in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */; };
 		4D1B09C62741C4F500D03CC8 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C52741C4F500D03CC8 /* LicensesView.swift */; };
 		4D1B09C82741C51900D03CC8 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C72741C51900D03CC8 /* License.swift */; };
+		4D4682112751DA28002DE272 /* LabelStyle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */; };
 		4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B935275069D4005EC5A9 /* GPAView.swift */; };
 		4D50B93927506E3B005EC5A9 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */; };
 		4D50B93B27506E8D005EC5A9 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */; };
@@ -158,6 +159,7 @@
 		4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "generate-licenses.py"; sourceTree = "<group>"; };
 		4D1B09C52741C4F500D03CC8 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
 		4D1B09C72741C51900D03CC8 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LabelStyle+Extensions.swift"; sourceTree = "<group>"; };
 		4D50B935275069D4005EC5A9 /* GPAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAView.swift; sourceTree = "<group>"; };
 		4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				4D50B94027506EF4005EC5A9 /* String+Extensions.swift */,
 				4D50B93C27506EBC005EC5A9 /* Int64+Extensions.swift */,
 				4D50B93E27506ED8005EC5A9 /* Date+Extensions.swift */,
+				4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -878,6 +881,7 @@
 				4D1B09A0274037F900D03CC8 /* AlertIfError.swift in Sources */,
 				4D50B93D27506EBC005EC5A9 /* Int64+Extensions.swift in Sources */,
 				4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */,
+				4D4682112751DA28002DE272 /* LabelStyle+Extensions.swift in Sources */,
 				4D790FDA27383A8700E6C4EB /* AuthenticationStore.swift in Sources */,
 				4D051721275088AF00D6891B /* BarChart.swift in Sources */,
 				623F07A927323EE0007A79F2 /* InfoItem.swift in Sources */,

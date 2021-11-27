@@ -78,7 +78,8 @@ struct CoursesListView: View, ErrorHandler {
                             Text(term).tag(term)
                         }
                     }
-                } label: { Text(selectTerm.displayText()) }
+                } label: { Label(selectTerm.displayText(), systemImage: "chevron.down").labelStyle(.horizontal) }
+                
             }
         }
         .onReceive(InfoCardStore.shared.$infoCardToShow) { infoCardContent in
@@ -91,3 +92,4 @@ struct CoursesListView: View, ErrorHandler {
         }
     }
 }
+

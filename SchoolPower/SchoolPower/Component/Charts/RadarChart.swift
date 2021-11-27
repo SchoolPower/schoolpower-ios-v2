@@ -10,6 +10,7 @@ import Charts
 
 struct RadarChart: UIViewRepresentable {
     let courses: [Course]
+    let frame: CGRect
     
     private var coursesWithGrades: [Course] {
         courses.filterHasGrades()
@@ -36,10 +37,9 @@ struct RadarChart: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: RadarChartView, context: Context) {
-        let dataSet = RadarChartDataSet(entries: entries)
         let formatter = NumberFormatter()
         formatter.numberStyle = .none
-        
+        let dataSet = RadarChartDataSet(entries: entries)
         dataSet.valueFont = .systemFont(ofSize: 10)
         dataSet.colors = [Color.accent.uiColor()]
         dataSet.fillColor = Color.accent.uiColor()
@@ -47,29 +47,42 @@ struct RadarChart: UIViewRepresentable {
         dataSet.fillAlpha = 0.5
         dataSet.lineWidth = 2.0
         dataSet.setDrawHighlightIndicators(false)
-        
-        uiView.data = RadarChartData(dataSet: dataSet)
-        uiView.legend.enabled = false
-        
         dataSet.valueFormatter = DefaultValueFormatter(formatter: formatter)
         
-        uiView.noDataText = "No Data".localized
+        uiView.data = entries.isEmpty ? nil : RadarChartData(dataSet: dataSet)
+        uiView.xAxis.valueFormatter = IndexAxisValueFormatter(values: coursesNames)
         
-        uiView.yAxis.labelFont = .systemFont(ofSize: 0)
+        uiView.legend.enabled = false
+        uiView.noDataText = "No Data".localized
+        uiView.noDataFont = .systemFont(ofSize: 24)
+        uiView.noDataTextColor = Color.gray.uiColor()
         uiView.yAxis.labelCount = 5
         uiView.yAxis.axisMinimum = 0
         uiView.yAxis.axisMaximum = 100
-        uiView.xAxis.valueFormatter = IndexAxisValueFormatter(values: coursesNames)
+        uiView.yAxis.labelFont = .systemFont(ofSize: 0)
         uiView.extraTopOffset = 100
         uiView.extraLeftOffset = 75
         uiView.extraRightOffset = 75
+        
+        uiView.notifyDataSetChanged()
+        uiView.renderer = RadarChartRenderer(
+            chart: uiView,
+            animator: uiView.chartAnimator,
+            viewPortHandler: uiView.viewPortHandler
+        )
+        uiView.notifyDataSetChanged()
+        uiView.animate(yAxisDuration: 0.75, easingOption: .easeInOutQuart)
     }
 }
 
 struct RadarChart_Previews: PreviewProvider {
     static var previews: some View {
-        RadarChart(
-            courses: (1..<12).map { _ in fakeCourse() }
-        )
+        GeometryReader { geo in
+            RadarChart(
+                courses: [],
+                frame: geo.frame(in: .local)
+            )
+        }
+        .environment(\.locale, .init(identifier: "zh-Hans"))
     }
 }

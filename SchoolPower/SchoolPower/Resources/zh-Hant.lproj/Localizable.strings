@@ -41,14 +41,18 @@
 "Comment" = "評語";
 "Course" = "課程";
 "Evaluation" = "評估";
+"All terms" = "全學期";
+"Select term" = "選擇學期";
 
 // Schedule
 "day" = "日";
 "week" = "週";
+"Today" = "今天";
 
 // Statistics
 "Radar Chart" = "雷達圖";
 "Bar Chart" = "條形圖";
+"No Data" = "沒有數據";
 
 /// Flags
 "collected" = "已交";
