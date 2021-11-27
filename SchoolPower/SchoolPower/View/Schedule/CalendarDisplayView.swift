@@ -119,6 +119,7 @@ struct CalendarDisplayView: UIViewRepresentable {
         var locale: Locale = Locale.current {
             didSet {
                 style.locale = locale
+                view.calendar.updateStyle(style)
                 view.calendar.reloadData()
             }
         }
