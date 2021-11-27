@@ -35,6 +35,7 @@
 		4D1B09C82741C51900D03CC8 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C72741C51900D03CC8 /* License.swift */; };
 		4D4682112751DA28002DE272 /* LabelStyle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */; };
 		4D4682132751F4C4002DE272 /* JSONDecodingOptions+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */; };
+		4D4682172752C2E4002DE272 /* Proto in Resources */ = {isa = PBXBuildFile; fileRef = 4D4682162752C2E4002DE272 /* Proto */; };
 		4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B935275069D4005EC5A9 /* GPAView.swift */; };
 		4D50B93927506E3B005EC5A9 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */; };
 		4D50B93B27506E8D005EC5A9 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */; };
@@ -53,7 +54,6 @@
 		4D790F8A27360AAD00E6C4EB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F8227360AAD00E6C4EB /* Profile.swift */; };
 		4D790F8B27360AAD00E6C4EB /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F8327360AAD00E6C4EB /* Course.swift */; };
 		4D790F8D27360AAD00E6C4EB /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F8527360AAD00E6C4EB /* Attendance.swift */; };
-		4D790F9527361A7C00E6C4EB /* Proto in Resources */ = {isa = PBXBuildFile; fileRef = 4D790F9427361A7C00E6C4EB /* Proto */; };
 		4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9727361AB800E6C4EB /* powerschool.pb.swift */; };
 		4D790F9A27361AB800E6C4EB /* ProtoTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9827361AB800E6C4EB /* ProtoTypealiases.swift */; };
 		4D790F9C2736296100E6C4EB /* TermGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790F9B2736296100E6C4EB /* TermGrade.swift */; };
@@ -83,7 +83,6 @@
 		4D790FDD27383EC600E6C4EB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 4D790FDC27383EC600E6C4EB /* KeychainAccess */; };
 		4D790FDF273850E900E6C4EB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FDE273850E900E6C4EB /* TextField.swift */; };
 		4D790FE12738675600E6C4EB /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D790FE02738675600E6C4EB /* ErrorResponse.swift */; };
-		4D8D7D302749D1B3001A1562 /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D8D7D2F2749D1B3001A1562 /* mock.json */; };
 		4D8D7D322749E958001A1562 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D7D312749E958001A1562 /* AsyncImageView.swift */; };
 		4D8E64C9274B1A4400F602C4 /* KVKCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4D8E64C8274B1A4400F602C4 /* KVKCalendar */; };
 		4D8E64CC274B1A6700F602C4 /* CalendarDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */; };
@@ -162,6 +161,7 @@
 		4D1B09C72741C51900D03CC8 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LabelStyle+Extensions.swift"; sourceTree = "<group>"; };
 		4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecodingOptions+Extension.swift"; sourceTree = "<group>"; };
+		4D4682162752C2E4002DE272 /* Proto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Proto; sourceTree = "<group>"; };
 		4D50B935275069D4005EC5A9 /* GPAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAView.swift; sourceTree = "<group>"; };
 		4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -179,7 +179,6 @@
 		4D790F8227360AAD00E6C4EB /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		4D790F8327360AAD00E6C4EB /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		4D790F8527360AAD00E6C4EB /* Attendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
-		4D790F9427361A7C00E6C4EB /* Proto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Proto; sourceTree = "<group>"; };
 		4D790F9727361AB800E6C4EB /* powerschool.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = powerschool.pb.swift; sourceTree = "<group>"; };
 		4D790F9827361AB800E6C4EB /* ProtoTypealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoTypealiases.swift; sourceTree = "<group>"; };
 		4D790F9B2736296100E6C4EB /* TermGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermGrade.swift; sourceTree = "<group>"; };
@@ -208,7 +207,6 @@
 		4D790FD927383A8700E6C4EB /* AuthenticationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStore.swift; sourceTree = "<group>"; };
 		4D790FDE273850E900E6C4EB /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		4D790FE02738675600E6C4EB /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
-		4D8D7D2F2749D1B3001A1562 /* mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
 		4D8D7D312749E958001A1562 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDisplayView.swift; sourceTree = "<group>"; };
 		4D8E64CE274B249400F602C4 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
@@ -301,7 +299,6 @@
 		4D1B09AD274082F900D03CC8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4D8D7D2F2749D1B3001A1562 /* mock.json */,
 				623F07B22742C75A007A79F2 /* licenses.json */,
 				4D1B09B02740839000D03CC8 /* Localizable.strings */,
 				621D38EE27307D4A00825D5C /* Info.plist */,
@@ -464,10 +461,10 @@
 			isa = PBXGroup;
 			children = (
 				4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */,
+				4D4682162752C2E4002DE272 /* Proto */,
 				621D38E427307D4000825D5C /* SchoolPower */,
 				621D38F627307D4A00825D5C /* SchoolPowerTests */,
 				621D390127307D4A00825D5C /* SchoolPowerUITests */,
-				4D790F9427361A7C00E6C4EB /* Proto */,
 				621D38E327307D4000825D5C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -757,8 +754,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1B09C02741C26D00D03CC8 /* generate-licenses.py in Resources */,
-				4D790F9527361A7C00E6C4EB /* Proto in Resources */,
-				4D8D7D302749D1B3001A1562 /* mock.json in Resources */,
+				4D4682172752C2E4002DE272 /* Proto in Resources */,
 				623F07AF273249A7007A79F2 /* Poppins-Regular.ttf in Resources */,
 				623F07B32742C75A007A79F2 /* licenses.json in Resources */,
 				4D1B09B82740D3EA00D03CC8 /* Localizable.strings in Resources */,
@@ -801,7 +797,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $ENABLE_PREVIEWS == \"NO\" ]\nthen\n    python3 $SRCROOT/generate-licenses.py --build-dir $BUILD_DIR --output-file $SRCROOT/SchoolPower/Resources/licenses.json\n    $SRCROOT/Proto/buildProto.sh $SRCROOT\nelse\n  echo \"Skipping license and proto generation during preview.\"\nfi\n";
+			shellScript = "if [ $ENABLE_PREVIEWS == \"NO\" ]\nthen\n    echo \"Disabled during archive\"\n    #python3 $SRCROOT/generate-licenses.py --build-dir $BUILD_DIR --output-file $SRCROOT/SchoolPower/Resources/licenses.json\n    #$SRCROOT/buildProto.sh $SRCROOT\nelse\n  echo \"Skipping license and proto generation during preview.\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1071,7 +1067,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SchoolPower/SchoolPower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_ASSET_PATHS = "\"SchoolPower/Preview Content\"";
 				DEVELOPMENT_TEAM = MPPUFL3L6R;
 				ENABLE_PREVIEWS = YES;
@@ -1097,7 +1093,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SchoolPower/SchoolPower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_ASSET_PATHS = "\"SchoolPower/Preview Content\"";
 				DEVELOPMENT_TEAM = MPPUFL3L6R;
 				ENABLE_PREVIEWS = YES;
