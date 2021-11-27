@@ -174,9 +174,10 @@ extension StudentDataStore {
                 parameters: requestData,
                 encoder: JSONParameterEncoder.default,
                 headers: HTTPHeaders([
+                    // e.g. iOS, iPadOS
                     HTTPHeader(
                         name: "X-OS",
-                        value: "ios"
+                        value: UIDevice.current.systemName
                     ),
                     // e.g. 15.0
                     HTTPHeader(
@@ -193,7 +194,7 @@ extension StudentDataStore {
                         name: "X-Action",
                         value: action.rawValue
                     ),
-                    // e.g. zh-Hans, ja_JP, en_CA
+                    // e.g. zh-Hans, zh-Hant-HK, ja_JP, en_CA
                     HTTPHeader(
                         name: "X-Locale",
                         value: Utils.getLocale().identifier

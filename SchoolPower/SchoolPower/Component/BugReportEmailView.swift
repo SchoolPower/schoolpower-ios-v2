@@ -9,8 +9,11 @@ import SwiftUI
 
 struct BugReportEmailView: View {
     var body: some View {
-        let version = Utils.getFormattedAppVersionBuild()
-        let message = "Email.BugReport.Body".localized(version)
+        let appVersion = Utils.getFormattedAppVersionBuild()
+        let systemName = UIDevice.current.systemName
+        let systemVersion = UIDevice.current.systemVersion
+        let debugInfo = "\(appVersion), \(systemName) \(systemVersion)"
+        let message = "Email.BugReport.Body".localized(debugInfo)
         MailView(data: ComposeMailData(
             subject: "Email.BugReport.Subject".localized,
             recipients: Constants.bugReportEmails,
