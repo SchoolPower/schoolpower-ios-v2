@@ -38,6 +38,7 @@ final class StudentDataStore: ObservableObject {
         }
     }
     
+    // MARK: Save
     func save(studentData: StudentData) {
         self.studentData = studentData
         do {
@@ -71,6 +72,7 @@ final class StudentDataStore: ObservableObject {
         }
     }
     
+    // MARK: Did set
     private func didSetStudentData() {
         self.schedule = studentData.courses
             .flatMap { course in
@@ -98,6 +100,7 @@ final class StudentDataStore: ObservableObject {
     }
 }
 
+// MARK: Disabled Info
 extension StudentDataStore {
     func disabled() -> Bool {
         return studentData.hasDisabledInfo && (
@@ -110,6 +113,7 @@ extension StudentDataStore {
     }
 }
 
+// MARK: Schedule Event
 extension StudentDataStore {
     private func scheduleEventText(
         _ course: Course,
@@ -127,6 +131,7 @@ extension StudentDataStore {
     }
 }
 
+// MARK: Static IO
 extension StudentDataStore {
     static func clearLocal() {
         Utils.saveStringToFile(filename: Constants.studentDataFileName, data: "")
