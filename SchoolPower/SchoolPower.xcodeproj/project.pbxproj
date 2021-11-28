@@ -35,7 +35,6 @@
 		4D1B09C82741C51900D03CC8 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C72741C51900D03CC8 /* License.swift */; };
 		4D4682112751DA28002DE272 /* LabelStyle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */; };
 		4D4682132751F4C4002DE272 /* JSONDecodingOptions+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */; };
-		4D4682172752C2E4002DE272 /* Proto in Resources */ = {isa = PBXBuildFile; fileRef = 4D4682162752C2E4002DE272 /* Proto */; };
 		4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B935275069D4005EC5A9 /* GPAView.swift */; };
 		4D50B93927506E3B005EC5A9 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */; };
 		4D50B93B27506E8D005EC5A9 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */; };
@@ -87,6 +86,7 @@
 		4D8E64C9274B1A4400F602C4 /* KVKCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4D8E64C8274B1A4400F602C4 /* KVKCalendar */; };
 		4D8E64CC274B1A6700F602C4 /* CalendarDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */; };
 		4D8E64CF274B249400F602C4 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E64CE274B249400F602C4 /* ScheduleView.swift */; };
+		4DB364E42753098600C455D7 /* buildProto.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4DB364E32753098600C455D7 /* buildProto.sh */; };
 		4DB6DF052733700000FA7B40 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF042733700000FA7B40 /* Utils.swift */; };
 		4DB6DF092733705800FA7B40 /* View+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF082733705800FA7B40 /* View+cornerRadius.swift */; };
 		4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */; };
@@ -161,7 +161,6 @@
 		4D1B09C72741C51900D03CC8 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LabelStyle+Extensions.swift"; sourceTree = "<group>"; };
 		4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecodingOptions+Extension.swift"; sourceTree = "<group>"; };
-		4D4682162752C2E4002DE272 /* Proto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Proto; sourceTree = "<group>"; };
 		4D50B935275069D4005EC5A9 /* GPAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAView.swift; sourceTree = "<group>"; };
 		4D50B93827506E3B005EC5A9 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		4D8D7D312749E958001A1562 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDisplayView.swift; sourceTree = "<group>"; };
 		4D8E64CE274B249400F602C4 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		4DB364E32753098600C455D7 /* buildProto.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = buildProto.sh; sourceTree = "<group>"; };
 		4DB6DF042733700000FA7B40 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4DB6DF082733705800FA7B40 /* View+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+cornerRadius.swift"; sourceTree = "<group>"; };
 		4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCourseItem.swift; sourceTree = "<group>"; };
@@ -460,8 +460,8 @@
 		621D38D927307D4000825D5C = {
 			isa = PBXGroup;
 			children = (
+				4DB364E32753098600C455D7 /* buildProto.sh */,
 				4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */,
-				4D4682162752C2E4002DE272 /* Proto */,
 				621D38E427307D4000825D5C /* SchoolPower */,
 				621D38F627307D4A00825D5C /* SchoolPowerTests */,
 				621D390127307D4A00825D5C /* SchoolPowerUITests */,
@@ -754,8 +754,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1B09C02741C26D00D03CC8 /* generate-licenses.py in Resources */,
-				4D4682172752C2E4002DE272 /* Proto in Resources */,
 				623F07AF273249A7007A79F2 /* Poppins-Regular.ttf in Resources */,
+				4DB364E42753098600C455D7 /* buildProto.sh in Resources */,
 				623F07B32742C75A007A79F2 /* licenses.json in Resources */,
 				4D1B09B82740D3EA00D03CC8 /* Localizable.strings in Resources */,
 				623F07B1273249BA007A79F2 /* Poppins-SemiBold.ttf in Resources */,
@@ -797,7 +797,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $ENABLE_PREVIEWS == \"NO\" ]\nthen\n    echo \"Disabled during archive\"\n    #python3 $SRCROOT/generate-licenses.py --build-dir $BUILD_DIR --output-file $SRCROOT/SchoolPower/Resources/licenses.json\n    #$SRCROOT/buildProto.sh $SRCROOT\nelse\n  echo \"Skipping license and proto generation during preview.\"\nfi\n";
+			shellScript = "if [[ $CONFIGURATION == \"Debug\" && $ENABLE_PREVIEWS == \"NO\" ]]\nthen\n    python3 $SRCROOT/generate-licenses.py --build-dir $BUILD_DIR --output-file $SRCROOT/SchoolPower/Resources/licenses.json\n    \n    $SRCROOT/buildProto.sh $SRCROOT\nelse\n  echo \"Skipping generating license and proto.\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
