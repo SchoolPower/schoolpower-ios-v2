@@ -134,7 +134,7 @@ extension StudentDataStore {
 // MARK: Static IO
 extension StudentDataStore {
     static func clearLocal() {
-        Utils.saveStringToFile(filename: Constants.studentDataFileName, data: "")
+        SettingsStore.shared.studentDataJSON = ""
     }
     
     static func tryLoadAndIfSuccess(callback: @escaping (StudentData) -> Void) {
