@@ -8,14 +8,23 @@
 
 "App.Copyright" = "Built with ❤️ by SchoolPower Studio";
 
-/// General
+"App.HappyBirthday.Title" = "Happy %@ birthday!";
+"App.HappyBirthday.Message" = "
+    Happy birthday to you,
+    happy birthday to you.
+    Happy birthday to you,
+    happy birthday to you!
+    ";
+"App.HappyBirthday.Thanks" = "Thanks";
+
+// MARK: General
 "General.A_To_B" = "%@ to %@";
 
-// Schedule
+// MARK: Schedule
 "day" = "Day";
 "week" = "Week";
 
-/// Avatar
+/// MARK: Avatar
 "image_upload_agreement_content" = "
     SchoolPower uses the third-party website SM.MS (\"the website\") to store the user\'s avatar.
     By clicking \"Agree\" you agree that we will upload your chosen avatar to the website and agree to accept the website\'s license agreement.
@@ -37,14 +46,14 @@
     SchoolPower does not guarantee that the user\'s image will be permanently saved or \the user\'s image will not be leaked by the website or that the user can permanently delete their image when they wish.
     ";
 
-// Placeholders
+// MARK: Placeholders
 "PS Turned Off" = "PowerSchool Turned Off";
 
-// Notification
+// MARK: Notification
 "Notification.NewAssignment.Title" = "%lld New Assignments";
 "Notification.NewAttendance.Title" = "%lld New Attendances";
 
-// Email
+// MARK: Email
 "Email.BugReport.Subject" = "Found Bug(s) in SchoolPower";
 "Email.BugReport.Body" = "
 Thank you for your help! Please provide as much info as possible, such as how to reproduce it, what is the expected result, and screenshots if applicable.

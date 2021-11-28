@@ -87,6 +87,12 @@
 		4D8E64CC274B1A6700F602C4 /* CalendarDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */; };
 		4D8E64CF274B249400F602C4 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E64CE274B249400F602C4 /* ScheduleView.swift */; };
 		4DB364E42753098600C455D7 /* buildProto.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4DB364E32753098600C455D7 /* buildProto.sh */; };
+		4DB364E72753119D00C455D7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB364E62753119D00C455D7 /* Lottie */; };
+		4DB364E92753124A00C455D7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB364E82753124A00C455D7 /* LottieView.swift */; };
+		4DB364ED2753134D00C455D7 /* gift_box.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DB364EB2753134D00C455D7 /* gift_box.json */; };
+		4DB364EE2753134D00C455D7 /* cheer.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DB364EC2753134D00C455D7 /* cheer.json */; };
+		4DB364F027534B8700C455D7 /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB364EF27534B8700C455D7 /* BirthdayView.swift */; };
+		4DB364F2275356D200C455D7 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB364F1275356D200C455D7 /* Int+Extensions.swift */; };
 		4DB6DF052733700000FA7B40 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF042733700000FA7B40 /* Utils.swift */; };
 		4DB6DF092733705800FA7B40 /* View+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF082733705800FA7B40 /* View+cornerRadius.swift */; };
 		4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */; };
@@ -210,6 +216,11 @@
 		4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDisplayView.swift; sourceTree = "<group>"; };
 		4D8E64CE274B249400F602C4 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		4DB364E32753098600C455D7 /* buildProto.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = buildProto.sh; sourceTree = "<group>"; };
+		4DB364E82753124A00C455D7 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		4DB364EB2753134D00C455D7 /* gift_box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gift_box.json; sourceTree = "<group>"; };
+		4DB364EC2753134D00C455D7 /* cheer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cheer.json; sourceTree = "<group>"; };
+		4DB364EF27534B8700C455D7 /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
+		4DB364F1275356D200C455D7 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		4DB6DF042733700000FA7B40 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4DB6DF082733705800FA7B40 /* View+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+cornerRadius.swift"; sourceTree = "<group>"; };
 		4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCourseItem.swift; sourceTree = "<group>"; };
@@ -256,6 +267,7 @@
 				4D1B099A274021A700D03CC8 /* CropViewController in Frameworks */,
 				4D790FDD27383EC600E6C4EB /* KeychainAccess in Frameworks */,
 				4D8E64C9274B1A4400F602C4 /* KVKCalendar in Frameworks */,
+				4DB364E72753119D00C455D7 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,11 +311,12 @@
 		4D1B09AD274082F900D03CC8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4DB364EA2753133000C455D7 /* animations */,
+				623F07AD27324902007A79F2 /* fonts */,
 				623F07B22742C75A007A79F2 /* licenses.json */,
 				4D1B09B02740839000D03CC8 /* Localizable.strings */,
 				621D38EE27307D4A00825D5C /* Info.plist */,
 				621D38E927307D4A00825D5C /* Assets.xcassets */,
-				623F07AD27324902007A79F2 /* fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -323,6 +336,7 @@
 				4D50B93A27506E8D005EC5A9 /* Array+Extensions.swift */,
 				4D50B94027506EF4005EC5A9 /* String+Extensions.swift */,
 				4D50B93C27506EBC005EC5A9 /* Int64+Extensions.swift */,
+				4DB364F1275356D200C455D7 /* Int+Extensions.swift */,
 				4D50B93E27506ED8005EC5A9 /* Date+Extensions.swift */,
 				4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */,
 				4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */,
@@ -440,6 +454,15 @@
 				4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		4DB364EA2753133000C455D7 /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				4DB364EC2753134D00C455D7 /* cheer.json */,
+				4DB364EB2753134D00C455D7 /* gift_box.json */,
+			);
+			path = animations;
 			sourceTree = "<group>";
 		};
 		4DB6DF0C2733788400FA7B40 /* Utils */ = {
@@ -587,6 +610,8 @@
 				4DDA514E2743354D00B56FDB /* RefreshHelper.swift */,
 				4D8D7D312749E958001A1562 /* AsyncImageView.swift */,
 				4D13B987274F33F800E05FCA /* WaveView.swift */,
+				4DB364E82753124A00C455D7 /* LottieView.swift */,
+				4DB364EF27534B8700C455D7 /* BirthdayView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -653,6 +678,7 @@
 				4D1B0999274021A700D03CC8 /* CropViewController */,
 				4D8E64C8274B1A4400F602C4 /* KVKCalendar */,
 				4D05171E2750885700D6891B /* Charts */,
+				4DB364E62753119D00C455D7 /* Lottie */,
 			);
 			productName = SchoolPower;
 			productReference = 621D38E227307D4000825D5C /* SchoolPower.app */;
@@ -736,6 +762,7 @@
 				4D1B0998274021A700D03CC8 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 				4D8E64C7274B1A4400F602C4 /* XCRemoteSwiftPackageReference "KVKCalendar" */,
 				4D05171D2750885700D6891B /* XCRemoteSwiftPackageReference "Charts" */,
+				4DB364E52753119D00C455D7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 621D38E327307D4000825D5C /* Products */;
 			projectDirPath = "";
@@ -758,7 +785,9 @@
 				4DB364E42753098600C455D7 /* buildProto.sh in Resources */,
 				623F07B32742C75A007A79F2 /* licenses.json in Resources */,
 				4D1B09B82740D3EA00D03CC8 /* Localizable.strings in Resources */,
+				4DB364EE2753134D00C455D7 /* cheer.json in Resources */,
 				623F07B1273249BA007A79F2 /* Poppins-SemiBold.ttf in Resources */,
+				4DB364ED2753134D00C455D7 /* gift_box.json in Resources */,
 				621D38ED27307D4A00825D5C /* Preview Assets.xcassets in Resources */,
 				621D38EA27307D4A00825D5C /* Assets.xcassets in Resources */,
 			);
@@ -853,6 +882,7 @@
 				4D790FC22737828700E6C4EB /* PushNotification.swift in Sources */,
 				4D790FAD27370BCE00E6C4EB /* AttendanceView.swift in Sources */,
 				4D50B93927506E3B005EC5A9 /* Double+Extensions.swift in Sources */,
+				4DB364E92753124A00C455D7 /* LottieView.swift in Sources */,
 				4D790FB7273721E900E6C4EB /* SettingsView.swift in Sources */,
 				4D6EC755273B39E5002CAD13 /* HeaderView.swift in Sources */,
 				4D1B0986273F4C2300D03CC8 /* DisabledInfo.swift in Sources */,
@@ -866,6 +896,7 @@
 				4D790F8827360AAD00E6C4EB /* Grade.swift in Sources */,
 				4DB6DF092733705800FA7B40 /* View+cornerRadius.swift in Sources */,
 				4D790FB12737116600E6C4EB /* AttendanceDetailView.swift in Sources */,
+				4DB364F2275356D200C455D7 /* Int+Extensions.swift in Sources */,
 				4D1B09A427404F4F00D03CC8 /* SetAvatarRequest.swift in Sources */,
 				4D1B09C62741C4F500D03CC8 /* LicensesView.swift in Sources */,
 				4D790F8B27360AAD00E6C4EB /* Course.swift in Sources */,
@@ -890,6 +921,7 @@
 				4D790FAF2737106200E6C4EB /* AttendanceItem.swift in Sources */,
 				621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */,
 				623F078B2730B353007A79F2 /* DashboardViewModel.swift in Sources */,
+				4DB364F027534B8700C455D7 /* BirthdayView.swift in Sources */,
 				4D4682132751F4C4002DE272 /* JSONDecodingOptions+Extension.swift in Sources */,
 				4D790FBB27374BC200E6C4EB /* StudentDataStore.swift in Sources */,
 				4D13B983274F19C800E05FCA /* StatisticsView.swift in Sources */,
@@ -1294,6 +1326,14 @@
 				minimumVersion = 0.5.5;
 			};
 		};
+		4DB364E52753119D00C455D7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1331,6 +1371,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D8E64C7274B1A4400F602C4 /* XCRemoteSwiftPackageReference "KVKCalendar" */;
 			productName = KVKCalendar;
+		};
+		4DB364E62753119D00C455D7 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DB364E52753119D00C455D7 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

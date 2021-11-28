@@ -7,6 +7,12 @@
 
 import Foundation
 
+extension StudentData {
+    func isValid() -> Bool {
+        self.hasProfile || self.hasDisabledInfo || self.hasExtraInfo
+    }
+}
+
 func fakeStudentData() -> StudentData {
     var studentData = StudentData()
     studentData.profile = fakeProfile()

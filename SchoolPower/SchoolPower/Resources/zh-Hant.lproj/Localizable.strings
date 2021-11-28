@@ -8,25 +8,34 @@
 
 "App.Copyright" = "Built with ❤️ by SchoolPower 工作室";
 
-/// General
+"App.HappyBirthday.Title" = "<del>%@</del>%@ 歲生日快樂！";
+"App.HappyBirthday.Message" = "
+    祝你生日快樂，
+    祝你生日快樂。
+    祝你生日快樂，
+    祝你生日快樂！
+    ";
+"App.HappyBirthday.Thanks" = "謝謝";
+
+// MARK: General
 "General.A_To_B" = "%@ 至 %@";
 "Close" = "關閉";
 
-// Navigations
+// MARK: Navigations
 "Courses" = "課程";
 "Attendances" = "出勤";
 "Profile" = "我";
 "Schedule" = "日程";
 "Statistics" = "統計";
 
-// Profile
+// MARK: Profile
 "Settings" = "設置";
 "About" = "關於";
 "Report a Bug" = "提交 Bug";
 "Report Bugs" = "提交 Bug";
 "Logout" = "登出賬號";
 
-/// Courses
+/// MARK: Courses
 "Room" = "教室";
 "Instructor" = "教師";
 "Grades" = "成績";
@@ -44,17 +53,17 @@
 "All terms" = "全學期";
 "Select term" = "選擇學期";
 
-// Schedule
+// MARK: Schedule
 "day" = "日";
 "week" = "週";
 "Today" = "今天";
 
-// Statistics
+// MARK: Statistics
 "Radar Chart" = "雷達圖";
 "Bar Chart" = "條形圖";
 "No Data" = "沒有數據";
 
-/// Flags
+/// MARK: Flags
 "collected" = "已交";
 "incomplete" = "未完成";
 "late" = "遲交";
@@ -62,7 +71,7 @@
 "exempt" = "得分獨立於最終成績";
 "includeInFinalGrade" = "作業不包含在最終成績中";
 
-/// Settings
+/// MARK: Settings
 "Language" = "語言";
 "Show Inactive Courses" = "顯示不活躍課程";
 "Show courses with no assignment or grade." = "顯示沒有作業與分數的課程。";
@@ -73,14 +82,14 @@
 "Website" = "訪問官網";
 "Source Code" = "獲取源碼";
 
-/// Languages
+/// MARK: Languages
 "System Default" = "系統默認";
 
-/// About
+/// MARK: About
 "Version" = "版本";
 "Licenses" = "開源許可";
 
-/// Avatar
+/// MARK: Avatar
 "Image Upload Agreement" = "圖像上傳協議";
 "image_upload_agreement_content" = "
     SchoolPower 使用了第三方圖床網站「SM.MS」來儲存用戶的頭像。
@@ -107,12 +116,12 @@
 "Change avatar" = "修改頭像";
 "Remove avatar" = "刪除頭像";
 
-/// Login
+/// MARK: Login
 "Sign In" = "登錄";
 "Username" = "用戶名";
 "Password" = "密碼";
 
-/// Errors
+/// MARK: Errors
 "Failed to sign in" = "登錄失敗";
 "Failed to refresh data" = "刷新失敗";
 "Failed to upload avatar" = "頭像上傳失敗";
@@ -123,17 +132,17 @@
 "No image selected." = "未選擇圖像。";
 "No credential available, please try to log in again." = "沒有可用的登錄憑證，請重新登錄。";
 
-// Placeholders
+// MARK: Placeholders
 "Nothing here" = "什麼都沒有";
 "Perfect attendance" = "全勤";
 "PS Turned Off" = "PowerSchool 關了";
 
-// Notification
+// MARK: Notification
 "Notification.NewAssignment.Title" = "%lld 項新作業";
 "Notification.NewAttendance.Title" = "%lld 項新出勤";
 "Testing Notification" = "通知測試";
 
-// Email
+// MARK: Email
 "Email.BugReport.Subject" = "SchoolPower 有 Bug";
 "Email.BugReport.Body" = "
 感謝你的幫助！請提供盡可能詳細的信息，比如怎麼復現問題、預期的表現是什麼、屏幕截圖等。
