@@ -25,17 +25,39 @@ extension String {
             let path = Bundle.main.path(forResource: locale, ofType: "lproj")
             bundle = Bundle(path: path!) ?? Bundle.main
         }
-        return NSLocalizedString(
+        let attempted = NSLocalizedString(
             self,
             tableName: nil,
             bundle: bundle,
             value: "",
             comment: ""
         )
+        if self == attempted {
+            // Two cases:
+            // 1. system default language is English,
+            // original string is also (human readable) English (development language).
+            // 2. system default language is not supported,
+            // original string could be Engligh or a (not human readable) key.
+            // In all cases, fallback to English is the desired behaviour
+            let locale = "en"
+            let path = Bundle.main.path(forResource: locale, ofType: "lproj")
+            return NSLocalizedString(
+                self,
+                tableName: nil,
+                bundle: Bundle(path: path!) ?? Bundle.main,
+                value: "",
+                comment: ""
+            )
+        }
+        return attempted
     }
     
     func localized(_ with: CVarArg...) -> String {
         return String(format: self.localized, arguments: with)
+    }
+    
+    func deletedWithMarkup(_ start: String = "<del>", _ end: String = "</del>") -> String {
+        replacingOccurrences(of: "(?:\(start))(.*?)(?:\(end))", with: "", options: .regularExpression)
     }
     
     func truncate(_ length: Int, trailing: String = "…") -> String {

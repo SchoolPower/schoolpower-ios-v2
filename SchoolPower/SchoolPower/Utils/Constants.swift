@@ -32,7 +32,7 @@ class Constants {
     
     enum GetDataAction: String, CaseIterable {
         case manual = "user_triggered"
-        case job = "job_triggered"
+        case job = "pull_data_job"
         case login = "login"
         case getAvatar = "get_avatar"
     }
