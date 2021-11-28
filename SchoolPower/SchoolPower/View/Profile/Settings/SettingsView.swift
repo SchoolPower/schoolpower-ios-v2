@@ -17,7 +17,7 @@ struct SettingsView: View {
                     selection: $settings.language,
                     label: Text("Language")
                 ) {
-                    ForEach(Constants.Language.allCases, id: \.self) { language in
+                    ForEach(Language.allCases, id: \.self) { language in
                         Text(LocalizedStringKey(language.rawValue)).tag(language)
                     }
                 }

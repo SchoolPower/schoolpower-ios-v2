@@ -19,11 +19,12 @@ extension String {
     var localized: String {
         var bundle = Bundle.main
         if SettingsStore.shared.language != .systemDefault {
-            let locale = Constants.LanguageLocale[
-                SettingsStore.shared.language
-            ] ?? "en"
-            let path = Bundle.main.path(forResource: locale, ofType: "lproj")
-            bundle = Bundle(path: path!) ?? Bundle.main
+            let locale = SettingsStore.shared.language.localeIdentifier ?? "en"
+            if let path = Bundle.main.path(forResource: locale, ofType: "lproj") {
+                bundle = Bundle(path: path) ?? .main
+            } else {
+                bundle = .main
+            }
         }
         return NSLocalizedString(
             self,

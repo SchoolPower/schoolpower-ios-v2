@@ -26,13 +26,13 @@ class Utils {
     }
     
     static func getLocale(
-        language: Constants.Language = SettingsStore.shared.language,
+        language: Language = SettingsStore.shared.language,
         defaultLocale: Locale = Locale.current
     ) -> Locale {
         if language == .systemDefault {
             return defaultLocale
         } else {
-            return .init(identifier: Constants.LanguageLocale[language]!)
+            return .init(identifier: language.localeIdentifier!)
         }
     }
     

@@ -87,6 +87,8 @@
 		4D8E64CC274B1A6700F602C4 /* CalendarDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */; };
 		4D8E64CF274B249400F602C4 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E64CE274B249400F602C4 /* ScheduleView.swift */; };
 		4DB364E42753098600C455D7 /* buildProto.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4DB364E32753098600C455D7 /* buildProto.sh */; };
+		4DB364F52753FC4C00C455D7 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB364F42753FC4C00C455D7 /* Language.swift */; };
+		4DB364F72753FC6500C455D7 /* GetDataAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB364F62753FC6500C455D7 /* GetDataAction.swift */; };
 		4DB6DF052733700000FA7B40 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF042733700000FA7B40 /* Utils.swift */; };
 		4DB6DF092733705800FA7B40 /* View+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF082733705800FA7B40 /* View+cornerRadius.swift */; };
 		4DB6DF0B2733707D00FA7B40 /* DashboardCourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */; };
@@ -210,6 +212,8 @@
 		4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDisplayView.swift; sourceTree = "<group>"; };
 		4D8E64CE274B249400F602C4 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		4DB364E32753098600C455D7 /* buildProto.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = buildProto.sh; sourceTree = "<group>"; };
+		4DB364F42753FC4C00C455D7 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		4DB364F62753FC6500C455D7 /* GetDataAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataAction.swift; sourceTree = "<group>"; };
 		4DB6DF042733700000FA7B40 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4DB6DF082733705800FA7B40 /* View+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+cornerRadius.swift"; sourceTree = "<group>"; };
 		4DB6DF0A2733707D00FA7B40 /* DashboardCourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCourseItem.swift; sourceTree = "<group>"; };
@@ -442,14 +446,24 @@
 			path = Schedule;
 			sourceTree = "<group>";
 		};
+		4DB364F32753FC3600C455D7 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				4D790FBF273773E200E6C4EB /* Constants.swift */,
+				4DB364F42753FC4C00C455D7 /* Language.swift */,
+				4DB364F62753FC6500C455D7 /* GetDataAction.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		4DB6DF0C2733788400FA7B40 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4DB364F32753FC3600C455D7 /* Constants */,
 				4D50B93727506E16005EC5A9 /* Extensions */,
 				4DB6DF042733700000FA7B40 /* Utils.swift */,
 				4DB6DF0D2733789B00FA7B40 /* Colors.swift */,
 				4D790FBD27376C9100E6C4EB /* AppDelegate.swift */,
-				4D790FBF273773E200E6C4EB /* Constants.swift */,
 				4D790FC12737828700E6C4EB /* PushNotification.swift */,
 				4D790FC527380C1800E6C4EB /* StudentDataUtils.swift */,
 				4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */,
@@ -827,9 +841,11 @@
 				4D1B09C82741C51900D03CC8 /* License.swift in Sources */,
 				623F07AC27324014007A79F2 /* TermDetailView.swift in Sources */,
 				4D790F9A27361AB800E6C4EB /* ProtoTypealiases.swift in Sources */,
+				4DB364F52753FC4C00C455D7 /* Language.swift in Sources */,
 				4D1B098A273F522D00D03CC8 /* DisabledInfoView.swift in Sources */,
 				4D05171A2750852F00D6891B /* BarChartStatisticsView.swift in Sources */,
 				621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */,
+				4DB364F72753FC6500C455D7 /* GetDataAction.swift in Sources */,
 				4DB6DF052733700000FA7B40 /* Utils.swift in Sources */,
 				4D051726275165F400D6891B /* RadarChartStatisticsView.swift in Sources */,
 				4D50B936275069D4005EC5A9 /* GPAView.swift in Sources */,

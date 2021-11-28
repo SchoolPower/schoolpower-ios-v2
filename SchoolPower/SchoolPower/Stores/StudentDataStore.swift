@@ -151,7 +151,7 @@ extension StudentDataStore {
     
     static func tryFetchAndIfSuccess(
         requestData: RequestData? = nil,
-        action: Constants.GetDataAction,
+        action: GetDataAction,
         callback: @escaping (StudentData) -> Void
     ) {
         tryFetch(requestData: requestData, action: action) { success, data, errorResponse, error in
@@ -164,7 +164,7 @@ extension StudentDataStore {
     
     static func tryFetch(
         requestData: RequestData? = AuthenticationStore.shared.requestData,
-        action: Constants.GetDataAction,
+        action: GetDataAction,
         completion: @escaping (Bool, StudentData?, ErrorResponse?, String?) -> Void
     ) {
         if let requestData = requestData ?? AuthenticationStore.shared.requestData {
