@@ -8,25 +8,34 @@
 
 "App.Copyright" = "Built with ❤️ by SchoolPower スタジオ";
 
-/// General
+"App.HappyBirthday.Title" = "<del>%@</del>%@ 歳のお誕生日おめでとう！";
+"App.HappyBirthday.Message" = "
+    ハッピーバースデートゥーユー，
+    ハッピーバースデートゥーユー。
+    ハッピーバースデートゥーユー，
+    ハッピーバースデートゥーユー！
+    ";
+"App.HappyBirthday.Thanks" = "ありがとう";
+
+// MARK: General
 "General.A_To_B" = "%@ から %@ まで";
 "Close" = "閉じる";
 
-// Navigations
+// MARK: Navigations
 "Courses" = "コース";
 "Attendances" = "出席";
 "Profile" = "プロフィール";
 "Schedule" = "スケジュール";
 "Statistics" = "統計";
 
-// Profile
+// MARK: Profile
 "Settings" = "設定";
 "About" = "アプリに関する情報";
 "Report a Bug" = "バグを報告する";
 "Report Bugs" = "バグを報告する";
 "Logout" = "ログアウト";
 
-/// Courses
+/// MARK: Courses
 "Room" = "教室";
 "Instructor" = "先生";
 "Grades" = "成績";
@@ -44,17 +53,17 @@
 "All terms" = "全学期";
 "Select term" = "学期を選択";
 
-// Schedule
+// MARK: Schedule
 "day" = "日";
 "week" = "週";
 "Today" = "今日";
 
-// Statistics
+// MARK: Statistics
 "Radar Chart" = "レーダーチャート";
 "Bar Chart" = "棒グラフ";
 "No Data" = "データがありません";
 
-/// Flags
+/// MARK: Flags
 "collected" = "提出した";
 "incomplete" = "未完成";
 "late" = "遅れた";
@@ -62,7 +71,7 @@
 "exempt" = "最終成績から免除されます";
 "includeInFinalGrade" = "最終成績に含まれていません";
 
-/// Settings
+/// MARK: Settings
 "Language" = "言語";
 "Show Inactive Courses" = "非アクティブなコースを表示";
 "Show courses with no assignment or grade." = "課題や成績のないコースを表示する。";
@@ -73,14 +82,14 @@
 "Website" = "公式サイト";
 "Source Code" = "ソースコード";
 
-/// Languages
+/// MARK: Languages
 "System Default" = "システムデフォルト";
 
-/// About
+/// MARK: About
 "Version" = "バージョン";
 "Licenses" = "ライセンス";
 
-/// Avatar
+/// MARK: Avatar
 "Image Upload Agreement" = "画像アップロード契約";
 "image_upload_agreement_content" = "
     SchoolPowerはサードパーティの画像ストレージウェブサイト「SM.MS」を使用してユーザーのアバターを保存します。
@@ -108,12 +117,12 @@
 "Change avatar" = "アバターを変更";
 "Remove avatar" = "アバターを削除";
 
-/// Login
+/// MARK: Login
 "Sign In" = "ログイン";
 "Username" = "ユーザー名";
 "Password" = "パスワード";
 
-/// Errors
+/// MARK: Errors
 "Failed to sign in" = "ログインに失敗しました";
 "Failed to refresh data" = "更新に失敗しました";
 "Failed to upload avatar" = "アバターのアップロードに失敗しました";
@@ -124,17 +133,17 @@
 "No image selected." = "画像が選択されていません。";
 "No credential available, please try to log in again." = "利用可能なクレデンシャルがありません。もう一度ログインしてください。";
 
-// Placeholders
+// MARK: Placeholders
 "Nothing here" = "何もないよ";
 "Perfect attendance" = "皆勤";
 "PS Turned Off" = "PowerSchool がオフになった";
 
-// Notification
+// MARK: Notification
 "Notification.NewAssignment.Title" = "%lldつの新しい宿題";
 "Notification.NewAttendance.Title" = "%lldつの新しい出勤状況";
 "Testing Notification" = "通知テスト";
 
-// Email
+// MARK: Email
 "Email.BugReport.Subject" = "SchoolPower にバグがあります";
 "Email.BugReport.Body" = "
 ご協力いただきありがとうございます！問題の再現方法や予想されるパフォーマンスなど、できるだけ詳しくご入力ください。

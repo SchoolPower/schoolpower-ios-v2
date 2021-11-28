@@ -108,8 +108,28 @@ extension StudentDataStore {
             !studentData.disabledInfo.message.isEmpty
         )
     }
+    
     func tryGetDisabledInfo() -> DisabledInfo? {
         return disabled() ? studentData.disabledInfo : nil
+    }
+}
+
+// MARK: Birthday
+extension StudentDataStore {
+    func isBirthdayToday() -> Bool {
+        let today = Date()
+        let dob = studentData.profile.dob.asMillisDate()
+        if Utils.isLeapYear(),
+           Utils.isSameDayAndMonth(dob, month: 2, day: 29) {
+            return Utils.isSameDayAndMonth(today, month: 3, day: 1)
+        }
+        return Utils.isSameDayAndMonth(dob, today)
+    }
+    
+    func getAge() -> Int {
+        let dob = studentData.profile.dob.asMillisDate()
+        let today = Date()
+        return today.year - dob.year
     }
 }
 
@@ -119,15 +139,11 @@ extension StudentDataStore {
         _ course: Course,
         _ schedule: Course.Schedule
     ) -> String {
-        let start = schedule.startTime.asMillisDate().time()
-        let end = schedule.endTime.asMillisDate().time()
-        // Start to end, decided not to show
-        let _ = "General.A_To_B".localized(start, end)
-        return """
-            \(course.name)
-            \(course.block)
-            \(course.room)
-            """
+        """
+        \(course.name)
+        \(course.block)
+        \(course.room)
+        """
     }
 }
 
@@ -210,6 +226,9 @@ extension StudentDataStore {
                         debugPrint("JSON fetched")
                         do {
                             let data = try StudentData(jsonString: jsonString, options: .ignoreUnknown)
+                            if !data.isValid() {
+                                throw JSONDecodingError.missingFieldNames
+                            }
                             completion(true, data, nil, nil)
                         } catch {
                             do {
