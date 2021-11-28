@@ -45,7 +45,7 @@ extension String {
             return NSLocalizedString(
                 self,
                 tableName: nil,
-                bundle: Bundle(path: path!) ?? Bundle.main,
+                bundle: Bundle(path: path!) ?? .main,
                 value: "",
                 comment: ""
             )
