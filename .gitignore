@@ -1,4 +1,6 @@
 **/mock.json
 **/build/*
 **/screenshots/*
+.testLogDir
+
 
