@@ -8,9 +8,13 @@
 import XCTest
 
 class SchoolPowerUITests: XCTestCase {
+    
+    var app : XCUIApplication!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        app = XCUIApplication()
+        app.launchEnvironment = ["TZ": "Asia/Shanghai"]
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
@@ -20,23 +24,121 @@ class SchoolPowerUITests: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        logout()
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+    
+    func testGatherScreenshots() throws {
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        logout()
+        wait(1)
+        screenshot("login")
+        
+        login()
+        ifIsIPhone { screenshot("courses") }
+        
+        goToCourse("Computer Programming 12")
+        wait(1)
+        screenshot("courseDetail")
+        ifIsIPhone { goBack() }
+        
+        goToTab(1)
+        ifIsIPhone { screenshot("attendance") }
+        
+        ifIsIPad {
+            goToAttendance("Late < 5 Minutes")
+            screenshot("attendanceDetail")
+        }
+        
+        goToTab(2)
+        wait(2)
+        screenshot("schedule")
+        
+        goToTab(3)
+        
+        tapButton("gpa")
+        wait(1)
+        screenshot("gpa")
+        ifIsIPhone { goBack() }
+        
+        tapButton("barChart")
+        wait(1)
+        screenshot("barChart")
     }
+    
+    private func ifIsIPhone (_ code: () -> Void) {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            code()
+        }
+    }
+    
+    private func ifIsIPad (_ code: () -> Void) {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            code()
+        }
+    }
+    
+    private func goToTab(_ index: Int) {
+        app.tabBars.element.buttons.element(boundBy: index).tap()
+    }
+    
+    private func goBack() {
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+    }
+    
+    private func goToCourse(_ name: String) {
+        app.buttons["course_\(name)"].forceTap()
+    }
+    
+    private func goToAttendance(_ description: String) {
+        app.buttons["attendance_\(description)"].forceTap()
+    }
+    
+    private func logout() {
+        if app.tabBars.element.exists {
+            app.tabBars.element.buttons.element(boundBy: 4).tap()
+            app.buttons["logout"].tap()
+        }
+    }
+    
+    private func wait(_ time: TimeInterval) {
+        Thread.sleep(forTimeInterval: time)
+    }
+    
+    private func tapButton(_ identifier: String) {
+        app.buttons[identifier].forceTap()
+    }
+    
+    private func login() {
+        app.textFields["username"].tap()
+        app.textFields["username"].typeText("test")
+        app.secureTextFields["password"].tap()
+        app.secureTextFields["password"].typeText("test")
+        app.buttons["login"].tap()
+        
+        XCTAssert(app.tabBars.element.waitForExistence(timeout: 10))
+        
+        // Wait for view transition
+        Thread.sleep(forTimeInterval: 2)
+    }
+    
+    private func screenshot(_ name: String) {
+        let screenshot = app.windows.firstMatch.screenshot()
+        let attachment = XCTAttachment(screenshot: screenshot)
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+}
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+extension XCUIElement {
+    func forceTap() {
+        if self.isHittable {
+            self.tap()
+        }
+        else {
+            let coordinate: XCUICoordinate = self.coordinate(withNormalizedOffset: .zero)
+            coordinate.tap()
         }
     }
 }

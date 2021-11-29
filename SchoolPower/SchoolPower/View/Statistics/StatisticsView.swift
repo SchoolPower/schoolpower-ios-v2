@@ -35,10 +35,12 @@ struct StatisticsView: View {
                             selection: $selection,
                             destination: { GPAView(courses: courses) }
                         ) { gpaLabel }
+                        .accessibilityIdentifier("gpa")
                     } else {
                         NavigationLink {
                             GPAView(courses: courses)
                         } label: { gpaLabel }
+                        .accessibilityIdentifier("gpa")
                     }
                 }
                 Section {
@@ -60,6 +62,7 @@ struct StatisticsView: View {
                             Image(systemName: "chart.bar")
                         }
                     }
+                    .accessibilityIdentifier("barChart")
                 }
             }
             .navigationTitle("Statistics")

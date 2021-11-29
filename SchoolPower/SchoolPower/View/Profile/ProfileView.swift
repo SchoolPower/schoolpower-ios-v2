@@ -56,6 +56,7 @@ struct ProfileView: View {
                         Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
                     }
                     .accentColor(.red)
+                    .accessibilityIdentifier("logout")
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

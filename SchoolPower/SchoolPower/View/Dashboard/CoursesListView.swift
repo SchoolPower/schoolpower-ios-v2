@@ -29,7 +29,7 @@ struct CoursesListView: View, ErrorHandler {
             DashboardCourseItem(course: course, term: selectTerm)
                 .background(NavigationLink(
                     destination: CourseDetailView(course: course)
-                ) {}.opacity(0))
+                ) {}.opacity(0).accessibilityIdentifier("course_\(course.name)"))
                 .listRowInsets(EdgeInsets())
         }
     }
@@ -121,4 +121,3 @@ struct CoursesListView: View, ErrorHandler {
         }
     }
 }
-

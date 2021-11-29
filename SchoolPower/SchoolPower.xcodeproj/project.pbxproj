@@ -235,6 +235,7 @@
 		4DDA515027433D1600B56FDB /* CoursesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesListView.swift; sourceTree = "<group>"; };
 		4DDA515227433F9500B56FDB /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		4DDA51542743486200B56FDB /* InfoCardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardStore.swift; sourceTree = "<group>"; };
+		4DF62FB52754211400E81B0C /* GatherScreenshots.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GatherScreenshots.xctestplan; sourceTree = "<group>"; };
 		621D38E227307D4000825D5C /* SchoolPower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolPower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		621D38E527307D4000825D5C /* SchoolPowerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerApp.swift; sourceTree = "<group>"; };
 		621D38E727307D4000825D5C /* SchoolPowerAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerAppView.swift; sourceTree = "<group>"; };
@@ -497,6 +498,7 @@
 		621D38D927307D4000825D5C = {
 			isa = PBXGroup;
 			children = (
+				4DF62FB52754211400E81B0C /* GatherScreenshots.xctestplan */,
 				4DB364E32753098600C455D7 /* buildProto.sh */,
 				4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */,
 				621D38E427307D4000825D5C /* SchoolPower */,

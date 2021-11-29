@@ -51,9 +51,11 @@ struct LoginView: View {
                                     } else {
                                         // Fallback to smaller clickable area
                                         TextField("Username", text: $viewModel.loginData.username)
+                                            .accessibilityIdentifier("username")
                                             .textFieldStyle(OvalTextFieldStyle())
                                             .padding(.top, 8)
                                         SecureField("Password", text: $viewModel.loginData.password)
+                                            .accessibilityIdentifier("password")
                                             .textFieldStyle(OvalTextFieldStyle())
                                             .padding(.top, 8)
                                     }
@@ -82,6 +84,7 @@ struct LoginView: View {
                                                 .loginButton(disabled: viewModel.loginData.isEmpty)
                                         }
                                     }
+                                    .accessibilityIdentifier("login")
                                     .alert(isPresented: $showingAlert) {
                                         Alert(
                                             title: Text(alertTitle),
@@ -158,6 +161,7 @@ struct BetterFocusableInputsView: View {
     var body: some View {
         VStack {
             TextField("Username", text: $viewModel.loginData.username)
+                .accessibilityIdentifier("username")
                 .textFieldStyle(OvalTextFieldStyle {
                     isUsernameFocused = true
                 })
@@ -166,6 +170,7 @@ struct BetterFocusableInputsView: View {
             SecureField(text: $viewModel.loginData.password) {
                 Text("Password")
             }
+                .accessibilityIdentifier("password")
                 .textFieldStyle(OvalTextFieldStyle {
                     isPasswordFocused = true
                 })

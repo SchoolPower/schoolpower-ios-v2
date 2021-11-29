@@ -27,27 +27,25 @@ struct DashboardView: View {
     }
     
     var body: some View {
-        ZStack {
-            NavigationView {
-                coursesList
-                if viewModel.showPlaceholder {
-                    viewModel.placeholder
-                } else {
-                    NoGradesView(imageOnly: true)
-                }
-            }
-            .introspectNavigationController { nvc in
-                if let svc = nvc.splitViewController {
-                    svc.minimumPrimaryColumnWidth = 300
-                    svc.maximumPrimaryColumnWidth = .infinity
-                    svc.preferredPrimaryColumnWidthFraction = 0.4
-                }
-            }
-            if horizontalSizeClass == .compact,
-               viewModel.showPlaceholder,
-               !InfoCardStore.shared.shouldShowInfoCard {
+        NavigationView {
+            coursesList
+            if viewModel.showPlaceholder {
                 viewModel.placeholder
+            } else {
+                NoGradesView(imageOnly: true)
             }
+        }
+        .introspectNavigationController { nvc in
+            if let svc = nvc.splitViewController {
+                svc.minimumPrimaryColumnWidth = 300
+                svc.maximumPrimaryColumnWidth = .infinity
+                svc.preferredPrimaryColumnWidthFraction = 0.4
+            }
+        }
+        if horizontalSizeClass == .compact,
+           viewModel.showPlaceholder,
+           !InfoCardStore.shared.shouldShowInfoCard {
+            viewModel.placeholder
         }
     }
 }

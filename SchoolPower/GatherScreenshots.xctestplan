@@ -1,0 +1,72 @@
+{
+  "configurations" : [
+    {
+      "id" : "DE4E72D0-E83C-44B0-9636-4DBD374DDEC7",
+      "name" : "English",
+      "options" : {
+        "language" : "en",
+        "locationScenario" : {
+          "identifier" : "New York, NY, USA",
+          "referenceType" : "built-in"
+        },
+        "region" : "US"
+      }
+    },
+    {
+      "id" : "A98498CB-F74C-4A32-B2DE-C77058B30ECD",
+      "name" : "Chinese Simplified",
+      "options" : {
+        "language" : "zh-Hans",
+        "locationScenario" : {
+          "identifier" : "Hong Kong, China",
+          "referenceType" : "built-in"
+        },
+        "region" : "CN"
+      }
+    },
+    {
+      "id" : "F1207A2F-4B1A-450E-B2CE-3EECA574BD8C",
+      "name" : "Chinese Traditional",
+      "options" : {
+        "language" : "zh-Hant",
+        "locationScenario" : {
+          "identifier" : "Hong Kong, China",
+          "referenceType" : "built-in"
+        },
+        "region" : "HK"
+      }
+    },
+    {
+      "id" : "96FE746B-48F9-4E56-996E-E4141FBDD2D5",
+      "name" : "Japanese",
+      "options" : {
+        "language" : "ja",
+        "locationScenario" : {
+          "identifier" : "Tokyo, Japan",
+          "referenceType" : "built-in"
+        },
+        "region" : "JP"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "TZ",
+        "value" : "Asia\/Shanghai"
+      }
+    ],
+    "testTimeoutsEnabled" : true,
+    "uiTestingScreenshotsLifetime" : "keepNever"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:SchoolPower.xcodeproj",
+        "identifier" : "621D38FD27307D4A00825D5C",
+        "name" : "SchoolPowerUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

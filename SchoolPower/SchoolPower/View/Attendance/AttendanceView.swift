@@ -44,7 +44,7 @@ struct AttendanceView: View, ErrorHandler {
                         AttendanceItem(attendance: attendance)
                             .background(NavigationLink(
                                 destination: AttendanceDetailView(attendance: attendance)
-                            ) {}.opacity(0))
+                            ) {}.opacity(0).accessibilityIdentifier("attendance_\(attendance.description_p)"))
                     }
                 }
                 .withRefresh(parent: self, refreshHelper: refreshHelper)
