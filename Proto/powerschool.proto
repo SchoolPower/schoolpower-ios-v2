@@ -69,6 +69,7 @@ message ExtraInfo {
   string avatarUrl = 1;
   InformationCard informationCard = 2;
   string jwt = 3;
+  repeated string availableTerms = 4;
 }
 
 message Attendance  {

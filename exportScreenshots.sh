@@ -10,7 +10,7 @@ else
 	echo $TEST_RESULT_DIR > .testLogDir
 	echo "Cached test log directory in .testLogDir: $TEST_RESULT_DIR"	
 fi
-:
+
 SCREENSHOT_OUTPUT_DIR="./screenshots/"
 
 mkdir -p $SCREENSHOT_OUTPUT_DIR

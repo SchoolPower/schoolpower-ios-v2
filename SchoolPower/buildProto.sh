@@ -1,4 +1,4 @@
-# $1 should be source root
+# $1 should be source root ($SRCROOT)
 
 protoc --proto_path="$(dirname "$1")/Proto/" \
        --swift_out="$1/SchoolPower/Proto" \

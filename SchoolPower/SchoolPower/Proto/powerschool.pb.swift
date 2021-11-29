@@ -244,6 +244,8 @@ struct Model_ExtraInfo {
 
   var jwt: String = String()
 
+  var availableTerms: [String] = []
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -791,6 +793,7 @@ extension Model_ExtraInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     1: .same(proto: "avatarUrl"),
     2: .same(proto: "informationCard"),
     3: .same(proto: "jwt"),
+    4: .same(proto: "availableTerms"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -802,6 +805,7 @@ extension Model_ExtraInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       case 1: try { try decoder.decodeSingularStringField(value: &self.avatarURL) }()
       case 2: try { try decoder.decodeSingularMessageField(value: &self._informationCard) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.jwt) }()
+      case 4: try { try decoder.decodeRepeatedStringField(value: &self.availableTerms) }()
       default: break
       }
     }
@@ -821,6 +825,9 @@ extension Model_ExtraInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     if !self.jwt.isEmpty {
       try visitor.visitSingularStringField(value: self.jwt, fieldNumber: 3)
     }
+    if !self.availableTerms.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.availableTerms, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -828,6 +835,7 @@ extension Model_ExtraInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     if lhs.avatarURL != rhs.avatarURL {return false}
     if lhs._informationCard != rhs._informationCard {return false}
     if lhs.jwt != rhs.jwt {return false}
+    if lhs.availableTerms != rhs.availableTerms {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
