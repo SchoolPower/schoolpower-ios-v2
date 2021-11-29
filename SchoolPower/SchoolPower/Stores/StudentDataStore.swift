@@ -90,12 +90,7 @@ final class StudentDataStore: ObservableObject {
             partialResult, course in
             partialResult[course.id] = course
         }
-        self.availableTerms = Array(
-            studentData.courses
-                .flatMap({ it in it.grades })
-                .compactMap({ it in it.reallyHasGrade ? it.term : nil })
-                .uniqued()
-        )
+        self.availableTerms = studentData.extraInfo.availableTerms
         InfoCardStore.shared.load(studentData.extraInfo.informationCard)
     }
 }
