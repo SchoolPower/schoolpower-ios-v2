@@ -2,5 +2,5 @@
 **/build/*
 **/screenshots/*
 .testLogDir
-
+**/UserInterfaceState.xcuserstate
 
