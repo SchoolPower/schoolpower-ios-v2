@@ -36,7 +36,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         didReceiveRemoteNotification userInfo: [AnyHashable : Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
-        if let isTesting = userInfo["testing"] as? Bool, isTesting == true {
+        if let isTesting = userInfo["testing"] as? Bool,
+           isTesting == true,
+           let username = userInfo["to"] as? String,
+           !username.isEmpty,
+           username == AuthenticationStore.shared.username
+        {
             PushNotification.handleTestNotification(onComplete: completionHandler)
             return
         }
