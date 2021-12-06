@@ -148,27 +148,39 @@ extension StudentDataStore {
         SettingsStore.shared.studentDataJSON = ""
     }
     
-    static func tryLoadAndIfSuccess(callback: @escaping (StudentData) -> Void) {
+    static func tryLoadAndIfSuccess(
+        then: @escaping (StudentData) -> Void,
+        otherwise: @escaping () -> Void = {}
+    ) {
         let dataJsonString = SettingsStore.shared.studentDataJSON
         if !dataJsonString.isEmpty {
             do {
                 let data = try StudentData(jsonString: dataJsonString, options: .ignoreUnknown)
-                callback(data)
+                then(data)
             } catch {
                 print("Failed to serialize student data from store:" + " \(error)")
+                otherwise()
             }
+        } else {
+            otherwise()
         }
     }
     
     static func tryFetchAndIfSuccess(
         requestData: RequestData? = nil,
         action: GetDataAction,
-        callback: @escaping (StudentData) -> Void
+        then: @escaping (StudentData) -> Void,
+        otherwise: @escaping () -> Void = {}
     ) {
         tryFetch(requestData: requestData, action: action) { success, data, errorResponse, error in
-            guard success else { return }
+            guard success else {
+                otherwise()
+                return
+            }
             if let data = data {
-                callback(data)
+                then(data)
+            } else {
+                otherwise()
             }
         }
     }
@@ -248,6 +260,8 @@ extension StudentDataStore {
                         completion(false, nil, nil, error.localizedDescription)
                     }
                 }
+        } else {
+            completion(false, nil, nil, nil)
         }
     }
 }

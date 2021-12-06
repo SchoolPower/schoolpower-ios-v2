@@ -11,11 +11,14 @@ import Alamofire
 import UIKit
 
 class PushNotification {
-    static func ifAuthorized(then: @escaping () -> Void) {
+    static func ifAuthorized(then: @escaping () -> Void, otherwise: @escaping () -> Void = {}) {
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { settings in
             let authorization = settings.authorizationStatus
-            guard authorization == .authorized || authorization == .provisional else { return }
+            guard authorization == .authorized || authorization == .provisional else {
+                otherwise()
+                return
+            }
             then()
         }
     }
@@ -74,14 +77,14 @@ extension PushNotification {
         onComplete: @escaping (UIBackgroundFetchResult) -> Void
     ) {
         ifAuthorized {
+            onComplete(.newData)
             sendLocalNotification(
                 title: "Testing Notification",
                 subtitle: "",
                 body: "This is a test notification, please ignore it.",
                 when: sendNotificationDelaySeconds
             )
-            onComplete(.newData)
-        }
+        } otherwise: { onComplete(.noData) }
     }
     
     static func handleRemoteNotification(
@@ -90,7 +93,7 @@ extension PushNotification {
         ifAuthorized {
             let settingsStore = SettingsStore.shared
             guard settingsStore.isNotificationEnabled else {
-                onComplete(.failed)
+                onComplete(.noData)
                 return
             }
             
@@ -98,9 +101,12 @@ extension PushNotification {
                 StudentDataStore.tryFetchAndIfSuccess(action: .job) { newData in
                     let (newAssignments, newAttendances) = StudentDataUtils.diff(oldData: oldData, newData: newData)
                     
-                    if (newAssignments.isEmpty && newAssignments.isEmpty) {
+                    guard !newAssignments.isEmpty || !newAssignments.isEmpty else {
                         onComplete(.noData)
+                        return
                     }
+                    
+                    onComplete(.newData)
                     
                     sendNewAssignmentsNotification(
                         newAssignments: newAssignments,
@@ -108,11 +114,9 @@ extension PushNotification {
                         showUngraded: settingsStore.notifyUngradedAssignments
                     )
                     sendNewAttendancesNotification(newAttendances: newAttendances)
-                    
-                    onComplete(.newData)
-                }
-            }
-        }
+                } otherwise: { onComplete(.noData) }
+            } otherwise: { onComplete(.noData) }
+        } otherwise: { onComplete(.noData) }
     }
     
     static func sendNewAssignmentsNotification(
