@@ -9,6 +9,7 @@ import SwiftUI
 
 private struct AppView: View {
     @EnvironmentObject private var studentDataStore: StudentDataStore
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
     enum Tab {
         case courses, attendance, schedule, statistics, profile
@@ -73,6 +74,14 @@ private struct AppView: View {
                 schedule
                 statistics
                 profile
+            }
+            .introspectTabBarController { tvc in
+                if #available(iOS 15.0, *),
+                   horizontalSizeClass == .regular {
+                    let appearance = UITabBarAppearance()
+                    appearance.configureWithDefaultBackground()
+                    tvc.tabBar.scrollEdgeAppearance = appearance
+                }
             }
         }
     }
