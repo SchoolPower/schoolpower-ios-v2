@@ -67,6 +67,12 @@ struct StatisticsView: View {
             }
             .navigationTitle("Statistics")
         }
+        .introspectNavigationController { nvc in
+            if let svc = nvc.splitViewController {
+                svc.minimumPrimaryColumnWidth = 250
+                svc.maximumPrimaryColumnWidth = .infinity
+            }
+        }
     }
 }
 

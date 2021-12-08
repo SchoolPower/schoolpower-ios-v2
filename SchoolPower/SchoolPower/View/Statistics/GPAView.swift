@@ -44,11 +44,6 @@ struct GPAView: View {
                         )
                             .listRowBackground(Color(.systemBackground))
                     }
-                    .animation(nil)
-                    .introspectTableView(customize: { tableView in
-                        tableView.showsVerticalScrollIndicator = false
-                        tableView.showsHorizontalScrollIndicator = false
-                    })
                     .listStyle(.insetGrouped)
                     .frame(maxWidth: 600)
                     .environment(\.editMode, $editMode)

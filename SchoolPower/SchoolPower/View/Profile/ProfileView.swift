@@ -61,6 +61,12 @@ struct ProfileView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
+        .introspectNavigationController { nvc in
+            if let svc = nvc.splitViewController {
+                svc.minimumPrimaryColumnWidth = 250
+                svc.maximumPrimaryColumnWidth = .infinity
+            }
+        }
     }
 }
 
