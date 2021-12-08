@@ -55,11 +55,12 @@ struct CourseDetailView: View {
                         .foregroundColor(.primary)
                         .padding(.top, 16)
                     ScrollView(.horizontal) {
-                        LazyHStack {
+                        HStack {
                             ForEach(course.grades) { termGrade in
                                 NavigationLink(destination: TermDetailView(termGrade: termGrade, assignments: course.assignments)) {
                                     TermItem(termGrade: termGrade)
                                 }
+                                .buttonStyle(.plain)
                             }
                         }
                     }
