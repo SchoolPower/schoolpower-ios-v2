@@ -48,6 +48,7 @@ struct AttendanceView: View, ErrorHandler {
                     }
                 }
                 .withRefresh(parent: self, refreshHelper: refreshHelper)
+                .listStyle(.insetGrouped)
                 .navigationTitle("Attendances")
                 if showPlaceholder {
                     placeholder
