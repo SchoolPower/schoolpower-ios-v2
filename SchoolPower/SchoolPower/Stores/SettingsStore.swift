@@ -55,6 +55,7 @@ final class SettingsStore: ObservableObject {
         cancellable = NotificationCenter.default
             .publisher(for: UserDefaults.didChangeNotification)
             .map { _ in () }
+            .receive(on: DispatchQueue.main)
             .subscribe(objectWillChange)
     }
 }
