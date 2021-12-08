@@ -146,8 +146,12 @@
 "Email.BugReport.Subject" = "SchoolPower 有 Bug";
 "Email.BugReport.Body" = "
 感謝你的幫助！請提供盡可能詳細的信息，比如怎麼復現問題、預期的表現是什麼、屏幕截圖等。
-調試信息: SchoolPower iOS %@.
-PowerSchool用戶名與密碼（可選，有助於我們更快修復問題）：
+
+調試信息: SchoolPower iOS %@。
+
+可以的話，也請提供你的 PowerSchool 用戶名與密碼，以便我們更快地修復問題 :)
+
+
 ";
 
 "Email.CannotSendEmail.Title" = "無法發送郵件";
