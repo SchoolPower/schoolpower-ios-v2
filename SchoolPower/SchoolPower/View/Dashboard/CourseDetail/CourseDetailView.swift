@@ -22,13 +22,14 @@ struct CourseDetailView: View {
     init(course: Course) {
         self.course = course
         UITableViewCell.appearance().selectionStyle = .gray
+        UILabel
+            .appearance(whenContainedInInstancesOf: [UINavigationBar.self])
+            .adjustsFontSizeToFitWidth = true
     }
     
     var body: some View {
         List {
             Section(header: VStack(alignment: .leading) {
-                Text(course.name).font(.largeTitle).bold().foregroundColor(.primary).padding(.bottom).lineLimit(3)
-                    .fixedSize(horizontal: false, vertical: true)
                 HStack {
                     if (!course.block.isEmpty) {
                         Text("Block").font(.body).opacity(0.6).foregroundColor(.primary)
@@ -82,7 +83,7 @@ struct CourseDetailView: View {
         }
         .accentColor(Color(UIColor.systemGray5))
         .listStyle(.insetGrouped)
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle(course.name, displayMode: .large)
     }
 }
 

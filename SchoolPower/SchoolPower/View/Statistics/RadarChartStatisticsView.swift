@@ -22,7 +22,7 @@ struct RadarChartStatisticsView: View {
                 .font(.largeTitle)
                 .bold()
                 .foregroundColor(.primary)
-                .padding(.top, -12)
+                .padding(.top, -16)
                 .padding(.bottom)
             if let courses = courses.filterHasGrades(selectTerm), !courses.isEmpty {
                 GeometryReader { geo in
