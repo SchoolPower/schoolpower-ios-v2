@@ -10,11 +10,13 @@ import XCTest
 class SchoolPowerUITests: XCTestCase {
     
     var app : XCUIApplication!
+    
+    var screenshotIndex: Int = 0
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         app = XCUIApplication()
-        app.launchEnvironment = ["TZ": "Asia/Shanghai"]
+//        app.launchEnvironment = ["TZ": "Asia/Shanghai"]
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
@@ -32,12 +34,11 @@ class SchoolPowerUITests: XCTestCase {
         
         logout()
         wait(1)
-        screenshot("login")
         
         login()
         ifIsIPhone { screenshot("courses") }
         
-        goToCourse("Computer Programming 12")
+        goToCourse("Biology 12")
         wait(1)
         screenshot("courseDetail")
         ifIsIPhone { goBack() }
@@ -46,7 +47,7 @@ class SchoolPowerUITests: XCTestCase {
         ifIsIPhone { screenshot("attendance") }
         
         ifIsIPad {
-            goToAttendance("Late < 5 Minutes")
+            goToAttendance("Excused Absence")
             screenshot("attendanceDetail")
         }
         
@@ -91,7 +92,8 @@ class SchoolPowerUITests: XCTestCase {
     }
     
     private func goToAttendance(_ description: String) {
-        app.buttons["attendance_\(description)"].forceTap()
+        let attendances = self.app.buttons.matching(identifier: "attendance_\(description)")
+        attendances.element(boundBy: 0).forceTap()
     }
     
     private func logout() {
@@ -111,21 +113,22 @@ class SchoolPowerUITests: XCTestCase {
     
     private func login() {
         app.textFields["username"].tap()
-        app.textFields["username"].typeText("test")
+        app.textFields["username"].typeText("test2")
         app.secureTextFields["password"].tap()
         app.secureTextFields["password"].typeText("test")
         app.buttons["login"].tap()
         
-        XCTAssert(app.tabBars.element.waitForExistence(timeout: 10))
+        XCTAssert(app.tabBars.element.waitForExistence(timeout: 100))
         
         // Wait for view transition
         Thread.sleep(forTimeInterval: 2)
     }
     
     private func screenshot(_ name: String) {
+        screenshotIndex += 1
         let screenshot = app.windows.firstMatch.screenshot()
         let attachment = XCTAttachment(screenshot: screenshot)
-        attachment.name = name
+        attachment.name = "\(screenshotIndex)_\(name)"
         attachment.lifetime = .keepAlways
         add(attachment)
     }
