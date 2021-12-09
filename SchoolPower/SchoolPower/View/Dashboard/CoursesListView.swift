@@ -98,14 +98,13 @@ struct CoursesListView: View, ErrorHandler {
                     }
                     // MARK: Select term
                     if !viewModel.showPlaceholder {
-                        Menu {
-                            Picker(selection: $selectTerm, label: Text("Select term")) {
-                                Text(verbatim: .all.displayText()).tag(Term.all)
-                                ForEach(studentDataStore.availableTerms, id: \.self) { term in
-                                    Text(term).tag(term)
-                                }
+                        Picker(selection: $selectTerm, label: Text("")) {
+                            Text(verbatim: .all.displayText()).tag(Term.all)
+                            ForEach(studentDataStore.availableTerms, id: \.self) { term in
+                                Text(term).tag(term)
                             }
-                        } label: { Label(selectTerm.displayText(), systemImage: "chevron.down").labelStyle(.horizontal) }
+                        }
+                        .pickerStyle(.menu)
                         .padding(.leading, 8)
                     }
                 }

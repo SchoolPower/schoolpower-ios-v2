@@ -12,7 +12,7 @@ struct TermDetailView: View {
     var assignments: [Assignment]
     var body: some View {
         List {
-            Section(header: Text(termGrade.term).font(.largeTitle).bold().padding(.bottom).foregroundColor(.primary)) {
+            Section {
                 InfoItem(
                     leadingCircleColor: termGrade.grade.color(),
                     leadingCircleText: termGrade.grade.letter,
@@ -47,7 +47,7 @@ struct TermDetailView: View {
                 }.textCase(nil)
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle(termGrade.term, displayMode: .large)
     }
 }
 

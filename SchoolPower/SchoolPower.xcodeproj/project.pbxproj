@@ -121,6 +121,8 @@
 		623F07B1273249BA007A79F2 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 623F07B0273249BA007A79F2 /* Poppins-SemiBold.ttf */; };
 		623F07B32742C75A007A79F2 /* licenses.json in Resources */ = {isa = PBXBuildFile; fileRef = 623F07B22742C75A007A79F2 /* licenses.json */; };
 		62A45EC02742F54200BBE8D9 /* InfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A45EBF2742F54200BBE8D9 /* InfoCard.swift */; };
+		62CE9895276161DC005D69A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE9894276161DC005D69A7 /* ContentView.swift */; };
+		62CE98972761629C005D69A7 /* HideTitleBarOnCatalyst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE98962761629C005D69A7 /* HideTitleBarOnCatalyst.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -258,6 +260,8 @@
 		623F07B0273249BA007A79F2 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		623F07B22742C75A007A79F2 /* licenses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = licenses.json; sourceTree = "<group>"; };
 		62A45EBF2742F54200BBE8D9 /* InfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCard.swift; sourceTree = "<group>"; };
+		62CE9894276161DC005D69A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		62CE98962761629C005D69A7 /* HideTitleBarOnCatalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideTitleBarOnCatalyst.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -491,6 +495,7 @@
 				4D790FC12737828700E6C4EB /* PushNotification.swift */,
 				4D790FC527380C1800E6C4EB /* StudentDataUtils.swift */,
 				4D6EC75A273B4AD2002CAD13 /* ImageLoader.swift */,
+				62CE98962761629C005D69A7 /* HideTitleBarOnCatalyst.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -595,6 +600,7 @@
 				4D790FB22737173100E6C4EB /* Profile */,
 				623F07852730B303007A79F2 /* Dashboard */,
 				4D790FAB27370BB800E6C4EB /* Attendance */,
+				62CE9894276161DC005D69A7 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -897,6 +903,7 @@
 				4D790FD327382B9800E6C4EB /* AboutView.swift in Sources */,
 				4D6EC75F273B4C9E002CAD13 /* ExtraInfo.swift in Sources */,
 				4D790FC22737828700E6C4EB /* PushNotification.swift in Sources */,
+				62CE9895276161DC005D69A7 /* ContentView.swift in Sources */,
 				4D790FAD27370BCE00E6C4EB /* AttendanceView.swift in Sources */,
 				4D50B93927506E3B005EC5A9 /* Double+Extensions.swift in Sources */,
 				4DB364E92753124A00C455D7 /* LottieView.swift in Sources */,
@@ -924,6 +931,7 @@
 				4DB6DF102733813E00FA7B40 /* AssignmentItem.swift in Sources */,
 				4D790FA3273632C600E6C4EB /* RequestData.swift in Sources */,
 				4D1B099E2740268400D03CC8 /* ImageCropper.swift in Sources */,
+				62CE98972761629C005D69A7 /* HideTitleBarOnCatalyst.swift in Sources */,
 				4D1B09A0274037F900D03CC8 /* AlertIfError.swift in Sources */,
 				4D50B93D27506EBC005EC5A9 /* Int64+Extensions.swift in Sources */,
 				4D790F9927361AB800E6C4EB /* powerschool.pb.swift in Sources */,
@@ -1130,7 +1138,8 @@
 				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.schoolpower.SchoolPower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1156,7 +1165,8 @@
 				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.schoolpower.SchoolPower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

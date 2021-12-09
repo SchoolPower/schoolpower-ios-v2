@@ -22,7 +22,7 @@ struct RadarChartStatisticsView: View {
                 .font(.largeTitle)
                 .bold()
                 .foregroundColor(.primary)
-                .padding(.top, -12)
+                .padding(.top, -16)
                 .padding(.bottom)
             if let courses = courses.filterHasGrades(selectTerm), !courses.isEmpty {
                 GeometryReader { geo in
@@ -44,13 +44,12 @@ struct RadarChartStatisticsView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 if selectTerm != .all {
-                    Menu {
-                        Picker(selection: $selectTerm, label: Text("Select term")) {
-                            ForEach(studentDataStore.availableTerms, id: \.self) { term in
-                                Text(term).tag(term)
-                            }
+                    Picker(selection: $selectTerm, label: Text("")) {
+                        ForEach(studentDataStore.availableTerms, id: \.self) { term in
+                            Text(term).tag(term)
                         }
-                    } label: { Label(selectTerm.displayText(), systemImage: "chevron.down").labelStyle(.horizontal) }
+                    }
+                    .pickerStyle(.menu)
                 } else {
                     EmptyView()
                 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct BugReportEmailView: View {
     var body: some View {
         let appVersion = Utils.getFormattedAppVersionBuild()
-        let systemName = UIDevice.current.systemName
+        let systemName = Utils.getOSName()
         let systemVersion = UIDevice.current.systemVersion
         let debugInfo = "\(appVersion), \(systemName) \(systemVersion)"
         let message = "Email.BugReport.Body".localized(debugInfo)

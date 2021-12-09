@@ -15,6 +15,7 @@ class LoginViewModel: ObservableObject {
     func login(completion: @escaping (Bool, RequestData, ErrorResponse?, String?) -> Void) {
         let requestData = loginData
         isLoading = true
+        
         StudentDataStore.tryFetch(requestData: requestData, action: .login) {
             [unowned self] success, data, errorResponse, error in
 

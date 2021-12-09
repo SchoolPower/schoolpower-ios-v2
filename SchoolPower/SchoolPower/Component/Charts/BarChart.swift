@@ -62,6 +62,8 @@ struct BarChart: UIViewRepresentable {
         uiView.legend.enabled = false
         uiView.xAxis.drawGridLinesEnabled = false
         uiView.leftAxis.drawGridLinesEnabled = true
+        uiView.setVisibleXRangeMinimum(1)
+        uiView.setVisibleYRangeMinimum(5, axis: .left)
         
         uiView.extraBottomOffset = 25
         uiView.leftAxis.axisMinimum = 0

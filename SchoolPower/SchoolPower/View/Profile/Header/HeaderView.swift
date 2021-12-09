@@ -18,10 +18,10 @@ struct HeaderView: View {
             AvatarButton(profile: profile, extraInfo: extraInfo)
                 .environmentObject(viewState)
             VStack(alignment: .leading) {
-                Text(profile.fullName()).foregroundColor(.primary).font(.title2).bold()
+                Text(profile.fullName()).foregroundColor(.primary).font(.title2).bold().fixedSize(horizontal: false, vertical: true)
                 Spacer().frame(width: 2).fixedSize()
                 Text(authentication.username ?? "").foregroundColor(.primary).font(.subheadline)
-            }.padding(.leading)
+            }
         }
         .padding(.top)
         .padding(.bottom)

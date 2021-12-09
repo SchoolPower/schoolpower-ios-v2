@@ -56,6 +56,12 @@ struct AttendanceView: View, ErrorHandler {
                     NoAttendanceView(imageOnly: true)
                 }
             }
+            .introspectNavigationController { nvc in
+                if let svc = nvc.splitViewController {
+                    svc.minimumPrimaryColumnWidth = 300
+                    svc.maximumPrimaryColumnWidth = .infinity
+                }
+            }
             if horizontalSizeClass == .compact {
                 if showPlaceholder {
                     placeholder

@@ -56,9 +56,13 @@
 // MARK: Email
 "Email.BugReport.Subject" = "Found Bug(s) in SchoolPower";
 "Email.BugReport.Body" = "
-Thank you for your help! Please provide as much info as possible, such as how to reproduce it, what is the expected result, and screenshots if applicable.
+Thank you for your help! Please provide as much information as possible, such as how to reproduce the bug, what is the expected behaviour, and screenshots if applicable.
+
 Debug Info: SchoolPower iOS %@.
-PowerSchool Username and Password (Optional, help us solve it faster):
+
+Please also consider providing us your PowerSchool username and password, which would help us resolve the issue faster :)
+
+
 ";
 "Email.CannotSendEmail.Title" = "Cannot send email";
 "Email.CannotSendEmail.Message %@" = "

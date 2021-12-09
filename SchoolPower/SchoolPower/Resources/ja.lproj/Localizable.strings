@@ -146,9 +146,13 @@
 // MARK: Email
 "Email.BugReport.Subject" = "SchoolPower にバグがあります";
 "Email.BugReport.Body" = "
-ご協力いただきありがとうございます！問題の再現方法や予想されるパフォーマンスなど、できるだけ詳しくご入力ください。
-デバイス情報: SchoolPower iOS %@.
-PowerSchool ユーザー名とパスワード（オプショナル、より早く問題を解決するため）:
+ご協力いただきありがとうございます！問題の再現方法や予想される動作など、できるだけ詳しくご入力ください。
+
+デバイス情報: SchoolPower iOS %@。
+
+差し支えなければ、PowerSchool ユーザー名とパスワードも提供してください、問題をより迅速に修正できるようになります :)
+
+
 ";
 "Email.CannotSendEmail.Title" = "メールを送信できません";
 "Email.CannotSendEmail.Message %@" = "

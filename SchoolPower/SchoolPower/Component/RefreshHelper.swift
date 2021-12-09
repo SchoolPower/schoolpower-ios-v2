@@ -44,6 +44,7 @@ extension List {
     ) -> some View where T: ErrorHandler {
         self
             .introspectTableView { tableView in
+                guard UIDevice.current.userInterfaceIdiom != .mac else { return }
                 guard tableView.refreshControl == nil else { return }
                 let control = UIRefreshControl()
                 refreshHelper.parent = parent

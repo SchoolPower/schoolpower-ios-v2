@@ -200,7 +200,7 @@ extension StudentDataStore {
                     // e.g. iOS, iPadOS
                     HTTPHeader(
                         name: "X-OS",
-                        value: UIDevice.current.systemName
+                        value: Utils.getOSName()
                     ),
                     // e.g. 15.0
                     HTTPHeader(
