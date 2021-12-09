@@ -41,7 +41,9 @@ class Utils {
     }
     
     static func getOSName() -> String {
-        return "\(UIDevice.current.systemName) \(isMacCatalyst() ? "(Mac Catalyst)" : "")"
+        return isMacCatalyst()
+        ? "Mac Catalyst"
+        : UIDevice.current.systemName
     }
 }
 

@@ -21,7 +21,6 @@ struct CourseDetailView: View {
     
     init(course: Course) {
         self.course = course
-        UITableViewCell.appearance().selectionStyle = .gray
         UILabel
             .appearance(whenContainedInInstancesOf: [UINavigationBar.self])
             .adjustsFontSizeToFitWidth = true
