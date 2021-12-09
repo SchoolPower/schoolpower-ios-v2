@@ -17,22 +17,21 @@ struct SupportSection: View {
                 )
             }
             Button(action: {
-                UIApplication.shared.open(
-                    URL(string: Constants.websiteURL)!,
-                    options: [:],
-                    completionHandler: nil
+                UIApplication.shared.open(URL(string: Constants.supportUsURL)!)
+            }) {
+                SettingItem(
+                    title: "Support Us"
                 )
+            }
+            Button(action: {
+                UIApplication.shared.open(URL(string: Constants.websiteURL)!)
             }) {
                 SettingItem(
                     title: "Website"
                 )
             }
             Button(action: {
-                UIApplication.shared.open(
-                    URL(string: Constants.sourceCodeURL)!,
-                    options: [:],
-                    completionHandler: nil
-                )
+                UIApplication.shared.open(URL(string: Constants.sourceCodeURL)!)
             }) {
                 SettingItem(
                     title: "Source Code"
