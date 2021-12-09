@@ -9,6 +9,9 @@ import XCTest
 
 class SchoolPowerUITests: XCTestCase {
     
+    // use this for macOS screenshots
+    let entireScreen = true
+    
     var app : XCUIApplication!
     
     var screenshotIndex: Int = 0
@@ -125,8 +128,14 @@ class SchoolPowerUITests: XCTestCase {
     }
     
     private func screenshot(_ name: String) {
+        var screenshot: XCUIScreenshot
+        if entireScreen {
+            screenshot = XCUIScreen.screens[1].screenshot()
+        } else {
+            screenshot = app.windows.firstMatch.screenshot()
+        }
+        
         screenshotIndex += 1
-        let screenshot = app.windows.firstMatch.screenshot()
         let attachment = XCTAttachment(screenshot: screenshot)
         attachment.name = "\(screenshotIndex)_\(name)"
         attachment.lifetime = .keepAlways
