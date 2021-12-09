@@ -53,6 +53,7 @@ struct StatisticsView: View {
                             Image(systemName: "hexagon")
                         }
                     }
+                    .accessibilityIdentifier("radarChart")
                     NavigationLink {
                         BarChartStatisticsView(courses: courses)
                     } label: {

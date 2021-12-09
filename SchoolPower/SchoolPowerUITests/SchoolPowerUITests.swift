@@ -61,9 +61,9 @@ class SchoolPowerUITests: XCTestCase {
         screenshot("gpa")
         ifIsIPhone { goBack() }
         
-        tapButton("barChart")
+        tapButton("radarChart")
         wait(1)
-        screenshot("barChart")
+        screenshot("radarChart")
     }
     
     private func ifIsIPhone (_ code: () -> Void) {
