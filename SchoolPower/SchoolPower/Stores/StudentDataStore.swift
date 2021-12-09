@@ -226,7 +226,7 @@ extension StudentDataStore {
             )
                 .validate(statusCode: 200..<300)
                 .validate(contentType: ["application/json"])
-                .responseString { response in
+                .responseString(encoding: .utf8) { response in
                     switch response.result {
                     case .success:
                         guard let jsonString = response.value else { return }

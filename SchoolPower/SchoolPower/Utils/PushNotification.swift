@@ -58,7 +58,7 @@ extension PushNotification {
         )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseString { response in
+            .responseString(encoding: .utf8) { response in
                 switch response.result {
                 case .success:
                     debugPrint("Successfully sent APNS device token to server: \(response.value ?? "")")
