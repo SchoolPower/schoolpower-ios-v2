@@ -3,4 +3,5 @@
 **/screenshots/*
 .testLogDir
 **/UserInterfaceState.xcuserstate
+**/*.xcbkptlist
 
