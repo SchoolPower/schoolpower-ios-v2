@@ -13,6 +13,10 @@ class LoginViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     
     func login(completion: @escaping (Bool, RequestData, ErrorResponse?, String?) -> Void) {
+        guard !isLoading else {
+            return
+        }
+        
         let requestData = loginData
         isLoading = true
         
