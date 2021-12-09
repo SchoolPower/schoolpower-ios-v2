@@ -202,6 +202,7 @@ struct BetterFocusableInputsView: View {
                     isUsernameFocused = true
                 })
                 .focused($isUsernameFocused)
+                .disableAutocorrection(true)
                 .padding(.top, 8)
             SecureField(LocalizedStringKey("Password"), text: $viewModel.loginData.password, prompt: nil)
                 .accessibilityIdentifier("password")
@@ -209,6 +210,7 @@ struct BetterFocusableInputsView: View {
                     isPasswordFocused = true
                 })
                 .focused($isPasswordFocused)
+                .disableAutocorrection(true)
                 .padding(.top, 8)
         }
         .onAppear {
