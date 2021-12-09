@@ -35,12 +35,13 @@ struct ScheduleView: View {
     
     @Environment(\.locale) private var locale: Locale
     
-    var schedule: [Event]
+    @EnvironmentObject private var studentDataStore: StudentDataStore
     
     @State private var type: CalendarType = .day
     @State private var selectedCourse: Course? = nil
     @State private var isViewingCourse: Bool = false
     @State private var didSelectToday: () -> Void = {}
+    @State private var shouldReloadEvents: Bool = true
     
     var body: some View {
         NavigationView {
@@ -48,11 +49,12 @@ struct ScheduleView: View {
             GeometryReader { geo in
                 ZStack {
                     CalendarDisplayView(
-                        events: schedule,
+                        events: studentDataStore.schedule,
                         frame: geo.frame(in: .local),
                         type: type,
                         locale: locale,
-                        didSelectToday: $didSelectToday
+                        didSelectToday: $didSelectToday,
+                        shouldReloadEvents: $shouldReloadEvents
                     ) { eventId in
                         let courseId = Course.idFromScheduleEventId(eventId)
                         if let courseId = courseId,
@@ -99,5 +101,8 @@ struct ScheduleView: View {
             }
         }
         .navigationViewStyle(.stack)
+        .onReceive(studentDataStore.$schedule) { _ in
+            shouldReloadEvents = true
+        }
     }
 }

@@ -15,6 +15,7 @@ struct CalendarDisplayView: UIViewRepresentable {
     var type: CalendarType
     var locale: Locale
     @Binding var didSelectToday: () -> Void
+    @Binding var shouldReloadEvents: Bool
     var didSelectEvent: (String) -> Void
 
     private var calendar: CalendarView = {
@@ -47,8 +48,12 @@ struct CalendarDisplayView: UIViewRepresentable {
             context.coordinator.locale = locale
         }
         
-        if !context.coordinator.initialized {
+        if self.shouldReloadEvents {
             context.coordinator.events = events
+            self.shouldReloadEvents = false
+        }
+
+        if !context.coordinator.initialized {
             context.coordinator.didSelectEvent = didSelectEvent
             context.coordinator.initialized = true
         }
@@ -64,6 +69,7 @@ struct CalendarDisplayView: UIViewRepresentable {
         type: CalendarType,
         locale: Locale,
         didSelectToday: Binding<() -> Void>,
+        shouldReloadEvents: Binding<Bool>,
         didSelectEvent: @escaping (String) -> Void
     ) {
         self.events = events
@@ -71,6 +77,7 @@ struct CalendarDisplayView: UIViewRepresentable {
         self.type = type
         self.locale = locale
         self._didSelectToday = didSelectToday
+        self._shouldReloadEvents = shouldReloadEvents
         self.didSelectEvent = didSelectEvent
     }
     

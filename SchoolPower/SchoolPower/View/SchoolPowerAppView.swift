@@ -40,7 +40,7 @@ private struct AppView: View {
     }
     
     var schedule: some View {
-        ScheduleView(schedule: studentDataStore.schedule)
+        ScheduleView()
             .tabItem {
                 Image(systemName: "calendar.circle")
                 Text("Schedule")
