@@ -118,8 +118,8 @@ struct CoursesListView: View, ErrorHandler {
         .onChange(of: selectTerm) { newValue in
             settings.courseViewingTerm = newValue
         }
-        .onAppear {
-            if !studentDataStore.availableTerms.contains(selectTerm) {
+        .onReceive(studentDataStore.$availableTerms) { availableTerms in
+            if !availableTerms.contains(selectTerm) {
                 selectTerm = .all
             }
         }
