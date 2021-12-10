@@ -65,6 +65,7 @@ struct BarChart: UIViewRepresentable {
         uiView.setVisibleXRangeMinimum(1)
         uiView.setVisibleYRangeMinimum(5, axis: .left)
         
+        uiView.extraTopOffset = 15
         uiView.extraBottomOffset = 25
         uiView.leftAxis.axisMinimum = 0
         uiView.leftAxis.axisMaximum = 100
