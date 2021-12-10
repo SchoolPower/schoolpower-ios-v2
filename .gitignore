@@ -1,7 +1,8 @@
 **/mock.json
 **/build/*
-**/screenshots/*
+#**/screenshots/*
 .testLogDir
 **/UserInterfaceState.xcuserstate
 **/*.xcbkptlist
+**/*.DS_Store
 
