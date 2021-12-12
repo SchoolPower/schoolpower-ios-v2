@@ -9,7 +9,7 @@ Tries to remove unnecessary dependancies on third party libraries, which have be
 ## Generate Screenshots
 1. Choose your target device/simulator.
 > Make sure the app (installed on that device) has the (in-app) language setting set to "System default" (if was manually changes before).
-2. Run the [GatherScreenshots](https://github.com/SchoolPower/schoolpower-ios-v2/blob/master/SchoolPower/GatherScreenshots.xctestplan) test plan. This generats screenshots on the device for all locales.
+2. Run the [GatherScreenshots](https://github.com/SchoolPower/schoolpower-ios-v2/blob/master/SchoolPower/GatherScreenshots.xctestplan) test plan. This generates screenshots on the device for all locales.
 3. After the test [passed](## "may fail due to various reasons (e.g. network timeouts), like all e2e tests. Just rerun until it passes."), run the [export script](https://github.com/SchoolPower/schoolpower-ios-v2/blob/master/exportScreenshots.sh). This takes the screenshots captured in the last test run and dumps them into `"./screenshots/{device name}"`. Note that [`xcparse`](https://github.com/ChargePoint/xcparse) is needed.
 4. Repeat above for all devices you need.
 > Screenshots for macOS captures the entire device screen
