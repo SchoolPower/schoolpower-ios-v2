@@ -2,9 +2,9 @@
 
 SchoolPower for iOS, iPadOS and macOS (via Mac Catalyst)
 
-Rewrote of V1 in Swift 5 and SwiftUI for the redesigned interface, with additional features including the schedule (calendar) view. 
+Rewrote V1 in Swift 5 with SwiftUI for the redesigned interface.
 
-Tries to remove unnecessary dependance on third party libraries, which have been problematic to maintain in the past.
+Tries to remove unnecessary dependancies on third party libraries, which have been problematic to maintain in the past.
 
 ## Generate Screenshots
 1. Choose your target device/simulator.
