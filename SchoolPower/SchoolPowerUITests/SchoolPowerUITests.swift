@@ -9,8 +9,13 @@ import XCTest
 
 class SchoolPowerUITests: XCTestCase {
     
-    // use this for macOS screenshots
-    let entireScreen = true
+    var entireScreen: Bool {
+        #if targetEnvironment(macCatalyst)
+        return true
+        #else
+        return false
+        #endif
+    }
     
     var app : XCUIApplication!
     
