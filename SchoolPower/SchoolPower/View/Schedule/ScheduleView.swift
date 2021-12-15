@@ -75,6 +75,7 @@ struct ScheduleView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 type = horizontalSizeClass == .regular ? .week : .day
+                shouldReloadEvents = true
             }
             Text("")
                 .toolbar {
