@@ -14,6 +14,7 @@ class Constants {
     public static var setAvatarURL: String { "\(serverBaseURL)/set_avatar" }
     
     public static let websiteURL = "https://schoolpower.tech"
+    public static let supportUsURL = "https://schoolpower.tech/support-us"
     public static let sourceCodeURL = "https://github.com/schoolpower"
     public static let imageUploadURL = "https://sm.ms/api/v2/upload"
     
