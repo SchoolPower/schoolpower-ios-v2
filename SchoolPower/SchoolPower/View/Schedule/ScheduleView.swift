@@ -43,6 +43,8 @@ struct ScheduleView: View {
     @State private var didSelectToday: () -> Void = {}
     @State private var shouldReloadEvents: Bool = true
     
+    @GestureState var magnifyBy = 1.0
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -53,6 +55,7 @@ struct ScheduleView: View {
                         frame: geo.frame(in: .local),
                         type: type,
                         locale: locale,
+                        magnifyBy: magnifyBy,
                         didSelectToday: $didSelectToday,
                         shouldReloadEvents: $shouldReloadEvents
                     ) { eventId in
@@ -63,6 +66,12 @@ struct ScheduleView: View {
                             self.selectedCourse = course
                         }
                     }
+                    .gesture(
+                        MagnificationGesture()
+                            .updating($magnifyBy) { currentState, gestureState, transaction in
+                                gestureState = currentState
+                            }
+                    )
                     .sheet(isPresented: $isViewingCourse) {
                         self.isViewingCourse = false
                         self.selectedCourse = nil

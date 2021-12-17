@@ -14,6 +14,7 @@ struct CalendarDisplayView: UIViewRepresentable {
     var frame: CGRect
     var type: CalendarType
     var locale: Locale
+    var magnifyBy: Double
     @Binding var didSelectToday: () -> Void
     @Binding var shouldReloadEvents: Bool
     var didSelectEvent: (String) -> Void
@@ -35,6 +36,12 @@ struct CalendarDisplayView: UIViewRepresentable {
     
     func updateUIView(_ uiView: CalendarView, context: UIViewRepresentableContext<CalendarDisplayView>) {
         didSelectToday = context.coordinator.didSelectToday
+        
+        print(magnifyBy)
+        
+//        if context.coordinator.frame != frame {
+            context.coordinator.magnifyBy = magnifyBy
+//        }
         
         if context.coordinator.frame != frame {
             context.coordinator.frame = frame
@@ -68,6 +75,7 @@ struct CalendarDisplayView: UIViewRepresentable {
         frame: CGRect,
         type: CalendarType,
         locale: Locale,
+        magnifyBy: Double,
         didSelectToday: Binding<() -> Void>,
         shouldReloadEvents: Binding<Bool>,
         didSelectEvent: @escaping (String) -> Void
@@ -76,6 +84,7 @@ struct CalendarDisplayView: UIViewRepresentable {
         self.frame = frame
         self.type = type
         self.locale = locale
+        self.magnifyBy = magnifyBy
         self._didSelectToday = didSelectToday
         self._shouldReloadEvents = shouldReloadEvents
         self.didSelectEvent = didSelectEvent
@@ -111,6 +120,12 @@ struct CalendarDisplayView: UIViewRepresentable {
             }
         }
         
+        var magnifyBy: Double = 1.0 {
+            didSet {
+                self.style.timeline.heightTime *= magnifyBy
+            }
+        }
+        
         var type: CalendarType = .day {
             didSet {
                 view.calendar.set(type: type, date: Date())
@@ -121,7 +136,11 @@ struct CalendarDisplayView: UIViewRepresentable {
             }
         }
         
-        var style: Style = Coordinator.defaultStyle
+        var style: Style = Coordinator.defaultStyle {
+            didSet {
+                view.calendar.updateStyle(style)
+            }
+        }
         
         var locale: Locale = Locale.current {
             didSet {
