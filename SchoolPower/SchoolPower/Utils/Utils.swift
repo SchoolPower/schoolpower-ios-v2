@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import StoreKit
 
 class Utils {
     static func getLocale(
@@ -94,5 +95,62 @@ extension Utils {
             return []
         }
         return decodedLicenses.licenses
+    }
+}
+
+
+// MARK: App Store Review
+extension Utils {
+    static func maybeRequestAppStoreReview(delaySecond: TimeInterval = 0) {
+        guard versionIsDifferntFromLastShown(),
+              sinceLastPromptHasElapsedMonths(4),
+              sinceLastLoginHasElapsedDays(30),
+              sinceLastLoginHasLaunchedAtLeastTimes(10)
+        else { return }
+        
+        guard let scene = UIApplication.shared.firstForgroundActiveScene else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + delaySecond) {
+            SKStoreReviewController.requestReview(in: scene)
+            SettingsStore.shared.lastShownAppStoreReviewPromptAt = Date()
+            SettingsStore.shared
+                .lastShownAppStoreReviewPromptAppVersion = getAppVersion() ?? ""
+        }
+    }
+    
+    private static func sinceLastLoginHasElapsedDays(_ days: Int) -> Bool {
+        let lastLoggedInAt = SettingsStore.shared.lastLoggedInAt
+        guard lastLoggedInAt.timeIntervalSince1970 > 0 else { return false }
+        
+        // 60s * 60min * 24h * days
+        let interval = 60 * 60 * 24 * days
+        
+        let now = Date()
+        return now.timeIntervalSince(lastLoggedInAt) > Double(interval)
+    }
+    
+    private static func sinceLastPromptHasElapsedMonths(_ months: Int) -> Bool {
+        let lastShownAppStoreReviewPromptAt = SettingsStore.shared.lastShownAppStoreReviewPromptAt
+        guard lastShownAppStoreReviewPromptAt.timeIntervalSince1970 > 0 else { return false }
+        
+        // 60s * 60min * 24h * 30d * months
+        let interval = 60 * 60 * 24 * 30 * months
+        
+        let now = Date()
+        return now.timeIntervalSince(lastShownAppStoreReviewPromptAt) > Double(interval)
+    }
+    
+    private static func versionIsDifferntFromLastShown() -> Bool {
+        let lastShownAppStoreReviewPromptAppVersion = SettingsStore.shared.lastShownAppStoreReviewPromptAppVersion
+        guard !lastShownAppStoreReviewPromptAppVersion.isEmpty else { return true }
+        
+        let currentVersion = getAppVersion()
+        guard let currentVersion = currentVersion, !currentVersion.isEmpty else { return false }
+        
+        return currentVersion != lastShownAppStoreReviewPromptAppVersion
+    }
+    
+    private static func sinceLastLoginHasLaunchedAtLeastTimes(_ count: Int) -> Bool {
+        let appLaunchesCountSinceLastLogin = SettingsStore.shared.appLaunchesCountSinceLastLogin
+        return appLaunchesCountSinceLastLogin >= count
     }
 }

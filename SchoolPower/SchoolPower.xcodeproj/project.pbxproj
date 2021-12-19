@@ -105,6 +105,7 @@
 		4DDA515127433D1600B56FDB /* CoursesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA515027433D1600B56FDB /* CoursesListView.swift */; };
 		4DDA515327433F9500B56FDB /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA515227433F9500B56FDB /* InformationCard.swift */; };
 		4DDA51552743486200B56FDB /* InfoCardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA51542743486200B56FDB /* InfoCardStore.swift */; };
+		620F3810276ABCA8001D952B /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620F380F276ABCA8001D952B /* UIApplication+Extensions.swift */; };
 		621D38E627307D4000825D5C /* SchoolPowerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E527307D4000825D5C /* SchoolPowerApp.swift */; };
 		621D38E827307D4000825D5C /* SchoolPowerAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D38E727307D4000825D5C /* SchoolPowerAppView.swift */; };
 		621D38EA27307D4A00825D5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621D38E927307D4A00825D5C /* Assets.xcassets */; };
@@ -238,6 +239,7 @@
 		4DDA515227433F9500B56FDB /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		4DDA51542743486200B56FDB /* InfoCardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardStore.swift; sourceTree = "<group>"; };
 		4DF62FB52754211400E81B0C /* GatherScreenshots.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GatherScreenshots.xctestplan; sourceTree = "<group>"; };
+		620F380F276ABCA8001D952B /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		621D38E227307D4000825D5C /* SchoolPower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolPower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		621D38E527307D4000825D5C /* SchoolPowerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerApp.swift; sourceTree = "<group>"; };
 		621D38E727307D4000825D5C /* SchoolPowerAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPowerAppView.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				4D50B93E27506ED8005EC5A9 /* Date+Extensions.swift */,
 				4D4682102751DA28002DE272 /* LabelStyle+Extensions.swift */,
 				4D4682122751F4C4002DE272 /* JSONDecodingOptions+Extension.swift */,
+				620F380F276ABCA8001D952B /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 		623F07902730DEC2007A79F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				62CE9894276161DC005D69A7 /* ContentView.swift */,
 				621D38E727307D4000825D5C /* SchoolPowerAppView.swift */,
 				4D13B981274F191600E05FCA /* Statistics */,
 				4D8E64CD274B248600F602C4 /* Schedule */,
@@ -600,7 +604,6 @@
 				4D790FB22737173100E6C4EB /* Profile */,
 				623F07852730B303007A79F2 /* Dashboard */,
 				4D790FAB27370BB800E6C4EB /* Attendance */,
-				62CE9894276161DC005D69A7 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -918,6 +921,7 @@
 				4DDA515327433F9500B56FDB /* InformationCard.swift in Sources */,
 				4D8E64CC274B1A6700F602C4 /* CalendarDisplayView.swift in Sources */,
 				4D790F8827360AAD00E6C4EB /* Grade.swift in Sources */,
+				620F3810276ABCA8001D952B /* UIApplication+Extensions.swift in Sources */,
 				4DB6DF092733705800FA7B40 /* View+cornerRadius.swift in Sources */,
 				4D790FB12737116600E6C4EB /* AttendanceDetailView.swift in Sources */,
 				4DB364F2275356D200C455D7 /* Int+Extensions.swift in Sources */,

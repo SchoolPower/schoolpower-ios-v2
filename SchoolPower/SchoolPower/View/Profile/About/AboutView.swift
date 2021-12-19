@@ -33,8 +33,10 @@ struct AboutView: View {
             }
             .listRowBackground(Color(.systemGroupedBackground))
         }
-        
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            Utils.maybeRequestAppStoreReview()
+        }
     }
 }
 

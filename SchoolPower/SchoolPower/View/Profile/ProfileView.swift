@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     @EnvironmentObject var authentication: AuthenticationStore
+    @EnvironmentObject var settingsStore: SettingsStore
     @State var showBugReport: Bool = false
     @State var showingCannotSendEmailAlert: Bool = false
     @State private var selection: Int? = 1
@@ -56,7 +57,7 @@ struct ProfileView: View {
                 }
                 Section() {
                     Button(action: {
-                        authentication.revokeAuthentication()
+                        logout()
                     }) {
                         Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
                     }
@@ -72,6 +73,13 @@ struct ProfileView: View {
                 svc.maximumPrimaryColumnWidth = .infinity
             }
         }
+    }
+    
+    func logout() {
+        settingsStore.lastLoggedInAt = Date(timeIntervalSince1970: 0)
+        settingsStore.appLaunchesCountSinceLastLogin = 0
+        settingsStore.lastShownAppStoreReviewPromptAppVersion = ""
+        authentication.revokeAuthentication()
     }
 }
 
