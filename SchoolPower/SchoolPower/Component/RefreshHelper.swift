@@ -21,6 +21,7 @@ class RefreshHelper<T> where T: ErrorHandler {
     @objc func didRefresh() {
         guard parent != nil, let refreshControl = refreshControl
         else { return }
+        Utils.maybeRequestAppStoreReview()
         StudentDataStore.shared.refresh { success, errorResponse, error in
             refreshControl.endRefreshing()
             if success {

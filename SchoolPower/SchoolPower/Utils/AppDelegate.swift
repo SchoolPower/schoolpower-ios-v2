@@ -14,6 +14,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
         PushNotification.registerForPushNotifications()
+        if (AuthenticationStore.shared.authenticated) {
+            SettingsStore.shared.appLaunchesCountSinceLastLogin += 1
+        }
         return true
     }
     

@@ -26,6 +26,10 @@ final class SettingsStore: ObservableObject {
         static let selectedRadarChartViewingTerm = "selected_radar_chart_viewing_term"
         static let selectedBarChartViewingTerm = "selected_bar_chart_viewing_term"
         static let courseViewingTerm = "course_viewing_term"
+        static let lastLoggedInAt = "last_logged_in_at"
+        static let lastShownAppStoreReviewPromptAt = "last_shown_app_atore_review_prompt_at"
+        static let lastShownAppStoreReviewPromptAppVersion = "last_shown_app_atore_review_prompt_app_version"
+        static let appLaunchesCountSinceLastLogin = "app_launches_count_since_last_login"
     }
     
     private static let defaultSettings: [String: Any] = [
@@ -43,6 +47,10 @@ final class SettingsStore: ObservableObject {
         Keys.selectedRadarChartViewingTerm: "",
         Keys.selectedBarChartViewingTerm: "",
         Keys.courseViewingTerm: Term.all,
+        Keys.lastLoggedInAt: 0,
+        Keys.lastShownAppStoreReviewPromptAt: 0,
+        Keys.lastShownAppStoreReviewPromptAppVersion: "",
+        Keys.appLaunchesCountSinceLastLogin: 0,
     ]
     
     private let defaults = UserDefaults.standard
@@ -156,5 +164,28 @@ extension SettingsStore {
     var selectedBarChartViewingTerm: Term {
         set { defaults.set(newValue, forKey: Keys.selectedBarChartViewingTerm) }
         get { defaults.string(forKey: Keys.selectedBarChartViewingTerm) ?? "" }
+    }
+}
+
+// MARK: App Store Review Prompt
+extension SettingsStore {
+    var lastLoggedInAt: Date {
+        set { defaults.set(newValue.timeIntervalSince1970, forKey: Keys.lastLoggedInAt) }
+        get { Date(timeIntervalSince1970: defaults.double(forKey: Keys.lastLoggedInAt)) }
+    }
+    
+    var lastShownAppStoreReviewPromptAt: Date {
+        set { defaults.set(newValue.timeIntervalSince1970, forKey: Keys.lastShownAppStoreReviewPromptAt) }
+        get { Date(timeIntervalSince1970: defaults.double(forKey: Keys.lastShownAppStoreReviewPromptAt)) }
+    }
+    
+    var lastShownAppStoreReviewPromptAppVersion: String {
+        set { defaults.set(newValue, forKey: Keys.lastShownAppStoreReviewPromptAppVersion) }
+        get { defaults.string(forKey: Keys.lastShownAppStoreReviewPromptAppVersion) ?? "" }
+    }
+    
+    var appLaunchesCountSinceLastLogin: Int {
+        set { defaults.set(newValue, forKey: Keys.appLaunchesCountSinceLastLogin) }
+        get { defaults.integer(forKey: Keys.appLaunchesCountSinceLastLogin) }
     }
 }
