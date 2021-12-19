@@ -135,7 +135,7 @@ class SchoolPowerUITests: XCTestCase {
     private func screenshot(_ name: String) {
         var screenshot: XCUIScreenshot
         if entireScreen {
-            screenshot = XCUIScreen.screens[1].screenshot()
+            screenshot = XCUIScreen.screens.last!.screenshot()
         } else {
             screenshot = app.windows.firstMatch.screenshot()
         }
