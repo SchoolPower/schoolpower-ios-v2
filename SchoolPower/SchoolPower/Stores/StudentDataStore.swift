@@ -134,9 +134,12 @@ extension StudentDataStore {
         _ course: Course,
         _ schedule: Course.Schedule
     ) -> String {
-        """
+        let start = schedule.startTime.asMillisDate().time()
+        let end = schedule.endTime.asMillisDate().time()
+        let time = String(format: "%@-%@", start, end)
+        return """
         \(course.name)
-        \(course.block)
+        \(time)
         \(course.room)
         """
     }
