@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var authentication: AuthenticationStore
-    @EnvironmentObject var settingsStore: SettingsStore
     @StateObject private var viewModel = LoginViewModel()
     
     @State private var showingAlert = false
@@ -141,9 +140,7 @@ struct LoginView: View {
         viewModel.login { success, data, errorResponse, error in
             if success {
                 removeFocus()
-                authentication.authenticate(data: data)
-                settingsStore.lastLoggedInAt = Date()
-                settingsStore.appLaunchesCountSinceLastLogin = 1
+                authentication.login(data: data)
             } else if let errorResponse = errorResponse {
                 showAlert(
                     title: errorResponse.title ?? "Failed to sign in".localized,

@@ -57,7 +57,7 @@ struct ProfileView: View {
                 }
                 Section() {
                     Button(action: {
-                        logout()
+                        authentication.logout()
                     }) {
                         Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
                     }
@@ -73,13 +73,6 @@ struct ProfileView: View {
                 svc.maximumPrimaryColumnWidth = .infinity
             }
         }
-    }
-    
-    func logout() {
-        settingsStore.lastLoggedInAt = Date(timeIntervalSince1970: 0)
-        settingsStore.appLaunchesCountSinceLastLogin = 0
-        settingsStore.lastShownAppStoreReviewPromptAppVersion = ""
-        authentication.revokeAuthentication()
     }
 }
 

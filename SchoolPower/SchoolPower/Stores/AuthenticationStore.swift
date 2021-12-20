@@ -33,7 +33,7 @@ class AuthenticationStore: ObservableObject {
             return RequestData(username: username, password: password)
         }
         // Force log out if cannot get credentials
-        revokeAuthentication()
+        logout()
         return nil
     }
     
@@ -41,14 +41,27 @@ class AuthenticationStore: ObservableObject {
         authenticated = settingsStore.authenticated
     }
     
-    func authenticate(data: RequestData) {
+    func login(data: RequestData) {
+        authenticate(data: data)
+        settingsStore.lastLoggedInAt = Date()
+        settingsStore.appLaunchesCountSinceLastLogin = 1
+    }
+    
+    func logout() {
+        settingsStore.lastLoggedInAt = Date(timeIntervalSince1970: 0)
+        settingsStore.appLaunchesCountSinceLastLogin = 0
+        settingsStore.lastShownAppStoreReviewPromptAppVersion = ""
+        revokeAuthentication()
+    }
+    
+    private func authenticate(data: RequestData) {
         keychain[AuthenticationStore.passwordKey] = data.password
         settingsStore.username = data.username
         settingsStore.authenticated = true
         self.authenticated = true
     }
     
-    func revokeAuthentication() {
+    private func revokeAuthentication() {
         keychain[AuthenticationStore.passwordKey] = nil
         settingsStore.username = ""
         settingsStore.authenticated = false
