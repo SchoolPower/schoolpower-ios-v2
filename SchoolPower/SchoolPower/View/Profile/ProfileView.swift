@@ -49,11 +49,11 @@ struct ProfileView: View {
                     SendBugReportEmail {
                         Label("Report a Bug", systemImage: "ladybug")
                     }
-                    Button(action: {
-                        UIApplication.shared.open(URL(string: Constants.supportUsURL)!)
-                    }) {
-                        Label("Support Us", systemImage: "heart.circle")
-                    }
+//                    Button(action: {
+//                        UIApplication.shared.open(URL(string: Constants.supportUsURL)!)
+//                    }) {
+//                        Label("Support Us", systemImage: "heart.circle")
+//                    }
                 }
                 Section() {
                     Button(action: {
