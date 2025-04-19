@@ -44,7 +44,7 @@ extension List {
         refreshHelper: RefreshHelper<T>
     ) -> some View where T: ErrorHandler {
         self
-            .introspectTableView { tableView in
+            .introspect(.table, on: .iOS(.v16, .v17, .v18)) { tableView in
                 guard UIDevice.current.userInterfaceIdiom != .mac else { return }
                 guard tableView.refreshControl == nil else { return }
                 let control = UIRefreshControl()

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIIntrospect
 
 struct StatisticsView: View {
     var courses: [Course]
@@ -35,12 +36,12 @@ struct StatisticsView: View {
                             selection: $selection,
                             destination: { GPAView(courses: courses) }
                         ) { gpaLabel }
-                        .accessibilityIdentifier("gpa")
+                            .accessibilityIdentifier("gpa")
                     } else {
                         NavigationLink {
                             GPAView(courses: courses)
                         } label: { gpaLabel }
-                        .accessibilityIdentifier("gpa")
+                            .accessibilityIdentifier("gpa")
                     }
                 }
                 Section {
@@ -68,11 +69,9 @@ struct StatisticsView: View {
             }
             .navigationTitle("Statistics")
         }
-        .introspectNavigationController { nvc in
-            if let svc = nvc.splitViewController {
-                svc.minimumPrimaryColumnWidth = 250
-                svc.maximumPrimaryColumnWidth = .infinity
-            }
+        .introspect(.navigationSplitView, on: .iOS(.v16, .v17, .v18)) { svc in
+            svc.minimumPrimaryColumnWidth = 250
+            svc.maximumPrimaryColumnWidth = .infinity
         }
     }
 }

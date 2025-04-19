@@ -22,10 +22,10 @@ private struct AppView: View {
             courses: studentDataStore.studentData.courses,
             disabledInfo: studentDataStore.tryGetDisabledInfo()
         )
-            .tabItem {
-                Image(systemName: "list.bullet.circle")
-                Text("Courses")
-            }.tag(Tab.courses)
+        .tabItem {
+            Image(systemName: "list.bullet.circle")
+            Text("Courses")
+        }.tag(Tab.courses)
     }
     
     var attendance: some View {
@@ -33,10 +33,10 @@ private struct AppView: View {
             attendances: studentDataStore.studentData.attendances,
             disabledInfo: studentDataStore.tryGetDisabledInfo()
         )
-            .tabItem {
-                Image(systemName: "clock")
-                Text("Attendances")
-            }.tag(Tab.attendance)
+        .tabItem {
+            Image(systemName: "clock")
+            Text("Attendances")
+        }.tag(Tab.attendance)
     }
     
     var schedule: some View {
@@ -60,10 +60,10 @@ private struct AppView: View {
             profile: studentDataStore.studentData.profile,
             extraInfo: studentDataStore.studentData.extraInfo
         )
-            .tabItem {
-                Image(systemName: "person.crop.circle")
-                Text("Profile")
-            }.tag(Tab.profile)
+        .tabItem {
+            Image(systemName: "person.crop.circle")
+            Text("Profile")
+        }.tag(Tab.profile)
     }
     
     var body: some View {
@@ -75,7 +75,7 @@ private struct AppView: View {
                 statistics
                 profile
             }
-            .introspectTabBarController { tvc in
+            .introspect(.tabView, on: .iOS(.v13, .v14, .v15, .v16, .v17, .v18)) { tvc in
                 if #available(iOS 15.0, *),
                    horizontalSizeClass == .regular {
                     let appearance = UITabBarAppearance()
