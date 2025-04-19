@@ -17,13 +17,13 @@ struct SupportSection: View {
                         description: "Contact us via Email"
                     )
                 }
-                Button(action: {
-                    UIApplication.shared.open(URL(string: Constants.supportUsURL)!)
-                }) {
-                    SettingItem(
-                        title: "Support Us"
-                    )
-                }
+//                Button(action: {
+//                    UIApplication.shared.open(URL(string: Constants.supportUsURL)!)
+//                }) {
+//                    SettingItem(
+//                        title: "Support Us"
+//                    )
+//                }
             }
             Section() {
                 Button(action: {
