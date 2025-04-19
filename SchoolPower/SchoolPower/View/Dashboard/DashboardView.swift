@@ -36,12 +36,10 @@ struct DashboardView: View {
                     NoGradesView(imageOnly: true)
                 }
             }
-            .introspectNavigationController { nvc in
-                if let svc = nvc.splitViewController {
-                    svc.minimumPrimaryColumnWidth = 300
-                    svc.maximumPrimaryColumnWidth = .infinity
-                    svc.preferredPrimaryColumnWidthFraction = 0.4
-                }
+            .introspect(.navigationSplitView, on: .iOS(.v16, .v17, .v18)) { svc in
+                svc.minimumPrimaryColumnWidth = 300
+                svc.maximumPrimaryColumnWidth = .infinity
+                svc.preferredPrimaryColumnWidthFraction = 0.4
             }
             if horizontalSizeClass == .compact,
                viewModel.showPlaceholder,

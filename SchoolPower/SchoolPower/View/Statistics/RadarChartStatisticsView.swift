@@ -24,7 +24,8 @@ struct RadarChartStatisticsView: View {
                 .foregroundColor(.primary)
                 .padding(.top, -16)
                 .padding(.bottom)
-            if let courses = courses.filterHasGrades(selectTerm), !courses.isEmpty {
+            let courses = courses.filterHasGrades(selectTerm)
+            if !courses.isEmpty {
                 GeometryReader { geo in
                     RadarChart(
                         courses: courses,

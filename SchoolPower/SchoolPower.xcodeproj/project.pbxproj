@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4D05171A2750852F00D6891B /* BarChartStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0517192750852F00D6891B /* BarChartStatisticsView.swift */; };
-		4D05171F2750885700D6891B /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 4D05171E2750885700D6891B /* Charts */; };
 		4D051721275088AF00D6891B /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D051720275088AF00D6891B /* BarChart.swift */; };
 		4D0517242751628E00D6891B /* RadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0517232751628E00D6891B /* RadarChart.swift */; };
 		4D051726275165F400D6891B /* RadarChartStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D051725275165F400D6891B /* RadarChartStatisticsView.swift */; };
@@ -21,7 +20,6 @@
 		4D1B098E273F54F600D03CC8 /* NoAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B098D273F54F600D03CC8 /* NoAttendanceView.swift */; };
 		4D1B0990273F5D9100D03CC8 /* AvatarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B098F273F5D9100D03CC8 /* AvatarButton.swift */; };
 		4D1B0994273F78E600D03CC8 /* View+userInteractionDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0993273F78E500D03CC8 /* View+userInteractionDisabled.swift */; };
-		4D1B0997273F7BDE00D03CC8 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 4D1B0996273F7BDE00D03CC8 /* Introspect */; };
 		4D1B099A274021A700D03CC8 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 4D1B0999274021A700D03CC8 /* CropViewController */; };
 		4D1B099C274021DB00D03CC8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B099B274021DB00D03CC8 /* ImagePicker.swift */; };
 		4D1B099E2740268400D03CC8 /* ImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B099D2740268400D03CC8 /* ImageCropper.swift */; };
@@ -33,6 +31,7 @@
 		4D1B09C02741C26D00D03CC8 /* generate-licenses.py in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B09BF2741C26D00D03CC8 /* generate-licenses.py */; };
 		4D1B09C62741C4F500D03CC8 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C52741C4F500D03CC8 /* LicensesView.swift */; };
 		4D1B09C82741C51900D03CC8 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B09C72741C51900D03CC8 /* License.swift */; };
+		4D1F6D1F2DB34EB3000927B2 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 4D1F6D1E2DB34EB3000927B2 /* SwiftUIIntrospect */; };
 		4D4395D32753FF8600EEFB63 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4395D02753FF8500EEFB63 /* Constants.swift */; };
 		4D4395D42753FF8600EEFB63 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4395D12753FF8500EEFB63 /* Language.swift */; };
 		4D4395D52753FF8600EEFB63 /* GetDataAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4395D22753FF8500EEFB63 /* GetDataAction.swift */; };
@@ -88,6 +87,7 @@
 		4D8E64C9274B1A4400F602C4 /* KVKCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4D8E64C8274B1A4400F602C4 /* KVKCalendar */; };
 		4D8E64CC274B1A6700F602C4 /* CalendarDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E64CB274B1A6600F602C4 /* CalendarDisplayView.swift */; };
 		4D8E64CF274B249400F602C4 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E64CE274B249400F602C4 /* ScheduleView.swift */; };
+		4D991B2B2DB341430036A979 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4D991B2A2DB341430036A979 /* DGCharts */; };
 		4DB364E42753098600C455D7 /* buildProto.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4DB364E32753098600C455D7 /* buildProto.sh */; };
 		4DB364E72753119D00C455D7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB364E62753119D00C455D7 /* Lottie */; };
 		4DB364E92753124A00C455D7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB364E82753124A00C455D7 /* LottieView.swift */; };
@@ -271,9 +271,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D1F6D1F2DB34EB3000927B2 /* SwiftUIIntrospect in Frameworks */,
+				4D991B2B2DB341430036A979 /* DGCharts in Frameworks */,
 				4D790F752735EDC400E6C4EB /* SwiftProtobuf in Frameworks */,
-				4D1B0997273F7BDE00D03CC8 /* Introspect in Frameworks */,
-				4D05171F2750885700D6891B /* Charts in Frameworks */,
 				4D790FA12736327400E6C4EB /* Alamofire in Frameworks */,
 				4D1B099A274021A700D03CC8 /* CropViewController in Frameworks */,
 				4D790FDD27383EC600E6C4EB /* KeychainAccess in Frameworks */,
@@ -478,6 +478,13 @@
 			path = Schedule;
 			sourceTree = "<group>";
 		};
+		4D991B292DB341430036A979 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4DB364EA2753133000C455D7 /* animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +520,7 @@
 				621D38F627307D4A00825D5C /* SchoolPowerTests */,
 				621D390127307D4A00825D5C /* SchoolPowerUITests */,
 				621D38E327307D4000825D5C /* Products */,
+				4D991B292DB341430036A979 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -699,11 +707,11 @@
 				4D790F742735EDC400E6C4EB /* SwiftProtobuf */,
 				4D790FA02736327400E6C4EB /* Alamofire */,
 				4D790FDC27383EC600E6C4EB /* KeychainAccess */,
-				4D1B0996273F7BDE00D03CC8 /* Introspect */,
 				4D1B0999274021A700D03CC8 /* CropViewController */,
 				4D8E64C8274B1A4400F602C4 /* KVKCalendar */,
-				4D05171E2750885700D6891B /* Charts */,
 				4DB364E62753119D00C455D7 /* Lottie */,
+				4D991B2A2DB341430036A979 /* DGCharts */,
+				4D1F6D1E2DB34EB3000927B2 /* SwiftUIIntrospect */,
 			);
 			productName = SchoolPower;
 			productReference = 621D38E227307D4000825D5C /* SchoolPower.app */;
@@ -751,8 +759,9 @@
 		621D38DA27307D4000825D5C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					621D38E127307D4000825D5C = {
 						CreatedOnToolsVersion = 12.2;
@@ -1010,6 +1019,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1043,6 +1053,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1071,6 +1082,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1104,6 +1116,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1129,7 +1142,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SchoolPower/SchoolPower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_ASSET_PATHS = "\"SchoolPower/Preview Content\"";
 				DEVELOPMENT_TEAM = MPPUFL3L6R;
 				ENABLE_PREVIEWS = YES;
@@ -1139,11 +1152,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.schoolpower.SchoolPower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1156,7 +1170,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SchoolPower/SchoolPower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_ASSET_PATHS = "\"SchoolPower/Preview Content\"";
 				DEVELOPMENT_TEAM = MPPUFL3L6R;
 				ENABLE_PREVIEWS = YES;
@@ -1166,11 +1180,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.schoolpower.SchoolPower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1307,7 +1322,7 @@
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
+				minimumVersion = 5.1.0;
 			};
 		};
 		4D1B0995273F7BDE00D03CC8 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
@@ -1315,7 +1330,7 @@
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.3;
+				minimumVersion = 1.3.0;
 			};
 		};
 		4D1B0998274021A700D03CC8 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
@@ -1363,26 +1378,20 @@
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 4.5.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4D05171E2750885700D6891B /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4D05171D2750885700D6891B /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
-		};
-		4D1B0996273F7BDE00D03CC8 /* Introspect */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4D1B0995273F7BDE00D03CC8 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
-			productName = Introspect;
-		};
 		4D1B0999274021A700D03CC8 /* CropViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4D1B0998274021A700D03CC8 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
 			productName = CropViewController;
+		};
+		4D1F6D1E2DB34EB3000927B2 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftUIIntrospect;
 		};
 		4D790F742735EDC400E6C4EB /* SwiftProtobuf */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1403,6 +1412,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D8E64C7274B1A4400F602C4 /* XCRemoteSwiftPackageReference "KVKCalendar" */;
 			productName = KVKCalendar;
+		};
+		4D991B2A2DB341430036A979 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D05171D2750885700D6891B /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 		4DB364E62753119D00C455D7 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

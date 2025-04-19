@@ -56,9 +56,9 @@ extension Course.Schedule: Identifiable, Hashable {
     }
 }
 
-func fakeCourse() -> Course {
+func fakeCourse(name: String = "Calculus 12") -> Course {
     var course = Course()
-    course.name = "Calculus 12"
+    course.name = name
     course.instructor = "John Doe"
     course.instructorEmail = "123@abc.com"
     course.block = "1(A-E)"

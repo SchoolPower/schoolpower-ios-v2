@@ -18,22 +18,22 @@ struct CalendarDisplayView: UIViewRepresentable {
     @Binding var shouldReloadEvents: Bool
     var didSelectEvent: (String) -> Void
 
-    private var calendar: CalendarView = {
-        return CalendarView(
+    private var calendar: KVKCalendarView = {
+        return KVKCalendarView(
             frame: UIScreen.main.bounds,
             style: Coordinator.defaultStyle,
             years: 2
         )
     }()
         
-    func makeUIView(context: UIViewRepresentableContext<CalendarDisplayView>) -> CalendarView {
+    func makeUIView(context: UIViewRepresentableContext<CalendarDisplayView>) -> KVKCalendarView {
         calendar.dataSource = context.coordinator
         calendar.delegate = context.coordinator
         calendar.reloadData()
         return calendar
     }
     
-    func updateUIView(_ uiView: CalendarView, context: UIViewRepresentableContext<CalendarDisplayView>) {
+    func updateUIView(_ uiView: KVKCalendarView, context: UIViewRepresentableContext<CalendarDisplayView>) {
         didSelectToday = context.coordinator.didSelectToday
         
         if context.coordinator.frame != frame {

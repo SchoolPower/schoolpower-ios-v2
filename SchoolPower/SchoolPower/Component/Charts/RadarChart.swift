@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Charts
+import DGCharts
 
 struct RadarChart: UIViewRepresentable {
     let courses: [Course]
