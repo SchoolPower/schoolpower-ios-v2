@@ -149,7 +149,7 @@ struct GPAView: View {
 
 struct GPAView_Previews: PreviewProvider {
     static var previews: some View {
-        GPAView(courses: [fakeCourse()])
+        GPAView(courses: [fakeCourse(), fakeCourse(name: "English 12")])
             .environmentObject(SettingsStore.shared)
             .environmentObject(StudentDataStore.shared)
             .environmentObject(AuthenticationStore.shared)
