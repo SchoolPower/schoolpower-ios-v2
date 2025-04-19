@@ -79,7 +79,7 @@ final class StudentDataStore: ObservableObject {
                 course.schedule
                     .map { it in
                         var event = Event(ID: course.toScheduleEventId(with: it))
-                        event.text = scheduleEventText(course, it)
+                        event.title = scheduleEventText(course, it)
                         event.start = it.startTime.asMillisDate()
                         event.end = it.endTime.asMillisDate()
                         event.color = Event.Color((course.displayGrade()?.color() ?? .F_score_purple).uiColor())
@@ -124,7 +124,7 @@ extension StudentDataStore {
     func getAge() -> Int {
         let dob = studentData.profile.dob.asMillisDate()
         let today = Date()
-        return today.year - dob.year
+        return today.kvkYear - dob.kvkYear
     }
 }
 
@@ -133,15 +133,15 @@ extension StudentDataStore {
     private func scheduleEventText(
         _ course: Course,
         _ schedule: Course.Schedule
-    ) -> String {
+    ) -> TextEvent {
         let start = schedule.startTime.asMillisDate().time()
         let end = schedule.endTime.asMillisDate().time()
         let time = String(format: "%@-%@", start, end)
-        return """
+        return TextEvent(timeline:"""
         \(course.name)
         \(time)
         \(course.room)
-        """
+        """)
     }
 }
 

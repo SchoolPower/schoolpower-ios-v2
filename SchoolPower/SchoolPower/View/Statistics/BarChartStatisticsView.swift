@@ -17,8 +17,8 @@ struct BarChartStatisticsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Bar Chart").font(.largeTitle).bold().foregroundColor(.primary).padding(.bottom).padding(.top, -16)
-            
-            if let courses = courses.filterHasGrades(selectTerm), !courses.isEmpty {
+            let courses = courses.filterHasGrades(selectTerm)
+            if !courses.isEmpty {
                 BarChart(courses: courses).padding(.vertical)
             } else {
                 VStack {
