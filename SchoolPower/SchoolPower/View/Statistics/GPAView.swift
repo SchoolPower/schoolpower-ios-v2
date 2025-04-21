@@ -37,7 +37,7 @@ struct GPAView: View {
                     List(coursesWithGrade, selection: $selectedCourseIds) { course in
                         SettingItem(
                             title: LocalizedStringKey(course.name),
-                            detail: course.displayGrade()?
+                            detail: course.displayGrade(selectTerm)?
                                 .percentage.rounded(digits: 0).asPercentage(),
                             image: nil,
                             description: nil
